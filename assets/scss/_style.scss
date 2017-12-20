@@ -1,0 +1,45 @@
+
+// CONFIGURATION
+// ----------------------------------------
+
+@import 'typeline-config';
+
+$content-class: '.entry-content';
+
+// COMPONENTS
+// ----------------------------------------
+
+// BASE - default
+@import '../../components/base/scss/style';
+
+// BLOG - custom
+@import '../../components/blog/scss/style';
+
+// FEATURED IMAGE - default
+@import '../../components/featured-image/scss/style';
+
+// GALLERY SETTINGS - default
+@import '../../components/gallery-settings/scss/style';
+
+// HERO - default
+@import '../../components/hero/scss/style';
+
+// HEADER - custom
+@import '../../components/header/scss/style';
+
+// FOOTER - custom
+@import '../../components/footer/scss/style';
+
+// MULTIPAGE - default
+// PORTFOLIO - default
+
+@import '../../components/base/scss/plugins/gridable';
+@import '../../components/base/scss/plugins/cf7';
+@import '../../components/base/scss/plugins/ninja-forms';
+@import '../../components/base/scss/plugins/wpforms';
+@import '../../components/base/scss/plugins/jetpack-forms';
+
+@import '../../components/base/scss/plugins/jetpack-infinite-scroll';
+@import '../../components/base/scss/plugins/jetpack-sharing';
+@import '../../components/base/scss/plugins/jetpack-related-posts';
+@import '../../components/base/scss/plugins/jetpack-social-navigation';

@@ -287,7 +287,7 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 
 		// Check/validate the modified config
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), '1.0.0' );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
 			return;
 		}
 
@@ -299,9 +299,10 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 	 * Load, instantiate and hook up.
 	 */
 	public function fireUp() {
-		// We need to make sure that the portfolio CPT is all good
-		// There is no point in continuing if it is not
-		if ( ! self::siteSupportsPortfolio() || ! current_theme_supports( 'jetpack-portfolio' ) ) {
+		// We need to make sure that the portfolio CPT is all good.
+		// There is no point in continuing if it is not.
+		// Also, we will not fire up the component if the theme doesn't explicitly declare support for it.
+		if ( ! current_theme_supports( $this->getThemeSupportsKey() ) || ! self::siteSupportsPortfolio() || ! current_theme_supports( 'jetpack-portfolio' ) ) {
 			return;
 		}
 
@@ -508,8 +509,8 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 	// creates a checkbox true/false option. Other types are surely possible
 	//
 	public function pageForProjectsSettingCallback() {
-		wp_dropdown_pages( array( 'name' => 'page_for_projects', 'echo' => 1, 'show_option_none' => esc_html__( '&mdash; Select &mdash;', 'components_txtd' ), 'option_none_value' => '0', 'selected' => get_option( 'page_for_projects' ) ) );
-		echo '<p class="description">' . esc_html__( 'Choose what page should act as the portfolio archive page.', 'components_txtd' ) .'</p>';
+		wp_dropdown_pages( array( 'name' => 'page_for_projects', 'echo' => 1, 'show_option_none' => esc_html__( '&mdash; Select &mdash;', '__components_txtd' ), 'option_none_value' => '0', 'selected' => get_option( 'page_for_projects' ) ) );
+		echo '<p class="description">' . esc_html__( 'Choose what page should act as the portfolio archive page.', '__components_txtd' ) .'</p>';
 	}
 
 	/**
@@ -528,7 +529,7 @@ class Pixelgrade_Portfolio extends Pixelgrade_Component {
 	 * Display a notice when editing the page for projects.
 	 */
 	function projectsPageNotice() {
-		echo '<div class="notice notice-warning inline"><p>' . esc_html__( 'You are currently editing the page that shows your latest projects.','components_txtd' ) . '</p></div>';
+		echo '<div class="notice notice-warning inline"><p>' . esc_html__( 'You are currently editing the page that shows your latest projects.','__components_txtd' ) . '</p></div>';
 	}
 
 	/**

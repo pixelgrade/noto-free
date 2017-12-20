@@ -7,7 +7,7 @@
  * @see 	    https://pixelgrade.com
  * @author 		Pixelgrade
  * @package 	Components/Base
- * @version     1.1.0
+ * @version     1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -416,6 +416,84 @@ function pixelgrade_get_parent_theme_file_uri( $file = '' ) {
 	}
 }
 
+/**
+ * Autoloads the files in a theme's directory.
+ *
+ * We do not support child themes at this time.
+ *
+ * @param string $path The path of the theme directory to autoload files from.
+ * @param int $depth The depth to which we should go in the directory. A depth of 0 means only the files directly in that
+ *                  directory. Depth of 1 means also the first level subdirectories, and so on.
+ *                  A depth of -1 means load everything.
+ * @param string $method The method to use to load files. Supports require, require_once, include, include_once.
+ *
+ * @return false|int False on failure, otherwise the number of files loaded.
+ */
+function pixelgrade_autoload_dir( $path, $depth = 0, $method = 'require_once' ) {
+	// If the $path starts with the absolute path to the WP install or the template directory, not good
+	if ( strpos( $path, ABSPATH ) === 0 && strpos( $path, get_template_directory() ) !== 0 ) {
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Please provide only paths in the theme for autoloading.', '__components_txtd' ), null );
+		return false;
+	}
+
+	if ( ! in_array( $method, array( 'require', 'require_once', 'include', 'include_once' ) ) ) {
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'We support only require, require_once, include, and include_once.', '__components_txtd' ), null );
+		return false;
+	}
+
+	// If we have a relative path, make it absolute.
+	if ( strpos( $path, get_template_directory() ) !== 0 ) {
+		// Delete any / at the beginning.
+		$path = ltrim( $path, '/' );
+
+		// Add the current theme path
+		$path = trailingslashit( get_template_directory() ) . $path;
+	}
+
+	// Start the counter
+	$counter = 0;
+
+	$iterator = new DirectoryIterator( $path );
+	// First we will load the files in the directory
+	foreach ( $iterator as $file_info ) {
+		if ( ! $file_info->isDir() && ! $file_info->isDot() && 'php' == strtolower( $file_info->getExtension() ) ) {
+			switch( $method ) {
+				case 'require':
+					require $file_info->getPathname();
+					break;
+				case 'require_once':
+					require_once $file_info->getPathname();
+					break;
+				case 'include':
+					include $file_info->getPathname();
+					break;
+				case 'include_once':
+					include_once $file_info->getPathname();
+					break;
+				default:
+					break;
+			}
+
+			$counter++;
+		}
+	}
+
+	// Now we load files in subdirectories if that's the case
+	if ( $depth > 0 || -1 === $depth ) {
+		if ( $depth > 0 ) {
+			$depth--;
+		}
+		$iterator->rewind();
+		foreach ( $iterator as $file_info ) {
+			if ( $file_info->isDir() && ! $file_info->isDot() ) {
+				$counter += pixelgrade_autoload_dir( $file_info->getPathname(), $depth, $method );
+			}
+		}
+	}
+
+	return $counter;
+}
+
 /*
  * =================== Template related
  */
@@ -723,7 +801,7 @@ if ( ! function_exists( 'pixelgrade_is_page_for_projects' ) ) {
 		global $wp_query;
 
 		if ( ! isset( $wp_query ) ) {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Conditional query tags do not work before the query is run. Before then, they always return false.', 'components_txtd' ), '3.1.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Conditional query tags do not work before the query is run. Before then, they always return false.', '__components_txtd' ), '3.1.0' );
 
 			return false;
 		}

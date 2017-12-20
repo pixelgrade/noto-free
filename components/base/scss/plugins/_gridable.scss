@@ -2,7 +2,7 @@
    #FRONTEND + EDITOR STYLES VARS
    ========================================================================== */
 
-$editor-style: true !default;
+$editor-style: false !default;
 
 // Default Options
 $gridable-row-highlighted-color: #FFFFFF !default;
@@ -371,4 +371,27 @@ $gridable-column-boxed: '.column-style--boxed' !default;
       }
     }
   }
+}
+
+// @todo
+// styles for gridable I found in Julia's _shame.scss
+.gridable {
+  &:not(:last-child) {
+    @include spacing(padding-bottom, 2.5rem);
+  }
+}
+
+.gridable--col {
+  & + & {
+    @include spacing(padding-top, 2.5rem);
+
+    @include above(lap) {
+      padding-top: 0;
+    }
+  }
+}
+
+.gridable--row,
+.gridable--col {
+  overflow: visible;
 }

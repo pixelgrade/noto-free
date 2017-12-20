@@ -103,6 +103,74 @@ class Pixelgrade_Config {
 	}
 
 	/**
+	 * Given a list of template-parts templates, process it (aka evaluate checks and so on)
+	 * and return the first located template path for inclusion.
+	 *
+	 * @param array|string $templates
+	 *
+	 * @return string|false The found template path or false if no template was found or passed the processing.
+	 */
+	public static function evaluateTemplateParts( $templates ) {
+		$found_template = false;
+		// Handle the various formats we could be receiving the template info in
+		if ( is_string( $templates ) ) {
+			// This is directly the slug of a template part - locate it
+			$found_template = pixelgrade_locate_template_part( $templates );
+		} elseif ( is_array( $templates ) ) {
+			// We have an array but it may be a simple array, or an array of arrays - standardize it
+			if ( isset( $templates['slug'] ) ) {
+				// We have a simple array
+				$templates = array( $templates );
+			}
+
+			// We respect our promise to process the templates according to their priority, descending
+			// So we will stop at the first found template
+			foreach ( $templates as $template ) {
+				// First, if this template has any checks, we will evaluate them.
+				// If the checks pass, we will proceed with locating and loading the template.
+				if ( ! empty( $template['checks'] ) && false === Pixelgrade_Config::evaluateChecks( $template['checks'] ) ) {
+					// We need to skip this template since the checks have failed.
+					continue;
+				}
+
+				// We really need at least a slug to be able to do something
+				if ( ! empty( $template['slug'] ) ) {
+					// We have a simple template array - just a slug; make sure the name is present
+					if ( empty( $template['name'] ) ) {
+						$template['name'] = '';
+					}
+
+					if ( ! empty( $template['component_slug'] ) ) {
+						// We will treat it as a component template part
+
+						// If we have been told to also look in the template parts root (the 'template-parts' directory in the theme root), we will do so
+						$lookup_parts_root = false;
+						if ( ! empty( $template['lookup_parts_root'] ) ) {
+							$lookup_parts_root = true;
+						}
+
+						$found_template = pixelgrade_locate_component_template_part( $template['component_slug'], $template['slug'], $template['name'], $lookup_parts_root );
+					} else {
+						$found_template = pixelgrade_locate_template_part( $template['slug'], '', $template['name'] );
+					}
+
+					// If we found a template, we stop since upper templates get precedence over lower ones
+					if ( ! empty( $found_template ) ) {
+						break;
+					}
+				}
+			}
+		}
+
+		// Standardize our failure response
+		if ( empty( $found_template ) ) {
+			return false;
+		}
+
+		return $found_template;
+	}
+
+	/**
 	 * Evaluate a series of dependencies.
 	 *
 	 * We currently handle dependencies like these:
@@ -188,13 +256,15 @@ class Pixelgrade_Config {
 	 * We currently handle checks like these:
 	 *  // Elaborate check description
 	 *  array(
-	 *		'function' or 'callback' => 'is_post_type_archive',
+	 *		'callback' (or legacy 'function') => 'is_post_type_archive',
 	 *		// The arguments we should pass to the check function.
 	 *		// Think post types, taxonomies, or nothing if that is the case.
 	 *		// It can be an array of values or a single value.
 	 *		'args' => array(
 	 *			'jetpack-portfolio',
 	 *		),
+	 *      'value' => some value
+	 *      'compare' => '>'
 	 *	),
 	 *  // Simple check - just the function name
 	 *  'is_404',
@@ -214,21 +284,58 @@ class Pixelgrade_Config {
 		// First, a little standardization and sanitization
 		$checks = self::sanitizeChecks( $checks );
 
-		// Process the checks, top to bottom and stop at the first that fails (returns something resembling false)
-		foreach ( $checks as $check ) {
-			$response = self::evaluateCheck( $check );
-			if ( empty( $response ) ) {
-				// One check function returned false, bail
-				return false;
-			}
-		}
+		// Determine the relation we will use between the checks
+        $relation = 'AND';
+        if ( isset( $checks['relation'] ) ) {
+            if ( strtoupper( $checks['relation'] ) == 'OR' ) {
+                $relation = 'OR';
+            }
 
-		// On invalid data, we allow things to proceed
+            // Cleanup as this entry may mess things up from here on out.
+            unset( $checks['relation'] );
+        }
+
+        // Process the checks, top to bottom
+        // In case of an AND relation, we stop at the first that fails (meaning returns something resembling false).
+        // In case of an OR relation, only one check needs to pass.
+        foreach ( $checks as $check ) {
+            $response = self::evaluateCheck( $check );
+            if ( empty( $response ) && 'AND' == $relation ) {
+                // One check function failed in an AND relation, return
+                return false;
+            } else if ( ! empty( $response ) && 'OR' == $relation ) {
+                // A check has passed in an OR relation, all is good
+                return true;
+            }
+        }
+
+        // If we are in a OR relation, then at least one check should have passed
+        // If we have reached this far, we failed
+		if ( 'OR' === $relation ) {
+            return false;
+        }
+
 		return true;
 	}
 
 	/**
 	 * Evaluate a single check
+	 *
+	 * We currently handle checks like these:
+	 *  // Elaborate check description
+	 *  array(
+	 *		'callback' (or legacy 'function') => 'is_post_type_archive',
+	 *		// The arguments we should pass to the check function.
+	 *		// Think post types, taxonomies, or nothing if that is the case.
+	 *		// It can be an array of values or a single value.
+	 *		'args' => array(
+	 *			'jetpack-portfolio',
+	 *		),
+	 *      'value' => some value
+	 *      'compare' => '>'
+	 *	),
+	 *  // Simple check - just the function name
+	 *  'is_404',
 	 *
 	 * @param array|string $check
 	 *
@@ -251,21 +358,23 @@ class Pixelgrade_Config {
 		if ( is_string( $check ) && is_callable( $check ) ) {
 			$response = call_user_func( $check );
 			if ( ! $response ) {
-				// One check function returned false, bail
+				// Standardize the response
 				return false;
 			}
 		} elseif ( is_array( $check ) && ! empty( $check['callback'] ) && is_callable( $check['callback'] ) ) {
 			if ( empty( $check['args'] ) ) {
 				$check['args'] = array();
 			}
-			$response = call_user_func_array( $check['callback'], $check['args'] );
+			$response = self::maybeEvaluateComparison( call_user_func_array( $check['callback'], $check['args'] ), $check );
 			// Standardize the response
 			if ( ! $response ) {
 				return false;
+			} else {
+				return true;
 			}
 		}
 
-		// On invalid data, we allow things to proceed
+		// On data that is not a valid check, we allow things to proceed
 		return true;
 	}
 
@@ -281,6 +390,106 @@ class Pixelgrade_Config {
 		}
 
 		return $checks;
+	}
+
+	/**
+	 * Given some data/value and a comparison config, return the result of the comparison.
+	 *
+	 * For binary operators, the left side operator is the data given, and the right side operator is the value provided in the $args.
+	 *
+	 * @param mixed $data
+	 * @param array $args
+	 *
+	 * @return bool
+	 */
+	public static function maybeEvaluateComparison( $data, $args ) {
+		// If there are no comparison args given, just return the data to compare
+		if ( empty( $args ) || ! is_array( $args ) || ! isset( $args['compare'] ) ) {
+			return $data;
+		}
+
+		// Initialize the comparison operator
+		$operator = false;
+		// Initialize the value to compare with
+		$value = null;
+
+		$operators = array(
+			'=', '!=', '>', '>=', '<', '<=',
+			'IN', 'NOT IN',
+			'NOT',
+		);
+
+		$operator = strtoupper( $args['compare'] );
+
+		// On invalid operators, return the data to compare, but give an notice to developers
+		if ( empty( $operator ) || ! in_array( $operator, $operators ) ) {
+			_doing_it_wrong( __METHOD__, sprintf( 'The %s compare operator you\'ve used is invalid! Please check your comparison!', $operator ), null );
+			return $data;
+		}
+
+		// We currently only support one unary operator, NOT
+		if ( 'NOT' === $operator ) {
+			// We ignore any value given, and just return a negation of the data given
+			// We force the data to a boolean
+			return ! ( (bool) $data );
+		}
+
+		// We are now dealing with binary operators so we need to have a value
+		if ( ! isset( $args['value'] ) ) {
+			_doing_it_wrong( __METHOD__, sprintf( 'The %s compare operator you\'ve used is a binary one, but no \'value\' provided! Please check your comparison!', $operator ), null );
+			return $data;
+		}
+
+		$value = $args['value'];
+
+		switch ( $operator ) {
+			case '=' :
+				return $data == $value;
+				break;
+			case '!=' :
+				return $data != $value;
+				break;
+			case '>':
+				return $data > $value;
+				break;
+			case '>=':
+				return $data >= $value;
+				break;
+			case '<':
+				return $data < $value;
+				break;
+			case '<=':
+				return $data <= $value;
+				break;
+			case 'IN':
+				// We will give it a try to convert the string to a list
+				if ( is_string( $value ) ) {
+					$value = Pixelgrade_Value::maybeExplodeList( $value );
+				}
+
+				if ( ! is_array( $value ) ) {
+					_doing_it_wrong( __METHOD__, sprintf( 'You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!', $operator ), null );
+					return $data;
+				}
+
+				return in_array( $data, $value );
+				break;
+			case 'NOT IN':
+				// We will give it a try to convert the string to a list
+				if ( is_string( $value ) ) {
+					$value = Pixelgrade_Value::maybeExplodeList( $value );
+				}
+
+				if ( ! is_array( $value ) ) {
+					_doing_it_wrong( __METHOD__, sprintf( 'You\'ve used the %s compare operator, but invalid list \'value\' provided! Please check your comparison!', $operator ), null );
+					return $data;
+				}
+
+				return ! in_array( $data, $value );
+				break;
+			default:
+				break;
+		}
 	}
 
 	/**
@@ -307,7 +516,7 @@ class Pixelgrade_Config {
 						if ( ! isset( $modified_config[ $section_key ]['options'][ $option_key ]['default'] ) ) {
 							_doing_it_wrong( __FUNCTION__,
 								sprintf( 'You need to define a default value for the following Customizer option: %s > %s > %s.', $section_key, 'options', $option_key ) .
-								( ! empty( $filter_to_use ) ? ' ' . sprintf( 'Use this filter: %s', $filter_to_use ) : ''), '1.0.0' );
+								( ! empty( $filter_to_use ) ? ' ' . sprintf( 'Use this filter: %s', $filter_to_use ) : ''), null );
 
 							$errors = true;
 						}
@@ -320,8 +529,7 @@ class Pixelgrade_Config {
 	}
 
 	/**
-	 * Insert a value or key/value pair before a specific key in an array.  If key doesn't exist, value is prepended
-	 * at the beginning of the array.
+	 * Merge two configuration arrays.
 	 *
 	 * @param array $original_config The original config we should apply the changes.
 	 * @param array $partial_changes The partial changes we wish to make to the original config.

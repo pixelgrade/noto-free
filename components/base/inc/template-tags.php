@@ -329,7 +329,7 @@ if ( ! function_exists( 'pixelgrade_get_the_taxonomy_dropdown' ) ) {
 		if ( empty( $selected ) ) {
 			$selected_attr = 'selected';
 		}
-		$output .= '<option value="' . esc_attr( $archive_link ) . '" ' . esc_attr( $selected_attr ) . '>' . esc_html__( 'Everything', 'components_txtd' ) . '</option>';
+		$output .= '<option value="' . esc_attr( $archive_link ) . '" ' . esc_attr( $selected_attr ) . '>' . esc_html__( 'Everything', '__components_txtd' ) . '</option>';
 
 		foreach ( $terms as $term ) {
 			$selected_attr = '';
@@ -366,6 +366,7 @@ if ( ! function_exists( 'pixelgrade_get_rendered_content' ) ) :
 		 */
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
+
 		return $content;
 	}
 endif;

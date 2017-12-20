@@ -55,7 +55,7 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 			),
 			'menu_locations' => array(
 				'primary-left' => array(
-					'title' => esc_html__( 'Header Left', 'components_txtd' ),
+					'title' => esc_html__( 'Header Left', '__components_txtd' ),
 					'default_zone' => 'left',
 					// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
 					'zone_callback' => false,
@@ -75,7 +75,7 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 					'bogus' => true, // this tells the world that this is just a placeholder, not a real nav menu location
 				),
 				'primary-right' => array(
-					'title' => esc_html__( 'Header Right', 'components_txtd' ),
+					'title' => esc_html__( 'Header Right', '__components_txtd' ),
 					'default_zone' => 'right',
 					// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
 					'zone_callback' => array( $this, 'primaryRightNavMenuZone' ),
@@ -110,7 +110,7 @@ class Pixelgrade_Header extends Pixelgrade_Component {
 
 		// Check/validate the modified config
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), '1.0.0' );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
 			return;
 		}
 

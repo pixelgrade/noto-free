@@ -107,7 +107,9 @@
     @if $spacing-top == 0 {
       padding-top: 0;
     } @else {
-      @include spacing(padding-top, $spacing-top);
+      &:not(:first-child) {
+        @include spacing(padding-top, $spacing-top);
+      }
     }
   }
 
@@ -115,7 +117,9 @@
     @if $spacing-bottom == 0 {
       padding-bottom: 0;
     } @else {
-      @include spacing(padding-bottom, $spacing-bottom);
+      &:not(:last-child) {
+        @include spacing(padding-bottom, $spacing-bottom);
+      }
     }
   }
 
@@ -128,7 +132,7 @@
 
   $defaults: (
     font-family: false,
-    font-size: inherit,
+    font-size: false,
     line-height: false,
     font-weight: false,
     letter-spacing: false,
@@ -151,4 +155,10 @@
   $cap-height: map_get($config, cap-height);
 
   @include leading($font-size, $line-height, $font-family, $font-weight, $letter-spacing, $text-transform, $spacing-top, $spacing-bottom, $cap-height);
+}
+
+@mixin vertical-spacing( $spacing ) {
+  > :not(:first-child) {
+    @include spacing(margin-top, $spacing);
+  }
 }

@@ -20,12 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param string|array $class Optional. One or more classes to add to the class list.
  * @param string|array $location Optional. The place (template) where the classes are displayed. This is a hint for filters.
  */
-function pixelgrade_blog_class( $class = '', $location = '' ) {
+function pixelgrade_blog_grid_class( $class = '', $location = '' ) {
 	// Separates classes with a single space, collates classes
-	echo 'class="' . join( ' ', pixelgrade_get_blog_class( $class, $location ) ) . '"';
+	echo 'class="' . join( ' ', pixelgrade_get_blog_grid_class( $class, $location ) ) . '"';
 }
 
-if ( ! function_exists( 'pixelgrade_get_blog_class' ) ) {
+if ( ! function_exists( 'pixelgrade_get_blog_grid_class' ) ) {
 	/**
 	 * Retrieve the classes for the blog wrapper as an array.
 	 *
@@ -36,7 +36,7 @@ if ( ! function_exists( 'pixelgrade_get_blog_class' ) ) {
 	 *
 	 * @return array Array of classes.
 	 */
-	function pixelgrade_get_blog_class( $class = '', $location = '' ) {
+	function pixelgrade_get_blog_grid_class( $class = '', $location = '' ) {
 
 		$classes = array();
 
@@ -92,19 +92,37 @@ if ( ! function_exists( 'pixelgrade_get_blog_class' ) ) {
 		 * @param array $class An array of additional classes added to the blog wrapper.
 		 * @param string|array $location The place (template) where the classes are displayed.
 		 */
-		$classes = apply_filters( 'pixelgrade_blog_class', $classes, $class, $location );
+		$classes = apply_filters( 'pixelgrade_blog_grid_class', $classes, $class, $location );
 
 		return array_unique( $classes );
 	} #function
 }
 
+function pixelgrade_blog_grid_item_class( $class = '', $location = '' ) {
+	echo 'class="' . join( ' ', pixelgrade_get_blog_grid_item_class( $class, $location ) ) . '"';
+}
+
+if ( ! function_exists( 'pixelgrade_get_blog_grid_item_class' ) ) {
+
+	function pixelgrade_get_blog_grid_item_class( $class = '', $location = '' ) {
+		$classes   = array();
+		$classes[] = 'c-gallery__item';
+		$classes[] = 'c-gallery__item--' . pixelgrade_get_image_aspect_ratio_type( get_post_thumbnail_id(), 'landscape' );
+
+		return array_unique( $classes );
+	}
+}
+
 if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 	/**
-	 * Get all the needed meta for a post.
+	 * Get the needed meta for a post. Either all the meta or just a specific one.
 	 *
-	 * @return array
+	 * @param bool|string $key Optional. A specific meta key from the supported: 'category', 'tags', 'author', 'date', 'comments'.
+	 *                          Will return all the metas if an invalid key is given.
+	 *
+	 * @return array|string|false
 	 */
-	function pixelgrade_get_post_meta() {
+	function pixelgrade_get_post_meta( $key = false ) {
 		// Gather up all the meta we might need to display
 		// But first initialize please
 		$meta = array(
@@ -115,64 +133,83 @@ if ( ! function_exists( 'pixelgrade_get_post_meta' ) ) {
 			'comments' => false,
 		);
 
-		// And get the options
-		$items_primary_meta   = pixelgrade_option( 'blog_items_primary_meta', 'category' );
-		$items_secondary_meta = pixelgrade_option( 'blog_items_secondary_meta', 'date' );
-
-		if ( 'category' == $items_primary_meta || 'category' == $items_secondary_meta ) {
-			$category = '';
-
-			if ( is_page() ) {
-				// If we are on a page then we only want the main category
-				$main_category = pixelgrade_get_main_category_link();
-				if ( ! empty( $main_category ) ) {
-					$category .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', 'components_txtd' ) . '</span><ul>' . PHP_EOL;
-					$category .= '<li>' . $main_category . '</li>' . PHP_EOL;
-					$category .= '</ul>' . PHP_EOL;
-				}
-			} else {
-				// On archives we want to show all the categories, not just the main one
-				$categories = get_the_terms( get_the_ID(), 'category' );
-				if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-					$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', 'components_txtd' ) . '</span><ul class="cats">' . PHP_EOL;
-					foreach ( $categories as $this_category ) {
-						$category .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
-					};
-					$category .= '</ul>' . PHP_EOL;
-				}
-			}
-			$meta['category'] = $category;
+		$single_meta_needed = false;
+		if ( ! empty( $key ) && in_array( $key, array_keys( $meta ) ) ) {
+			// We have been given a valid key, we only want that
+			$meta = array( $key => false );
+			$single_meta_needed = true;
 		}
 
-		if ( 'tags' == $items_primary_meta || 'tags' == $items_secondary_meta ) {
-			$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
-			$tags      = '';
-			if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
-				$tags .= '<span class="screen-reader-text">' . esc_html__( 'Tags', 'components_txtd' ) . '</span><ul class="tags">' . PHP_EOL;
-				foreach ( $post_tags as $post_tag ) {
-					$tags .= '<li><a href="' . esc_url( get_term_link( $post_tag ) ) . '" rel="tag">' . $post_tag->name . '</a></li>' . PHP_EOL;
-				};
-				$tags .= '</ul>' . PHP_EOL;
+		foreach ( $meta as $meta_key => $item ) {
+			switch ( $meta_key ) {
+				case 'category':
+					$category = '';
+					if ( is_page() ) {
+						// If we are on a page then we only want the main category
+						$main_category = pixelgrade_get_main_category_link();
+						if ( ! empty( $main_category ) ) {
+							$category .= '<span class="screen-reader-text">' . esc_html__( 'Main Category', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+							$category .= '<li>' . $main_category . '</li>' . PHP_EOL;
+							$category .= '</ul>' . PHP_EOL;
+						}
+					} else {
+						// On archives we want to show all the categories, not just the main one
+						$categories = get_the_terms( get_the_ID(), 'category' );
+						if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+							$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+							foreach ( $categories as $this_category ) {
+								$category .= '<li><a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a></li>' . PHP_EOL;
+							};
+							$category .= '</ul>' . PHP_EOL;
+						}
+					}
+					$meta['category'] = $category;
+					break;
+				case 'tags':
+					$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+					$tags      = '';
+					if ( ! is_wp_error( $post_tags ) && ! empty( $post_tags ) ) {
+						$tags .= '<span class="screen-reader-text">' . esc_html__( 'Tags', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+						foreach ( $post_tags as $post_tag ) {
+							$tags .= '<li><a href="' . esc_url( get_term_link( $post_tag ) ) . '" rel="tag">' . $post_tag->name . '</a></li>' . PHP_EOL;
+						};
+						$tags .= '</ul>' . PHP_EOL;
+					}
+					$meta['tags'] = $tags;
+					break;
+				case 'author':
+					$meta['author'] = '<span class="byline">' . get_the_author() . '</span>';
+					break;
+				case 'date':
+					$meta['date']   = '<span class="posted-on">' . get_the_date() . '</span>';
+					break;
+				case 'comments':
+					$comments_number = get_comments_number(); // get_comments_number returns only a numeric value
+					if ( comments_open() ) {
+						if ( $comments_number == 0 ) {
+							$comments = esc_html__( 'No Comments', '__components_txtd' );
+						} else {
+							$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, '__components_txtd' ), $comments_number );
+						}
+						$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $comments ) . '</a>';
+					} else {
+						$meta['comments'] = '';
+					}
+					break;
+				default:
+					break;
 			}
-			$meta['tags'] = $tags;
 		}
 
-		$meta['author'] = '<span class="byline">' . get_the_author() . '</span>';
-		$meta['date']   = '<span class="posted-on">' . get_the_date() . '</span>';
+		// Filter it before we decide what to return
+		$meta = apply_filters( 'pixelgrade_get_post_meta', $meta, $key );
 
-		$comments_number = get_comments_number(); // get_comments_number returns only a numeric value
-		if ( comments_open() ) {
-			if ( $comments_number == 0 ) {
-				$comments = esc_html__( 'No Comments', 'components_txtd' );
-			} else {
-				$comments = sprintf( _n( '%d Comment', '%d Comments', $comments_number, 'components_txtd' ), $comments_number );
-			}
-			$meta['comments'] = '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $comments ) . '</a>';
-		} else {
-			$meta['comments'] = '';
+		// We have been asked for a single meta, we will return the string value; no array
+		if ( true === $single_meta_needed ) {
+			return $meta[ $key ];
 		}
 
-		return apply_filters( 'pixelgrade_get_post_meta', $meta );
+		return $meta;
 	} #function
 }
 
@@ -210,13 +247,13 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 			'in_same_term'       => false,
 			'excluded_terms'     => '',
 			'taxonomy'           => 'category',
-			'screen_reader_text' => esc_html__( 'Post navigation', 'components_txtd' ),
+			'screen_reader_text' => esc_html__( 'Post navigation', '__components_txtd' ),
 		) );
 
 		$navigation = '';
 
 		$previous = get_previous_post_link(
-			'<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', 'components_txtd' ) . '</span><span class="h3 nav-title  nav-title--previous">%link</span></div>',
+			'<div class="nav-previous"><span class="nav-links__label  nav-links__label--previous">' . esc_html__( 'Previous article', '__components_txtd' ) . '</span><span class="h3 nav-title  nav-title--previous">%link</span></div>',
 			$args['prev_text'],
 			$args['in_same_term'],
 			$args['excluded_terms'],
@@ -224,7 +261,7 @@ if ( ! function_exists( 'pixelgrade_get_the_post_navigation' ) ) {
 		);
 
 		$next = get_next_post_link(
-			'<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', 'components_txtd' ) . '</span><span class="h3 nav-title  nav-title--next">%link</span></div>',
+			'<div class="nav-next"><span class="nav-links__label  nav-links__label--next">' . esc_html__( 'Next article', '__components_txtd' ) . '</span><span class="h3 nav-title  nav-title--next">%link</span></div>',
 			$args['next_text'],
 			$args['in_same_term'],
 			$args['excluded_terms'],
@@ -360,16 +397,18 @@ if ( ! function_exists( 'pixelgrade_get_author_bio_links' ) ) {
 
 		$markup .= '<span class="c-author__links">' . PHP_EOL;
 
-		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( __( 'View all posts by %s', 'components_txtd' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', 'components_txtd' ) . '</a>';
+		$markup .= '<a class="c-author__social-link  c-author__website-link" href="' . esc_url( $user_posts ) . '" rel="author" title="' . esc_attr( sprintf( __( 'View all posts by %s', '__components_txtd' ), get_the_author() ) ) . '">' . esc_html__( 'All posts', '__components_txtd' ) . '</a>';
 
-		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) || ! empty( $user_website ) ) {
+		if ( is_array( $profile ) && ! empty( $profile['entry'][0]['urls'] ) ) {
 			foreach ( $profile['entry'][0]['urls'] as $link ) {
 				if ( ! empty( $link['value'] ) && ! empty( $link['title'] ) ) {
 					$markup .= '<a class="c-author__social-link" href="' . esc_url( $link['value'] ) . '" target="_blank">' . $link['title'] . '</a>' . PHP_EOL;
 				}
 			}
-		} elseif ( ! empty( $user_website ) ) {
-			$markup .= '<a class="c-author__social-link" href="' . esc_url( $user_website ) . '" target="_blank">' . esc_html__( 'Website', 'components_txtd' ) . '</a>' . PHP_EOL;
+		}
+
+		if ( ! empty( $user_website ) ) {
+			$markup .= '<a class="c-author__social-link" href="' . esc_url( $user_website ) . '" target="_blank">' . esc_html__( 'Website', '__components_txtd' ) . '</a>' . PHP_EOL;
 		}
 		$markup .= '</span>' . PHP_EOL;
 
@@ -538,14 +577,14 @@ if ( ! function_exists( 'pixelgrade_entry_footer' ) ) {
 		if ( ! is_single( $post_id ) && ! post_password_required( $post_id ) && ( comments_open( $post_id ) || get_comments_number( $post_id ) ) ) {
 			echo '<span class="comments-link">';
 			/* translators: %s: post title */
-			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'components_txtd' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title( $post_id ) ) );
+			comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', '__components_txtd' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title( $post_id ) ) );
 			echo '</span>';
 		}
 
 		edit_post_link(
 			sprintf(
 			/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', 'components_txtd' ),
+				esc_html__( 'Edit %s', '__components_txtd' ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			),
 			'<div class="edit-link">',
@@ -573,7 +612,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 			case 'pingback' :
 			case 'trackback' : ?>
 				<li class="post pingback">
-				<p><?php esc_html_e( 'Pingback:', 'components_txtd' ); ?><?php comment_author_link(); ?><?php edit_comment_link( esc_html__( '(Edit)', 'components_txtd' ), ' ' ); ?></p>
+				<p><?php esc_html_e( 'Pingback:', '__components_txtd' ); ?><?php comment_author_link(); ?><?php edit_comment_link( esc_html__( '(Edit)', '__components_txtd' ), ' ' ); ?></p>
 				<?php
 				break;
 			default : ?>
@@ -587,7 +626,7 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 							<div class="comment__author vcard">
 								<?php
 								/* translators: %s: comment author link */
-								printf( __( '%s <span class="says">says:</span>', 'components_txtd' ),
+								printf( __( '%s <span class="says">says:</span>', '__components_txtd' ),
 									sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) )
 								);
 								?>
@@ -598,15 +637,15 @@ if ( ! function_exists( 'pixelgrade_shape_comment' ) ) {
 									<time datetime="<?php comment_time( 'c' ); ?>">
 										<?php
 										/* translators: 1: comment date, 2: comment time */
-										printf( __( '%1$s at %2$s', 'components_txtd' ), get_comment_date( '', $comment ), get_comment_time() );
+										printf( __( '%1$s at %2$s', '__components_txtd' ), get_comment_date( '', $comment ), get_comment_time() );
 										?>
 									</time>
 								</a>
-								<?php edit_comment_link( esc_html__( 'Edit', 'components_txtd' ), '<span class="edit-link">', '</span>' ); ?>
+								<?php edit_comment_link( esc_html__( 'Edit', '__components_txtd' ), '<span class="edit-link">', '</span>' ); ?>
 							</div><!-- .comment-metadata -->
 
 							<?php if ( '0' == $comment->comment_approved ) : ?>
-								<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'components_txtd' ); ?></p>
+								<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', '__components_txtd' ); ?></p>
 							<?php endif; ?>
 						</header><!-- .comment-meta -->
 

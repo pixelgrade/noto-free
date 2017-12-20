@@ -122,11 +122,11 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 //
 //					}
 				} else {
-					_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t register the block %s because the class %s doesn\'t exist.', $id, $block_type_class ), '1.0.0' );
+					_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t register the block %s because the class %s doesn\'t exist.', $id, $block_type_class ), null );
 					return false;
 				}
 			} else {
-				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t add the block %s because the type provided is invalid or not registered.', $id ), '1.0.0' );
+				_doing_it_wrong( __METHOD__, sprintf( 'Couldn\'t add the block %s because the type provided is invalid or not registered.', $id ), null );
 				return false;
 			}
 		}
@@ -274,7 +274,10 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 	 * @access public
 	 */
 	public function renderBlockTemplates() {
+		// @todo This is not used right now. Decide if we need the logic for block JS templates.
+
 		foreach ( $this->registered_block_types as $block_type ) {
+			/** @var Pixelgrade_Block $block */
 			$block = new $block_type( $this, 'temp', array(
 				'settings' => array(),
 			) );
@@ -375,7 +378,29 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 	}
 
 	/**
-	 * Add a namespace to a block ID.
+	 * Determine if a block ID is a root block ID (starts with the separator).
+	 *
+	 * @param mixed $block_id
+	 *
+	 * @return bool
+	 */
+	public static function isRootBlockId( $block_id ) {
+		if ( is_string( $block_id ) && 0 === strpos( $block_id, PIXELGRADE_BLOCK_ID_SEPARATOR ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Namespace a block ID, but in a smart way.
+	 *
+	 * If the $block_id is already namespaced, it will try and merge the two namespaces.
+	 *
+	 * For example, if $block_id is 'blog/content/sidebar' and the $namespace is 'single/blog/content/main',
+	 * it will result a $block_id = 'single/blog/content/sidebar'.
+	 *
+	 * It will treat the two namespaces as trees and it will try to find the lowest point where to merge them.
 	 *
 	 * @param mixed $block_id
 	 * @param string $namespace
@@ -383,7 +408,40 @@ final class Pixelgrade_BlocksManager extends Pixelgrade_Singleton {
 	 * @return string
 	 */
 	public static function namespaceBlockId( $block_id, $namespace = '' ) {
-		if ( is_string( $block_id ) ) {
+		// We only accept strings
+		if ( is_string( $block_id ) && is_string( $namespace ) ) {
+			// First will need to determine if both $block_id and $namespace are already namespaced
+			// This is the case where our smart merge will kick in
+			if ( self::isBlockIdNamespaced( $block_id ) && self::isBlockIdNamespaced( $namespace ) ) {
+				// Split them by the namespace separator
+				$block_id_parts = explode( PIXELGRADE_BLOCK_ID_SEPARATOR, $block_id );
+				$namespace_parts = explode( PIXELGRADE_BLOCK_ID_SEPARATOR, $namespace );
+
+				$k = 0;
+				// Search the first part in the $namespace parts
+				$key = array_search( $block_id_parts[ $k ], $namespace_parts );
+				// If we have found the part, this is the current point of merge
+				if ( false !== $key ) {
+					// Now we need to see how many consecutive parts are common
+					do {
+						// We remove this common part from the $block_id_parts so we don't have duplicates
+						unset( $block_id_parts[ $k ] );
+
+						// Check the next part
+						$k++;
+						$key++;
+					} while ( $block_id_parts[ $k ] == $namespace_parts[ $key ] );
+
+					// Now we need to discard the end part of the $namespace that is not common
+					$namespace_parts = array_slice( $namespace_parts, 0, $key );
+
+					// And finally merge the two
+					$block_id_parts = array_merge( array_values( $namespace_parts ), array_values( $block_id_parts ) );
+
+					return implode( PIXELGRADE_BLOCK_ID_SEPARATOR, $block_id_parts );
+				}
+			}
+
 			$block_id = $namespace . PIXELGRADE_BLOCK_ID_SEPARATOR . $block_id;
 		}
 

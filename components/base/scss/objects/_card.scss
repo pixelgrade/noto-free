@@ -5,6 +5,9 @@ $card-letter-hover-opacity: 0.7 !default;
 $card-separator-color: currentColor !default;
 $card-letter-font: () !default;
 
+$card-gutter: 2.5rem !default;
+$card-content-spacing: 1.5rem !default;
+
 // Cards
 // ------------------------------------------------------------
 
@@ -25,7 +28,6 @@ $card-letter-font: () !default;
 
   img {
     display: block;
-    @include image-fill;
   }
 }
 
@@ -53,11 +55,11 @@ $card-letter-font: () !default;
   flex-direction: column;
 
   .c-card__aside + & {
-    @include spacing(margin-top, 2.5rem);
+    @include spacing(margin-top, $card-gutter);
   }
 
-  > * + * {
-    @include spacing(margin-top, 1.5rem);
+  > :not(:last-child) {
+    @include spacing(padding-bottom, $card-content-spacing);
   }
 }
 
@@ -86,14 +88,15 @@ $card-letter-font: () !default;
   }
 }
 
-.has-post-thumbnail {
-  .c-card {
-    .c-card__letter {
-      opacity: 0;
-      color: $card-letter-hover-color;
-    }
+.has-post-thumbnail > .c-card {
 
-    &:hover {
+  .c-card__letter {
+    opacity: 0;
+    color: $card-letter-hover-color;
+  }
+
+  &:hover {
+    @include above(lap) {
       .c-card__letter {
         opacity: $card-letter-hover-opacity;
       }
@@ -126,29 +129,12 @@ $card-letter-font: () !default;
 // Card Meta
 // ------------------------------------------------------------
 
-.c-card__meta-separator[class] {
-  display: none;
+.c-card__meta {
+  width: 100%;
 }
 
 .c-card__excerpt {
   max-width: 100%;
-}
-
-.c-card__meta {
-
-  ul, ol {
-    padding-left: 0;
-    list-style: none;
-
-    > li {
-      list-style: none;
-    }
-  }
-
-  .u-underlined-links & a {
-    text-decoration: none;
-    border-bottom: none;
-  }
 }
 
 .c-card__badge {

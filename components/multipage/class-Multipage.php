@@ -44,12 +44,25 @@ class Pixelgrade_Multipage extends Pixelgrade_Component {
 
 		// Check/validate the modified config
 		if ( method_exists( $this, 'validate_config' ) && ! $this->validate_config( $modified_config ) ) {
-			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), '1.0.0' );
+			_doing_it_wrong( __METHOD__, sprintf( 'The component config  modified through the "pixelgrade_%1$s_initial_config" dynamic filter is invalid! Please check the modifications you are trying to do!', $hook_slug ), null );
 			return;
 		}
 
 		// Change the component's config with the modified one
 		$this->config = $modified_config;
+	}
+
+	/**
+	 * Load, instantiate and hook up.
+	 */
+	public function fireUp() {
+		// We will not fire up the component if the theme doesn't explicitly declare support for it.
+		if ( ! current_theme_supports( $this->getThemeSupportsKey() ) ) {
+			return;
+		}
+
+		// Let parent's fire up as well - One big happy family!
+		parent::fireUp();
 	}
 
 	/**

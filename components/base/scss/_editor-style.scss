@@ -1,11 +1,13 @@
 @import "defaults";
 
+$editor-style: true;
+
 @import "tools/all";
 
 @import "generic/normalize";
 @import "generic/reset";
 
-@import "typography/default";
+@import "typography";
 
 @import "plugins/gridable";
 

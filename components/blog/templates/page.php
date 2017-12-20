@@ -43,50 +43,9 @@ pixelgrade_get_header(); ?>
  * pixelgrade_before_primary_wrapper hook.
  */
 do_action( 'pixelgrade_before_primary_wrapper', $location );
+?>
 
-echo '<h1>Astract Block</h1>';
-//pixelgrade_render_block( 'blog/abstract' ); ?>
-
-<?php echo '<h1>Page Block</h1>'; ?>
-<?php pixelgrade_render_block( 'blog/page22' ); ?>
-<?php echo '<h1>The rest</h1>'; ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-			<?php
-			/**
-			 * pixelgrade_before_loop hook.
-			 */
-			do_action( 'pixelgrade_before_loop', $location );
-			?>
-
-			<?php
-			/** @var WP_Post $post */
-			global $post;
-
-			if ( have_posts() ) {
-				// Get the current page content
-				// Using the_post() is NOT good at all!!!
-				// It will bring us the custom loop and end up in an infinite loop.
-				// We may accidentally trigger the end of the world!
-				setup_postdata( $post );
-
-				pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG,'content', 'page', true );
-
-			} // End of the page content loop. ?>
-
-			<?php
-			/**
-			 * pixelgrade_after_loop hook.
-			 *
-			 * @hooked Pixelgrade_Multipage->the_subpages() - 10 (outputs the subpages)
-			 */
-			do_action( 'pixelgrade_after_loop', $location );
-			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<?php pixelgrade_render_block( 'blog/page' ); ?>
 
 <?php
 /**
