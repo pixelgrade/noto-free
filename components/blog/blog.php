@@ -47,3 +47,4 @@ pixelgrade_load_component_file( 'blog', 'inc/template-tags' );
 
 //Load our component's extra functionality
 pixelgrade_load_component_file( 'blog', 'inc/extras' );
+pixelgrade_load_component_file( 'blog', 'inc/jetpack' );
