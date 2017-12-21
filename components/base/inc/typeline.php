@@ -146,14 +146,20 @@ add_action( 'customize_preview_init', 'typeline_negative_value_cb_customizer_pre
  */
 function typeline_spacing_cb( $value, $selector, $property, $unit ) {
 	$output = '';
+
+	if ( ! $value ) {
+		$value = 0;
+	}
+
 	$output .= $selector . ' {' . PHP_EOL .
 	           $property . ': ' . $value . $unit . ';' . PHP_EOL .
 	           '}' . PHP_EOL;
 
 	// Get the Typeline configuration for this theme
 	$typeline_config = typeline_get_theme_config();
+
 	// Some sanity check before processing the config
-	if ( ! empty( $typeline_config['spacings']['points'] ) && ! empty( $typeline_config['spacings']['breakpoints'] ) ) {
+	if ( $value && ! empty( $typeline_config['spacings']['points'] ) && ! empty( $typeline_config['spacings']['breakpoints'] ) ) {
 		$points      = $typeline_config['spacings']['points'];
 		$breakpoints = $typeline_config['spacings']['breakpoints'];
 
