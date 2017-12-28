@@ -24,7 +24,7 @@ add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_customi
  */
 function variation_customify_main_content( $section_options, $options ) {
 
-	$main_content_content_css   = $section_options['main_content']['main_content_content_width']['css'];
+	$main_content_content_css   = $section_options['main_content']['options']['main_content_content_width']['css'];
 	$main_content_content_css[] = array(
 		'property'        => 'max-width',
 		'selector'        => '.single.has-sidebar [class].entry-header [class].entry-content > *',
@@ -242,7 +242,7 @@ function variation_customify_blog_grid_section( $section_options, $options ) {
 						'text-transform' => 'uppercase',
 					),
 				),
-				'blog_excerpt_meta_font' => array(
+				'blog_item_excerpt_font' => array(
 					'default' => array(
 						'font-family'    => 'PT Serif',
 						'font-weight'    => '400',
