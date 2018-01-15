@@ -38,11 +38,6 @@ function boilerplate_register_required_plugins() {
 			'required'           => true,
 		),
 		array(
-			'name'               => 'Gridable',
-			'slug'               => 'gridable',
-			'required'           => false,
-		),
-		array(
 			'name'               => 'Jetpack',
 			'slug'               => 'jetpack',
 			'required'           => false,

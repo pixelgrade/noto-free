@@ -68,7 +68,7 @@ function variation_register_blog_blocks( $component_slug, $component_config ) {
 				'wrappers' => array(
 					array(
 						'priority' => 100,
-						'classes'  => 'u-header-background'
+						'classes'  => 'u-header-background',
 					),
 				),
 				'blocks'   => array( 'blog/entry-header-single' ),
@@ -98,46 +98,6 @@ function variation_register_blog_blocks( $component_slug, $component_config ) {
 			),
 			'blog/related-posts',
 		),
-	) );
-
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/page', array(
-		'extend' => 'blog/default',
-		'blocks' => array(
-			'content' => array(
-				'extend' => 'blog/container',
-				'blocks' => array(
-					'layout' => array(
-						'extend' => 'blog/layout',
-						'wrappers' => array(
-							'layout' => array(
-								'extend_classes' => 'o-layout--blog'
-							),
-						),
-						'blocks' => array(
-							'main' => array(
-								'extend' => 'blog/main',
-								'blocks' => array(
-									'blog/entry-header-page',
-									'blog/entry-content',
-									'blog/entry-footer',
-								),
-							),
-							'side' => array(
-								'extend' => 'blog/side',
-								'blocks' => array( 'blog/sidebar' ),
-								'checks' => array(
-									array(
-										'callback' => '__return_true',
-										'args'     => array(),
-									),
-								),
-							),
-						),
-					),
-				),
-			),
-			'blog/related-posts',
-		)
 	) );
 }
 add_action( 'pixelgrade_blog_after_register_blocks', 'variation_register_blog_blocks', 10, 2 );
