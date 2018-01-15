@@ -230,7 +230,6 @@ function variation_change_customify_buttons( $section_options, $options ) {
 		button[type=submit],
 		input[type=button],
 		input[type=submit],
-		.widget_nav_menu,
 		.widget_pages,
 		div.jetpack-recipe .jetpack-recipe-print[class] a,
 		.featured-posts__more,
