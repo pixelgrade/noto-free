@@ -140,12 +140,8 @@ function boilerplate_customify_main_content( $section_options, $options ) {
 				'main_content_heading_6_color'          => array(
 					'default' => '#383c50',
 				),
-
-				'main_content_body_text_font' => array(
-					'selector' => 'body, .c-reading-bar__wrapper-title'
-				),
 				'main_content_page_title_font' => array(
-					'selector' => '.single .entry-title, .page .entry-title, .h0, .header-dropcap, .dropcap'
+					'selector' => '.single .entry-title, .page .entry-title, .h0[class]'
 				),
 
 				// [Sub Section] Backgrounds
