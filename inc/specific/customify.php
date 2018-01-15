@@ -32,9 +32,6 @@ function variation_change_customify_general_section( $general_section, $options 
 	$modified_config = array(
 		'general' => array(
 			'options' => array(
-				'widgets_title_position' => array(
-					'default' => 'sideways',
-				),
 			),
 		),
 	);
@@ -389,15 +386,6 @@ function variation_change_customify_header_section_options( $section_options, $o
 				),
 				'header_background'                => array(
 					'default' => '#fff4e8',
-				),
-				'header_sticky_active_links_color' => array(
-					'default' => '#ffffff',
-				),
-				'header_sticky_text_color'         => array(
-					'default' => '#fff4e8',
-				),
-				'header_sticky_background'         => array(
-					'default' => VARIATION_ACCENT_COLOR,
 				),
 				'header_site_title_font'           => array(
 					'fields'  => array(
