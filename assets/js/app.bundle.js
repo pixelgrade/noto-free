@@ -279,16 +279,16 @@ Helper.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Julia__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Boilerplate__ = __webpack_require__(7);
 
-new __WEBPACK_IMPORTED_MODULE_0__Julia__["a" /* Julia */]();
+new __WEBPACK_IMPORTED_MODULE_0__Boilerplate__["a" /* Boilerplate */]();
 
 /***/ }),
 /* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Julia; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Boilerplate; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_base_ts_BaseTheme__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__ = __webpack_require__(1);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -303,33 +303,33 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Julia = function (_BaseTheme) {
-    _inherits(Julia, _BaseTheme);
+var Boilerplate = function (_BaseTheme) {
+    _inherits(Boilerplate, _BaseTheme);
 
-    function Julia() {
-        _classCallCheck(this, Julia);
+    function Boilerplate() {
+        _classCallCheck(this, Boilerplate);
 
-        var _this = _possibleConstructorReturn(this, (Julia.__proto__ || Object.getPrototypeOf(Julia)).call(this));
+        var _this = _possibleConstructorReturn(this, (Boilerplate.__proto__ || Object.getPrototypeOf(Boilerplate)).call(this));
 
         _this.handleContent();
         return _this;
     }
 
-    _createClass(Julia, [{
+    _createClass(Boilerplate, [{
         key: 'bindEvents',
         value: function bindEvents() {
-            _get(Julia.prototype.__proto__ || Object.getPrototypeOf(Julia.prototype), 'bindEvents', this).call(this);
+            _get(Boilerplate.prototype.__proto__ || Object.getPrototypeOf(Boilerplate.prototype), 'bindEvents', this).call(this);
         }
     }, {
         key: 'onLoadAction',
         value: function onLoadAction() {
-            _get(Julia.prototype.__proto__ || Object.getPrototypeOf(Julia.prototype), 'onLoadAction', this).call(this);
+            _get(Boilerplate.prototype.__proto__ || Object.getPrototypeOf(Boilerplate.prototype), 'onLoadAction', this).call(this);
             this.adjustLayout();
         }
     }, {
         key: 'onResizeAction',
         value: function onResizeAction() {
-            _get(Julia.prototype.__proto__ || Object.getPrototypeOf(Julia.prototype), 'onResizeAction', this).call(this);
+            _get(Boilerplate.prototype.__proto__ || Object.getPrototypeOf(Boilerplate.prototype), 'onResizeAction', this).call(this);
             this.adjustLayout();
         }
     }, {
@@ -355,7 +355,7 @@ var Julia = function (_BaseTheme) {
         value: function adjustLayout() {}
     }]);
 
-    return Julia;
+    return Boilerplate;
 }(__WEBPACK_IMPORTED_MODULE_0__components_base_ts_BaseTheme__["a" /* BaseTheme */]);
 
 /***/ }),
@@ -461,7 +461,6 @@ var BaseTheme = function () {
                 e.preventDefault();
                 __WEBPACK_IMPORTED_MODULE_1__services_Helper__["a" /* Helper */].smoothScrollTo(0, 1000);
             });
-            $container.find('.widget_categories select').select2();
         }
     }, {
         key: 'fadeOut',
