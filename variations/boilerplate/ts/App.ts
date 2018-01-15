@@ -1,3 +1,3 @@
-import { Julia } from './Julia';
+import { Boilerplate } from './Boilerplate';
 
-new Julia();
+new Boilerplate();

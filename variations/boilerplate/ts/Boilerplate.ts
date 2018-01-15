@@ -1,7 +1,7 @@
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 
-export class Julia extends BaseTheme {
+export class Boilerplate extends BaseTheme {
 
   constructor() {
     super();

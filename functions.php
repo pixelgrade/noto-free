@@ -145,7 +145,7 @@ if ( ! function_exists( 'boilerplate_setup' ) ) {
 		add_theme_support( 'pixelgrade-portfolio-component' );
 	}
 }
-add_action( 'after_setup_theme', 'boilerplate_setup' );
+add_action( 'after_setup_theme', 'boilerplate_setup', 10 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -185,8 +185,8 @@ function boilerplate_scripts() {
 	}
 
 	/* Scripts */
-	wp_enqueue_script( 'boilerplate-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '20171201', true );
-	wp_enqueue_script( 'boilerplate-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '20171201', true );
+	wp_enqueue_script( 'boilerplate-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array(), '20180101', true );
+	wp_enqueue_script( 'boilerplate-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '20180101', true );
 
 	//The main script
 	wp_enqueue_script( 'boilerplate-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
