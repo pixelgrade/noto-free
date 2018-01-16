@@ -12,12 +12,11 @@
  * @since 1.0.0
  */
 
-// @todo standardize naming here
 add_filter( 'pixelgrade_customify_general_section_options', 'boilerplate_change_customify_general_section', 20, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'boilerplate_change_customify_header_section_options', 20, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'boilerplate_change_customify_main_content', 20, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'boilerplate_change_customify_buttons', 20, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'boilerplate_change_customify_footer_section_options', 20, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'boilerplate_change_customify_header_section', 20, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'boilerplate_change_customify_main_content_section', 20, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'boilerplate_change_customify_buttons_section', 20, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'boilerplate_change_customify_footer_section', 20, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'boilerplate_change_customify_blog_grid_section', 20, 2 );
 
 define( 'VARIATION_TEXT_COLOR', '#333131' );
@@ -51,7 +50,7 @@ function boilerplate_change_customify_general_section( $general_section, $option
  *
  * @return array $section_options The modified specific config
  */
-function boilerplate_change_customify_main_content( $section_options, $options ) {
+function boilerplate_change_customify_main_content_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(
@@ -215,12 +214,12 @@ function boilerplate_change_customify_main_content( $section_options, $options )
 /**
  * Buttons Section
  *
- * @param array $main_content_section The specific Customify config to be filtered
+ * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_change_customify_buttons( $section_options, $options ) {
+function boilerplate_change_customify_buttons_section( $section_options, $options ) {
 
 	$button_selector = '
 		.c-btn,
@@ -362,11 +361,12 @@ function boilerplate_change_customify_blog_grid_section( $section_options, $opti
 /**
  * Modify the Customify config for the Header Component
  *
- * @param array $section_options
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
  *
  * @return array
  */
-function boilerplate_change_customify_header_section_options( $section_options, $options ) {
+function boilerplate_change_customify_header_section( $section_options, $options ) {
 
 	$new_section_options = array(
 		'header_section' => array(
@@ -426,11 +426,12 @@ function boilerplate_change_customify_header_section_options( $section_options, 
 /**
  * Modify the Customify config for the Footer Component
  *
- * @param array $section_options
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
  *
  * @return array
  */
-function boilerplate_change_customify_footer_section_options( $section_options, $options ) {
+function boilerplate_change_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(

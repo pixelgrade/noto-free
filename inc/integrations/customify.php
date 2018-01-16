@@ -27,10 +27,10 @@ add_filter( 'customify_filter_fields', 'boilerplate_add_customify_options', 11, 
 
 // Modify Customify Config
 add_filter( 'pixelgrade_customify_general_section_options', 'boilerplate_customify_general_section', 10, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'boilerplate_change_customify_header_section_options', 10, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'boilerplate_customify_main_content', 10, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'boilerplate_customify_buttons', 10, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'boilerplate_change_customify_footer_section_options', 10, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'boilerplate_customify_header_section', 10, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'boilerplate_customify_main_content_section', 10, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'boilerplate_customify_buttons_section', 10, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'boilerplate_customify_footer_section', 10, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'boilerplate_customify_blog_grid_section', 10, 2 );
 
 function boilerplate_add_customify_options( $options ) {
@@ -71,14 +71,14 @@ function boilerplate_customify_general_section( $general_section, $options ) {
 }
 
 /**
- * Main Content Section
+ * Modify the Customify config for the Main Content Section - it comes from the Blog Component
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_main_content( $section_options, $options ) {
+function boilerplate_customify_main_content_section( $section_options, $options ) {
 
 	$new_section_options = array(
 
@@ -160,14 +160,14 @@ function boilerplate_customify_main_content( $section_options, $options ) {
 }
 
 /**
- * Buttons Section
+ * Modify the Customify config for the Buttons Section
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_buttons( $section_options, $options ) {
+function boilerplate_customify_buttons_section( $section_options, $options ) {
 
 	$new_section_options = array(
 
@@ -192,7 +192,7 @@ function boilerplate_customify_buttons( $section_options, $options ) {
 }
 
 /**
- * Blog Grid Section
+ * Modify the Customify config for the Blog Grid Section - it comes from the Blog Component
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
@@ -290,14 +290,14 @@ function boilerplate_customify_blog_grid_section( $section_options, $options ) {
 }
 
 /**
- * Header Section
+ * Modify the Customify config for the Header Section - it comes from the Header Component
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_change_customify_header_section_options( $section_options, $options ) {
+function boilerplate_customify_header_section( $section_options, $options ) {
 
 	$new_section_options = array(
 		'header_section' => array(
@@ -344,14 +344,14 @@ function boilerplate_change_customify_header_section_options( $section_options, 
 }
 
 /**
- * Footer Section
+ * Modify the Customify config for the Footer Section - it comes from the Footer Component
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_change_customify_footer_section_options( $section_options, $options ) {
+function boilerplate_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(
