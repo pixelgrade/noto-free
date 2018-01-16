@@ -14,7 +14,7 @@
  * @param string $component_slug The component's slug.
  * @param array $component_config The component entire component config.
  */
-function variation_register_blog_blocks( $component_slug, $component_config ) {
+function boilerplate_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single-portrait', array(
 		'blocks' => array(
@@ -136,8 +136,7 @@ function variation_register_blog_blocks( $component_slug, $component_config ) {
 					),
 				),
 			),
-			'blog/related-posts',
 		)
 	) );
 }
-add_action( 'pixelgrade_blog_after_register_blocks', 'variation_register_blog_blocks', 10, 2 );
+add_action( 'pixelgrade_blog_after_register_blocks', 'boilerplate_register_blog_blocks', 10, 2 );

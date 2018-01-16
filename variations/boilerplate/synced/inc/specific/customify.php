@@ -4,7 +4,7 @@
  *
  * Some of the Customify controls come straight from components.
  * If you need to customize the settings for those controls you can use the appropriate filter.
- * For details search for the add_customify_options() function in the main component class (usually in class-componentname.php).
+ * For details search for the addCustomifyOptions() method in the main component class (usually in class-ComponentName.php).
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
@@ -13,12 +13,12 @@
  */
 
 // @todo standardize naming here
-add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section_options', 20, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'variation_change_customify_main_content', 20, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'variation_change_customify_buttons', 20, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_customify_footer_section_options', 20, 2 );
-add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
+add_filter( 'pixelgrade_customify_general_section_options', 'boilerplate_change_customify_general_section', 20, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'boilerplate_change_customify_header_section_options', 20, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'boilerplate_change_customify_main_content', 20, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'boilerplate_change_customify_buttons', 20, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'boilerplate_change_customify_footer_section_options', 20, 2 );
+add_filter( 'pixelgrade_customify_blog_grid_section_options', 'boilerplate_change_customify_blog_grid_section', 20, 2 );
 
 define( 'VARIATION_TEXT_COLOR', '#333131' );
 define( 'VARIATION_ACCENT_COLOR', '#ff6000' );
@@ -27,7 +27,7 @@ define( 'VARIATION_SERIF_FONT', 'Charter' );
 define( 'VARIATION_SANS_SERIF_FONT', 'HK Grotesk' );
 define( 'VARIATION_SITE_TITLE_FONT', 'Caudex' );
 
-function variation_change_customify_general_section( $general_section, $options ) {
+function boilerplate_change_customify_general_section( $general_section, $options ) {
 
 	$modified_config = array(
 		'general' => array(
@@ -51,7 +51,7 @@ function variation_change_customify_general_section( $general_section, $options 
  *
  * @return array $section_options The modified specific config
  */
-function variation_change_customify_main_content( $section_options, $options ) {
+function boilerplate_change_customify_main_content( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(
@@ -220,7 +220,7 @@ function variation_change_customify_main_content( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function variation_change_customify_buttons( $section_options, $options ) {
+function boilerplate_change_customify_buttons( $section_options, $options ) {
 
 	$button_selector = '
 		.c-btn,
@@ -289,7 +289,7 @@ function variation_change_customify_buttons( $section_options, $options ) {
  *
  * @return array $blog_grid_section The modified specific config
  */
-function variation_change_customify_blog_grid_section( $section_options, $options ) {
+function boilerplate_change_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(
@@ -366,7 +366,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
  *
  * @return array
  */
-function variation_change_customify_header_section_options( $section_options, $options ) {
+function boilerplate_change_customify_header_section_options( $section_options, $options ) {
 
 	$new_section_options = array(
 		'header_section' => array(
@@ -430,7 +430,7 @@ function variation_change_customify_header_section_options( $section_options, $o
  *
  * @return array
  */
-function variation_change_customify_footer_section_options( $section_options, $options ) {
+function boilerplate_change_customify_footer_section_options( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$new_section_options = array(

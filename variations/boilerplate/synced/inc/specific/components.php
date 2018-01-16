@@ -16,11 +16,11 @@ function boilerplate_setup_components() {
 	 */
 	add_theme_support( 'pixelgrade-base-component' );
 	add_theme_support( 'pixelgrade-blog-component' );
-	add_theme_support( 'pixelgrade-featured-image-component' );
-	add_theme_support( 'pixelgrade-footer-component' );
-	add_theme_support( 'pixelgrade-gallery-settings-component' );
 	add_theme_support( 'pixelgrade-header-component' );
 	add_theme_support( 'pixelgrade-hero-component' );
+	add_theme_support( 'pixelgrade-footer-component' );
+	add_theme_support( 'pixelgrade-featured-image-component' );
+	add_theme_support( 'pixelgrade-gallery-settings-component' );
 	add_theme_support( 'pixelgrade-multipage-component' );
 	add_theme_support( 'pixelgrade-portfolio-component' );
 }
