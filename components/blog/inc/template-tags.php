@@ -38,11 +38,15 @@ if ( ! function_exists( 'pixelgrade_get_blog_grid_class' ) ) {
 
 		$classes = array();
 
-		// General classes
+		/*
+		 * General classes
+		 */
 		$classes[] = 'c-gallery';
 		$classes[] = 'c-gallery--blog';
 
-		// Options dependent classes
+		/*
+		 * Options dependent classes
+		 */
 		$classes = array_merge( $classes, pixelgrade_get_blog_grid_layout_class( $location ) );
 		$classes = array_merge( $classes, pixelgrade_get_blog_grid_column_class( $location ) );
 		$classes = array_merge( $classes, pixelgrade_get_blog_grid_alignment_class( $location ) );
@@ -843,21 +847,25 @@ if ( ! function_exists( 'pixelgrade_posted_on' ) ) {
 	}
 }
 
-if ( ! function_exists( 'pixelgrade_has_post_thumbnail' ) ) :
-
+if ( ! function_exists( 'pixelgrade_has_portrait_thumbnail' ) ) :
+	/**
+	 * Determine if a post thumbnail should be shown and it has a portrait aspect ratio.
+	 *
+	 * @param int|WP_Post $post_id Optional. Post ID or post object. Defaults to the current post.
+	 *
+	 * @return bool
+	 */
 	function pixelgrade_has_portrait_thumbnail( $post_id = null ) {
-
-		// $post is the current post
 		$post = get_post( $post_id );
 
 		$jetpack_show_single_featured_image = get_option( 'jetpack_content_featured_images_post', true );
 
 		// Bail if no post or the image is hidden from Jetpack's content options
-		if ( empty( $post ) || empty( $jetpack_show_single_featured_image ) ) {
-			return 'none';
+		if ( empty( $post ) || empty( $jetpack_show_single_featured_image ) || ! has_post_thumbnail( $post ) ) {
+			return false;
 		}
 
-		$image_type = pixelgrade_get_image_aspect_ratio_type( get_post_thumbnail_id( $post ), 'none' );
+		$image_type = pixelgrade_get_image_aspect_ratio_type( get_post_thumbnail_id( $post ) );
 
 		if ( 'portrait' === $image_type ) {
 			return true;
@@ -870,25 +878,23 @@ endif;
 
 if ( ! function_exists( 'pixelgrade_has_landscape_thumbnail' ) ) :
 	/**
-	 * Get the class corresponding to the aspect ratio of the post featured image
+	 * Determine if a post thumbnail should be shown and it has a landscape aspect ratio.
 	 *
-	 * @param int|WP_Post $post_id Optional. Post ID or post object.
+	 * @param int|WP_Post $post_id Optional. Post ID or post object. Defaults to the current post.
 	 *
-	 * @return string Aspect ratio specific class.
+	 * @return bool
 	 */
 	function pixelgrade_has_landscape_thumbnail( $post_id = null ) {
-
-		// $post is the current post
 		$post = get_post( $post_id );
 
 		$jetpack_show_single_featured_image = get_option( 'jetpack_content_featured_images_post', true );
 
 		// Bail if no post or the image is hidden from Jetpack's content options
-		if ( empty( $post ) || empty( $jetpack_show_single_featured_image ) ) {
-			return 'none';
+		if ( empty( $post ) || empty( $jetpack_show_single_featured_image ) || ! has_post_thumbnail( $post ) ) {
+			return false;
 		}
 
-		$image_type = pixelgrade_get_image_aspect_ratio_type( get_post_thumbnail_id( $post ), 'none' );
+		$image_type = pixelgrade_get_image_aspect_ratio_type( get_post_thumbnail_id( $post ) );
 
 		if ( 'landscape' === $image_type ) {
 			return true;
@@ -901,31 +907,29 @@ endif;
 
 if ( ! function_exists( 'pixelgrade_has_no_thumbnail' ) ) :
 	/**
-	 * Get the class corresponding to the aspect ratio of the post featured image
+	 * Determine if a post thumbnail is missing or should not be shown.
 	 *
-	 * @param int|WP_Post $post_id Optional. Post ID or post object.
+	 * Notice: Please note the reverse logic this template tag uses!!!
 	 *
-	 * @return string Aspect ratio specific class.
+	 * @param int|WP_Post $post_id Optional. Post ID or post object. Defaults to the current post.
+	 *
+	 * @return bool
 	 */
 	function pixelgrade_has_no_thumbnail( $post_id = null ) {
-
-		// $post is the current post
 		$post = get_post( $post_id );
 
 		$jetpack_show_single_featured_image = get_option( 'jetpack_content_featured_images_post', true );
 
 		// Bail if no post or the image is hidden from Jetpack's content options
 		if ( empty( $post ) || empty( $jetpack_show_single_featured_image ) ) {
-			return 'none';
-		}
-
-		$image_type = pixelgrade_get_image_aspect_ratio_type( get_post_thumbnail_id( $post ), 'none' );
-
-		if ( 'none' === $image_type ) {
 			return true;
 		}
 
-		return false;
+		if ( has_post_thumbnail( $post ) ) {
+			return false;
+		}
+
+		return true;
 	} #function
 
 endif;
