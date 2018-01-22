@@ -45,14 +45,14 @@ function boilerplate_add_customify_options( $options ) {
 /**
  * Modify the Customify config for the General Section - from the Base component
  *
- * @param array $general_section The specific Customify config to be filtered
+ * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $general_section The modified specific config
+ * @return array The modified specific config
  */
-function boilerplate_customify_general_section( $general_section, $options ) {
+function boilerplate_customify_general_section( $section_options, $options ) {
 
-	$modified_config = array(
+	$new_section_options = array(
 		// General
 		'general' => array(
 			'options' => array(
@@ -62,12 +62,12 @@ function boilerplate_customify_general_section( $general_section, $options ) {
 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
-	$general_section = Pixelgrade_Config::merge( $general_section, $modified_config );
+	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
 
 	// Remove Ajax Loading Option
 //	unset( $general_section['general']['options']['use_ajax_loading'] );
 
-	return $general_section;
+	return $section_options;
 }
 
 /**
@@ -76,7 +76,7 @@ function boilerplate_customify_general_section( $general_section, $options ) {
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $main_content_section The modified specific config
+ * @return array The modified specific config
  */
 function boilerplate_customify_main_content_section( $section_options, $options ) {
 
@@ -165,7 +165,7 @@ function boilerplate_customify_main_content_section( $section_options, $options 
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $main_content_section The modified specific config
+ * @return array The modified specific config
  */
 function boilerplate_customify_buttons_section( $section_options, $options ) {
 
@@ -197,7 +197,7 @@ function boilerplate_customify_buttons_section( $section_options, $options ) {
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $main_content_section The modified specific config
+ * @return array The modified specific config
  */
 function boilerplate_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
@@ -295,7 +295,7 @@ function boilerplate_customify_blog_grid_section( $section_options, $options ) {
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $main_content_section The modified specific config
+ * @return array The modified specific config
  */
 function boilerplate_customify_header_section( $section_options, $options ) {
 
@@ -349,7 +349,7 @@ function boilerplate_customify_header_section( $section_options, $options ) {
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
  *
- * @return array $main_content_section The modified specific config
+ * @return array The modified specific config
  */
 function boilerplate_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
