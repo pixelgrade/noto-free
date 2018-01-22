@@ -56,12 +56,13 @@ $btn-font: () !default;
 @mixin btn {
   @include button;
   @include button-box;
+  @include leading-map($btn-font);
 
   color: $btn-color;
   background-color: $btn-background;
 
   box-shadow: none;
-  //-webkit-font-smoothing: initial;
+  -webkit-font-smoothing: initial;
 
   transition: $btn-transition;
   transition-property: color, background-color, opacity;
@@ -69,6 +70,7 @@ $btn-font: () !default;
   &,
   body & {
     text-decoration: none;
+    text-shadow: none;
   }
 
   &:hover,
@@ -234,7 +236,7 @@ $btn-font: () !default;
 // <a class="button arrow">	Button with Arrow 	</a>
 
 
-#{$content-selector} {
+#{$content-wrapper-selector} {
   a,
   input[type=submit] {
 

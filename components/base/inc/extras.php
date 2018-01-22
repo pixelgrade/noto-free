@@ -831,3 +831,67 @@ if ( ! function_exists( 'pixelgrade_is_page_for_projects' ) ) {
 		return false;
 	}
 }
+
+/**
+ * Replace any content tags present in the content.
+ *
+ * @param string $content
+ *
+ * @return string
+ */
+function pixelgrade_parse_content_tags( $content ) {
+	$original_content = $content;
+
+	// Allow others to alter the content before we do our work
+	$content = apply_filters( 'pixelgrade_before_parse_content_tags', $content );
+
+	// Now we will replace all the supported tags with their value
+
+	// %year%
+	$content = str_replace( '%year%', date( 'Y' ), $content );
+
+	// %site-title% or %site_title%
+	$content = str_replace( '%site-title%', get_bloginfo('name'), $content );
+	$content = str_replace( '%site_title%', get_bloginfo('name'), $content );
+
+	// This is a little sketchy because who is the user?
+	// It is not necessarily the logged in user, nor the Administrator user...
+	// We will go with the author for cases where we are in a post/page context
+
+	// Since we need to dd some heavy lifting, we will only do it when necessary
+	if ( false !== strpos( $content, '%first_name%') ||
+	     false !== strpos( $content, '%last_name%') ||
+	     false !== strpos( $content, '%display_name%') ) {
+		$user_id = false;
+		// We need to get the current ID in more global manner
+		$current_object_id = get_queried_object_id();
+		$current_post      = get_post( $current_object_id );
+		if ( ! empty( $current_post->post_author ) ) {
+			$user_id = $current_post->post_author;
+		} else {
+			global $authordata;
+			$user_id = isset( $authordata->ID ) ? $authordata->ID : false;
+		}
+
+		// If we still haven't got a user ID, we will just use the first user on the site
+		if ( empty( $user_id ) ) {
+			$blogusers = get_users( array( 'role' => 'administrator', 'number' => 1, ) );
+			if ( ! empty( $blogusers ) ) {
+				$blogusers = reset( $blogusers );
+				$user_id = $blogusers->ID;
+			}
+		}
+
+		if ( ! empty( $user_id ) ) {
+			// %first_name%
+			$content = str_replace( '%first_name%', get_the_author_meta( 'first_name', $user_id ), $content );
+			// %last_name%
+			$content = str_replace( '%last_name%', get_the_author_meta( 'last_name', $user_id ), $content );
+			// %display_name%
+			$content = str_replace( '%display_name%', get_the_author_meta( 'display_name', $user_id ), $content );
+		}
+	}
+
+	// Allow others to alter the content after we did our work
+	return apply_filters( 'pixelgrade_after_parse_content_tags', $content, $original_content );
+}

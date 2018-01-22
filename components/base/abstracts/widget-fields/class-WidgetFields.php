@@ -64,9 +64,14 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 				    }
 			    }
             }
+
             if ( empty( $this->config['posts'] ) ) {
                 $this->config['posts'] = array();
             }
+
+			if ( empty( $this->config['sidebars_not_supported'] ) ) {
+				$this->config['sidebars_not_supported'] = array();
+			}
 
             // Initialize the widget
             parent::__construct( $id,
@@ -367,7 +372,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 				$desc = $field_config['desc'];
 			}
 
-			$rows = 3;
+			$rows = 5;
 			if ( ! empty( $field_config['rows'] ) ) {
 				$rows = absint( $field_config['rows'] );
 			}
@@ -969,6 +974,26 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
         }
 
 		/**
+		 * Apply filter callbacks for field values, if they are configured (per field).
+		 *
+		 * @param array $instance The current widget details.
+		 *
+		 * @return array
+		 */
+		public function applyFilters( $instance ) {
+			// Make sure this is an array
+			$instance = (array) $instance;
+
+			foreach( $this->getFields() as $field_name => $field_config ) {
+				if ( isset( $field_config['filter_callback'] ) && is_callable( $field_config['filter_callback'] ) ) {
+					$instance[ $field_name ] = call_user_func( $field_config['filter_callback'], $instance[ $field_name ] );
+				}
+			}
+
+			return $instance;
+		}
+
+		/**
 		 * Sanitize the field values in the current instance.
 		 *
 		 * @param array $instance The current widget details.
@@ -1035,23 +1060,99 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
             return $instance;
         }
 
-        public function sanitize_checkbox( $value, $field_name, $field_config ) {
+		/**
+		 * Sanitize a checkbox field value.
+		 *
+		 * @param mixed $value
+		 * @param string $field_name
+		 * @param array $field_config
+		 *
+		 * @return bool
+		 */
+		public function sanitize_checkbox( $value, $field_name, $field_config ) {
             return filter_var( $value, FILTER_VALIDATE_BOOLEAN );
         }
 
-        public function sanitize_positive_int( $value, $field_name, $field_config ) {
+		/**
+		 * Sanitize a positive int.
+		 *
+		 * @param mixed $value
+		 * @param string $field_name
+		 * @param array $field_config
+		 *
+		 * @return int
+		 */
+		public function sanitize_positive_int( $value, $field_name, $field_config ) {
             return absint( $value );
         }
 
-        public function sanitize_text( $value, $field_name, $field_config ) {
+		/**
+		 * Sanitize a text field.
+		 *
+		 * @param mixed $value
+		 * @param string $field_name
+		 * @param array $field_config
+		 *
+		 * @return string
+		 */
+		public function sanitize_text( $value, $field_name, $field_config ) {
             return sanitize_text_field( $value );
         }
 
+		/**
+		 * Sanitize a textarea field.
+		 *
+		 * @param mixed $value
+		 * @param string $field_name
+		 * @param array $field_config
+		 *
+		 * @return string
+		 */
 		public function sanitize_textarea( $value, $field_name, $field_config ) {
-			return sanitize_textarea_field( $value );
+			// Handle invalid UTF8 characters
+			$filtered = wp_check_invalid_utf8( $value );
+
+			if ( strpos($filtered, '<') !== false ) {
+				// Allow others to filter the allowed tags
+				$allowed_tags = apply_filters( 'pixelgrade_widget_allowed_textarea_html_tags',
+					array(
+						'a' => array(
+							'href' => array(),
+							'title' => array(),
+						),
+						'strong' => array(),
+						'b' => array(),
+						'em' => array(),
+						'u' => array(),
+						'span' => array(
+							'class' => array(),
+						),
+					), $field_name, $field_config );
+
+				$filtered = wp_kses( $filtered, $allowed_tags );
+			}
+
+			// Remove new lines by default (define 'keep_newlines' to true in the field config to skip this)
+			if ( ! isset( $field_config['keep_newlines'] ) || true !== $field_config['keep_newlines'] ) {
+				$filtered = preg_replace( '/[\r\n\t ]+/', ' ', $filtered );
+			}
+
+			// Trim the whitespaces off the beginning and the end
+			$filtered = trim( $filtered );
+
+			return $filtered;
 		}
 
-        public function sanitize_select( $value, $field_name, $field_config ) {
+		/**
+		 * Sanitize a select field.
+		 *
+		 * @param mixed $value
+		 * @param string $field_name
+		 * @param array $field_config
+		 *
+		 * @return mixed
+		 */
+		public function sanitize_select( $value, $field_name, $field_config ) {
             // If this select has no options, any value is NOT good
             if ( empty( $field_config['options'] ) ) {
                 return false;
@@ -1070,6 +1171,7 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
             return $value;
         }
 
+		// @todo Should consider this
 		public function sanitize_select2( $value, $field_name, $field_config ) {
 //			// If this select has no options, any value is NOT good
 //			if ( empty( $field_config['options'] ) ) {
@@ -1248,6 +1350,74 @@ if ( ! class_exists( 'Pixelgrade_WidgetFields' ) ) :
 			}
 
 			return self::$default_field_section_state;
+		}
+
+		/**
+		 * Determine if the widget should be shown in the current sidebar.
+		 *
+		 * @param array $args The widget arguments.
+		 * @param array $instance The widget instance data.
+		 *
+		 * @return bool
+		 */
+		public function showInSidebar( $args, $instance ) {
+			// If there is no config, show it
+			if ( empty( $this->config['sidebars_not_supported'] ) ) {
+				return true;
+			}
+
+			// Standardize it to an array
+			if ( is_string( $this->config['sidebars_not_supported'] ) ) {
+				$this->config['sidebars_not_supported'] = array( $this->config['sidebars_not_supported'] );
+			}
+
+			// The current sidebar is in the $args 'id'; we need to search it among our not supported sidebars
+			if ( false !== array_search( $args['id'], $this->config['sidebars_not_supported'] ) ) {
+				return false;
+			}
+
+			// If we've gotten thus far, display the widget
+			return true;
+		}
+
+		/**
+		 * Display the message regarding the widget being displayed in a not supported sidebar.
+		 *
+		 * @param array $args The widget arguments.
+		 * @param array $instance The widget instance data.
+		 */
+		public function sidebarNotSupportedMessage( $args, $instance ) {
+			$title = '';
+			if ( ! empty( $instance['title'] ) ) {
+				$title = $instance['title'];
+			}
+
+			/**
+			 * Filters the widget title.
+			 *
+			 * @var string $title
+			 *
+			 * @param string $title The widget title. Default 'Pages'.
+			 * @param array $instance An array of the widget's settings.
+			 * @param mixed $id_base The widget ID.
+			 */
+			$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+			echo $args['before_widget'];
+
+			if ( ! empty( $title ) ) {
+				echo $args['before_title'] . $title . $args['after_title'];
+			} ?>
+
+			<div class="c-alert  c-alert--danger">
+				<h4 class="c-alert__title"><?php esc_html_e( '🤦 Widget Not Supported Here', '__theme_txtd' ); ?></h4>
+				<div class="c-alert__body">
+					<p><?php printf( esc_html__('Oops! The %s is not supported in this area, but don\'t panic. You can try to move it to another section or just replace it.', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ); ?></p>
+				</div>
+			</div>
+
+			<?php
+			echo $args['after_widget'];
 		}
 	}
 
