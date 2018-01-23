@@ -15,7 +15,7 @@
  * @see        https://pixelgrade.com
  * @author     Pixelgrade
  * @package    Components/Footer
- * @version    1.1.0
+ * @version    1.1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,12 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-
-<div class="c-counter hidden">
-    <span class="c-counter__current js-counter-current"></span>
-    <span class="c-counter__separator"></span>
-    <span class="c-counter__total js-counter-total"></span>
-</div>
 
 <footer <?php pixelgrade_footer_class(); ?>>
 	<div class="o-wrapper u-container-width">
