@@ -42,7 +42,7 @@ gulp.task( 'update-demo', function() {
 				    // console.log(stdout);
 				    // console.log(stderr);
 			    } );
-			    console.log( " ==== The master branch is up-to-date now. But is the CircleCi job to update the remote test.demo.pixelgrade.com" );
+			    console.log( " ==== The test branch is up-to-date now. But is the CircleCi job to update the remote test.demo.pixelgrade.com" );
 			    return true;
 		    }
 
