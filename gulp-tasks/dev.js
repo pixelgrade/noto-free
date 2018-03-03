@@ -55,7 +55,7 @@ gulp.task( 'styles-process', function() {
 } );
 
 gulp.task( 'styles-components', 'Compiles Sass and uses autoprefixer', function() {
-	return gulp.src( 'components/**/*.scss' )
+	return gulp.src( ['components/**/*.scss','!components/docs/**/*', '!components/.*/**/*'] )
 	           .pipe( plugins.sass().on( 'error', logError ) )
 	           .pipe( plugins.autoprefixer() )
 	           .pipe( plugins.rename( function( path ) {
@@ -128,7 +128,8 @@ gulp.task( 'watch', 'Watch for changes to various files and process them', ['com
 		'inc/integrations/typeline-config.json',
 		'inc/integrations/typeline-config-editor.json'
 	], ['typeline-config', 'typeline-phpconfig'] );
-	gulp.watch( ['variations/**/*.scss', 'components/**/*.scss', 'assets/scss/**/*.scss'], ['styles'] );
+    // We exclude the docs directory since that is not a true component; also exclude . directories
+    gulp.watch( ['variations/**/*.scss', 'components/**/*.scss', 'assets/scss/**/*.scss', '!components/docs/**/*', '!components/.*/**/*'], ['styles'] );
 	gulp.watch( 'assets/js/**/*.js', ['scripts'] );
 } );
 
