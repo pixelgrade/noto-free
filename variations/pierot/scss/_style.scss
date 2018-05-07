@@ -1,13 +1,13 @@
 /*!
-Theme Name: Boilerplate
-Theme URI: https://demos.pixelgrade.com/boilerplate/
+Theme Name: Pierot
+Theme URI: https://demos.pixelgrade.com/pierot/
 Author: Pixelgrade
 Author URI: https://pixelgrade.com
 Description: A starter theme a la Pixelgrade.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: boilerplate
+Text Domain: pierot
 Domain Path: /languages/
 Tags: translation-ready, theme-options, featured-images, custom-menu, custom-colors, two-columns, three-columns, four-columns
 
@@ -25,3 +25,15 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import 'settings';
 @import '../../../assets/scss/style';
 @import 'custom';
+
+.u-header-height-padding-top[class] {
+  padding-top: 0;
+}
+
+.o-layout__side {
+  display: none;
+}
+
+.u-container-width[class] {
+  max-width: none;
+}

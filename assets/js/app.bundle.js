@@ -55,11 +55,12 @@ var Helper = function () {
                 var className = $image.attr('class');
                 var $p = $image.closest('p');
                 var $figure = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<figure />').attr('class', className);
+                console.log($figure, $p, __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length);
                 if (__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length) {
                     return;
                 }
-                $figure.append($image.removeAttr('class'));
-                $p.replaceWith($figure);
+                $figure.append($image.removeAttr('class')).insertAfter($p);
+                $p.remove();
             });
         }
     }, {
@@ -279,16 +280,16 @@ Helper.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Boilerplate__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Pierot__ = __webpack_require__(7);
 
-new __WEBPACK_IMPORTED_MODULE_0__Boilerplate__["a" /* Boilerplate */]();
+new __WEBPACK_IMPORTED_MODULE_0__Pierot__["a" /* Pierot */]();
 
 /***/ }),
 /* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Boilerplate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Pierot; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_base_ts_BaseTheme__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__ = __webpack_require__(1);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -303,33 +304,33 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Boilerplate = function (_BaseTheme) {
-    _inherits(Boilerplate, _BaseTheme);
+var Pierot = function (_BaseTheme) {
+    _inherits(Pierot, _BaseTheme);
 
-    function Boilerplate() {
-        _classCallCheck(this, Boilerplate);
+    function Pierot() {
+        _classCallCheck(this, Pierot);
 
-        var _this = _possibleConstructorReturn(this, (Boilerplate.__proto__ || Object.getPrototypeOf(Boilerplate)).call(this));
+        var _this = _possibleConstructorReturn(this, (Pierot.__proto__ || Object.getPrototypeOf(Pierot)).call(this));
 
         _this.handleContent();
         return _this;
     }
 
-    _createClass(Boilerplate, [{
+    _createClass(Pierot, [{
         key: 'bindEvents',
         value: function bindEvents() {
-            _get(Boilerplate.prototype.__proto__ || Object.getPrototypeOf(Boilerplate.prototype), 'bindEvents', this).call(this);
+            _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'bindEvents', this).call(this);
         }
     }, {
         key: 'onLoadAction',
         value: function onLoadAction() {
-            _get(Boilerplate.prototype.__proto__ || Object.getPrototypeOf(Boilerplate.prototype), 'onLoadAction', this).call(this);
+            _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'onLoadAction', this).call(this);
             this.adjustLayout();
         }
     }, {
         key: 'onResizeAction',
         value: function onResizeAction() {
-            _get(Boilerplate.prototype.__proto__ || Object.getPrototypeOf(Boilerplate.prototype), 'onResizeAction', this).call(this);
+            _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'onResizeAction', this).call(this);
             this.adjustLayout();
         }
     }, {
@@ -355,7 +356,7 @@ var Boilerplate = function (_BaseTheme) {
         value: function adjustLayout() {}
     }]);
 
-    return Boilerplate;
+    return Pierot;
 }(__WEBPACK_IMPORTED_MODULE_0__components_base_ts_BaseTheme__["a" /* BaseTheme */]);
 
 /***/ }),
@@ -396,7 +397,7 @@ var BaseTheme = function () {
         value: function bindEvents() {
             __WEBPACK_IMPORTED_MODULE_3__services_global_service__["a" /* GlobalService */].onReady().take(1).subscribe(this.onReadyAction.bind(this));
             __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onLoad().take(1).subscribe(this.onLoadAction.bind(this));
-            __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(300).subscribe(this.onResizeAction.bind(this));
+            __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onResize().debounce(500).subscribe(this.onResizeAction.bind(this));
             __WEBPACK_IMPORTED_MODULE_2__services_window_service__["a" /* WindowService */].onScroll().subscribe(this.onScrollAction.bind(this));
             // Leave comments area visible by default and
             // show it only if the URL links to a comment
@@ -570,13 +571,25 @@ var GlobalService = function () {
     }
 
     _createClass(GlobalService, null, [{
-        key: 'onCustomizerChange',
-        value: function onCustomizerChange() {
+        key: 'onCustomizerRender',
+        value: function onCustomizerRender() {
             var exWindow = window;
             return __WEBPACK_IMPORTED_MODULE_0_rx_dom__["Observable"].create(function (observer) {
                 if (exWindow.wp && exWindow.wp.customize && exWindow.wp.customize.selectiveRefresh) {
                     exWindow.wp.customize.selectiveRefresh.bind('partial-content-rendered', function (placement) {
                         observer.onNext($(placement.container));
+                    });
+                }
+            });
+        }
+    }, {
+        key: 'onCustomizerChange',
+        value: function onCustomizerChange() {
+            var exWindow = window;
+            return __WEBPACK_IMPORTED_MODULE_0_rx_dom__["Observable"].create(function (observer) {
+                if (exWindow.wp && exWindow.wp.customize) {
+                    exWindow.wp.customize.bind('change', function (setting) {
+                        observer.onNext(setting);
                     });
                 }
             });

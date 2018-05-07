@@ -1,7 +1,7 @@
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 
-export class Boilerplate extends BaseTheme {
+export class Pierot extends BaseTheme {
 
   constructor() {
     super();

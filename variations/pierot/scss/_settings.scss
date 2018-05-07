@@ -36,7 +36,7 @@ $logo-mobile-height: 30px;
 $header-height: 53px;
 $header-mobile-height: 60px;
 $header-links-spacing: 56px;
-$header-sides-spacing: 30px;
+$header-sides-spacing: 0;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
@@ -77,7 +77,7 @@ $header-font: (
 // Layout
 // ----------------------------------------
 $content-container-width: 1300px;
-$content-sides-spacing: 70px;
+$content-sides-spacing: 0;
 $content-vertical-spacing: 0;
 $content-width: 720px;
 $content-border-width: 10px;
@@ -251,7 +251,7 @@ $card-letter-font: (
 // Layout
 // ----------------------------------------
 $blog-grid-width: 1300px;
-$blog-sides-spacing: 70px;
+$blog-sides-spacing: 0;
 $blog-grid-layout: packed;
 $blog-grid-packed-ratio: 2.275;
 $blog-grid-aspect-ratio: 3/4;

@@ -187,6 +187,12 @@ function boilerplate_load_wp_admin_style() {
 }
 add_action( 'admin_enqueue_scripts', 'boilerplate_load_wp_admin_style' );
 
+function pierot_get_blog_grid_class( $classes ) {
+	$classes = array();
+	return $classes;
+}
+add_filter( 'pixelgrade_blog_grid_class', 'pierot_get_blog_grid_class' );
+
 /*
  * ==================================================
  * Load all the files directly in the `inc` directory
