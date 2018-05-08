@@ -10,4 +10,5 @@ bower_components
 
 *.map
 
+webpack.defaults.js
 gulpconfig.json
