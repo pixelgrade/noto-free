@@ -25,15 +25,3 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import 'settings';
 @import '../../../assets/scss/style';
 @import 'custom';
-
-.u-header-height-padding-top[class] {
-  padding-top: 0;
-}
-
-.o-layout__side {
-  display: none;
-}
-
-.u-container-width[class] {
-  max-width: none;
-}

@@ -1,0 +1,34 @@
+.u-header-height-padding-top[class] {
+  padding-top: 0;
+}
+
+.o-layout__side {
+  display: none;
+}
+
+.u-container-width,
+.u-blog-grid-width {
+  &[class] {
+    max-width: none;
+  }
+}
+
+.c-card__meta,
+.c-card__footer,
+.c-card__aside {
+  display: none;
+}
+
+.u-container-sides-spacing,
+.u-header-sides-spacing {
+  &[class] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.site-content {
+  display: grid;
+}
+
+@import 'grid';

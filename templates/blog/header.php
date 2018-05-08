@@ -38,31 +38,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> <?php pixelgrade_body_attributes(); ?>>
 
-<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
+<?php
+/**
+ * pixelgrade_after_body_open hook.
+ *
+ * @hooked nothing() - 10 (outputs nothings)
+ */
+do_action( 'pixelgrade_after_body_open', 'main' );
+?>
 
 <?php
 /**
- * pixelgrade_before_header hook.
+ * pixelgrade_before_barba_wrapper hook.
  *
  * @hooked nothing() - 10 (outputs nothing)
  */
-do_action( 'pixelgrade_before_header', 'main' );
+do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 ?>
 
-<?php
-/**
- * pixelgrade_header hook.
- *
- * @hooked pixelgrade_the_header() - 10 (outputs the header markup)
- */
-do_action( 'pixelgrade_header', 'main' );
-?>
+<div id="barba-wrapper" class="site u-wrap-text u-header-height-padding-top u-border-width">
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
 
-<?php
-/**
- * pixelgrade_after_header hook.
- *
- * @hooked nothing() - 10 (outputs nothing)
- */
-do_action( 'pixelgrade_after_header', 'main' );
-?>
+  <div id="content" class="site-content barba-container u-content-background">
+		<div class="my-grid">
+
+	<?php
+	/**
+	 * pixelgrade_before_header hook.
+	 *
+	 * @hooked nothing() - 10 (outputs nothing)
+	 */
+	do_action( 'pixelgrade_before_header', 'main' );
+	?>
+
+	<?php
+	/**
+	 * pixelgrade_header hook.
+	 *
+	 * @hooked pixelgrade_the_header() - 10 (outputs the header markup)
+	 */
+	do_action( 'pixelgrade_header', 'main' );
+	?>
+
+	<?php
+	/**
+	 * pixelgrade_after_header hook.
+	 *
+	 * @hooked nothing() - 10 (outputs nothing)
+	 */
+	do_action( 'pixelgrade_after_header', 'main' );
+	?>
+
+	<?php
+	/**
+	 * pixelgrade_before_barba_container hook.
+	 *
+	 * @hooked nothing() - 10 (outputs nothing)
+	 */
+	do_action( 'pixelgrade_before_barba_container', 'main' );
+	?>

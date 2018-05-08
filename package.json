@@ -3,7 +3,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "pierot:prod": "webpack --env.variation=pierot && npm run rtl  && gulp zip --variation pierot",
-    "pierot:dev": "concurrently --kill-others \"npm run pierot\" \"npm run watch\" ",
+    "pierot:dev": "concurrently --kill-others \"npm run pierot\" \"npm run watch\" \"gulp watch-variation --variation pierot\" ",
     "pierot": "webpack --watch --env.variation=pierot",
     "rtl": "./node_modules/.bin/rtlcss style.css rtl.css",
     "watch": "npm-watch"

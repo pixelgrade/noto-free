@@ -1,0 +1,187 @@
+@mixin position($x, $span-x, $y, $span-y) {
+    grid-column: $x / span $span-x;
+    grid-row: $y / span $span-y;
+}
+
+@mixin position-post($nth, $x, $span-x, $y, $span-y) {
+  > :nth-child(#{$nth}) {
+    @include position($x, $span-x, $y, $span-y);
+  }
+}
+
+.my-grid {
+  position: relative;
+
+  display: grid;
+	grid-template-columns: repeat(30, 1fr);
+  // grid-auto-rows: minmax(50px, auto);
+  grid-auto-rows: 50px auto auto 50px;
+
+  // @include position-post(2, 15, 14, 4, 5);
+  // @include position-post(3, 1, 11, 9, 6);
+  // @include position-post(4, 13, 5, 7, 9);
+  // @include position-post(5, 20, 7, 10, 7);
+  // @include position-post(6, 1, 13, 17, 5);
+  // @include position-post(7, 17, 13, 19, 7);
+  // @include position-post(8, 1, 7, 23, 5);
+  // @include position-post(9, 10, 5, 20, 8);
+  // @include position-post(10, 17, 5, 24, 6);
+  // @include position-post(11, 23, 7, 27, 5);
+  // @include position-post(12, 3, 12, 31, 5);
+
+  > * {
+    grid-row-end: span 4;
+  }
+
+  .site-header {
+    grid-column: 1 / 11;
+    grid-row-end: span 3;
+  }
+
+  > :nth-child(2) {
+    grid-column: 15 / span 14;
+
+    margin-top: 100px;
+  }
+
+  > :nth-child(3) {
+    grid-column: 1 / span 11;
+
+    margin-top: 100px;
+  }
+
+  > :nth-child(4) {
+    grid-column: 13 / span 5;
+
+    margin-top: -100px;
+  }
+
+  > :nth-child(5) {
+    grid-column: 20 / span 7;
+
+    margin-top: 50px;
+  }
+
+  > :nth-child(6) {
+    grid-column: 1 / span 13;
+
+    margin-top: 50px;
+  }
+
+  > :nth-child(7) {
+    grid-column: 17 / span 13;
+
+    margin-top: 100px;
+  }
+
+  > :nth-child(8) {
+    grid-column: 1 / span 7;
+
+    margin-top: 100px;
+  }
+
+  > :nth-child(9) {
+    grid-column: 10 / span 5;
+
+    margin-top: -100px;
+  }
+
+  > :nth-child(10) {
+    grid-column: 17 / span 5;
+
+    margin-top: -100px;
+  }
+
+  > :nth-child(11) {
+    grid-column: 23 / span 7;
+
+    margin-top: 50px;
+  }
+
+  > :nth-child(12) {
+    grid-column: 3 / span 12;
+
+    margin-top: 100px;
+  }
+
+  article {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+.c-card {
+  .c-card__content,
+  .c-card__title {
+    margin-top: 0;
+  }
+}
+
+.site-content {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: -50px;
+    left: -50px;
+
+    width: percentage(12/30);
+    height: 100%;
+
+    background: peachpuff;
+  }
+}
+
+body {
+  border: 100px solid currentColor;
+  border-bottom-width: 0;
+  border-right-width: 0;
+}
+
+.c-navbar__checkbox,
+.site-description {
+  display: none;
+}
+
+.c-branding {
+  text-align: center;
+}
+
+.c-branding a {
+  text-decoration: none;
+}
+
+.site-title[class] {
+  font-size: 180px;
+}
+
+.site-footer[class] {
+  padding: 50px;
+  padding-left: 0;
+  background-color: #2B3D39;
+}
+
+.c-footer[class] {
+  padding-top: 0;
+  padding-bottom: 0;
+  color: white;
+
+  a {
+    color: inherit;
+  }
+}
+
+.entry-title,
+.navigation {
+  display: none;
+}
+
+.u-header-height[class] {
+  height: auto;
+}
+
+.u-header-background[class] {
+  background: none;
+}

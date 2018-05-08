@@ -17,11 +17,6 @@
 
 function pierot_register_blog_blocks( $component_slug, $component_config ) {
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/default', array(
-		'type'     => 'layout',
-		'wrappers' => array(),
-	) );
-
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/loop', array(
 		'blocks' => array(
 			'loop-posts' => array(
@@ -59,13 +54,16 @@ function pierot_register_blog_blocks( $component_slug, $component_config ) {
 		),
 	) );
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/archive', array(
-		'extend'   => 'blog/default',
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/index', array(
 		'blocks'   => array(
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/entry-header-archive',
 		),
+	) );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/home', array(
+		'extend' => 'blog/index'
 	) );
 
 }
