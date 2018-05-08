@@ -15,7 +15,7 @@
   display: grid;
 	grid-template-columns: repeat(30, 1fr);
   // grid-auto-rows: minmax(50px, auto);
-  grid-auto-rows: 50px auto auto 50px;
+  grid-auto-rows: minmax(50px, auto) auto auto minmax(50px, auto);
 
   // @include position-post(2, 15, 14, 4, 5);
   // @include position-post(3, 1, 11, 9, 6);
@@ -42,6 +42,11 @@
     grid-column: 15 / span 14;
 
     margin-top: 100px;
+
+    .c-card__excerpt {
+      min-height: 100px;
+      margin-left: percentage(4/14);
+    }
   }
 
   > :nth-child(3) {
@@ -66,12 +71,22 @@
     grid-column: 1 / span 13;
 
     margin-top: 50px;
+
+    .c-card__excerpt {
+      min-height: 100px;
+      margin-right: percentage(5/13);
+    }
   }
 
   > :nth-child(7) {
     grid-column: 17 / span 13;
 
     margin-top: 100px;
+
+    .c-card__excerpt {
+      min-height: 100px;
+      margin-left: percentage(6/13);
+    }
   }
 
   > :nth-child(8) {
@@ -82,6 +97,7 @@
 
   > :nth-child(9) {
     grid-column: 10 / span 5;
+    grid-row-end: span 3;
 
     margin-top: -100px;
   }
@@ -94,6 +110,7 @@
 
   > :nth-child(11) {
     grid-column: 23 / span 7;
+    grid-row-end: span 5;
 
     margin-top: 50px;
   }
@@ -113,6 +130,10 @@
   .c-card__content,
   .c-card__title {
     margin-top: 0;
+  }
+
+  .c-card__excerpt {
+    margin-bottom: 0;
   }
 }
 

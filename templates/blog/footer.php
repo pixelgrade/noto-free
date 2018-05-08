@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-</div>
+</div><!-- .my-grid -->
 </div><!-- .barba-container -->
 	<?php
 	/**
