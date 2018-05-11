@@ -1,14 +1,3 @@
-@mixin position($x, $span-x, $y, $span-y) {
-    grid-column: $x / span $span-x;
-    grid-row: $y / span $span-y;
-}
-
-@mixin position-post($nth, $x, $span-x, $y, $span-y) {
-  > :nth-child(#{$nth}) {
-    @include position($x, $span-x, $y, $span-y);
-  }
-}
-
 @mixin card-large {
   .c-card__title span {
     font-size: 1.3em;
@@ -26,24 +15,61 @@
 
   display: grid;
   grid-template-columns: repeat(2, 1fr) [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
+  grid-template-rows: 50px 50px;
   grid-auto-rows: minmax(50px, auto);
 
   padding-top: 50px;
   padding-bottom: 100px;
 
+  counter-reset: count;
+
   > * {
     grid-column: [start] / 32;
   }
 
-  > :nth-child(1) {
-    grid-column: [start] / 13;
-    margin-top: 50px;
-  }
+  > article {
+    position: relative;
 
-  > :nth-child(2) {
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      counter-increment: count;
+      content: counter(count);
+
+      font-size: 200px;
+      line-height: 0.8;
+      font-weight: 700;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+  }
+}
+
+.c-navbar__zone--middle {
+  grid-column: [start] / 13;
+  grid-row: 2 / 4;
+  padding-bottom: 100px;
+}
+
+.c-navbar__zone--left {
+  grid-column: 15 / span 15;
+  grid-row: 1 / 2;
+}
+
+.c-navbar__zone--right {
+  grid-column: 15 / span 15;
+  grid-row: 2 / 3;
+}
+
+.c-pierot > article {
+  // background: rgba(0,0,0,0.1);
+
+  &:nth-of-type(1) {
     grid-column: [middle] / span 14;
     grid-row-end: span 2;
-    margin-top: 150px;
+    padding-top: 50px;
 
     @include card-large;
 
@@ -54,12 +80,10 @@
     }
   }
 
-  > :nth-child(3) {
+  &:nth-of-type(2) {
     grid-column: [start] / span 11;
     grid-row-end: span 2;
     align-self: center;
-
-    padding-top: 100px;
 
     @include card-large;
 
@@ -68,19 +92,19 @@
     }
   }
 
-  > :nth-child(4) {
+  &:nth-of-type(3) {
     grid-column: 15 / span 5;
     margin-top: -100px;
 
     @include card-small;
   }
 
-  > :nth-child(5) {
+  &:nth-of-type(4) {
     grid-column: 22 / span 7;
     text-align: right;
   }
 
-  > :nth-child(6n+6) {
+  &:nth-of-type(6n+5) {
     grid-column: [start] / span 13;
     padding-top: 50px;
 
@@ -95,7 +119,7 @@
     }
   }
 
-  > :nth-child(6n+7) {
+  &:nth-of-type(6n+6) {
     grid-column: 19 / span 13;
     align-self: flex-end;
 
@@ -110,19 +134,18 @@
     }
   }
 
-  > :nth-child(6n+8) {
+  &:nth-of-type(6n+7) {
     grid-column: [start] / span 7;
     @include card-small;
     text-align: right;
   }
 
-  > :nth-child(6n+9) {
+  &:nth-of-type(6n+8) {
     grid-column: 12 / span 5;
-    // grid-row-end: span 3;
     margin-top: -100px;
   }
 
-  > :nth-child(6n+10) {
+  &:nth-of-type(6n+9) {
     grid-column: 19 / span 5;
     margin-top: -100px;
 
@@ -130,18 +153,14 @@
     text-align: right;
   }
 
-  > :nth-child(6n+11) {
+  &:nth-of-type(6n+10) {
     grid-column: 25 / span 7;
-  }
-
-  article {
-    // background: rgba(0,0,0,0.1);
   }
 }
 
-.c-pierot--alternate {
+.c-pierot--alternate article {
 
-  > :nth-child(12n+12) {
+  &:nth-of-type(12n+11) {
     padding-top: 100px;
 
     .c-card__excerpt {
@@ -152,8 +171,8 @@
     }
   }
 
-  > :nth-child(12n+13) {
-    grid-column: 18 / span 12;
+  &:nth-of-type(12n+12) {
+    grid-column: 18 / span 13;
     align-self: flex-end;
     padding-top: 50px;
 
@@ -164,25 +183,24 @@
     }
   }
 
-  > :nth-child(12n+14) {
+  &:nth-of-type(12n+13) {
     grid-column: [start] / span 5;
     margin-top: -100px;
   }
 
-  > :nth-child(12n+15) {
+  &:nth-of-type(12n+14) {
     grid-column: 9 / span 7;
     margin-top: 0;
   }
 
-  > :nth-child(12n+16) {
-    grid-column: 18 / span 6;
+  &:nth-of-type(12n+15) {
+    grid-column: 18 / span 7;
     margin-top: 0;
     align-self: flex-start;
   }
 
-  > :nth-child(12n+17) {
-    grid-column: 26 / span 5;
-    // grid-row-end: span 5;
+  &:nth-of-type(12n+16) {
+    grid-column: 27 / span 5;
     margin-top: -100px;
   }
 }
