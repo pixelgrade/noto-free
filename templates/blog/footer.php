@@ -27,35 +27,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-</div><!-- .my-grid -->
+<div class="c-border"><i></i></div>
+</div><!-- .c-pierrot -->
 </div><!-- .barba-container -->
-	<?php
-	/**
-	 * pixelgrade_before_footer hook.
-	 *
-	 * @hooked nothing() - 10 (outputs nothing)
-	 */
-	do_action( 'pixelgrade_before_footer', 'main' );
-	?>
 
-	<?php
-	/**
-	 * pixelgrade_footer hook.
-	 *
-	 * @hooked pixelgrade_the_footer() - 10 (outputs the footer markup)
-	 */
-	do_action( 'pixelgrade_footer', 'main' );
-	?>
+<?php
+/**
+ * pixelgrade_before_footer hook.
+ *
+ * @hooked nothing() - 10 (outputs nothing)
+ */
+do_action( 'pixelgrade_before_footer', 'main' );
+?>
 
-	<?php
-	/**
-	 * pixelgrade_after_footer hook.
-	 *
-	 * @hooked nothing() - 10 (outputs nothing)
-	 */
-	do_action( 'pixelgrade_after_footer', 'main' );
-	?>
+<?php
+/**
+ * pixelgrade_footer hook.
+ *
+ * @hooked pixelgrade_the_footer() - 10 (outputs the footer markup)
+ */
+do_action( 'pixelgrade_footer', 'main' );
+?>
 
+<?php
+/**
+ * pixelgrade_after_footer hook.
+ *
+ * @hooked nothing() - 10 (outputs nothing)
+ */
+do_action( 'pixelgrade_after_footer', 'main' );
+?>
 
 <?php
 /**
@@ -65,9 +66,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'pixelgrade_after_barba_container', 'main' );
 ?>
-
-<div class="c-border"></div>
-<div class="c-cursor"></div>
 
 <?php wp_footer(); ?>
 
