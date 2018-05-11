@@ -57,7 +57,9 @@
   > :nth-child(3) {
     grid-column: [start] / span 11;
     grid-row-end: span 2;
-    margin-top: 100px;
+    align-self: center;
+
+    padding-top: 100px;
 
     @include card-large;
 
@@ -81,7 +83,8 @@
   > :nth-child(6n+6) {
     grid-column: [start] / span 13;
     padding-top: 50px;
-    margin-top: auto;
+
+    align-self: flex-end;
 
     @include card-large;
 
@@ -94,7 +97,9 @@
 
   > :nth-child(6n+7) {
     grid-column: 19 / span 13;
-    margin-top: 100px;
+    align-self: flex-end;
+
+    padding-top: 100px;
     @include card-large;
 
     .c-card__excerpt {
@@ -149,7 +154,7 @@
 
   > :nth-child(12n+13) {
     grid-column: 18 / span 12;
-    margin-top: auto;
+    align-self: flex-end;
     padding-top: 50px;
 
     .c-card__excerpt {
@@ -172,7 +177,7 @@
   > :nth-child(12n+16) {
     grid-column: 18 / span 6;
     margin-top: 0;
-    margin-bottom: auto;
+    align-self: flex-start;
   }
 
   > :nth-child(12n+17) {
