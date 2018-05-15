@@ -162,6 +162,8 @@ function boilerplate_scripts() {
 	$theme           = wp_get_theme();
 	$main_style_deps = array();
 
+	wp_enqueue_style( 'boilerplate-google-fonts', boilerplate_google_fonts_url() );
+
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
 		wp_enqueue_style( 'boilerplate-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );

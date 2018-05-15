@@ -6,16 +6,25 @@ $baseline-unit: 14px;
 $fa-font-path: 'assets/fonts/fontawesome';
 
 // Variation Variables
-$theme-accent-color: #000;
-$theme-accent-light-color: #E7F2F8;
-$theme-text-color: $color-gray-10;
-$theme-border-color: $color-gray-90;
-$theme-background-color: #F7F6F5;
+$theme-color-1: #E79696; // primary
+$theme-color-2: #FCD9D2; // secondary
+$theme-color-3: #FFF4F4; // light
+$theme-color-4: #34394B; // dark
+$theme-color-5: #49494B; // dark secondary
+
+$theme-accent-color: #E79696;
+$theme-accent-light-color: #FCD9D2;
+$theme-accent-lighter-color: #FFF4F4;
+$theme-text-color: #49494B;
+$theme-border-color: #34394B;
+$theme-background-color: #FFFFFF;
 
 $theme-body-font-family: 'PT Serif', serif;
 $theme-body-font-family-alt: 'Montserrat', sans-serif;
 $theme-headings-font-family: 'Lora', serif;
 $theme-logo-font-family: 'Playfair Display', serif;
+
+$typography-table-cell-padding: 0.8em;
 
 // ----------------------------------------
 // BUTTONS
@@ -85,17 +94,17 @@ $content-border-color: transparent;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
-$page-title-color: #000;
-$body-text-color: #000;
-$body-link-color: #000;
-$body-link-active-color: #000;
+$page-title-color: $theme-text-color;
+$body-text-color: $theme-text-color;
+$body-link-color: $theme-text-color;
+$body-link-active-color: $theme-text-color;
 $body-link-highlight-color: $theme-accent-light-color;
-$h1-color: #000;
-$h2-color: #000;
-$h3-color: #000;
-$h4-color: #000;
-$h5-color: #000;
-$h6-color: #000;
+$h1-color: $theme-text-color;
+$h2-color: $theme-text-color;
+$h3-color: $theme-text-color;
+$h4-color: $theme-text-color;
+$h5-color: $theme-text-color;
+$h6-color: $theme-text-color;
 $content-background-color: $theme-background-color;
 // ----------------------------------------
 // Fonts

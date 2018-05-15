@@ -1,5 +1,7 @@
-@import 'grid';
 @import 'header';
+@import 'grid';
+@import 'single';
+@import 'typography';
 
 .u-header-height-padding-top[class] {
   padding-top: 0;
@@ -16,8 +18,6 @@
   }
 }
 
-.c-card__meta,
-.c-card__footer,
 .c-card__aside {
   display: none;
 }
@@ -66,14 +66,8 @@
 .c-footer[class] {
   padding-top: 0;
   padding-bottom: 0;
-  color: white;
-
-  a {
-    color: inherit;
-  }
 }
 
-.entry-title,
 .navigation {
   display: none;
 }
@@ -108,7 +102,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: #2B3D39;
+    background: $theme-border-color;
   }
 
   i:before {
@@ -137,8 +131,4 @@
     width: percentage(1/32);
     height: 100%;
   }
-}
-
-.c-card__link {
-  display: none;
 }

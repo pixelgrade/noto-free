@@ -1,13 +1,37 @@
 @mixin card-large {
   .c-card__title span {
-    font-size: 1.3em;
+    font-size: 1.75em;
   }
 }
 
-@mixin card-small {
+@mixin card-medium {
   .c-card__title span {
-    font-size: 0.8em;
+    font-size: 1.3125em;
   }
+}
+
+@mixin card-align-right {
+  text-align: right;
+
+  .c-card__meta {
+    justify-content: flex-end;
+  }
+}
+
+.c-card__meta {
+  width: auto;
+
+  li:not(:last-child):after {
+    content: none;
+  }
+
+  li:not(:first-child) {
+    display: none;
+  }
+}
+
+.c-card__separator {
+  display: none;
 }
 
 .c-pierot {
@@ -36,7 +60,7 @@
       left: 0;
 
       counter-increment: count;
-      content: counter(count);
+      // content: counter(count);
 
       font-size: 200px;
       line-height: 0.8;
@@ -64,7 +88,6 @@
 }
 
 .c-pierot > article {
-  // background: rgba(0,0,0,0.1);
 
   &:nth-of-type(1) {
     grid-column: [middle] / span 14;
@@ -73,10 +96,13 @@
 
     @include card-large;
 
-    .c-card__excerpt {
-      min-height: 150px;
-      padding-bottom: 50px;
+    .c-card__excerpt,
+    .c-card__footer {
       margin-left: percentage(4/14);
+    }
+
+    .c-card__content {
+      padding-bottom: 50px;
     }
   }
 
@@ -87,7 +113,8 @@
 
     @include card-large;
 
-    .c-card__excerpt {
+    .c-card__excerpt,
+    .c-card__footer {
       margin-left: percentage(2/11);
     }
   }
@@ -95,78 +122,83 @@
   &:nth-of-type(3) {
     grid-column: 15 / span 5;
     margin-top: -100px;
-
-    @include card-small;
   }
 
   &:nth-of-type(4) {
     grid-column: 22 / span 7;
-    text-align: right;
+
+    @include card-medium;
   }
 
-  &:nth-of-type(6n+5) {
+  &:nth-of-type(12n+5) {
     grid-column: [start] / span 13;
-    padding-top: 50px;
-
     align-self: flex-end;
+    padding-top: 50px;
 
     @include card-large;
 
-    .c-card__excerpt {
-      padding-bottom: 100px;
-      min-height: 150px;
+    .c-card__excerpt,
+    .c-card__footer {
       margin-right: percentage(5/13);
+    }
+
+    .c-card__content {
+      padding-bottom: 100px;
     }
   }
 
-  &:nth-of-type(6n+6) {
+  &:nth-of-type(12n+6) {
     grid-column: 19 / span 13;
     align-self: flex-end;
-
     padding-top: 100px;
+
     @include card-large;
 
-    .c-card__excerpt {
-      min-height: 150px;
+    .c-card__excerpt,
+    .c-card__footer {
       margin-left: percentage(7/13);
-      margin-right: 0;
+    }
+
+    .c-card__content {
       padding-bottom: 50px;
     }
   }
 
-  &:nth-of-type(6n+7) {
+  &:nth-of-type(12n+7) {
     grid-column: [start] / span 7;
-    @include card-small;
-    text-align: right;
   }
 
-  &:nth-of-type(6n+8) {
+  &:nth-of-type(12n+8) {
     grid-column: 12 / span 5;
     margin-top: -100px;
+
+    @include card-medium;
   }
 
-  &:nth-of-type(6n+9) {
+  &:nth-of-type(12n+9) {
     grid-column: 19 / span 5;
     margin-top: -100px;
-
-    @include card-small;
-    text-align: right;
   }
 
-  &:nth-of-type(6n+10) {
+  &:nth-of-type(12n+10) {
     grid-column: 25 / span 7;
-  }
-}
 
-.c-pierot--alternate article {
+    @include card-medium;
+  }
 
   &:nth-of-type(12n+11) {
+    grid-column: [start] / span 13;
+    align-self: flex-end;
     padding-top: 100px;
 
-    .c-card__excerpt {
-      min-height: 150px;
+    @include card-large;
+
+    .c-card__excerpt,
+    .c-card__footer {
       margin-left: percentage(7/13);
-      margin-right: 0;
+    }
+
+    .c-card__content {
       padding-bottom: 50px;
     }
   }
@@ -176,10 +208,11 @@
     align-self: flex-end;
     padding-top: 50px;
 
-    .c-card__excerpt {
-      min-height: 100px;
+    @include card-large;
+
+    .c-card__excerpt,
+    .c-card__footer {
       margin-right: percentage(5/13);
-      margin-left: 0;
     }
   }
 
@@ -191,6 +224,8 @@
   &:nth-of-type(12n+14) {
     grid-column: 9 / span 7;
     margin-top: 0;
+
+    @include card-medium;
   }
 
   &:nth-of-type(12n+15) {
@@ -202,13 +237,20 @@
   &:nth-of-type(12n+16) {
     grid-column: 27 / span 5;
     margin-top: -100px;
+
+    @include card-medium;
+  }
+
+  &:nth-of-type(3),
+  &:nth-of-type(6n+7),
+  &:nth-of-type(6n+9) {
+    @include card-align-right;
   }
 }
 
 .site-footer[class][class] {
   grid-column: 1 / -1;
   padding: 50px percentage(1/32) 50px percentage(2/32);
-  background-color: #2B3D39;
 }
 
 .site-content {
@@ -225,6 +267,6 @@
 
     width: percentage(12/32);
 
-    background: peachpuff;
+    background: $theme-accent-lighter-color;
   }
 }

@@ -1,0 +1,48 @@
+table {
+  tbody,
+  tfoot,
+  thead,
+  tr {
+    border-bottom: 0;
+  }
+
+  th,
+  td {
+    &:first-child {
+      padding-left: $typography-table-cell-padding;
+    }
+
+    &:last-child {
+      padding-right: $typography-table-cell-padding;
+    }
+  }
+}
+
+table,
+tbody {
+  > tr:nth-child(even) {
+
+    td {
+      position: relative;
+    }
+
+    td:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background: #000000;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+  }
+}
+
+.intro[class] {
+  font-size: (28/18) * 1em;
+  line-height: 1.25em;
+  color: $theme-accent-color;
+}

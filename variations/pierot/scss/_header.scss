@@ -8,12 +8,6 @@
   }
 
   .menu {
-    display: flex;
-    align-items: stretch;
-
-    padding-left: 0;
-    list-style: none;
-
     li {
       margin-bottom: 0;
     }
@@ -28,9 +22,27 @@
       text-decoration: none;
     }
   }
+
+  .menu,
+  .sub-menu {
+    display: flex;
+    align-items: stretch;
+
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
 }
 
 .c-navbar__zone--left {
+  position: relative;
   color: white;
 }
 
