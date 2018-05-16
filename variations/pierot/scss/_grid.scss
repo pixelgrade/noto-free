@@ -1,3 +1,5 @@
+$border-width: 2rem;
+
 @mixin card-large {
   .c-card__title span {
     font-size: 1.75em;
@@ -38,12 +40,12 @@
   position: relative;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr) [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
-  grid-template-rows: 50px 50px;
+  grid-template-columns: 2rem 1fr [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
+  grid-template-rows: 4rem 4rem;
   grid-auto-rows: minmax(50px, auto);
 
-  padding-top: 50px;
-  padding-bottom: 100px;
+  padding-top: 2rem;
+  padding-bottom: 8rem;
 
   counter-reset: count;
 
@@ -250,7 +252,7 @@
 
 .site-footer[class][class] {
   grid-column: 1 / -1;
-  padding: 50px percentage(1/32) 50px percentage(2/32);
+  padding: 50px 6rem;
 }
 
 .site-content {
@@ -261,11 +263,12 @@
     display: block;
 
     position: absolute;
-    top: 50px;
-    left: percentage(1/32);
-    bottom: 50px;
+    top: 2rem;
+    left: 2rem;
+    bottom: 4rem;
 
-    width: percentage(12/32);
+    // (100% - 2rem) * 12 / 32
+    width: calc(#{percentage(12/31)} - (24rem/31));
 
     background: $theme-accent-lighter-color;
   }

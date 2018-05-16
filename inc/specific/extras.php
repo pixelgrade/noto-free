@@ -53,3 +53,10 @@ if ( ! function_exists( 'boilerplate_google_fonts_url' ) ) :
 		return $fonts_url;
 	} #function
 endif;
+
+if ( ! function_exists( 'pierot_output_wave_svg' ) ) :
+	function pierot_output_wave_svg() {
+		get_template_part( 'template-parts/svg/wave-svg' );
+	}
+endif;
+add_action( 'pixelgrade_before_excerpt', 'pierot_output_wave_svg' );

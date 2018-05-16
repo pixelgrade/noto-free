@@ -2,16 +2,14 @@
 .page {
 
   .c-pierot {
-    padding-bottom: 150px;
+    grid-template-columns: 2rem 2rem [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
+    padding-bottom: 2rem;
+
+    background-color: $theme-accent-light-color;
   }
 
   .site-content:before {
-    bottom: 100px;
-  }
-
-  .c-border[class] i:before {
-    width: 100px;
-    height: 100px;
+    bottom: 2rem;
   }
 
   .header-dropcap {
@@ -21,7 +19,6 @@
   .content-area {
     grid-column-end: -1;
     background: white;
-    margin-bottom: -100px;
     position: relative;
     z-index: 1000;
 
@@ -48,17 +45,35 @@
 }
 
 .entry-image--portrait {
+
   .content-area {
 
-    .entry-title {
+    .entry-title,
+    .header-meta {
       grid-column: s / hs;
       text-align: right;
     }
 
+    .entry-thumbnail {
+      grid-row-end: span 3;
+    }
+
     .header-category,
-    .entry-thumbnail,
-    .header-meta {
+    .entry-thumbnail {
       grid-column: hs / he;
     }
+  }
+}
+
+.entry-image--landscape {
+
+  .entry-thumbnail {
+    grid-column: ms / me;
+  }
+}
+
+.header-category {
+  a {
+    text-decoration: none;
   }
 }

@@ -290,8 +290,10 @@ new __WEBPACK_IMPORTED_MODULE_0__Pierot__["a" /* Pierot */]();
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Pierot; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_base_ts_BaseTheme__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_base_ts_BaseTheme__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__ = __webpack_require__(1);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -304,6 +306,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var Pierot = function (_BaseTheme) {
     _inherits(Pierot, _BaseTheme);
 
@@ -312,14 +315,49 @@ var Pierot = function (_BaseTheme) {
 
         var _this = _possibleConstructorReturn(this, (Pierot.__proto__ || Object.getPrototypeOf(Pierot)).call(this));
 
+        _this.mouseX = 0;
+        _this.mouseY = 0;
+        var that = _this;
         _this.handleContent();
+        function loop() {
+            that.update();
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
         return _this;
     }
 
     _createClass(Pierot, [{
+        key: 'update',
+        value: function update() {
+            var that = this;
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-card').each(function (i, obj) {
+                var thereshold = 20;
+                var el = obj;
+                var cardRect = el.getBoundingClientRect();
+                var cardWidth = el.offsetWidth;
+                var cardHeight = el.offsetHeight;
+                var distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
+                var distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
+                var moveX = thereshold * 2 * distanceX / cardWidth;
+                var moveY = thereshold * 2 * distanceY / cardHeight;
+                var images = el.parentNode.querySelectorAll('.c-card__frame');
+                for (var _i = 0; _i < images.length; ++_i) {
+                    images[_i].style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
+                }
+            });
+        }
+    }, {
         key: 'bindEvents',
         value: function bindEvents() {
             _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'bindEvents', this).call(this);
+            var that = this;
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').on('mousemove', function (e) {
+                that.mouseX = e.pageX;
+                that.mouseY = e.pageY;
+            });
+            // $( 'body' ).on( 'mousemove', (e) => {
+            // });
         }
     }, {
         key: 'onLoadAction',
@@ -336,7 +374,7 @@ var Pierot = function (_BaseTheme) {
     }, {
         key: 'onJetpackPostLoad',
         value: function onJetpackPostLoad() {
-            var $container = $('#posts-container');
+            var $container = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#posts-container');
             this.handleContent($container);
             this.adjustLayout();
         }
@@ -345,10 +383,10 @@ var Pierot = function (_BaseTheme) {
         value: function handleContent() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__["a" /* Helper */].unwrapImages($container.find('.entry-content'));
-            __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
-            __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
-            __WEBPACK_IMPORTED_MODULE_1__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
+            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].unwrapImages($container.find('.entry-content'));
+            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
+            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
+            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
             this.eventHandlers($container);
         }
     }, {
@@ -357,7 +395,7 @@ var Pierot = function (_BaseTheme) {
     }]);
 
     return Pierot;
-}(__WEBPACK_IMPORTED_MODULE_0__components_base_ts_BaseTheme__["a" /* BaseTheme */]);
+}(__WEBPACK_IMPORTED_MODULE_1__components_base_ts_BaseTheme__["a" /* BaseTheme */]);
 
 /***/ }),
 /* 8 */

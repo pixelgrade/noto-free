@@ -15,7 +15,7 @@
 //add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
 //add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'variation_change_customify_main_content_section', 20, 2 );
-//add_filter( 'pixelgrade_customify_buttons_section_options', 'variation_change_customify_buttons_section', 20, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'variation_change_customify_buttons_section', 20, 2 );
 add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_customify_footer_section', 20, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
@@ -179,6 +179,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
           ),
         ),
         'main_content_heading_5_font' => array(
+          'selector' => 'h5, .header-category',
           'default' => array(
             'font-family'    => VARIATION_ACCENT_FONT,
             'font-weight'    => '500italic',
@@ -300,6 +301,49 @@ function variation_change_customify_footer_section( $section_options, $options )
 				'footer_links_color' => array(
 					'default' => VARIATION_ACCENT_LIGHT_COLOR
 				),
+			),
+		),
+	);
+
+	// Now we merge the modified config with the original one
+	// Thus overwriting what we have changed
+	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
+	return $section_options;
+}
+
+/**
+ * Main Content Section
+ *
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
+ *
+ * @return array $main_content_section The modified specific config
+ */
+function variation_change_customify_buttons_section( $section_options, $options ) {
+
+	$new_section_options = array(
+
+		// Main Content
+		'buttons' => array(
+			'options' => array(
+				'buttons_style' => array(
+					'default' => 'outline'
+				),
+				'buttons_shape' => array(
+					'default' => 'square'
+				),
+        'buttons_font' => array(
+          'selector' => '.c-btn, .c-card__action',
+          'default' => array(
+            'font-family'    => VARIATION_ACCENT_FONT,
+            'font-weight'    => 'italic',
+            'font-size'      => 18,
+            'line-height'    => 1.27,
+            'letter-spacing' => 0,
+            'text-transform' => 'none',
+          ),
+        ),
 			),
 		),
 	);
