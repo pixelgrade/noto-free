@@ -320,7 +320,7 @@ var Pierot = function (_BaseTheme) {
         var that = _this;
         _this.handleContent();
         function loop() {
-            that.update();
+            that.updateCardsPosition();
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
@@ -328,8 +328,8 @@ var Pierot = function (_BaseTheme) {
     }
 
     _createClass(Pierot, [{
-        key: 'update',
-        value: function update() {
+        key: 'updateCardsPosition',
+        value: function updateCardsPosition() {
             var that = this;
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-card').each(function (i, obj) {
                 var thereshold = 20;
@@ -356,8 +356,6 @@ var Pierot = function (_BaseTheme) {
                 that.mouseX = e.pageX;
                 that.mouseY = e.pageY;
             });
-            // $( 'body' ).on( 'mousemove', (e) => {
-            // });
         }
     }, {
         key: 'onLoadAction',
@@ -379,6 +377,18 @@ var Pierot = function (_BaseTheme) {
             this.adjustLayout();
         }
     }, {
+        key: 'appendSvgToIntro',
+        value: function appendSvgToIntro() {
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            var $intro = $container.find('.intro');
+            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-pattern-template');
+            $intro.each(function (i, obj) {
+                var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                $waveTemplate.clone().prependTo($obj).show();
+            });
+        }
+    }, {
         key: 'handleContent',
         value: function handleContent() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
@@ -387,6 +397,7 @@ var Pierot = function (_BaseTheme) {
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
+            this.appendSvgToIntro($container);
             this.eventHandlers($container);
         }
     }, {

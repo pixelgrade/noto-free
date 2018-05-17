@@ -17,6 +17,20 @@
 
 function pierot_register_blog_blocks( $component_slug, $component_config ) {
 
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/entry-header', array() );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/entry-header-single', array(
+		'extend' => 'blog/entry-header',
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'component_slug' => 'blog',
+				'slug' => 'entry-header',
+				'name' => 'single',
+			),
+		),
+	));
+
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'blocks' => array(
 			'blog/entry-header-single',

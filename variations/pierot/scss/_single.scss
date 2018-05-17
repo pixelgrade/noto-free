@@ -42,25 +42,41 @@
       grid-column: ms / ce;
     }
   }
+
+  .header-category a {
+    @include meta-style;
+  }
 }
 
 .entry-image--portrait {
 
   .content-area {
+    padding-top: 6rem;
 
+    .header-category,
     .entry-title,
     .header-meta {
       grid-column: s / hs;
       text-align: right;
+      justify-content: flex-end;
     }
 
     .entry-thumbnail {
       grid-row-end: span 3;
+      margin-left: 3rem;
+      margin-bottom: 3rem;
     }
 
-    .header-category,
+    .header-meta {
+      margin-bottom: 3rem;
+    }
+
     .entry-thumbnail {
-      grid-column: hs / he;
+      grid-column: hs / me;
+
+      img {
+        display: block;
+      }
     }
   }
 }
@@ -76,4 +92,15 @@
   a {
     text-decoration: none;
   }
+}
+
+.cats,
+.tags,
+.sharedaddy {
+  margin-top: 2rem;
+}
+
+.entry-footer,
+.comments-area {
+  margin-top: 4rem;
 }

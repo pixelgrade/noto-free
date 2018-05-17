@@ -207,7 +207,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
-
+	unset( $section_options['main_content']['options']['main_content_content_width'] );
 	return $section_options;
 }
 
@@ -323,20 +323,87 @@ function variation_change_customify_footer_section( $section_options, $options )
  */
 function variation_change_customify_buttons_section( $section_options, $options ) {
 
+	$buttons = array(
+		'.c-btn',
+		'.c-card__action',
+		'.c-comments-toggle__label',
+		'.button:not(.default)',
+		'button[type=button]',
+		'button[type=reset]',
+		'button[type=submit]',
+		'input[type=button]',
+		'input[type=submit]',
+		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
+	);
+
+	$buttons_default = implode( ',', $buttons );
+	$buttons_solid = implode( ',', array_map( 'pierot_prefix_solid_buttons', $buttons ) );
+	$buttons_outline = implode( ',', array_map( 'pierot_prefix_outline_buttons', $buttons ) );
+
+	$buttons_active = implode( ',', array(
+			implode( ',', $buttons ),
+			implode( ',', array_map( 'pierot_suffix_hover_buttons', $buttons ) ),
+			implode( ',', array_map( 'pierot_suffix_active_buttons', $buttons ) ),
+			implode( ',', array_map( 'pierot_suffix_focus_buttons', $buttons ) ),
+		)
+	);
+
 	$new_section_options = array(
 
 		// Main Content
 		'buttons' => array(
 			'options' => array(
-				'buttons_style' => array(
-					'default' => 'outline'
+				'buttons_style'      => array(
+					'default' => 'outline',
 				),
-				'buttons_shape' => array(
-					'default' => 'square'
+				'buttons_shape'      => array(
+					'default' => 'square',
 				),
-        'buttons_font' => array(
-          'selector' => '.c-btn, .c-card__action',
-          'default' => array(
+				'buttons_color'      => array(
+					'default' => VARIATION_DARK_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => $buttons_solid,
+						),
+						array(
+							'property' => 'color',
+							'selector' => $buttons_outline,
+						),
+					),
+				),
+				'buttons_text_color' => array(
+					'default' => '#FFFFFF',
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => $buttons_active
+						),
+					),
+				),
+				'buttons_font'       => array(
+					'selector' => $buttons_default . ',
+						.button.default,
+						.not-found .search-form .search-submit,
+						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
+						.nf-form-cont .label-above .nf-field-label label,
+						.nf-form-cont .list-checkbox-wrap .nf-field-element li label,
+						.nf-form-cont .list-radio-wrap .nf-field-element li label,
+						input[type=date],
+						input[type=email],
+						input[type=number],
+						input[type=password],
+						input[type=search],
+						input[type=tel],
+						input[type=text],
+						input[type=url],
+						textarea,
+						select,
+						div.wpforms-container[class] .wpforms-form .wpforms-field-label,
+						div.wpforms-container[class] .wpforms-form input,
+						div.wpforms-container[class] .wpforms-form select,
+						div.wpforms-container[class] .wpforms-form textarea',
+					'default'  => array(
             'font-family'    => VARIATION_ACCENT_FONT,
             'font-weight'    => 'italic',
             'font-size'      => 18,
@@ -352,6 +419,28 @@ function variation_change_customify_buttons_section( $section_options, $options 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
-
 	return $section_options;
+}
+
+/*
+ * Helper functions for the buttons section config.
+ */
+function pierot_prefix_solid_buttons( $value ) {
+	return '.u-buttons-solid ' . $value;
+}
+
+function pierot_suffix_hover_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':hover';
+}
+
+function pierot_suffix_active_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':active';
+}
+
+function pierot_suffix_focus_buttons( $value ) {
+	return '.u-buttons-solid ' . $value . ':focus';
+}
+
+function pierot_prefix_outline_buttons( $value ) {
+	return '.u-buttons-outline ' . $value;
 }

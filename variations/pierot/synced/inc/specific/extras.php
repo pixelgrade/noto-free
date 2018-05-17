@@ -56,7 +56,14 @@ endif;
 
 if ( ! function_exists( 'pierot_output_wave_svg' ) ) :
 	function pierot_output_wave_svg() {
-		get_template_part( 'template-parts/svg/wave-svg' );
+		get_template_part( 'template-parts/svg/wave-card-svg' );
 	}
 endif;
 add_action( 'pixelgrade_before_excerpt', 'pierot_output_wave_svg' );
+
+if ( ! function_exists( 'pierot_append_svg_to_footer' ) ) :
+	function pierot_append_svg_to_footer() {
+		get_template_part( 'template-parts/svg/wave-quote-svg' );
+	}
+endif;
+add_action( 'pixelgrade_after_footer', 'pierot_append_svg_to_footer' );

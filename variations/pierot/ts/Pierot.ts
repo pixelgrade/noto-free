@@ -14,14 +14,14 @@ export class Pierot extends BaseTheme {
     this.handleContent();
 
     function loop() {
-      that.update();
+      that.updateCardsPosition();
       requestAnimationFrame( loop );
     }
 
     requestAnimationFrame( loop );
   }
 
-  public update() {
+  public updateCardsPosition() {
     const that = this;
 
     $( '.c-card' ).each( (i, obj) => {
@@ -54,12 +54,6 @@ export class Pierot extends BaseTheme {
       that.mouseX = e.pageX;
       that.mouseY = e.pageY;
     });
-
-    // $( 'body' ).on( 'mousemove', (e) => {
-
-
-
-    // });
   }
 
   public onLoadAction() {
@@ -80,6 +74,16 @@ export class Pierot extends BaseTheme {
     this.adjustLayout();
   }
 
+  public appendSvgToIntro( $container: JQuery = this.$body ) {
+    const $intro = $container.find( '.intro' );
+    const $waveTemplate = $( '.js-wave-pattern-template' );
+
+    $intro.each( ( i, obj ) => {
+      const $obj = $( obj );
+      $waveTemplate.clone().prependTo( $obj ).show();
+    });
+  }
+
   public handleContent( $container: JQuery = this.$body ) {
 
     Helper.unwrapImages( $container.find( '.entry-content' ) );
@@ -87,6 +91,7 @@ export class Pierot extends BaseTheme {
     Helper.handleVideos( $container );
     Helper.handleCustomCSS( $container );
 
+    this.appendSvgToIntro( $container );
     this.eventHandlers( $container );
   }
 

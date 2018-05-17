@@ -27,8 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php pixelgrade_the_main_category_link( '<div class="header-category"><div class="cats">', '</div></div>' ); ?>
 
-<?php the_title( '<h1 class="entry-title u-page-title-color">', '</h1>' ); ?>
-
 <?php if ( has_post_thumbnail() ) { ?>
 
 	<div class="entry-thumbnail">
@@ -36,5 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 
 <?php } ?>
+
+<?php the_title( '<h1 class="entry-title u-page-title-color">', '</h1>' ); ?>
 
 <div class="header-meta"><?php pixelgrade_posted_on(); ?></div>
