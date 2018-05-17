@@ -2,6 +2,7 @@
 @import 'grid';
 @import 'single';
 @import 'typography';
+@import 'page-numbers';
 
 .u-header-height-padding-top[class] {
   padding-top: 0;
@@ -65,7 +66,8 @@
 }
 
 .navigation {
-  display: none;
+  grid-column: 19/span 12;
+  margin-left: auto;
 }
 
 .u-header-height[class] {
@@ -73,7 +75,7 @@
 }
 
 .u-header-background[class] {
-  background: none;
+  background: none; 
 }
 
 .c-border[class] {
@@ -143,6 +145,12 @@
     z-index: -1;
 
     width: 100%;
+
+    transition: all .2s ease-out;
+    transition-property: opacity, transform;
+    background: $theme-accent-light-color;
+    transform: translateX(-1em);
+    opacity: 0;
   }
 
   &:after {
@@ -165,11 +173,40 @@
 }
 
 .c-meta__primary {
+  ul {
+    margin-left: -2em;
+    margin-right: -2em;
+  }
+
+  li {
+
+  }
+
   a {
     display: block;
     padding: 0.5em 2em;
     border-bottom-left-radius: 999em;
     border-top-right-radius: 999em;
+    transition: opacity .3s ease-in-out;
+
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background: linear-gradient( to right, $theme-accent-light-color 50%, transparent);
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: all .3s ease-out;
+      transition-property: opacity, transform;
+      z-index: -1;
+    }
   }
 }
 
@@ -179,12 +216,14 @@
     color: $theme-accent-light-color;
   }
 
-  .c-meta__primary a {
-    background: linear-gradient( to right, $theme-accent-light-color 50%, transparent);
+  .c-meta__primary a:after {
+    transform: none;
+    opacity: 1;
   }
 
   .c-card__action:before {
-    background: $theme-accent-light-color;
+    opacity: 1;
+    transform: none;
   }
 
   .c-card__aside {
@@ -214,6 +253,15 @@
 
     max-width: 400px;
     max-height: 400px;
+  }
+
+  &:before,
+  &:after {
+
+  }
+
+  &:before {
+
   }
 
   &:after {
@@ -255,10 +303,10 @@
 .c-card:hover {
 
   .wave-svg-mask {
-    transform: translateX(4rem);
+    transform: translateX(1rem);
   }
 
   .wave-svg {
-    transform: translateX(-4rem);
+    transform: translateX(-1rem);
   }
 }

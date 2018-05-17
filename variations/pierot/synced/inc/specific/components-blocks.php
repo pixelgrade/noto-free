@@ -77,9 +77,9 @@ function pierot_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/index', array(
 		'blocks'   => array(
+			'blog/entry-header-archive',
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
-			'blog/entry-header-archive',
 		),
 	) );
 
