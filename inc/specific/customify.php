@@ -13,7 +13,7 @@
  */
 
 //add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
-//add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section', 20, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'variation_change_customify_main_content_section', 20, 2 );
 add_filter( 'pixelgrade_customify_buttons_section_options', 'variation_change_customify_buttons_section', 20, 2 );
 add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_customify_footer_section', 20, 2 );
@@ -57,6 +57,15 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_content_width' => array(
         ),
         'main_content_border_width' => array(
+					'default' => '24',
+					'css' => array(
+						array(
+							'property' => 'border-width',
+							'selector' => '.c-border',
+							'unit' => 'px',
+							'callback_filter' => 'pierot_border_width',
+						),
+					),
         ),
         'main_content_border_color' => array(
           'default' => VARIATION_DARK_SECONDARY_COLOR
@@ -264,6 +273,40 @@ function variation_change_customify_blog_grid_section( $section_options, $option
             'text-transform' => 'none',
           ),
         ),
+				'blog_item_thumbnail_background' => array(
+					'selector' => '.c-card__frame:after'
+				),
+			),
+		),
+	);
+
+	// Now we merge the modified config with the original one
+	// Thus overwriting what we have changed
+	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
+	return $section_options;
+}
+
+/**
+ * Header Section
+ *
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
+ *
+ * @return array $section_options The modified specific config
+ */
+function variation_change_customify_header_section( $section_options, $options ) {
+
+	// First setup the default values
+	// These should always come from the theme, not relying on the component's defaults
+	$new_section_options = array(
+
+		// Main Content
+		'header_section' => array(
+			'options' => array(
+				'header_logo_height' => array(
+					'default' => 48
+				),
 			),
 		),
 	);
@@ -443,4 +486,30 @@ function pierot_suffix_focus_buttons( $value ) {
 
 function pierot_prefix_outline_buttons( $value ) {
 	return '.u-buttons-outline ' . $value;
+}
+
+if ( ! function_exists( 'pierot_border_width' ) ) {
+	function pierot_border_width( $value, $selector, $property, $unit ) {
+			$output = '
+				.c-border:before { height: ' . $value . $unit . ' }
+				.c-border:after { width: ' . $value . $unit . ' }
+				.c-border i:before {
+					left: ' . $value . $unit . ';
+					width: ' . 2 * $value . $unit . ';
+					height: ' . 2 * $value . $unit . ';
+				}
+				.c-border i:after {
+					top: ' . $value . $unit . ';
+				}
+				.site-content:before {
+					top: ' . $value . $unit . ';
+					left: ' . $value . $unit . ';
+					bottom: ' . 2 * $value . $unit . ';
+				}
+				.c-pierot {
+					padding-top: ' . $value . $unit . ';
+					padding-bottom: ' . 4 * $value . $unit . ';
+				}';
+			return $output;
+	}
 }

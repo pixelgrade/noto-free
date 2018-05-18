@@ -71,17 +71,8 @@
   display: none;
 }
 
-.c-branding {
-  text-align: center;
-}
-
 .c-branding a {
   text-decoration: none;
-}
-
-.site-title[class] {
-  font-size: 8vw;
-  text-align: left;
 }
 
 .c-footer[class] {
@@ -102,7 +93,7 @@
   background: none;
 }
 
-.c-border[class] {
+.c-border {
   position: absolute;
   top: 0;
   right: 0;
@@ -218,10 +209,13 @@
 
   a {
     @include meta-style;
-    opacity: 0;
-    transform: translateX(-50%);
-    transition: all .3s ease-out;
-    transition-property: opacity, transform;
+
+    &:after {
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: all .3s ease-out;
+      transition-property: opacity, transform;
+    }
   }
 }
 
@@ -328,4 +322,24 @@
 
 [hidden] {
   display: none;
+}
+
+.c-card__thumbnail-background {
+  background: none;
+}
+
+.site-logo img,
+.custom-logo-link img {
+  width: auto;
+
+  .blog &,
+  .archive & {
+    max-height: none;
+  }
+}
+
+.c-branding {
+  a, img {
+    display: block;
+  }
 }

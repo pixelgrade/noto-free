@@ -1,6 +1,12 @@
 .single,
 .page {
 
+  .c-navbar__zone--middle {
+    margin-top: -2rem;
+    grid-row-end: span 1;
+    padding-bottom: 2rem;
+  }
+
   .c-pierot {
     grid-template-columns: 2rem 2rem [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
     padding-bottom: 2rem;

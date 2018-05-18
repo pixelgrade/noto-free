@@ -89,7 +89,7 @@ $content-container-width: 1300px;
 $content-sides-spacing: 0;
 $content-vertical-spacing: 0;
 $content-width: none;
-$content-border-width: 10px;
+$content-border-width: 0;
 $content-border-color: transparent;
 // ----------------------------------------
 // Colors
@@ -289,15 +289,7 @@ $blog-card-title-font: (
   font-weight: 700
 );
 
-$blog-card-meta-primary-font: (
-  font-family: $theme-body-font-family-alt,
-  font-size: 14px,
-  line-height: 1.1,
-  font-weight: normal,
-  letter-spacing: 0.07em,
-  text-transform: uppercase
-);
-
+$blog-card-meta-primary-font: ();
 $blog-card-meta-secondary-font: $blog-card-meta-primary-font;
 // ----------------------------------------
 
