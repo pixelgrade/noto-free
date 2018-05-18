@@ -190,7 +190,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
           ),
         ),
         'main_content_heading_6_font' => array(
-					'selector' => 'h6, ul.page-numbers',
+					'selector' => 'h6, ul.page-numbers, .c-author__name',
           'default' => array(
             'font-family'    => VARIATION_ACCENT_FONT,
             'font-weight'    => '500italic',

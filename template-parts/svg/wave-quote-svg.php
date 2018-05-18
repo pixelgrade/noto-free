@@ -10,6 +10,6 @@
         </g>
       </pattern>
     </defs>
-    <rect x="-1000" class="rect-anchor-50-50" width="2000" height="8" style="fill: url(#wavePattern);" />
+    <rect x="-10000" class="rect-anchor-50-50" width="20000" height="8" style="fill: url(#wavePattern);" />
   </svg>
 </div>

@@ -25,16 +25,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php pixelgrade_the_main_category_link( '<div class="header-category"><div class="cats">', '</div></div>' ); ?>
+<div class="header-stuff">
+	<?php pixelgrade_the_main_category_link( '<div class="header-category"><div class="cats">', '</div></div>' ); ?>
+	<?php the_title( '<h1 class="entry-title u-page-title-color">', '</h1>' ); ?>
+
+	<div class="header-meta"><?php pixelgrade_posted_on(); ?></div>
+
+	<?php if ( 'portrait' === pixelgrade_get_post_thumbnail_aspect_ratio_class() ) {
+		pixelgrade_the_author_info_box();
+	} ?>
+
+</div>
+
+<?php if ( 'portrait' !== pixelgrade_get_post_thumbnail_aspect_ratio_class() ) {
+	pixelgrade_the_author_info_box();
+} ?>
 
 <?php if ( has_post_thumbnail() ) { ?>
-
 	<div class="entry-thumbnail">
 		<div><?php the_post_thumbnail( 'pixelgrade_single_' . pixelgrade_get_post_thumbnail_aspect_ratio_class() ); ?></div>
 	</div>
-
 <?php } ?>
-
-<?php the_title( '<h1 class="entry-title u-page-title-color">', '</h1>' ); ?>
-
-<div class="header-meta"><?php pixelgrade_posted_on(); ?></div>

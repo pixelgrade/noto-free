@@ -1,0 +1,39 @@
+.c-author {
+  display: block;
+  max-width: 12em;
+  margin-left: auto;
+}
+
+.c-author__avatar {
+  max-width: none;
+
+  img {
+    margin-left: auto;
+  }
+}
+
+.c-author__avatar + .c-author__details {
+  margin-top: 2rem;
+  padding-left: 0;
+}
+
+.c-author__name[class] {
+  margin-bottom: 1rem;
+  color: $theme-accent-color;
+}
+
+@mixin caption {
+  font-size: 0.765em;
+}
+
+.c-author__details {
+  @include caption;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.c-author__description[class] {
+  margin-bottom: 1rem;
+}
