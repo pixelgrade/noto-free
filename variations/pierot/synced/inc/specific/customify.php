@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 
-//add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
+add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'variation_change_customify_main_content_section', 20, 2 );
 add_filter( 'pixelgrade_customify_buttons_section_options', 'variation_change_customify_buttons_section', 20, 2 );
@@ -32,6 +32,21 @@ define( 'VARIATION_ACCENT_FONT', 'IBM Plex Mono' );
 define( 'VARIATION_BODY_FONT', 'IBM Plex Sans' );
 
 /**
+ * Footer Section
+ *
+ * @param array $section_options The specific Customify config to be filtered
+ * @param array $options The whole Customify config
+ *
+ * @return array $section_options The modified specific config
+ */
+function variation_change_customify_general_section( $section_options, $options ) {
+
+	unset( $section_options['general'] );
+
+	return $section_options;
+}
+
+/**
  * Main Content Section
  *
  * @param array $section_options The specific Customify config to be filtered
@@ -48,14 +63,6 @@ function variation_change_customify_main_content_section( $section_options, $opt
 		// Main Content
 		'main_content' => array(
 			'options' => array(
-        'main_content_container_width' => array(
-        ),
-        'main_content_container_sides_spacing' => array(
-        ),
-				'main_content_container_padding' => array(
-        ),
-				'main_content_content_width' => array(
-        ),
         'main_content_border_width' => array(
 					'default' => '24',
 					'css' => array(
@@ -216,7 +223,18 @@ function variation_change_customify_main_content_section( $section_options, $opt
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
-	unset( $section_options['main_content']['options']['main_content_content_width'] );
+
+	$options_to_be_removed = array(
+		'main_content_container_width',
+		'main_content_container_sides_spacing',
+		'main_content_content_width',
+		'main_content_container_padding'
+	);
+
+	foreach ( $options_to_be_removed as $option_name ) {
+		unset( $section_options['main_content']['options'][$option_name] );
+	}
+
 	return $section_options;
 }
 
@@ -284,6 +302,33 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
 
+	$options_to_be_removed = array(
+		'blog_grid_width',
+		'blog_container_sides_spacing',
+		'blog_grid_title_items_grid_section',
+		'blog_grid_layout',
+		'blog_items_aspect_ratio',
+		'blog_items_per_row',
+		'blog_items_vertical_spacing',
+		'blog_items_horizontal_spacing',
+		'blog_grid_title_items_title_section',
+		'blog_items_title_position',
+		'blog_items_title_alignment_nearby',
+		'blog_items_title_alignment_overlay',
+		'blog_items_title_visibility_title',
+		'blog_items_title_visibility',
+		'blog_grid_title_items_excerpt_section',
+		'blog_items_excerpt_visibility_title',
+		'blog_items_excerpt_visibility',
+		'blog_item_thumbnail_background',
+		'blog_grid_title_thumbnail_hover_section',
+		'blog_item_thumbnail_hover_opacity',
+	);
+
+	foreach ( $options_to_be_removed as $option_name ) {
+		unset( $section_options['blog_grid']['options'][$option_name] );
+	}
+
 	return $section_options;
 }
 
@@ -315,6 +360,19 @@ function variation_change_customify_header_section( $section_options, $options )
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
 
+	$options_to_be_removed = array(
+		'header_title_layout_section',
+		'header_height',
+		'header_position',
+		'header_width',
+		'header_sides_spacing',
+		'header_background',
+	);
+
+	foreach ( $options_to_be_removed as $option_name ) {
+		unset( $section_options['header_section']['options'][$option_name] );
+	}
+
 	return $section_options;
 }
 
@@ -335,7 +393,12 @@ function variation_change_customify_footer_section( $section_options, $options )
 		// Main Content
 		'footer_section' => array(
 			'options' => array(
-
+				'footer_top_spacing' => array(
+					'default' => 48
+				),
+				'footer_bottom_spacing' => array(
+					'default' => 48
+				),
 				'footer_background' => array(
 					'default' => VARIATION_DARK_COLOR
 				),

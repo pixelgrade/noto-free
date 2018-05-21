@@ -250,9 +250,13 @@ $border-width: 2rem;
   }
 }
 
-.site-footer[class][class] {
+.site-footer {
   grid-column: 1 / -1;
-  padding: 50px 6rem;
+}
+
+.site-footer.u-container-sides-spacing {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 .site-content {
