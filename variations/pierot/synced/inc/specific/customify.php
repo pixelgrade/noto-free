@@ -119,6 +119,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_body_text_font'           => array(
+					'selector' => '.c-card__excerpt, .c-card__letter',
 					'default' => array(
 						'font-family'    => VARIATION_BODY_FONT,
 						'font-weight'    => 'regular',

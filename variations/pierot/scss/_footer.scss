@@ -1,0 +1,25 @@
+.c-footer__zone--bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    .menu {
+        display: flex;
+        list-style: none;
+
+        > * + *:before {
+            content: " / ";
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            pointer-events: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.back-to-top {
+    display: none;
+}

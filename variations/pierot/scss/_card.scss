@@ -65,6 +65,7 @@
 
 .c-card__frame {
   position: relative;
+  overflow: visible;
 
   img {
     width: auto;
@@ -101,7 +102,11 @@
 }
 
 .c-card__letter {
-  display: none;
+  color: $theme-accent-light-color;
+
+  .c-gallery__item:not(.c-gallery__item--no-image) & {
+    display: none;
+  }
 }
 
 .c-card:hover {
