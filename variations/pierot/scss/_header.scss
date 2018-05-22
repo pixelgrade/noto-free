@@ -16,7 +16,7 @@
       display: flex;
       align-items: center;
       height: 100%;
-      padding: 0 1em;
+      padding: 1em;
 
       color: inherit;
       text-decoration: none;
@@ -26,6 +26,7 @@
   .menu,
   .sub-menu {
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
 
     padding-left: 0;
@@ -37,13 +38,32 @@
     top: 100%;
     left: 0;
     right: 0;
-    height: 100%;
+
+    margin-top: 0;
+    justify-content: flex-end;
+    padding-right: percentage(3/19);
+
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .menu-item-has-children {
+
+    &:hover > .sub-menu {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    > a:after {
+      content: "+";
+      padding-left: 0.5em;
+    }
   }
 }
 
 .c-navbar__zone--left {
   position: relative;
-  color: white;
+  z-index: 200;
 }
 
 .c-navbar__zone--left,

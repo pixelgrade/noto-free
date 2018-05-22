@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div class="header-stuff">
-	<?php pixelgrade_the_main_category_link( '<div class="header-category"><div class="cats">', '</div></div>' ); ?>
+	<?php pixelgrade_the_main_category_link( '<div class="header-category">', '</div>' ); ?>
 	<?php the_title( '<h1 class="entry-title u-page-title-color">', '</h1>' ); ?>
 
 	<div class="header-meta"><?php pixelgrade_posted_on(); ?></div>

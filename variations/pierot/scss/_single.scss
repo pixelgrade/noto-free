@@ -24,10 +24,10 @@
 
   .content-area {
     position: relative;
+    z-index: 10;
     padding-top: 6rem;
     grid-column-end: -1;
     background: white;
-    z-index: 1000;
 
     display: grid;
     grid-template-columns: 1fr 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 2fr [hs] minmax(10em, 2fr) [he] 2fr 2fr [ce] auto [me] 4rem [ceo] 2fr [e] 1fr 1fr [edge] 1fr;

@@ -63,159 +63,154 @@ function variation_change_customify_main_content_section( $section_options, $opt
 		// Main Content
 		'main_content' => array(
 			'options' => array(
-        'main_content_border_width' => array(
-					'default' => '24',
+				'main_content_border_color'             => array(
+					'default' => VARIATION_DARK_SECONDARY_COLOR,
 					'css' => array(
 						array(
-							'property' => 'border-width',
-							'selector' => '.c-border',
-							'unit' => 'px',
-							'callback_filter' => 'pierot_border_width',
+							'property' => 'color',
+							'selector' => '.menu-item-has-children:hover',
 						),
 					),
-        ),
-        'main_content_border_color' => array(
-          'default' => VARIATION_DARK_SECONDARY_COLOR
-        ),
-        'main_content_page_title_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_body_text_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_body_link_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_body_link_active_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_underlined_body_links' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_heading_1_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_heading_2_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_heading_3_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_heading_4_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_heading_5_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
-        'main_content_heading_6_color' => array(
-          'default' => VARIATION_DARK_COLOR
-        ),
+				),
+				'main_content_page_title_color'         => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_body_text_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_body_link_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_body_link_active_color'   => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_underlined_body_links'    => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_heading_1_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_heading_2_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_heading_3_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_heading_4_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_heading_5_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
+				'main_content_heading_6_color'          => array(
+					'default' => VARIATION_DARK_COLOR
+				),
 				'main_content_content_background_color' => array(
 					'default' => '#FFFFFF'
 				),
-				'main_content_page_title_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_HEADINGS_FONT,
-            'font-weight'    => '700',
-            'font-size'      => 74,
-            'line-height'    => 1.08,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_body_text_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_BODY_FONT,
-            'font-weight'    => 'regular',
-            'font-size'      => 17,
-            'line-height'    => 1.65,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_paragraph_text_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_BODY_FONT,
-            'font-weight'    => 'regular',
-            'font-size'      => 18,
-            'line-height'    => 1.67,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_quote_block_font' => array(
-          'selector' => 'blockquote, .intro',
-          'default' => array(
-            'font-family'    => VARIATION_ACCENT_FONT,
-            'font-weight'    => 'italic',
-            'font-size'      => 18,
-            'line-height'    => 1.67,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_heading_1_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_HEADINGS_FONT,
-            'font-weight'    => '700',
-            'font-size'      => 56,
-            'line-height'    => 1,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_heading_2_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_HEADINGS_FONT,
-            'font-weight'    => '700',
-            'font-size'      => 42,
-            'line-height'    => 1.0476,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_heading_3_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_HEADINGS_FONT,
-            'font-weight'    => '700',
-            'font-size'      => 32,
-            'line-height'    => 1.0625,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_heading_4_font' => array(
-          'default' => array(
-            'font-family'    => VARIATION_HEADINGS_FONT,
-            'font-weight'    => '700',
-            'font-size'      => 24,
-            'line-height'    => 0.958,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_heading_5_font' => array(
-          'selector' => 'h5, .header-category',
-          'default' => array(
-            'font-family'    => VARIATION_ACCENT_FONT,
-            'font-weight'    => '500italic',
-            'font-size'      => 18,
-            'line-height'    => 0.833,
-            'letter-spacing' => 0.11,
-            'text-transform' => 'none',
-          ),
-        ),
-        'main_content_heading_6_font' => array(
+				'main_content_page_title_font'          => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 74,
+						'line-height'    => 1.08,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_body_text_font'           => array(
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 17,
+						'line-height'    => 1.65,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_paragraph_text_font'      => array(
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 18,
+						'line-height'    => 1.67,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_quote_block_font'         => array(
+					'selector' => 'blockquote, .intro',
+					'default'  => array(
+						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-weight'    => 'italic',
+						'font-size'      => 18,
+						'line-height'    => 1.67,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_1_font'           => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 56,
+						'line-height'    => 1,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_2_font'           => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 42,
+						'line-height'    => 1.0476,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_3_font'           => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 32,
+						'line-height'    => 1.0625,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_4_font'           => array(
+					'default' => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 24,
+						'line-height'    => 0.958,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_5_font'           => array(
+					'selector' => 'h5, .header-category',
+					'default'  => array(
+						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-weight'    => '500italic',
+						'font-size'      => 18,
+						'line-height'    => 0.833,
+						'letter-spacing' => 0.11,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, ul.page-numbers, .c-author__name',
-          'default' => array(
-            'font-family'    => VARIATION_ACCENT_FONT,
-            'font-weight'    => '500italic',
-            'font-size'      => 14,
-            'line-height'    => 1.071,
-            'letter-spacing' => 0.142,
-            'text-transform' => 'none',
-          ),
-        ),
+					'default'  => array(
+						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-weight'    => '500italic',
+						'font-size'      => 14,
+						'line-height'    => 1.071,
+						'letter-spacing' => 0.142,
+						'text-transform' => 'none',
+					),
+				),
 			),
 		),
 	);
@@ -228,11 +223,12 @@ function variation_change_customify_main_content_section( $section_options, $opt
 		'main_content_container_width',
 		'main_content_container_sides_spacing',
 		'main_content_content_width',
-		'main_content_container_padding'
+		'main_content_container_padding',
+		'main_content_border_width',
 	);
 
 	foreach ( $options_to_be_removed as $option_name ) {
-		unset( $section_options['main_content']['options'][$option_name] );
+		unset( $section_options['main_content']['options'][ $option_name ] );
 	}
 
 	return $section_options;
@@ -255,42 +251,42 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 		// Main Content
 		'blog_grid' => array(
 			'options' => array(
-        'blog_items_secondary_meta' => array(
-            'default' => 'none',
-        ),
-        'blog_item_title_font' => array(
-          'selector' => '.c-card__title',
-          'default' => array(
-            'font-family'    => VARIATION_HEADINGS_FONT,
-            'font-weight'    => '700',
-            'font-size'      => 32,
-            'line-height'    => 1.0625,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
-        'blog_item_meta_font' => array(
-          'selector' => '.c-card__meta',
-          'default' => array(
-            'font-family'    => VARIATION_ACCENT_FONT,
-            'font-weight'    => '500italic',
-            'font-size'      => 14,
-            'line-height'    => 1.071,
-            'letter-spacing' => 0.14,
-            'text-transform' => 'none',
-          ),
-        ),
-        'blog_item_excerpt_font' => array(
-          'selector' => '.c-card__excerpt',
-          'default' => array(
-            'font-family'    => VARIATION_ACCENT_FONT,
-            'font-weight'    => 'regular',
-            'font-size'      => 15,
-            'line-height'    => 1.6,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
+				'blog_items_secondary_meta'      => array(
+					'default' => 'none',
+				),
+				'blog_item_title_font'           => array(
+					'selector' => '.c-card__title',
+					'default'  => array(
+						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 32,
+						'line-height'    => 1.0625,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_meta_font'            => array(
+					'selector' => '.c-card__meta',
+					'default'  => array(
+						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-weight'    => '500italic',
+						'font-size'      => 14,
+						'line-height'    => 1.071,
+						'letter-spacing' => 0.14,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_excerpt_font'         => array(
+					'selector' => '.c-card__excerpt',
+					'default'  => array(
+						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 15,
+						'line-height'    => 1.6,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
 				'blog_item_thumbnail_background' => array(
 					'selector' => '.c-card__frame:after'
 				),
@@ -326,7 +322,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 	);
 
 	foreach ( $options_to_be_removed as $option_name ) {
-		unset( $section_options['blog_grid']['options'][$option_name] );
+		unset( $section_options['blog_grid']['options'][ $option_name ] );
 	}
 
 	return $section_options;
@@ -352,6 +348,24 @@ function variation_change_customify_header_section( $section_options, $options )
 				'header_logo_height' => array(
 					'default' => 48
 				),
+				'header_navigation_links_color' => array(
+					'default' => VARIATION_LIGHT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-navbar__zone--left',
+						),
+					),
+				),
+				'header_background' => array(
+					'default' => VARIATION_LIGHT_COLOR,
+					'css' => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.menu-item-has-children:hover, .site-content:before, .c-navbar__zone--left .sub-menu'
+						),
+					),
+				),
 			),
 		),
 	);
@@ -366,11 +380,10 @@ function variation_change_customify_header_section( $section_options, $options )
 		'header_position',
 		'header_width',
 		'header_sides_spacing',
-		'header_background',
 	);
 
 	foreach ( $options_to_be_removed as $option_name ) {
-		unset( $section_options['header_section']['options'][$option_name] );
+		unset( $section_options['header_section']['options'][ $option_name ] );
 	}
 
 	return $section_options;
@@ -393,19 +406,19 @@ function variation_change_customify_footer_section( $section_options, $options )
 		// Main Content
 		'footer_section' => array(
 			'options' => array(
-				'footer_top_spacing' => array(
+				'footer_top_spacing'     => array(
 					'default' => 48
 				),
-				'footer_bottom_spacing' => array(
+				'footer_bottom_spacing'  => array(
 					'default' => 48
 				),
-				'footer_background' => array(
+				'footer_background'      => array(
 					'default' => VARIATION_DARK_COLOR
 				),
 				'footer_body_text_color' => array(
 					'default' => VARIATION_LIGHT_COLOR
 				),
-				'footer_links_color' => array(
+				'footer_links_color'     => array(
 					'default' => VARIATION_ACCENT_LIGHT_COLOR
 				),
 			),
@@ -433,6 +446,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 		'.c-btn',
 		'.c-card__action',
 		'.c-comments-toggle__label',
+		'.cats a',
 		'.button:not(.default)',
 		'button[type=button]',
 		'button[type=reset]',
@@ -443,7 +457,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 	);
 
 	$buttons_default = implode( ',', $buttons );
-	$buttons_solid = implode( ',', array_map( 'pierot_prefix_solid_buttons', $buttons ) );
+	$buttons_solid   = implode( ',', array_map( 'pierot_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'pierot_prefix_outline_buttons', $buttons ) );
 
 	$buttons_active = implode( ',', array(
@@ -510,14 +524,14 @@ function variation_change_customify_buttons_section( $section_options, $options 
 						div.wpforms-container[class] .wpforms-form select,
 						div.wpforms-container[class] .wpforms-form textarea',
 					'default'  => array(
-            'font-family'    => VARIATION_ACCENT_FONT,
-            'font-weight'    => 'italic',
-            'font-size'      => 18,
-            'line-height'    => 1.27,
-            'letter-spacing' => 0,
-            'text-transform' => 'none',
-          ),
-        ),
+						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-weight'    => 'italic',
+						'font-size'      => 18,
+						'line-height'    => 1.27,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
 			),
 		),
 	);
@@ -525,6 +539,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
 	return $section_options;
 }
 
@@ -553,7 +568,7 @@ function pierot_prefix_outline_buttons( $value ) {
 
 if ( ! function_exists( 'pierot_border_width' ) ) {
 	function pierot_border_width( $value, $selector, $property, $unit ) {
-			$output = '
+		$output = '
 				.c-border:before { height: ' . $value . $unit . ' }
 				.c-border:after { width: ' . $value . $unit . ' }
 				.c-border i:before {
@@ -573,6 +588,7 @@ if ( ! function_exists( 'pierot_border_width' ) ) {
 					padding-top: ' . $value . $unit . ';
 					padding-bottom: ' . 4 * $value . $unit . ';
 				}';
-			return $output;
+
+		return $output;
 	}
 }

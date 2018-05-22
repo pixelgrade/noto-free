@@ -41,7 +41,7 @@ $border-width: 2rem;
 
   display: grid;
   grid-template-columns: 2rem 1fr [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
-  grid-template-rows: 4rem 4rem;
+  grid-template-rows: 4rem minmax(4rem, auto);
   grid-auto-rows: minmax(50px, auto);
 
   padding-top: 2rem;
@@ -86,8 +86,9 @@ $border-width: 2rem;
 }
 
 .c-navbar__zone--left {
-  grid-column: 15 / span 15;
+  grid-column: 14 / span 19;
   grid-row: 1 / 2;
+  padding-right: percentage(3/19);
 }
 
 .c-navbar__zone--right {

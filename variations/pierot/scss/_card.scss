@@ -1,38 +1,5 @@
 .c-card__action {
   @include btn;
-  color: inherit;
-  position: relative;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    bottom: 0.5em;
-    z-index: -1;
-
-    width: 100%;
-
-    transition: all .2s ease-out;
-    transition-property: opacity, transform;
-    background: $theme-accent-light-color;
-    transform: translateX(-1em);
-    opacity: 0;
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 2px solid currentColor;
-  }
-
-  .u-buttons-outline & {
-    border: 0;
-  }
 }
 
 .c-card__excerpt + .c-card__footer {
