@@ -79,6 +79,12 @@ $border-width: 2rem;
   padding-bottom: 8rem;
 }
 
+.c-pierot > .entry-header {
+  grid-row-start: 4;
+  grid-column-end: span 11;
+  padding-bottom: 8rem;
+}
+
 .c-navbar__zone--left {
   grid-column: 15 / span 15;
   grid-row: 1 / 2;
@@ -93,7 +99,7 @@ $border-width: 2rem;
 
   &:nth-of-type(1) {
     grid-column: middle / span 14;
-    grid-row-end: span 2;
+    grid-row-end: span 3;
     padding-top: 50px;
 
     @include card-large;

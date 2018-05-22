@@ -91,7 +91,6 @@ function pierot_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/index', array(
 		'blocks'   => array(
-			'blog/entry-header-archive',
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 		),
@@ -99,6 +98,22 @@ function pierot_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/home', array(
 		'extend' => 'blog/index'
+	) );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/archive', array(
+		'blocks'   => array(
+			'blog/entry-header-archive',
+			'blog/loop', // These two are mutually exclusive
+			'blog/loop-none',
+		),
+	) );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/search', array(
+		'blocks'   => array(
+			'blog/entry-header-search',
+			'blog/loop', // These two are mutually exclusive
+			'blog/loop-none',
+		),
 	) );
 
 }
