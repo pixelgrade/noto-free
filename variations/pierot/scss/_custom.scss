@@ -24,6 +24,7 @@
 @import 'author';
 @import 'header';
 @import 'grid';
+@import 'card';
 @import 'single';
 @import 'typography';
 @import 'page-numbers';
@@ -178,4 +179,23 @@
   a, img {
     display: block;
   }
+}
+
+[class*="gallery-columns-"] {
+  justify-content: center;
+}
+
+.single,
+.page {
+  .content-area > .related-posts-container {
+    grid-column: ms / e;
+  }
+}
+
+.jetpack-social-navigation .screen-reader-text {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  position: relative;
+  text-transform: capitalize;  
 }

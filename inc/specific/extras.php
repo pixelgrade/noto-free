@@ -67,3 +67,15 @@ if ( ! function_exists( 'pierot_append_svg_to_footer' ) ) :
 	}
 endif;
 add_action( 'pixelgrade_after_footer', 'pierot_append_svg_to_footer' );
+
+if ( ! function_exists( 'pierot_hide_comments_by_default' ) ) {
+	function pierot_hide_comments_by_default( $string ) {
+			return '';
+	}
+}
+add_filter( 'pixelgrade_get_comments_toggle_checked_attribute', 'pierot_hide_comments_by_default' );
+
+function pierot_dequeue_scripts() {
+	wp_dequeue_style( 'jetpack-social-menu' );
+}
+add_action( 'wp_enqueue_scripts', 'pierot_dequeue_scripts', 20 );
