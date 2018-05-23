@@ -119,11 +119,10 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_body_text_font'           => array(
-					'selector' => '.c-card__excerpt, .c-card__letter',
 					'default' => array(
 						'font-family'    => VARIATION_BODY_FONT,
 						'font-weight'    => 'regular',
-						'font-size'      => 17,
+						'font-size'      => 16,
 						'line-height'    => 1.65,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
@@ -455,14 +454,14 @@ function variation_change_customify_footer_section( $section_options, $options )
 				'footer_bottom_spacing'  => array(
 					'default' => 48
 				),
-				'footer_background'      => array(
-					'default' => VARIATION_DARK_COLOR
-				),
 				'footer_body_text_color' => array(
 					'default' => VARIATION_LIGHT_COLOR
 				),
 				'footer_links_color'     => array(
 					'default' => VARIATION_ACCENT_LIGHT_COLOR
+				),
+				'footer_background'      => array(
+					'default' => VARIATION_DARK_COLOR
 				),
 			),
 		),
@@ -471,6 +470,34 @@ function variation_change_customify_footer_section( $section_options, $options )
 	// Now we merge the modified config with the original one
 	// Thus overwriting what we have changed
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
+	$section_options['footer_section']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['footer_section']['options'], 'footer_background', array(
+		'footer_font' => array(
+			'type'        => 'font',
+			'label'       => esc_html__( 'Footer Font', '__components_txtd' ),
+			'desc'        => '',
+			'selector'    => '.c-footer',
+			'callback'    => 'typeline_font_cb',
+
+			'default'     => array(
+				'font-family' => VARIATION_ACCENT_FONT,
+				'font-weight' => 'regular',
+				'font-size' => 15,
+				'line-height' => 1.6,
+			),
+
+			// Sub Fields Configuration (optional)
+			'fields'      => array(
+				'font-size'       => array(                           // Set custom values for a range slider
+					'min'  => 12,
+					'max'  => 48,
+					'step' => 1,
+					'unit' => 'px',
+				),
+				'text-transform'  => true,
+			),
+		)
+	) );
 
 	return $section_options;
 }

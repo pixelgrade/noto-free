@@ -1,3 +1,9 @@
+.c-footer {
+    a {
+        text-decoration: none;
+    }
+}
+
 .c-footer__zone--bottom {
     display: flex;
     flex-direction: row-reverse;
@@ -8,13 +14,14 @@
         list-style: none;
 
         > * + *:before {
-            content: " / ";
-            margin-left: 0.5rem;
-            margin-right: 0.5rem;
+            content: "/";
+            margin-left: 1rem;
+            margin-right: 1rem;
             pointer-events: none;
         }
 
         a {
+            color: inherit;
             text-decoration: none;
         }
     }
