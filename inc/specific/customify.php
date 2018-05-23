@@ -326,6 +326,37 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 		unset( $section_options['blog_grid']['options'][ $option_name ] );
 	}
 
+	$section_options['blog_grid']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['blog_grid']['options'], 'blog_item_excerpt_font', array(
+		'blog_item_dropcap_font' => array(
+			'type'        => 'font',
+			'label'       => esc_html__( 'Item Dropcap Font', '__components_txtd' ),
+			'desc'        => '',
+			'selector'    => '.c-card__letter',
+			'callback'    => 'typeline_font_cb',
+
+			'default'     => array(
+				'font-family' => 'IBM Plex Serif',
+				'font-weight' => '300italic',
+				'font-size' => 300,
+				'line-height' => 1,
+				'text-transform' => 'uppercase'
+			),
+
+			// Sub Fields Configuration (optional)
+			'fields'      => array(
+				'font-size'       => array(                           // Set custom values for a range slider
+					'min'  => 30,
+					'max'  => 300,
+					'step' => 1,
+					'unit' => 'px',
+				),
+				'text-align'      => false,
+				'text-transform'  => true,
+				'text-decoration' => false,
+			),
+		)
+	) );
+
 	return $section_options;
 }
 
@@ -365,6 +396,17 @@ function variation_change_customify_header_section( $section_options, $options )
 							'property' => 'background-color',
 							'selector' => '.menu-item-has-children:hover, .site-content:before, .c-navbar__zone--left .sub-menu'
 						),
+					),
+				),
+				'header_navigation_font' => array(
+					'selector' => '.c-navbar__zone--left, .c-navbar__zone--right',
+					'default' => array(
+						'font-family'    => VARIATION_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 16,
+						'line-height'    => 1.65,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
 					),
 				),
 			),

@@ -16,6 +16,9 @@
 
   .site-content:before {
     bottom: 2rem;
+
+    // (100% - 2rem) * 12 / 32
+    width: calc(#{percentage(11/30)} - (24rem/30));
   }
 
   .header-dropcap {

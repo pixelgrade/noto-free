@@ -1,5 +1,6 @@
 .c-card__action {
   @include btn;
+  @include btn-overwrite;
 }
 
 .c-card__excerpt + .c-card__footer {
@@ -123,4 +124,9 @@
 
 .c-card__thumbnail-background {
   background: none;
+}
+
+.c-card__letter {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }

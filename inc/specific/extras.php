@@ -30,6 +30,14 @@ if ( ! function_exists( 'boilerplate_google_fonts_url' ) ) :
 			$fonts[] = 'IBM Plex Sans:400,400i,700,700i';
 		}
 
+		/* Translators: If there are characters in your language that are not
+		* supported by IBM Plex Sans, translate this to 'off'. Do not translate
+		* into your own language.
+		*/
+		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Serif: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'IBM Plex Serif:300i';
+		}
+
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
 		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', '__theme_txtd' );
 
