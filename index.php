@@ -10,7 +10,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 

@@ -280,16 +280,16 @@ Helper.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Pierot__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Noto__ = __webpack_require__(7);
 
-new __WEBPACK_IMPORTED_MODULE_0__Pierot__["a" /* Pierot */]();
+new __WEBPACK_IMPORTED_MODULE_0__Noto__["a" /* Noto */]();
 
 /***/ }),
 /* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Pierot; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Noto; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_base_ts_BaseTheme__ = __webpack_require__(8);
@@ -307,13 +307,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Pierot = function (_BaseTheme) {
-    _inherits(Pierot, _BaseTheme);
+var Noto = function (_BaseTheme) {
+    _inherits(Noto, _BaseTheme);
 
-    function Pierot() {
-        _classCallCheck(this, Pierot);
+    function Noto() {
+        _classCallCheck(this, Noto);
 
-        var _this = _possibleConstructorReturn(this, (Pierot.__proto__ || Object.getPrototypeOf(Pierot)).call(this));
+        var _this = _possibleConstructorReturn(this, (Noto.__proto__ || Object.getPrototypeOf(Noto)).call(this));
 
         _this.mouseX = 0;
         _this.mouseY = 0;
@@ -327,7 +327,7 @@ var Pierot = function (_BaseTheme) {
         return _this;
     }
 
-    _createClass(Pierot, [{
+    _createClass(Noto, [{
         key: 'updateCardsPosition',
         value: function updateCardsPosition() {
             var that = this;
@@ -350,7 +350,7 @@ var Pierot = function (_BaseTheme) {
     }, {
         key: 'bindEvents',
         value: function bindEvents() {
-            _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'bindEvents', this).call(this);
+            _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'bindEvents', this).call(this);
             var that = this;
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').on('mousemove', function (e) {
                 that.mouseX = e.pageX;
@@ -360,13 +360,13 @@ var Pierot = function (_BaseTheme) {
     }, {
         key: 'onLoadAction',
         value: function onLoadAction() {
-            _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'onLoadAction', this).call(this);
+            _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onLoadAction', this).call(this);
             this.adjustLayout();
         }
     }, {
         key: 'onResizeAction',
         value: function onResizeAction() {
-            _get(Pierot.prototype.__proto__ || Object.getPrototypeOf(Pierot.prototype), 'onResizeAction', this).call(this);
+            _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onResizeAction', this).call(this);
             this.adjustLayout();
         }
     }, {
@@ -434,7 +434,7 @@ var Pierot = function (_BaseTheme) {
         value: function adjustLayout() {}
     }]);
 
-    return Pierot;
+    return Noto;
 }(__WEBPACK_IMPORTED_MODULE_1__components_base_ts_BaseTheme__["a" /* BaseTheme */]);
 
 /***/ }),

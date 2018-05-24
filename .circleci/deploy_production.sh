@@ -3,7 +3,7 @@
 
 # let's set some variables
 E_XCD=86       # Can't change directory?
-THEME_NAME=boilerplate
+THEME_NAME=noto
 THEME_STAGGING_BRANCH=master
 DEMO_REPO=demos
 DEMO_BRANCH=master

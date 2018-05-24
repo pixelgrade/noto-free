@@ -2,48 +2,48 @@
 /**
  * PixCare Compatibility File.
  *
- * @package Boilerplate
- * @since Boilerplate 1.0.0
+ * @package Noto
+ * @since Noto 1.0.0
  */
 
 /**
  * After the first theme activation we need to ensure that Pixelgrade Care is installed
- * So we add a transient which will be handled by the `boilerplate_admin_redirect_to_pixcare_install_once` action
+ * So we add a transient which will be handled by the `noto_admin_redirect_to_pixcare_install_once` action
  */
-function boilerplate_force_redirect_to_pixcare_install_once() {
+function noto_force_redirect_to_pixcare_install_once() {
 	if ( class_exists( 'PixelgradeCare' ) || file_exists( WP_PLUGIN_DIR . '/pixelgrade-care/pixelgrade-care.php' ) ) {
 		return;
 	}
 
 	$plugin_version = get_option( 'pixelgrade_care_version' );
 	if ( empty( $plugin_version ) ) {
-		set_transient( '_boilerplate_activation_redirect', 1 );
+		set_transient( '_noto_activation_redirect', 1 );
 	}
 }
-add_action( 'after_switch_theme', 'boilerplate_force_redirect_to_pixcare_install_once' );
+add_action( 'after_switch_theme', 'noto_force_redirect_to_pixcare_install_once' );
 
 /**
  *  * Redirect the admin to the pixcare install page once only if the plugin is missing
  */
-function boilerplate_admin_redirect_to_pixcare_install_once() {
-	if ( ! get_transient( '_boilerplate_activation_redirect' ) ) {
+function noto_admin_redirect_to_pixcare_install_once() {
+	if ( ! get_transient( '_noto_activation_redirect' ) ) {
 		return;
 	}
-	delete_transient( '_boilerplate_activation_redirect' );
+	delete_transient( '_noto_activation_redirect' );
 
 	$url = admin_url( 'themes.php?page=pixelgrade_care-install' );
 
 	wp_safe_redirect( $url );
 	exit;
 }
-add_action( 'admin_init', 'boilerplate_admin_redirect_to_pixcare_install_once' );
+add_action( 'admin_init', 'noto_admin_redirect_to_pixcare_install_once' );
 
-function boilerplate_add_pixcare_install_page() {
+function noto_add_pixcare_install_page() {
 	add_theme_page(  '', '', 'manage_options', 'pixelgrade_care-install', null );
 }
-add_action( 'admin_menu', 'boilerplate_add_pixcare_install_page' );
+add_action( 'admin_menu', 'noto_add_pixcare_install_page' );
 
-function boilerplate_pixcare_install_page() {
+function noto_pixcare_install_page() {
 	if ( empty( $_GET['page'] ) || 'pixelgrade_care-install' !== $_GET['page'] ) {
 		return;
 	}
@@ -167,7 +167,7 @@ function boilerplate_pixcare_install_page() {
 	<?php
 	exit;
 }
-add_action( 'admin_init', 'boilerplate_pixcare_install_page' );
+add_action( 'admin_init', 'noto_pixcare_install_page' );
 
 
 /**
@@ -175,11 +175,11 @@ add_action( 'admin_init', 'boilerplate_pixcare_install_page' );
  *
  * @return string
  */
-function boilerplate_pixcare_install_page_title( $title ) {
+function noto_pixcare_install_page_title( $title ) {
 	if ( empty( $_GET['page'] ) || 'pixelgrade_care-install' !== $_GET['page'] ) {
 		return $title;
 	}
 
 	return esc_html__( 'Pixelgrade Care &rsaquo; Installer', '__theme_txtd' );
 }
-add_filter( 'wp_title', 'boilerplate_pixcare_install_page_title', 10, 1 );
+add_filter( 'wp_title', 'noto_pixcare_install_page_title', 10, 1 );

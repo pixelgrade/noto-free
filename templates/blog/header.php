@@ -60,7 +60,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
 
   <div id="content" class="site-content barba-container u-content-background">
-		<div class="c-pierot c-pierot--alternate">
+		<div class="c-noto c-noto--alternate">
 
 	<?php
 	/**

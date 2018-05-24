@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
@@ -14,11 +14,11 @@
  * See: https://jetpack.com/support/infinite-scroll/
  * See: https://jetpack.com/support/responsive-videos/
  */
-function boilerplate_jetpack_setup() {
+function noto_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'posts-container',
-		'render'    => 'boilerplate_infinite_scroll_render',
+		'render'    => 'noto_infinite_scroll_render',
 		'footer'    => 'page',
 		'footer_widgets' => is_active_sidebar( 'sidebar-footer' ) || has_nav_menu('footer' ),
 		'wrapper'   => false
@@ -33,7 +33,7 @@ function boilerplate_jetpack_setup() {
 		'author-bio'         => true, // display or not the author bio by default: true or false.
 		'masonry'            => '.c-gallery--masonry', // a CSS selector matching the elements that triggers a masonry refresh if the theme is using a masonry layout.
 		'post-details'       => array(
-			'stylesheet'      => 'boilerplate-style', // name of the theme's stylesheet.
+			'stylesheet'      => 'noto-style', // name of the theme's stylesheet.
 			'date'            => '.single-post .posted-on', // a CSS selector matching the elements that display the post date.
 			'categories'      => '.single-post .cats', // a CSS selector matching the elements that display the post categories.
 			'tags'            => '.single-post .tags', // a CSS selector matching the elements that display the post tags.
@@ -64,12 +64,12 @@ function boilerplate_jetpack_setup() {
 	);
 	set_theme_mod( 'pixelgrade_jetpack_default_active_modules', $default_modules );
 }
-add_action( 'after_setup_theme', 'boilerplate_jetpack_setup' );
+add_action( 'after_setup_theme', 'noto_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function boilerplate_infinite_scroll_render() {
+function noto_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 
@@ -90,7 +90,7 @@ function boilerplate_infinite_scroll_render() {
  *
  * @return array
  */
-function boilerplate_default_jetpack_sharing_services( $enabled ) {
+function noto_default_jetpack_sharing_services( $enabled ) {
 	return array(
 		'visible' => array(
 			'facebook',
@@ -101,7 +101,7 @@ function boilerplate_default_jetpack_sharing_services( $enabled ) {
 		)
 	);
 }
-add_filter( 'sharing_default_services', 'boilerplate_default_jetpack_sharing_services', 10, 1 );
+add_filter( 'sharing_default_services', 'noto_default_jetpack_sharing_services', 10, 1 );
 
 /**
  * Set up the default Jetpack Sharing (Sharedaddy) global options.
@@ -110,7 +110,7 @@ add_filter( 'sharing_default_services', 'boilerplate_default_jetpack_sharing_ser
  *
  * @return array
  */
-function boilerplate_default_jetpack_sharing_options( $default ) {
+function noto_default_jetpack_sharing_options( $default ) {
 	$default = array(
 		'global' => array(
 			'button_style' => 'text',
@@ -126,12 +126,12 @@ function boilerplate_default_jetpack_sharing_options( $default ) {
 
 	return $default;
 }
-add_filter( 'pixelgrade_filter_jetpack_sharing_default_options', 'boilerplate_default_jetpack_sharing_options', 10, 1 );
+add_filter( 'pixelgrade_filter_jetpack_sharing_default_options', 'noto_default_jetpack_sharing_options', 10, 1 );
 
 /**
  * Prevent sharing buttons when a Featured Posts widget starts.
  */
-function boilerplate_remove_jetpack_sharing() {
+function noto_remove_jetpack_sharing() {
 	if ( has_filter( 'the_content', 'sharing_display' ) ) {
 		remove_filter( 'the_content', 'sharing_display', 19 );
 	}
@@ -140,15 +140,15 @@ function boilerplate_remove_jetpack_sharing() {
 		remove_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
-add_action( 'pixelgrade_featured_posts_widget_start', 'boilerplate_remove_jetpack_sharing', 10 );
+add_action( 'pixelgrade_featured_posts_widget_start', 'noto_remove_jetpack_sharing', 10 );
 
 /**
  * Add sharing logic after a Featured Posts widget has rendered.
  */
-function boilerplate_add_jetpack_sharing() {
+function noto_add_jetpack_sharing() {
 	if ( function_exists( 'sharing_display' ) ) {
 		add_filter( 'the_content', 'sharing_display', 19 );
 		add_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
-add_action( 'pixelgrade_featured_posts_widget_end', 'boilerplate_add_jetpack_sharing', 10 );
+add_action( 'pixelgrade_featured_posts_widget_end', 'noto_add_jetpack_sharing', 10 );

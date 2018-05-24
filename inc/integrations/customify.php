@@ -1,8 +1,8 @@
 <?php
 /**
- * Boilerplate Customizer Options Config
+ * Noto Customizer Options Config
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
@@ -16,15 +16,15 @@
  *
  * @return array The returned options are required, if you don't need options return an empty array
  */
-add_filter( 'customify_filter_fields', 'boilerplate_add_customify_options', 11, 1 );
+add_filter( 'customify_filter_fields', 'noto_add_customify_options', 11, 1 );
 
 // Modify Customify Config
-add_filter( 'pixelgrade_customify_general_section_options', 'boilerplate_customify_general_section', 10, 2 );
-add_filter( 'pixelgrade_header_customify_section_options', 'boilerplate_customify_header_section', 10, 2 );
-add_filter( 'pixelgrade_customify_main_content_section_options', 'boilerplate_customify_main_content_section', 10, 2 );
-add_filter( 'pixelgrade_customify_buttons_section_options', 'boilerplate_customify_buttons_section', 10, 2 );
-add_filter( 'pixelgrade_footer_customify_section_options', 'boilerplate_customify_footer_section', 10, 2 );
-add_filter( 'pixelgrade_customify_blog_grid_section_options', 'boilerplate_customify_blog_grid_section', 10, 2 );
+add_filter( 'pixelgrade_customify_general_section_options', 'noto_customify_general_section', 10, 2 );
+add_filter( 'pixelgrade_header_customify_section_options', 'noto_customify_header_section', 10, 2 );
+add_filter( 'pixelgrade_customify_main_content_section_options', 'noto_customify_main_content_section', 10, 2 );
+add_filter( 'pixelgrade_customify_buttons_section_options', 'noto_customify_buttons_section', 10, 2 );
+add_filter( 'pixelgrade_footer_customify_section_options', 'noto_customify_footer_section', 10, 2 );
+add_filter( 'pixelgrade_customify_blog_grid_section_options', 'noto_customify_blog_grid_section', 10, 2 );
 
 define( 'THEME_TEXT_COLOR', '#2B3D39' );
 define( 'THEME_ACCENT_COLOR', '#DE2D16' );
@@ -34,8 +34,8 @@ define( 'THEME_HEADINGS_FONT', 'Roboto' );
 define( 'THEME_HEADINGS_FONT_ALT', 'PT Sans' );
 define( 'THEME_SITE_TITLE_FONT', 'Roboto' );
 
-function boilerplate_add_customify_options( $options ) {
-	$options['opt-name'] = 'boilerplate_options';
+function noto_add_customify_options( $options ) {
+	$options['opt-name'] = 'noto_options';
 
 	//start with a clean slate - no Customify default sections
 	$options['sections'] = array();
@@ -51,7 +51,7 @@ function boilerplate_add_customify_options( $options ) {
  *
  * @return array $general_section The modified specific config
  */
-function boilerplate_customify_general_section( $section_options, $options ) {
+function noto_customify_general_section( $section_options, $options ) {
 
 	$new_section_options = array(
 		// General
@@ -76,7 +76,7 @@ function boilerplate_customify_general_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_main_content_section( $section_options, $options ) {
+function noto_customify_main_content_section( $section_options, $options ) {
 
 	$modified_config = array(
 
@@ -273,7 +273,7 @@ function boilerplate_customify_main_content_section( $section_options, $options 
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_buttons_section( $section_options, $options ) {
+function noto_customify_buttons_section( $section_options, $options ) {
 	$modified_config = array(
 
 		// Main Content
@@ -319,7 +319,7 @@ function boilerplate_customify_buttons_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_blog_grid_section( $section_options, $options ) {
+function noto_customify_blog_grid_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$modified_config = array(
@@ -447,7 +447,7 @@ function boilerplate_customify_blog_grid_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_header_section( $section_options, $options ) {
+function noto_customify_header_section( $section_options, $options ) {
 
 	$modified_config = array(
 		'header_section' => array(
@@ -526,7 +526,7 @@ function boilerplate_customify_header_section( $section_options, $options ) {
  *
  * @return array $main_content_section The modified specific config
  */
-function boilerplate_customify_footer_section( $section_options, $options ) {
+function noto_customify_footer_section( $section_options, $options ) {
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
 	$modified_config = array(

@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 
-export class Pierot extends BaseTheme {
+export class Noto extends BaseTheme {
     public mouseX = 0;
     public mouseY = 0;
 

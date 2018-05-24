@@ -1,10 +1,10 @@
 {
-  "name": "pierot",
+  "name": "noto",
   "main": "webpack.config.js",
   "scripts": {
-    "pierot:prod": "webpack --env.variation=pierot && npm run rtl  && gulp zip --variation pierot",
-    "pierot:dev": "concurrently --kill-others \"npm run pierot\" \"npm run watch\" \"gulp watch-variation --variation pierot\" ",
-    "pierot": "webpack --watch --env.variation=pierot",
+    "noto:prod": "webpack --env.variation=noto && npm run rtl  && gulp zip --variation noto",
+    "noto:dev": "concurrently --kill-others \"npm run noto\" \"npm run watch\" \"gulp watch-variation --variation noto\" ",
+    "noto": "webpack --watch --env.variation=noto",
     "rtl": "./node_modules/.bin/rtlcss style.css rtl.css",
     "watch": "npm-watch"
   },

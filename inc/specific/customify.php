@@ -8,7 +8,7 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
@@ -527,14 +527,14 @@ function variation_change_customify_buttons_section( $section_options, $options 
 	);
 
 	$buttons_default = implode( ',', $buttons );
-	$buttons_solid   = implode( ',', array_map( 'pierot_prefix_solid_buttons', $buttons ) );
-	$buttons_outline = implode( ',', array_map( 'pierot_prefix_outline_buttons', $buttons ) );
+	$buttons_solid   = implode( ',', array_map( 'noto_prefix_solid_buttons', $buttons ) );
+	$buttons_outline = implode( ',', array_map( 'noto_prefix_outline_buttons', $buttons ) );
 
 	$buttons_active = implode( ',', array(
 			implode( ',', $buttons ),
-			implode( ',', array_map( 'pierot_suffix_hover_buttons', $buttons ) ),
-			implode( ',', array_map( 'pierot_suffix_active_buttons', $buttons ) ),
-			implode( ',', array_map( 'pierot_suffix_focus_buttons', $buttons ) ),
+			implode( ',', array_map( 'noto_suffix_hover_buttons', $buttons ) ),
+			implode( ',', array_map( 'noto_suffix_active_buttons', $buttons ) ),
+			implode( ',', array_map( 'noto_suffix_focus_buttons', $buttons ) ),
 		)
 	);
 
@@ -616,28 +616,28 @@ function variation_change_customify_buttons_section( $section_options, $options 
 /*
  * Helper functions for the buttons section config.
  */
-function pierot_prefix_solid_buttons( $value ) {
+function noto_prefix_solid_buttons( $value ) {
 	return '.u-buttons-solid ' . $value;
 }
 
-function pierot_suffix_hover_buttons( $value ) {
+function noto_suffix_hover_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':hover';
 }
 
-function pierot_suffix_active_buttons( $value ) {
+function noto_suffix_active_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':active';
 }
 
-function pierot_suffix_focus_buttons( $value ) {
+function noto_suffix_focus_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':focus';
 }
 
-function pierot_prefix_outline_buttons( $value ) {
+function noto_prefix_outline_buttons( $value ) {
 	return '.u-buttons-outline ' . $value;
 }
 
-if ( ! function_exists( 'pierot_border_width' ) ) {
-	function pierot_border_width( $value, $selector, $property, $unit ) {
+if ( ! function_exists( 'noto_border_width' ) ) {
+	function noto_border_width( $value, $selector, $property, $unit ) {
 		$output = '
 				.c-border:before { height: ' . $value . $unit . ' }
 				.c-border:after { width: ' . $value . $unit . ' }
@@ -654,7 +654,7 @@ if ( ! function_exists( 'pierot_border_width' ) ) {
 					left: ' . $value . $unit . ';
 					bottom: ' . 2 * $value . $unit . ';
 				}
-				.c-pierot {
+				.c-noto {
 					padding-top: ' . $value . $unit . ';
 					padding-bottom: ' . 4 * $value . $unit . ';
 				}';
