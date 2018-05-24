@@ -209,3 +209,28 @@
     margin-bottom: 0;
   }
 }
+
+.single,
+.page {
+  .content-area > .related-posts-container {
+    grid-column: ms / e;
+  }
+}
+
+.related-posts-container {
+  &:before,
+  &:after {
+    content: none;
+  }
+}
+
+.cats a {
+  @include btn;
+  @include btn-overwrite;
+}
+
+.cats__title {
+  display: block;
+  margin-bottom: 1rem;
+}
+

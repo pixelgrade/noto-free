@@ -1,0 +1,8 @@
+.comments-area {
+    width: 100%;
+}
+
+.c-comments-toggle__label {
+    @include btn;
+    display: block;
+}

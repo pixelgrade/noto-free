@@ -71,3 +71,27 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.site-logo img,
+.custom-logo-link img {
+  width: auto;
+
+  .blog &,
+  .archive & {
+    max-height: none;
+  }
+}
+
+.c-branding {
+  a, img {
+    display: block;
+  }
+}
+
+.jetpack-social-navigation .screen-reader-text {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  position: relative;
+  text-transform: capitalize;
+}

@@ -130,3 +130,14 @@
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
+
+.c-card {
+  .c-card__content,
+  .c-card__title {
+    margin-top: 0;
+  }
+
+  .c-card__excerpt {
+    margin-bottom: 0;
+  }
+}

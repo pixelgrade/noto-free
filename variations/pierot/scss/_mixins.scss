@@ -1,0 +1,63 @@
+@mixin meta-style {
+    display: inline-block;
+    padding: 0.5em 2em;
+    border-bottom-left-radius: 999em;
+    border-top-right-radius: 999em;
+    transition: opacity .3s ease-in-out;
+
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background: linear-gradient( to right, $theme-accent-light-color 50%, transparent);
+        z-index: -1;
+    }
+}
+
+@mixin btn-overwrite() {
+    position: relative;
+    color: inherit;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        bottom: 0.5em;
+        z-index: -1;
+
+        width: 100%;
+
+        transition: all .2s ease-out;
+        transition-property: opacity, transform;
+        background: $theme-accent-light-color;
+        transform: translateX(-1em);
+        opacity: 0;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 2px solid currentColor;
+    }
+
+    .u-buttons-outline & {
+        border: 0;
+    }
+
+    &:hover:before {
+        opacity: 1;
+        transform: none;
+    }
+}
