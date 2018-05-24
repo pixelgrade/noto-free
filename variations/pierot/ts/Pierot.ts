@@ -93,6 +93,14 @@ export class Pierot extends BaseTheme {
 
     this.appendSvgToIntro( $container );
     this.eventHandlers( $container );
+
+    $container.find( '.sharedaddy' ).each( ( i, obj ) => {
+      const $sharedaddy = $(obj);
+
+      if ( $sharedaddy.find( '.sd-social-official' ).length ) {
+        $sharedaddy.addClass( 'sharedaddy--official' );
+      }
+    } );
   }
 
   private adjustLayout() {

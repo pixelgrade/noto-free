@@ -399,6 +399,12 @@ var Pierot = function (_BaseTheme) {
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
             this.appendSvgToIntro($container);
             this.eventHandlers($container);
+            $container.find('.sharedaddy').each(function (i, obj) {
+                var $sharedaddy = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                if ($sharedaddy.find('.sd-social-official').length) {
+                    $sharedaddy.addClass('sharedaddy--official');
+                }
+            });
         }
     }, {
         key: 'adjustLayout',

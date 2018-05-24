@@ -35,11 +35,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 2fr [hs] minmax(10em, 2fr) [he] 2fr 2fr [ce] auto [me] 4rem [ceo] 2fr [e] 1fr 1fr [edge] 1fr;
 
-    .sharedaddy {
-      grid-column: 5 / 6;
-      grid-row: 4 / span 3;
-    }
-
     > * {
       grid-column: cso / ce;
     }
@@ -152,7 +147,8 @@
 }
 
 .cats,
-.tags {
+.tags,
+.sharedaddy--official {
   margin-top: 2rem;
 }
 
@@ -211,31 +207,5 @@
   .alignnone {
     margin-top: 0;
     margin-bottom: 0;
-  }
-}
-
-.sharedaddy {
-
-  .sd-sharing {
-    display: flex;
-  }
-
-  #content &[class] .sd-content li {
-    display: block;
-
-    a {
-      border: 0;
-      padding: 0;
-
-      &:before {
-        display: block;
-        font-size: 24px;
-        filter: grayscale(1) contrast(2) brightness(0.2);
-      }
-
-      span {
-        display: none;
-      }
-    }
   }
 }
