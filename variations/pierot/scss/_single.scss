@@ -197,3 +197,48 @@
   display: block;
   margin-bottom: 1rem;
 }
+
+
+.page,
+.single {
+
+  .pull-left {
+    grid-column: s / cs;
+    text-align: right;
+  }
+
+  .pull-right {
+    grid-column: ceo/edge-end;
+  }
+}
+
+
+.content-area {
+
+  .pull-left,
+  .pull-right {
+    grid-row-end: span 3;
+
+    blockquote {
+      padding-left: 0;
+
+      font: inherit;
+      font-size: 0.7225em;
+      line-height: 1.5;
+
+      .wave-svg-mask {
+        margin-left: 0;
+        opacity: 0.5;
+      }
+
+      .wave-svg {
+        margin-bottom: 1rem;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
