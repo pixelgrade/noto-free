@@ -1,4 +1,5 @@
 @import 'mixins';
+@import 'border';
 @import 'comments';
 @import 'author';
 @import 'header';
@@ -28,7 +29,6 @@
 .site-content {
   display: grid;
 }
-
 
 .c-navbar__checkbox,
 .site-description {
