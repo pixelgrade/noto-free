@@ -46,3 +46,59 @@ tbody {
   line-height: 1.25em;
   color: $theme-accent-color;
 }
+
+.content-area {
+
+  blockquote {
+    position: relative;
+    padding-left: 5rem;
+
+    .wave-svg-mask {
+      margin-left: -5rem;
+    }
+
+    .wave-svg {
+      margin-bottom: 1.5rem;
+    }
+
+    &:before {
+      content: open-quote;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 5rem;
+      margin-top: 1.5rem;
+
+      font-size: 1.777em;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    &:after {
+      content: close-quote;
+
+      visibility: hidden;
+      pointer-events: none;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1em;
+  margin-top: 1.5rem;
+  background-image: url("template-parts/svg/separator.svg");
+  background-size: 1em 1em;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &:not(:last-child) {
+    margin-bottom: 3.5rem;
+  }
+}

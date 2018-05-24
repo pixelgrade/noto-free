@@ -87,3 +87,40 @@ function pierot_dequeue_scripts() {
 	wp_dequeue_style( 'jetpack-social-menu' );
 }
 add_action( 'wp_enqueue_scripts', 'pierot_dequeue_scripts', 20 );
+
+/**
+ * Display the hidden "Styles" drop-down in the Advanced editor bar.
+ *
+ * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
+ */
+function pierot_mce_editor_buttons( $buttons ) {
+	array_unshift($buttons, 'styleselect' );
+	return $buttons;
+}
+add_filter( 'mce_buttons_2', 'pierot_mce_editor_buttons' );
+
+/**
+ * Add styles/classes to the "Styles" drop-down.
+ *
+ * @since Julia 1.0
+ *
+ * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
+ *
+ * @param array $settings
+ *
+ * @return array
+ */
+function pierot_mce_before_init( $settings ) {
+
+	$style_formats =array(
+		array( 'title' => esc_html__( 'Display', '__theme_txtd' ), 'block' => 'h1', 'classes' => 'h0'),
+		array( 'title' => esc_html__( 'Intro Text', '__theme_txtd' ), 'selector' => 'p', 'classes' => 'intro'),
+		array( 'title' => esc_html__( 'Dropcap', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'dropcap' ),
+		array( 'title' => esc_html__( 'Button Arrow', '__theme_txtd' ), 'selector' => 'a', 'classes' => 'button arrow' ),
+	);
+
+	$settings['style_formats'] = json_encode( $style_formats );
+
+	return $settings;
+}
+add_filter( 'tiny_mce_before_init', 'pierot_mce_before_init' );

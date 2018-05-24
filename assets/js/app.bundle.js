@@ -382,10 +382,32 @@ var Pierot = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $intro = $container.find('.intro');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-pattern-template');
+            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-intro-template');
             $intro.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                $waveTemplate.clone().prependTo($obj).show();
+                var $wave = $waveTemplate.clone();
+                var $pattern = $wave.find('pattern');
+                var patternID = $pattern.attr('id');
+                $pattern.attr('id', patternID + i);
+                $wave.find('rect').css('fill', 'url(#wavePattern-intro' + i + ')');
+                $wave.prependTo($obj).show();
+            });
+        }
+    }, {
+        key: 'appendSvgToBlockquote',
+        value: function appendSvgToBlockquote() {
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            var $blockquote = $container.find('.content-area blockquote');
+            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-quote-template');
+            $blockquote.each(function (i, obj) {
+                var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                var $wave = $waveTemplate.clone();
+                var $pattern = $wave.find('pattern');
+                var patternID = $pattern.attr('id');
+                $pattern.attr('id', patternID + i);
+                $wave.find('rect').css('fill', 'url(#wavePattern-quote' + i + ')');
+                $wave.prependTo($obj).show();
             });
         }
     }, {
@@ -398,6 +420,7 @@ var Pierot = function (_BaseTheme) {
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
             this.appendSvgToIntro($container);
+            this.appendSvgToBlockquote($container);
             this.eventHandlers($container);
             $container.find('.sharedaddy').each(function (i, obj) {
                 var $sharedaddy = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);

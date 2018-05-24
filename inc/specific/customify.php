@@ -122,7 +122,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => array(
 						'font-family'    => VARIATION_BODY_FONT,
 						'font-weight'    => 'regular',
-						'font-size'      => 16,
+						'font-size'      => 18,
 						'line-height'    => 1.65,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
@@ -142,7 +142,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'selector' => 'blockquote, .intro',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
-						'font-weight'    => 'italic',
+						'font-weight'    => '400italic',
 						'font-size'      => 18,
 						'line-height'    => 1.67,
 						'letter-spacing' => 0,
