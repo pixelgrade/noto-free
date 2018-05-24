@@ -1,5 +1,4 @@
 @import 'mixins';
-@import 'border';
 @import 'comments';
 @import 'author';
 @import 'header';
@@ -10,6 +9,7 @@
 @import 'typography';
 @import 'sharedaddy';
 @import 'page-numbers';
+@import 'border';
 
 .u-header-height-padding-top[class] {
   padding-top: 0;
