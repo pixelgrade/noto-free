@@ -23,3 +23,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'content-navbar' ); ?>
+
+<?php if( is_single() && ! is_attachment() ) { ?>	
+
+<div class="c-reading-progress">
+	<progress value="0" min="0" max="100" class="js-reading-progress"></progress>
+	<div class="c-reading-progress__label">
+		<span> 
+			<!-- <?php $content = get_the_content('');
+			print strlen($content); ?>	 -->
+			10
+		</span>
+		<p>mins <br> read</p>
+	</div>
+</div>
+	
+<?php } ?>

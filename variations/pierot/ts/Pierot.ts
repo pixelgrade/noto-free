@@ -1,8 +1,11 @@
 import $ from 'jquery';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
+import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
 
 export class Pierot extends BaseTheme {
+  private ProgressBar: ProgressBar;
+
   public mouseX = 0;
   public mouseY = 0;
 
@@ -19,6 +22,21 @@ export class Pierot extends BaseTheme {
     }
 
     requestAnimationFrame( loop );
+
+    const entryHeader = $( '.content-area' );
+    let contentAreaHeight = entryHeader.outerHeight();
+
+    let offset = 0;
+
+    this.ProgressBar = new ProgressBar({
+      canShow: true,
+      max: contentAreaHeight - offset,
+      offset: offset
+    });
+
+    if ( this.ProgressBar ) {
+      offset = 1000;
+    }
   }
 
   public updateCardsPosition() {

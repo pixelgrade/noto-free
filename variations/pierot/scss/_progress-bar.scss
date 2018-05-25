@@ -1,0 +1,52 @@
+.c-reading-progress {
+    position: fixed;
+    right: 0;
+    top: 350px;
+    z-index: 15;
+
+    background-color: #ffffff;
+    border: 2px solid currentColor;
+    border-right: 0;
+    
+    progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: none;        
+    }
+
+    progress::-webkit-progress-bar {
+        background: transparent;
+    }
+
+    progress::-webkit-progress-value {
+        background-color: currentColor;
+    }
+    
+    @include below(lap) {
+        display: none;
+    }
+}
+
+.c-reading-progress__label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    padding-left: 1.5em;
+
+    color: #ffffff;
+    mix-blend-mode: difference;
+
+    > span {
+        font-size: 2.43em;
+        font-style: normal;
+    }
+
+    > p {
+        margin-left: 0.75em;
+    }
+}
