@@ -1,5 +1,24 @@
-.c-navbar__zone {
+.c-navbar__zone--left,
+.c-navbar__zone--right {
   z-index: 100;
+  background: $theme-border-color;
+}
+
+@include below(lap) {
+
+  .header {
+    margin-right: auto;
+    padding: 4rem;
+
+    background: $theme-accent-light-color;
+  }
+}
+
+.c-branding a {
+  text-decoration: none;
+}
+
+.c-navbar__zone {
 
   nav,
   .menu-social-menu-container,
@@ -18,7 +37,6 @@
       height: 100%;
       padding: 1em;
 
-      color: inherit;
       text-decoration: none;
     }
   }
@@ -85,6 +103,31 @@
 .c-branding {
   a, img {
     display: block;
+  }
+}
+
+.c-navbar__zone--left {
+  .menu li a {
+    color: inherit;
+  }
+
+  @include below(lap) {
+    display: none;
+  }
+}
+
+.c-navbar__zone--right {
+
+  @include above(lap) {
+    background: none;
+  }
+
+  @include below(lap) {
+    display: none;
+
+    .menu li a {
+      color: inherit;
+    }
   }
 }
 

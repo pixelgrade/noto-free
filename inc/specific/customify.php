@@ -384,7 +384,7 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone--left',
+							'selector' => '.c-navbar__zone--left, .c-navbar__zone--right',
 						),
 					),
 				),

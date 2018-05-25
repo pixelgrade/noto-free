@@ -294,6 +294,7 @@ new __WEBPACK_IMPORTED_MODULE_0__Noto__["a" /* Noto */]();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_base_ts_BaseTheme__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__ = __webpack_require__(19);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -303,6 +304,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -361,6 +363,7 @@ var Noto = function (_BaseTheme) {
         key: 'onLoadAction',
         value: function onLoadAction() {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onLoadAction', this).call(this);
+            this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.adjustLayout();
         }
     }, {
@@ -681,6 +684,122 @@ var GlobalService = function () {
 
     return GlobalService;
 }();
+
+/***/ }),
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchOverlay; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rx_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(20);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var activeClass = 'show-search-overlay';
+var openClass = '.js-search-trigger';
+var closeClass = '.js-search-close';
+var escKeyCode = 27;
+var SearchOverlay = function (_BaseComponent) {
+    _inherits(SearchOverlay, _BaseComponent);
+
+    function SearchOverlay() {
+        _classCallCheck(this, SearchOverlay);
+
+        var _this = _possibleConstructorReturn(this, (SearchOverlay.__proto__ || Object.getPrototypeOf(SearchOverlay)).call(this));
+
+        _this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+        _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
+        _this.$searchField = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-search-overlay').find('.search-field');
+        _this.subscriptionActive = true;
+        _this.keyupSubscriptionActive = true;
+        _this.bindEvents();
+        return _this;
+    }
+
+    _createClass(SearchOverlay, [{
+        key: 'destroy',
+        value: function destroy() {
+            this.subscriptionActive = false;
+            this.keyupSubscriptionActive = false;
+            this.$document.off('click.SearchOverlay');
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {
+            var _this2 = this;
+
+            this.$document.on('click.SearchOverlay', openClass, this.open.bind(this));
+            this.closeSub = __WEBPACK_IMPORTED_MODULE_1_rx_dom__["DOM"].click(document.querySelector(closeClass));
+            this.keyupSub = __WEBPACK_IMPORTED_MODULE_1_rx_dom__["DOM"].keyup(document.querySelector('body'));
+            this.closeSub.takeWhile(function () {
+                return _this2.subscriptionActive;
+            }).subscribe(this.close.bind(this));
+        }
+    }, {
+        key: 'createKeyupSubscription',
+        value: function createKeyupSubscription() {
+            var _this3 = this;
+
+            this.keyupSubscriptionActive = true;
+            this.keyupSub.takeWhile(function () {
+                return _this3.keyupSubscriptionActive;
+            }).subscribe(this.closeOnEsc.bind(this));
+        }
+    }, {
+        key: 'open',
+        value: function open() {
+            this.$searchField.focus();
+            this.$body.addClass(activeClass);
+            this.createKeyupSubscription();
+        }
+    }, {
+        key: 'close',
+        value: function close() {
+            this.$body.removeClass(activeClass);
+            this.$searchField.blur();
+            this.keyupSubscriptionActive = false;
+        }
+    }, {
+        key: 'closeOnEsc',
+        value: function closeOnEsc(e) {
+            if (e.keyCode === escKeyCode) {
+                this.close();
+            }
+        }
+    }]);
+
+    return SearchOverlay;
+}(__WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__["a" /* BaseComponent */]);
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseComponent; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BaseComponent = function BaseComponent() {
+    _classCallCheck(this, BaseComponent);
+};
 
 /***/ })
 ],[6]);

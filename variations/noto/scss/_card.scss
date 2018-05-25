@@ -14,10 +14,6 @@
     margin-right: -2em;
   }
 
-  li {
-
-  }
-
   a {
     @include meta-style;
 
@@ -27,27 +23,6 @@
       transition: all .3s ease-out;
       transition-property: opacity, transform;
     }
-  }
-}
-
-.c-card:hover {
-
-  .c-card__excerpt {
-    color: $theme-accent-light-color;
-  }
-
-  .c-meta__primary a:after {
-    transform: none;
-    opacity: 1;
-  }
-
-  .c-card__action:before {
-    opacity: 1;
-    transform: none;
-  }
-
-  .c-card__aside {
-    opacity: 1;
   }
 }
 
@@ -76,15 +51,6 @@
     max-height: 400px;
   }
 
-  &:before,
-  &:after {
-
-  }
-
-  &:before {
-
-  }
-
   &:after {
     content: "";
     display: block;
@@ -110,18 +76,6 @@
   }
 }
 
-.c-card:hover {
-
-  .wave-svg-mask {
-    transform: translateX(1rem);
-  }
-
-  .wave-svg {
-    transform: translateX(-1rem);
-  }
-}
-
-
 .c-card__thumbnail-background {
   background: none;
 }
@@ -139,5 +93,85 @@
 
   .c-card__excerpt {
     margin-bottom: 0;
+  }
+}
+
+.c-card__meta {
+  width: auto;
+
+  li:not(:first-child),
+  li:not(:last-child):after {
+    display: none;
+  }
+}
+
+@include below(lap) {
+
+  .c-card {
+    overflow: hidden;
+    margin: 4rem 0;
+    padding: 0 4vw;
+  }
+
+  .c-card__aside {
+    opacity: 0.25;
+  }
+
+  .c-card__frame {
+    transform: none !important;
+  }
+
+  .c-noto > article {
+
+    &:nth-child(2n) {
+      .c-card__aside {
+        left: 100%;
+        transform: translate3d(-8vw, -50%, 0);
+      }
+    }
+
+    &:nth-child(2n+1) {
+      .c-card__aside {
+        right: 100%;
+        left: auto;
+        transform: translate3d(8vw, -50%, 0);
+      }
+
+      .c-card__excerpt {
+        text-align: right;
+      }
+    }
+  }
+}
+
+@include above(lap) {
+
+  .c-card:hover {
+
+    .c-card__excerpt {
+      color: $theme-accent-light-color;
+    }
+
+    .c-meta__primary a:after {
+      transform: none;
+      opacity: 1;
+    }
+
+    .c-card__action:before {
+      opacity: 1;
+      transform: none;
+    }
+
+    .c-card__aside {
+      opacity: 1;
+    }
+
+    .wave-svg-mask {
+      transform: translateX(1rem);
+    }
+
+    .wave-svg {
+      transform: translateX(-1rem);
+    }
   }
 }
