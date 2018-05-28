@@ -9,6 +9,7 @@
 @import 'typography';
 @import 'sharedaddy';
 @import 'page-numbers';
+@import 'pull';
 
 @import '../../../components/header/scss/elements/burger';
 @import '../../../components/blog/scss/elements/search-overlay';
@@ -16,23 +17,59 @@
 @include above(lap) {
   @import 'grid';
   @import 'border';
+}
 
-  .site-content {
-    position: relative;
+.site-content {
+  position: relative;
 
-    &:before {
-      content: "";
-      display: block;
+  &:before {
+    content: "";
+    display: block;
 
-      position: absolute;
-      top: 2rem;
-      left: 2rem;
-      bottom: 4rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    bottom: 4rem;
 
-      // (100% - 2rem) * 12 / 32
-      width: calc(#{percentage(12/31)} - (24rem/31));
+    // (100% - 2rem) * 12 / 32
+    width: calc(#{percentage(12/31)} - (24rem/31));
 
-      background: $theme-accent-lighter-color;
+    background: $theme-accent-lighter-color;
+  }
+}
+
+.single,
+.page {
+
+  @include below(lap) {
+
+    .site-content:before {
+      display: none;
+    }
+  }
+
+  @include below(lap) {
+
+    .header {
+      margin-right: auto;
+      padding: 4rem;
+      background: $theme-accent-light-color;
+    }
+  }
+}
+
+body:not(.single):not(.page) {
+
+  @include below(lap) {
+
+    .site-content:before {
+      display: none;
+    }
+
+    .header {
+      margin-right: auto;
+      padding: 4rem;
+      background: $theme-accent-light-color;
     }
   }
 }
@@ -133,7 +170,7 @@
 .c-navbar__label,
 .search-trigger[class] {
   display: flex;
-  padding: 1em;
+  padding: 1em 1.3125rem;
 }
 
 .search-trigger[class] {

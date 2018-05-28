@@ -4,16 +4,6 @@
   background: $theme-border-color;
 }
 
-@include below(lap) {
-
-  .header {
-    margin-right: auto;
-    padding: 4rem;
-
-    background: $theme-accent-light-color;
-  }
-}
-
 .c-branding a {
   text-decoration: none;
 }

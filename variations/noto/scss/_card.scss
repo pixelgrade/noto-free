@@ -70,6 +70,7 @@
 
 .c-card__letter {
   color: $theme-accent-light-color;
+  transform: translateY(-50%) translateX(-50%);
 
   .c-gallery__item:not(.c-gallery__item--no-image) & {
     display: none;
@@ -111,6 +112,11 @@
     overflow: hidden;
     margin: 4rem 0;
     padding: 0 4vw;
+
+    .related-posts-container & {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .c-card__aside {
