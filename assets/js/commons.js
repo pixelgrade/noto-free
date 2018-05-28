@@ -10408,8 +10408,7 @@ return jQuery;
 
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Rx = __webpack_require__(3);
@@ -10417,6 +10416,7 @@ __webpack_require__(11);
 module.exports = Rx;
 
 /***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 

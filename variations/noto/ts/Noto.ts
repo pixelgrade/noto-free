@@ -2,8 +2,10 @@ import $ from 'jquery';
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
+import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
 
 export class Noto extends BaseTheme {
+    public ProgressBar: ProgressBar;
     public SearchOverlay: SearchOverlay;
     public mouseX = 0;
     public mouseY = 0;
@@ -21,6 +23,17 @@ export class Noto extends BaseTheme {
         }
 
         requestAnimationFrame(loop);
+
+        const content = $( '.content-area' );
+        const contentAreaHeight = content.outerHeight();
+        const offsetTop = content.offset().top;
+
+        this.ProgressBar = new ProgressBar({
+            canShow: true,
+            max: contentAreaHeight - offsetTop,
+            offset: offsetTop
+        });
+
     }
 
     public updateCardsPosition() {

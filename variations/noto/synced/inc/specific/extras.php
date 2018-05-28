@@ -124,3 +124,22 @@ function noto_mce_before_init( $settings ) {
 	return $settings;
 }
 add_filter( 'tiny_mce_before_init', 'noto_mce_before_init' );
+
+if ( ! function_exists( 'noto_get_the_reading_time_in_minutes' ) ) {
+	function noto_get_the_reading_time_in_minutes() {
+		$words_per_minute = 200;
+		$words_per_second = $words_per_minute / 60;
+
+		$content = get_the_content();
+		$word_count = str_word_count( strip_tags( $content ) );
+		$seconds = floor( $word_count / $words_per_second );
+		$minutes = floor( $word_count / $words_per_minute );
+		$seconds_remainder = $seconds % 60;
+
+		if ( $minutes < 1 || $seconds_remainder > 40 ) {
+			$minutes++;
+		}
+
+		return $minutes;
+	}
+}
