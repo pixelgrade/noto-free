@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Boileplate 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/boilerplate\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/noto\n"
 "POT-Creation-Date: 2017-11-30 09:33:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

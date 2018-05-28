@@ -4,7 +4,7 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 

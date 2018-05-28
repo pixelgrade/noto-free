@@ -22,22 +22,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
+<input class="c-navbar__checkbox" id="menu-toggle" type="checkbox">
+<label class="c-navbar__label u-header-sides-spacing" for="menu-toggle">
+	<span class="c-navbar__label-icon"><?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'burger' ); ?></span>
+	<span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', '__components_txtd' ); ?></span>
+</label><!-- .c-navbar__label -->
+
 <?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'content-navbar' ); ?>
 
-<?php if( is_single() && ! is_attachment() ) { ?>	
+<?php if ( is_single() && ! is_attachment() ) { ?>
 
 <div class="c-reading-progress">
-	<progress value="0" min="0" max="100" class="js-reading-progress"></progress>
+	<progress value="0" max="100" class="js-reading-progress"></progress>
 	<div class="c-reading-progress__label">
-		<span> 
-			<?php 
+		<span>
+			<?php
 			$words_per_minute = 200;
 			$words_per_second = $words_per_minute / 60;
 
 			$content = get_the_content('');
 			$word_count = str_word_count( strip_tags( $content ) );
 			$seconds = floor( $word_count / $words_per_second );
-			
+
 			$minutes = floor( $word_count / $words_per_minute );
 			$seconds_remainder = $seconds % 60;
 
@@ -52,5 +58,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<p>mins <br> read</p>
 	</div>
 </div>
-	
+
 <?php } ?>
+
+<div class="search-trigger">
+    <button class="js-search-trigger">
+        <?php get_template_part( 'template-parts/svg/icon-search-svg' );?>
+        <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
+    </button>
+</div>
+
+<?php pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG, 'search-overlay' ); ?>

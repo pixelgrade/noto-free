@@ -1,0 +1,76 @@
+.pull-left,
+.pull-right {
+    @include spacing(margin-bottom, 2rem);
+    grid-row-end: span 3;
+
+    blockquote {
+        padding-left: 0;
+
+        font: inherit;
+        font-size: 0.7225em;
+        line-height: 1.5;
+
+        .wave-svg-mask {
+            margin-left: 0;
+            opacity: 0.5;
+        }
+
+        .wave-svg {
+            margin-bottom: 1rem;
+        }
+
+        &:before,
+        &:after {
+            content: "";
+        }
+    }
+}
+
+.pull-left {
+    @include spacing(margin-right, 2rem);
+    text-align: right;
+}
+
+.pull-right {
+    @include spacing(margin-left, 2rem);
+}
+
+@include below(desk) {
+
+    .pull-left,
+    .pull-right {
+        max-width: 40%;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    .pull-right {
+        float: right;
+    }
+}
+
+@include above(desk) {
+
+    .pull-left,
+    .pull-right {
+        margin-bottom: 0;
+    }
+
+    .pull-left {
+        margin-right: 0;
+
+        &[class] {
+            grid-column: s / cs;
+        }
+    }
+
+    .pull-right {
+        margin-left: 0;
+
+        &[class] {
+            grid-column: ceo/edge-end;
+        }
+    }
+}

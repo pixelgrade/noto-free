@@ -4,7 +4,7 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
@@ -15,7 +15,7 @@
  * @param array $component_config The component entire component config.
  */
 
-function pierot_register_blog_blocks( $component_slug, $component_config ) {
+function noto_register_blog_blocks( $component_slug, $component_config ) {
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/entry-header', array() );
 
@@ -117,4 +117,4 @@ function pierot_register_blog_blocks( $component_slug, $component_config ) {
 	) );
 
 }
-add_action( 'pixelgrade_blog_after_register_blocks', 'pierot_register_blog_blocks', 10, 2 );
+add_action( 'pixelgrade_blog_after_register_blocks', 'noto_register_blog_blocks', 10, 2 );

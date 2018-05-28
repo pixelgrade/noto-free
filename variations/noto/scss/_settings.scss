@@ -5,6 +5,8 @@ $layout-spacing: 4rem;
 $baseline-unit: 14px;
 $fa-font-path: 'assets/fonts/fontawesome';
 
+$content-selector: '.content-area > :not([class*="align"]):not([class*="gallery"]):not(blockquote)';
+
 // Variation Variables
 $theme-color-1: #E79696; // primary
 $theme-color-2: #FCD9D2; // secondary
@@ -88,7 +90,7 @@ $header-font: (
 $content-container-width: 1300px;
 $content-sides-spacing: 0;
 $content-vertical-spacing: 0;
-$content-width: none;
+$content-width: 660px;
 $content-border-width: 0;
 $content-border-color: transparent;
 // ----------------------------------------

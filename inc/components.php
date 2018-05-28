@@ -4,11 +4,11 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
-function boilerplate_setup_components() {
+function noto_setup_components() {
 	/*
 	 * Declare support for the Pixelgrade Components the theme uses.
 	 * Please note that some components will load regardless (like Base, Blog, Header, Footer).
@@ -24,4 +24,4 @@ function boilerplate_setup_components() {
 	add_theme_support( 'pixelgrade-multipage-component' );
 	add_theme_support( 'pixelgrade-portfolio-component' );
 }
-add_action( 'after_setup_theme', 'boilerplate_setup_components', 10 );
+add_action( 'after_setup_theme', 'noto_setup_components', 10 );

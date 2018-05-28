@@ -2,13 +2,13 @@
 /**
  * Guides required or recommended plugins
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
 require_once pixelgrade_get_parent_theme_file_path( '/inc/required-plugins/class-tgm-plugin-activation.php' );
 
-function boilerplate_register_required_plugins() {
+function noto_register_required_plugins() {
 
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
@@ -85,4 +85,4 @@ function boilerplate_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
-add_action( 'tgmpa_register', 'boilerplate_register_required_plugins', 999 );
+add_action( 'tgmpa_register', 'noto_register_required_plugins', 999 );

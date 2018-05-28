@@ -7,7 +7,7 @@
     background-color: #ffffff;
     border: 2px solid currentColor;
     border-right: 0;
-    
+
     progress {
         position: absolute;
         top: 0;
@@ -16,27 +16,27 @@
         height: 100%;
 
         border: none;
-        -webkit-appearance: none;        
+        -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
+
+        &::-webkit-progress-bar {
+            background: transparent;
+        }
+
+        &::-moz-progress-bar {
+            background: transparent;
+        }
+
+        progress[value]::-moz-progress-bar {
+            background: currentColor;
+        }
+
+        &::-webkit-progress-value {
+            background-color: currentColor;
+        }
     }
 
-    progress::-webkit-progress-bar {
-        background: transparent;
-    }
-
-    progress::-moz-progress-bar {
-        background: transparent;
-    }
-
-    progress[value]::-moz-progress-bar {
-        background: currentColor;
-    }
-
-    progress::-webkit-progress-value {
-        background-color: currentColor;
-    }
-    
     @include below(lap) {
         display: none;
     }

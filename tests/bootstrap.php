@@ -2,11 +2,7 @@
 /**
  * PHPUnit bootstrap file
  *
-<<<<<<< HEAD
- * @package Pixcare
-=======
- * @package Boilerplate
->>>>>>> b069792a3b812b2f932eef60b5a6899522d7fedd
+ * @package Noto
  */
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );

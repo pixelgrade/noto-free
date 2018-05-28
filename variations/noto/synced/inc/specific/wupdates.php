@@ -6,7 +6,7 @@
  *
  * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
- * @package Boilerplate
+ * @package Noto
  * @since 1.0.0
  */
 
@@ -95,7 +95,7 @@ function wupdates_add_id_JDKZB( $ids = array() ) {
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Pierot', 'slug' => 'pierot', 'id' => 'JDKZB', 'type' => 'theme', 'digest' => 'faf61dfa9d9b80e40d34712432915545', );
+	$ids[ $slug ] = array( 'name' => 'Noto', 'slug' => 'noto', 'id' => 'JDKZB', 'type' => 'theme', 'digest' => 'faf61dfa9d9b80e40d34712432915545', );
 
 	return $ids;
 }
