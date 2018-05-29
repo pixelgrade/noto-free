@@ -3,8 +3,6 @@
     padding: 0.5rem 2rem;
     transition: opacity .3s ease-in-out;
 
-    position: relative;
-
     &:after {
         content: "";
         position: absolute;
@@ -29,9 +27,9 @@
     &:before {
         content: "";
         position: absolute;
-        top: 6px;
-        right: 6px;
-        bottom: 6px;
+        top: 7px;
+        right: 7px;
+        bottom: 7px;
         left: 0;
         z-index: -1;
 

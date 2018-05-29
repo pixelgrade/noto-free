@@ -595,7 +595,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 						div.wpforms-container[class] .wpforms-form textarea',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
-						'font-weight'    => 'italic',
+						'font-weight'    => '500',
 						'font-size'      => 18,
 						'line-height'    => 1.27,
 						'letter-spacing' => 0,

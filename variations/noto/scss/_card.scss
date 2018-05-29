@@ -15,7 +15,36 @@
   }
 
   li {
-    @include meta-style;
+    position: relative;
+  }
+
+  a {
+    padding: 0.5rem 2rem;
+  }
+}
+
+.c-meta__decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+
+  border-bottom-left-radius: 999em;
+  border-top-right-radius: 999em;
+
+  @include meta-style;
+}
+
+.c-meta {
+  &, ul {
+    > * {
+      padding-top: 0;
+      padding-left: 0;
+      @include spacing(margin-top, $meta-spacing);
+      @include spacing(margin-left, $meta-spacing);
+    }
   }
 }
 
@@ -126,6 +155,10 @@
     transform: none !important;
   }
 
+  .c-card__letter {
+    font-size: 150vw;
+  }
+
   .c-meta__primary li:after,
   .c-card__action:before {
     display: none;
@@ -188,6 +221,27 @@ $button-offset: 16px;
     }
   }
 
+  .c-meta__decoration {
+    transform: translateX(100%);
+    transition: transform $transition-duration $transition-easing;
+
+    .c-card:hover & {
+      transform: translateZ(0);
+    }
+
+    &:after {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: all $transition-duration $transition-easing;
+      transition-property: transform, opacity;
+
+      .c-card:hover & {
+        opacity: 1;
+        transform: translateZ(0);
+      }
+    }
+  }
+
   .c-card__title,
   .wave-svg-mask,
   .wave-svg {
@@ -212,12 +266,6 @@ $button-offset: 16px;
 
   .c-meta__primary {
 
-    li {
-      border-bottom-left-radius: 999em;
-      border-top-right-radius: 999em;
-      overflow: hidden;
-    }
-
     li:after {
       transition: all $transition-duration $transition-easing;
       transition-property: transform, opacity;
@@ -233,7 +281,7 @@ $button-offset: 16px;
     a {
       display: block;
       transition: transform $transition-duration $transition-easing;
-      transform: translateY(0.5em);
+      transform: translateY(10px);
 
       .c-card:hover & {
         transform: none;

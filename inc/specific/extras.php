@@ -143,3 +143,29 @@ if ( ! function_exists( 'noto_get_the_reading_time_in_minutes' ) ) {
 		return $minutes;
 	}
 }
+
+if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
+
+	function noto_add_decoration_to_card_meta( $meta ) {
+		if ( ! empty( $meta['category'] ) ) {
+			$category = '';
+			// On archives we want to show all the categories, not just the main one
+			$categories = get_the_terms( get_the_ID(), 'category' );
+			if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+				$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+				foreach ( $categories as $this_category ) {
+					$category .= '<li>' . PHP_EOL;
+					$category .= '<a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a>' . PHP_EOL;
+					$category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
+					$category .= '</li>' . PHP_EOL;
+				};
+				$category .= '</ul>' . PHP_EOL;
+			}
+			$meta['category'] = $category;
+		}
+
+		return $meta;
+	}
+
+}
+add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10, 2 );
