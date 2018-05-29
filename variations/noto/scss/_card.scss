@@ -236,3 +236,11 @@ $button-offset: 16px;
     color: $theme-accent-color;
   }
 }
+
+.c-card:hover .c-card__aside {
+  opacity: 0.1;
+}
+
+.has-post-thumbnail .c-card__letter {
+  display: none;
+}
