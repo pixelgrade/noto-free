@@ -56,6 +56,12 @@ $border-width: 2rem;
   }
 }
 
+body:not(.page):not(.single) {
+  .c-noto {
+    padding-bottom: 8rem;
+  }
+}
+
 
 .single,
 .page {
@@ -215,7 +221,7 @@ body:not(.single):not(.page) {
     }
   }
 
-  &:nth-of-type(12n+12) {
+  &:nth-of-type(12n) {
     grid-column: 18 / span 13;
     align-self: flex-end;
     padding-top: 50px;
@@ -225,6 +231,10 @@ body:not(.single):not(.page) {
     .c-card__excerpt,
     .c-card__footer {
       margin-right: percentage(5/13);
+    }
+
+    .c-card__content {
+      padding-bottom: 50px;
     }
   }
 

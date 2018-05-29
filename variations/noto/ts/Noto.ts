@@ -25,14 +25,17 @@ export class Noto extends BaseTheme {
         requestAnimationFrame(loop);
 
         const content = $( '.content-area' );
-        const contentAreaHeight = content.outerHeight();
-        const offsetTop = content.offset().top;
 
-        this.ProgressBar = new ProgressBar({
-            canShow: true,
-            max: contentAreaHeight - offsetTop,
-            offset: offsetTop
-        });
+        if ( content.length ) {
+            const contentAreaHeight = content.outerHeight();
+            const offsetTop = content.offset().top;
+
+            this.ProgressBar = new ProgressBar({
+                canShow: true,
+                max: contentAreaHeight - offsetTop,
+                offset: offsetTop
+            });
+        }
 
     }
 
@@ -54,8 +57,8 @@ export class Noto extends BaseTheme {
 
             const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
 
-            for (let i = 0; i < images.length; ++i) {
-                (images[i] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
+            for (let j = 0; j < images.length; ++j) {
+                (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
             }
         });
     }

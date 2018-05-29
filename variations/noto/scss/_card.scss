@@ -10,19 +10,12 @@
 .c-meta__primary {
 
   ul {
-    margin-left: -2em;
-    margin-right: -2em;
+    margin-left: -2rem;
+    margin-right: -2rem;
   }
 
-  a {
+  li {
     @include meta-style;
-
-    &:after {
-      opacity: 0;
-      transform: translateX(-50%);
-      transition: all .3s ease-out;
-      transition-property: opacity, transform;
-    }
   }
 }
 
@@ -66,6 +59,10 @@
 
 .c-card {
   transform: translateZ(0);
+
+  .wave-svg-mask {
+    color: $theme-text-color;
+  }
 }
 
 .c-card__letter {
@@ -100,9 +97,12 @@
 .c-card__meta {
   width: auto;
 
-  li:not(:first-child),
-  li:not(:last-child):after {
+  li:not(:first-child) {
     display: none;
+  }
+
+  li:not(:last-child):after {
+    content: "";
   }
 }
 
@@ -150,34 +150,89 @@
   }
 }
 
-@include above(lap) {
+$duration: .5s;
+$easing: $easeInOutCubic;
 
-  .c-card:hover {
+$card-offset: 21px;
+$button-offset: 16px;
 
-    .c-card__excerpt {
-      color: $theme-accent-light-color;
+.c-card__action {
+  transition: transform $duration $easing;
+
+  .c-card:hover & {
+    transform: translateX($button-offset);
+  }
+
+  &:before {
+    transition: transform $duration $easing;
+    transition-property: transform, left;
+    transform-origin: 0 50%;
+    transform: scale(0,1) translateZ(0);
+
+    .c-card:hover & {
+      transform: scale(1,1) translateZ(0);
+      left: -$button-offset;
     }
+  }
+}
 
-    .c-meta__primary a:after {
+.c-card__title,
+.wave-svg-mask,
+.wave-svg {
+  transition: transform $duration $easing;
+}
+
+.wave-svg-mask {
+  direction: rtl;
+}
+
+.c-card:hover {
+
+  .c-card__title,
+  .wave-svg-mask {
+    transform: translateX(-$card-offset);
+  }
+
+  .wave-svg {
+    transform: translateX($card-offset);
+  }
+}
+
+.c-meta__primary {
+
+  li {
+    border-bottom-left-radius: 999em;
+    border-top-right-radius: 999em;
+    overflow: hidden;
+  }
+
+  li:after {
+    transition: all $duration $easing;
+    transition-property: transform, opacity;
+    transform: translateX(100%);
+    opacity: 0;
+
+    .c-card:hover & {
       transform: none;
       opacity: 1;
     }
+  }
 
-    .c-card__action:before {
-      opacity: 1;
+  a {
+    display: block;
+    transition: transform $duration $easing;
+    transform: translateY(0.5em);
+
+    .c-card:hover & {
       transform: none;
     }
+  }
+}
 
-    .c-card__aside {
-      opacity: 1;
-    }
+.c-card__excerpt {
+  transition: color $duration $easing;
 
-    .wave-svg-mask {
-      transform: translateX(1rem);
-    }
-
-    .wave-svg {
-      transform: translateX(-1rem);
-    }
+  .c-card:hover & {
+    color: $theme-accent-color;
   }
 }

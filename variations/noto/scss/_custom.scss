@@ -144,11 +144,6 @@ body:not(.single):not(.page) {
 }
 
 
-.wave-svg,
-.wave-svg-mask {
-  transition: transform .3s ease-in-out;
-}
-
 .wave-svg-mask {
   overflow: hidden;
 

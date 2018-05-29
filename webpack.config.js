@@ -213,12 +213,12 @@ module.exports = function (env, argv) {
 			/**
 			 * Lint our styles works with css and all it's preprocessors
 			 */
-			new StyleLintPlugin({
-				configFile: '.stylelintrc',
-				files: '**/*.scss',
-				failOnError: false,
-				quiet: false,
-			}),
+//			new StyleLintPlugin({
+//				configFile: '.stylelintrc',
+//				files: '**/*.scss',
+//				failOnError: false,
+//				quiet: false,
+//			}),
 			/**
 			 * Shows a desktop notification when builds are complete
 			 */

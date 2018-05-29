@@ -1,12 +1,9 @@
 @mixin meta-style {
     display: inline-block;
-    padding: 0.5em 2em;
-    border-bottom-left-radius: 999em;
-    border-top-right-radius: 999em;
+    padding: 0.5rem 2rem;
     transition: opacity .3s ease-in-out;
 
     position: relative;
-    overflow: hidden;
 
     &:after {
         content: "";
@@ -16,6 +13,10 @@
         bottom: 0;
         left: 0;
 
+        border-bottom-left-radius: 999em;
+        border-top-right-radius: 999em;
+
+        overflow: hidden;
         background: linear-gradient( to right, $theme-accent-light-color 50%, transparent);
         z-index: -1;
     }
@@ -28,18 +29,13 @@
     &:before {
         content: "";
         position: absolute;
-        top: 0.5em;
-        right: 0.5em;
-        bottom: 0.5em;
+        top: 6px;
+        right: 6px;
+        bottom: 6px;
+        left: 0;
         z-index: -1;
 
-        width: 100%;
-
-        transition: all .2s ease-out;
-        transition-property: opacity, transform;
         background: $theme-accent-light-color;
-        transform: translateX(-1em);
-        opacity: 0;
     }
 
     &:after {
@@ -54,10 +50,5 @@
 
     .u-buttons-outline & {
         border: 0;
-    }
-
-    &:hover:before {
-        opacity: 1;
-        transform: none;
     }
 }
