@@ -4,5 +4,12 @@
 
 .c-comments-toggle__label {
     @include btn;
+    @include btn-overwrite;
+    @include btn-overwrite-hover;
     display: block;
+}
+
+.comment-respond .submit {
+    @include btn-overwrite;
+    @include btn-overwrite-hover;
 }

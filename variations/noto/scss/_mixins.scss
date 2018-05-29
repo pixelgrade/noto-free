@@ -52,3 +52,16 @@
         border: 0;
     }
 }
+
+@mixin btn-overwrite-hover() {
+    &:before {
+        left: -16px;
+        transition: transform $transition-duration $transition-easing;
+        transform-origin: 0 50%;
+        transform: scale(0,1) translateZ(0);
+    }
+
+    &:hover:before {
+        transform: scale(1,1) translateZ(0);
+    }
+}

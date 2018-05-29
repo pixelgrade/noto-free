@@ -195,6 +195,7 @@
 .cats a {
   @include btn;
   @include btn-overwrite;
+  @include btn-overwrite-hover;
 }
 
 .cats__title {
@@ -211,9 +212,12 @@
   .c-footer {
     padding: 0 1.3125rem;
   }
+}
 
+@include above(desk) {
   #{$content-selector} {
-    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

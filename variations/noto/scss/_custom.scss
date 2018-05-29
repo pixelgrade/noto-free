@@ -1,3 +1,6 @@
+$transition-duration: .5s;
+$transition-easing: $easeInOutCubic;
+
 @import 'mixins';
 @import 'comments';
 @import 'author';
