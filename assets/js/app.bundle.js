@@ -412,20 +412,33 @@ var Noto = function (_BaseTheme) {
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
-        var content = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content-area');
-        if (content.length) {
-            var contentAreaHeight = content.outerHeight();
-            var offsetTop = content.offset().top;
-            _this.ProgressBar = new __WEBPACK_IMPORTED_MODULE_4__components_base_ts_components_ProgressBar__["a" /* ProgressBar */]({
-                canShow: true,
-                max: contentAreaHeight - offsetTop,
-                offset: offsetTop
-            });
-        }
+        _this.initProgressBar();
+        _this.initMobileNavigation();
         return _this;
     }
 
     _createClass(Noto, [{
+        key: 'initMobileNavigation',
+        value: function initMobileNavigation() {
+            var $nav = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="c-navbar__content">');
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left, .c-navbar__zone--right').clone().appendTo($nav);
+            $nav.appendTo('.c-noto');
+        }
+    }, {
+        key: 'initProgressBar',
+        value: function initProgressBar() {
+            var content = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content-area');
+            if (content.length) {
+                var contentAreaHeight = content.outerHeight();
+                var offsetTop = content.offset().top;
+                this.ProgressBar = new __WEBPACK_IMPORTED_MODULE_4__components_base_ts_components_ProgressBar__["a" /* ProgressBar */]({
+                    canShow: true,
+                    max: contentAreaHeight - offsetTop,
+                    offset: offsetTop
+                });
+            }
+        }
+    }, {
         key: 'updateCardsPosition',
         value: function updateCardsPosition() {
             var that = this;

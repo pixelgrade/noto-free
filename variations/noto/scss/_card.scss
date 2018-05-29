@@ -7,22 +7,6 @@
   margin-top: 2rem;
 }
 
-.c-meta__primary {
-
-  ul {
-    margin-left: -2rem;
-    margin-right: -2rem;
-  }
-
-  li {
-    position: relative;
-  }
-
-  a {
-    padding: 0.5rem 2rem;
-  }
-}
-
 .c-meta__decoration {
   position: absolute;
   top: 0;
@@ -159,7 +143,7 @@
     font-size: 150vw;
   }
 
-  .c-meta__primary li:after,
+  .c-meta__decoration,
   .c-card__action:before {
     display: none;
   }
@@ -200,6 +184,22 @@ $card-offset: 21px;
 $button-offset: 16px;
 
 @include above(lap) {
+
+  .c-meta__primary {
+
+    ul {
+      margin-left: -2rem;
+      margin-right: -2rem;
+    }
+
+    li {
+      position: relative;
+    }
+
+    a {
+      padding: 0.5rem 2rem;
+    }
+  }
 
   .c-card__action {
     transition: transform $transition-duration $transition-easing;

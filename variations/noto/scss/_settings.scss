@@ -7,6 +7,13 @@ $fa-font-path: 'assets/fonts/fontawesome';
 
 $content-selector: '.content-area > :not([class*="align"]):not([class*="gallery"]):not(blockquote)';
 
+// Burger
+$burger-width: 19px;
+$burger-height: 14px;
+$burger-line-width: $burger-width;
+$burger-line-height: 2px;
+
+
 // Variation Variables
 $theme-color-1: #E79696; // primary
 $theme-color-2: #FCD9D2; // secondary

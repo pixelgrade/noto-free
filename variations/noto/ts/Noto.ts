@@ -24,6 +24,18 @@ export class Noto extends BaseTheme {
 
         requestAnimationFrame(loop);
 
+        this.initProgressBar();
+        this.initMobileNavigation();
+    }
+
+    public initMobileNavigation() {
+        const $nav = $( '<div class="c-navbar__content">' );
+
+        $( '.c-navbar__zone--left, .c-navbar__zone--right' ).clone().appendTo( $nav );
+        $nav.appendTo( '.c-noto' );
+    }
+
+    public initProgressBar() {
         const content = $( '.content-area' );
 
         if ( content.length ) {
@@ -36,7 +48,6 @@ export class Noto extends BaseTheme {
                 offset: offsetTop
             });
         }
-
     }
 
     public updateCardsPosition() {

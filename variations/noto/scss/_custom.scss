@@ -56,8 +56,8 @@ $transition-easing: $easeInOutCubic;
 
     .header {
       margin-right: auto;
-      padding: 4rem;
-      background: $theme-accent-light-color;
+      padding: 4vw;
+      background: $theme-accent-lighter-color;
     }
   }
 }
@@ -72,8 +72,8 @@ body:not(.single):not(.page) {
 
     .header {
       margin-right: auto;
-      padding: 4rem;
-      background: $theme-accent-light-color;
+      padding: 4vw;
+      background: $theme-accent-lighter-color;
     }
   }
 }
@@ -86,7 +86,7 @@ body:not(.single):not(.page) {
     grid-template-rows: 8px;
 
     > * {
-      grid-column: 1 / 4;
+      grid-column: 1 / -1;
     }
 
     &:before {
@@ -109,13 +109,6 @@ body:not(.single):not(.page) {
       height: 10px;
       background-color: $theme-border-color;
     }
-  }
-
-  .c-navbar__label {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-    background: $theme-border-color;
-    color: $theme-accent-light-color;
   }
 }
 
@@ -166,33 +159,15 @@ body:not(.single):not(.page) {
   justify-content: center;
 }
 
-.c-navbar__label,
+.c-navbar__label-icon,
 .search-trigger[class] {
   display: flex;
+  align-items: center;
   padding: 1em 1.3125rem;
 }
 
-.search-trigger[class] {
-  display: flex;
-  align-items: center;
-
-  svg {
-    display: block;
-  }
-}
-
-.c-navbar__checkbox {
-  display: none;
-}
-
-.c-navbar__label {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  @include above(lap) {
-    display: none;
-  }
+.search-trigger svg {
+  display: block;
 }
 
 .site {
