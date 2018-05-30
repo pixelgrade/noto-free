@@ -37,7 +37,7 @@
       padding: 6rem 2rem 0;
 
       display: grid;
-      grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 3fr [hs] minmax(#{$content-width/2}, 5fr) [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
+      grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 5em [hs] 35em [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
 
       > * {
         grid-column: cso / ce;

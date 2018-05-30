@@ -23,9 +23,8 @@ define( 'VARIATION_DARK_COLOR', '#34394B' );
 define( 'VARIATION_DARK_SECONDARY_COLOR', '#49494B' );
 
 define( 'VARIATION_ACCENT_COLOR', '#E79696' );
-define( 'VARIATION_ACCENT_LIGHT_COLOR', '#FCD9D2' );
-
-define( 'VARIATION_LIGHT_COLOR', '#FFF4F4' );
+define( 'VARIATION_LIGHT_COLOR', '#FCD9D2' );
+define( 'VARIATION_LIGHTER_COLOR', '#FFF4F4' );
 
 define( 'VARIATION_HEADINGS_FONT', 'IBM Plex Sans' );
 define( 'VARIATION_ACCENT_FONT', 'IBM Plex Mono' );
@@ -40,7 +39,82 @@ define( 'VARIATION_BODY_FONT', 'IBM Plex Sans' );
  * @return array $section_options The modified specific config
  */
 function variation_change_customify_general_section( $section_options, $options ) {
-	unset( $section_options['general'] );
+	$new_section_options = array(
+		// General
+		'general' => array(
+			'options' => array(
+				'general_title_colors_section'     => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-general-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__theme_txtd' ) . '</span>',
+				),
+				'accent_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => VARIATION_ACCENT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '
+								.intro[class],
+								.c-author__name[class], 
+								.c-card:hover .c-card__excerpt,
+								body .widget_nav_menu a, 
+								body .widget_pages a,
+								.slick-dots .slick-active',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '.widget_wpcom_social_media_icons_widget ul li:hover'
+						),
+					),
+				),
+				'accent_light_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Accent Light Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => VARIATION_LIGHT_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'background',
+							'selector' => '.header-category a:after',
+							'callback_filter' => 'noto_meta_background_gradient_cb',
+						),
+					),
+				),
+				'accent_lighter_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Accent Lighter Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => VARIATION_LIGHTER_COLOR,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '
+								.c-card__letter,
+								.c-navbar__label,
+								.search-trigger[class]',
+						),
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.c-card__frame:after,
+								.page .c-noto, 
+								.single .c-noto',
+						),
+					),
+				),
+			),
+		),
+	);
+
+	// Now we merge the modified config with the original one
+	// Thus overwriting what we have changed
+	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
+
+	// Remove Ajax Loading Option
+	unset( $section_options['general']['options']['use_ajax_loading'] );
+
 	return $section_options;
 }
 
@@ -140,7 +214,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'selector' => 'blockquote, .intro',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
-						'font-weight'    => '400italic',
+						'font-weight'    => 'italic',
 						'font-size'      => 18,
 						'line-height'    => 1.67,
 						'letter-spacing' => 0,
@@ -324,6 +398,12 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 		'blog_item_thumbnail_background',
 		'blog_grid_title_thumbnail_hover_section',
 		'blog_item_thumbnail_hover_opacity',
+
+		'blog_grid_title_colors_section',
+		'blog_item_title_color_control',
+		'blog_item_meta_primary_color_control',
+		'blog_item_meta_secondary_color_control',
+		'blog_item_excerpt_color',
 	);
 
 	foreach ( $options_to_be_removed as $option_name ) {
@@ -463,7 +543,7 @@ function variation_change_customify_footer_section( $section_options, $options )
 					'default' => VARIATION_LIGHT_COLOR
 				),
 				'footer_links_color'     => array(
-					'default' => VARIATION_ACCENT_LIGHT_COLOR
+					'default' => VARIATION_LIGHT_COLOR
 				),
 				'footer_background'      => array(
 					'default' => VARIATION_DARK_COLOR
@@ -667,3 +747,53 @@ if ( ! function_exists( 'noto_border_width' ) ) {
 		return $output;
 	}
 }
+
+if ( ! function_exists( 'noto_meta_background_gradient_cb' ) ) {
+	function noto_meta_background_gradient_cb( $value, $selector, $property, $unit ) {
+		$output = $selector . ' {' .
+		          $property . ': linear-gradient(90deg, ' . $value . ' 50%, transparent);' .
+		          '}';
+
+		return $output;
+	}
+}
+
+if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) ) :
+	/**
+	 * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
+	 */
+	function noto_meta_background_gradient_cb_customizer_preview() {
+
+		$js = "
+			function noto_meta_background_gradient_cb( value, selector, property, unit ) {
+			
+			    var css = '',
+			        style = document.getElementById('noto_meta_background_gradient_cb_style_tag'),
+			        head = document.head || document.getElementsByTagName('head')[0];
+			
+			    css += selector + ' {' +
+			        property + ': linear-gradient(90deg, ' + value + ' 50%, transparent);' +
+		        '}';
+			
+			    if ( style !== null ) {
+			        style.innerHTML = css;
+			    } else {
+			        style = document.createElement('style');
+			        style.setAttribute('id', 'noto_meta_background_gradient_cb_style_tag');
+			
+			        style.type = 'text/css';
+			        if ( style.styleSheet ) {
+			            style.styleSheet.cssText = css;
+			        } else {
+			            style.appendChild(document.createTextNode(css));
+			        }
+			
+			        head.appendChild(style);
+			    }
+			}" . PHP_EOL;
+
+		wp_add_inline_script( 'customify-previewer-scripts', $js );
+	}
+endif;
+
+add_action( 'customize_preview_init', 'noto_meta_background_gradient_cb_customizer_preview', 20 );
