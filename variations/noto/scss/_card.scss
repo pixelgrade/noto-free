@@ -8,6 +8,8 @@
 }
 
 .c-meta__decoration {
+  @include meta-style;
+
   position: absolute;
   top: 0;
   right: 0;
@@ -18,7 +20,6 @@
   border-bottom-left-radius: 999em;
   border-top-right-radius: 999em;
 
-  @include meta-style;
 }
 
 .c-meta {

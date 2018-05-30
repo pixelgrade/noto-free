@@ -124,6 +124,10 @@
       pointer-events: none;
     }
   }
+
+  .c-navbar__content {
+    display: none;
+  }
 }
 
 @include below(lap) {
@@ -172,7 +176,6 @@
     z-index: 310;
 
     padding-top: 8px;
-    height: 54px;
 
     background: $theme-border-color;
     color: $theme-accent-light-color;
@@ -189,6 +192,7 @@
     position: static;
     padding-top: 0;
     grid-column: 3 / -1;
+    grid-row: 2 / 3;
   }
 }
 

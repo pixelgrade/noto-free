@@ -1,6 +1,10 @@
 .single,
 .page {
 
+  .c-author {
+    text-align: left;
+  }
+
   @include above(lap) {
 
     .c-noto {
@@ -16,6 +20,14 @@
       grid-column-end: -1;
       background: white;
     }
+
+    .c-author {
+      text-align: right;
+    }
+
+    .c-author__avatar img {
+      margin-left: auto;
+    }
   }
 
   @include above(desk) {
@@ -29,7 +41,7 @@
       padding: 6rem 2rem 0;
 
       display: grid;
-      grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] minmax(#{$content-width}, 8fr) [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
+      grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 3fr [hs] minmax(#{$content-width*3/4}, 8fr) [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
 
       > * {
         grid-column: cso / ce;
@@ -64,24 +76,19 @@
         text-align: right;
       }
 
-      .entry-thumbnail {
+      .entry-thumbnail[class] {
         margin-left: 3rem;
-        margin-bottom: 3rem;
-      }
-
-      .header-meta {
         margin-bottom: 3rem;
       }
 
       .entry-thumbnail {
         grid-column: hs / end;
       }
+    }
 
-      .c-author {
-        margin-top: auto;
-        grid-row-end: span 2;
-        margin-bottom: 3rem;
-      }
+    .c-author {
+      margin-top: auto;
+      grid-row-end: span 2;
     }
   }
 
@@ -107,8 +114,8 @@
       align-self: flex-end;
     }
 
-    .entry-thumbnail,
-    .header-stuff {
+    .entry-thumbnail[class][class],
+    .header-stuff[class][class] {
       grid-column: ms / end;
       margin-left: 4rem;
     }
@@ -130,12 +137,16 @@
   }
 }
 
-.header-dropcap {
-  display: none;
+.entry-image--portrait {
+
+  .c-author,
+  .header-meta {
+    margin-bottom: 3rem;
+  }
 }
 
-.c-author {
-  text-align: right;
+.header-dropcap {
+  display: none;
 }
 
 .header-stuff {
@@ -180,7 +191,8 @@
 
 .single,
 .page {
-  .content-area > .related-posts-container {
+  .content-area > .related-posts-container[class] {
+    max-width: none;
     grid-column: ms / end;
   }
 }

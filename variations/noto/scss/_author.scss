@@ -1,8 +1,16 @@
+
 .c-author {
   display: block;
-  max-width: 12em;
-  margin-left: auto;
+
+  @include above(lap) {
+
+    &[class][class][class] {
+      max-width: 12em;
+      margin-left: auto;
+    }
+  }
 }
+
 
 .c-author__avatar {
   max-width: none;
