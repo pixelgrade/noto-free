@@ -129,7 +129,8 @@
     }
   }
 
-  .c-navbar__content {
+  .c-navbar__content,
+  .c-navbar__shadow {
     display: none;
   }
 }
@@ -169,6 +170,26 @@
       color: inherit;
     }
 
+    .menu-item-has-children {
+
+      > .sub-menu {
+        display: none;
+        margin-top: 0;
+        background: rgba(0,0,0,0.2);
+      }
+
+      &.hover {
+
+        > a:after {
+          content: "-";
+        }
+
+        > .sub-menu {
+          display: block;
+        }
+      }
+    }
+
     .c-navbar__checkbox:checked ~ & {
       transform: translateX(-100%);
     }
@@ -188,6 +209,25 @@
 
 .c-navbar__label {
   @include wp-offset(top, 0);
+}
+
+.c-navbar__shadow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 290;
+
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition-duration $transition-easing;
+
+  .c-navbar__checkbox:checked ~ & {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 @media (max-width: 600px) {

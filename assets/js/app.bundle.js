@@ -380,6 +380,7 @@ new __WEBPACK_IMPORTED_MODULE_0__Noto__["a" /* Noto */]();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_components_ProgressBar__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Header__ = __webpack_require__(22);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -389,6 +390,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -421,8 +423,10 @@ var Noto = function (_BaseTheme) {
         key: 'initMobileNavigation',
         value: function initMobileNavigation() {
             var $nav = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="c-navbar__content">');
+            var $shadow = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="c-navbar__shadow">');
             __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left, .c-navbar__zone--right').clone().appendTo($nav);
             $nav.appendTo('.c-noto');
+            $shadow.appendTo('.c-noto');
         }
     }, {
         key: 'initProgressBar',
@@ -473,6 +477,7 @@ var Noto = function (_BaseTheme) {
         value: function onLoadAction() {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onLoadAction', this).call(this);
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
+            this.Header = new __WEBPACK_IMPORTED_MODULE_5__Header__["a" /* NotoHeader */]();
             this.adjustLayout();
         }
     }, {
@@ -908,6 +913,210 @@ var ProgressBar = function (_BaseComponent) {
 
     return ProgressBar;
 }(__WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__["a" /* BaseComponent */]);
+
+/***/ }),
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotoHeader; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_imagesloaded__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_imagesloaded___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_imagesloaded__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_models_DefaultComponent__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__ = __webpack_require__(3);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+var NotoHeader = function (_BaseComponent) {
+    _inherits(NotoHeader, _BaseComponent);
+
+    function NotoHeader() {
+        _classCallCheck(this, NotoHeader);
+
+        var _this = _possibleConstructorReturn(this, (NotoHeader.__proto__ || Object.getPrototypeOf(NotoHeader)).call(this));
+
+        _this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+        _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
+        _this.$mainMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu--primary');
+        _this.$mainMenuItems = _this.$mainMenu.find('li');
+        _this.$menuToggle = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#menu-toggle');
+        _this.isMobileHeaderInitialised = false;
+        _this.isDesktopHeaderInitialised = false;
+        _this.areMobileBindingsDone = false;
+        _this.subscriptionActive = true;
+        _this.preventOneSelector = 'a.prevent-one';
+        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone').each(function (i, obj) {
+            var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+            if ($obj.find('.c-branding').length) {
+                $obj.addClass('c-navbar__zone--branding');
+            }
+            if ($obj.find('.jetpack-social-navigation').length) {
+                $obj.addClass('c-navbar__zone--social');
+            }
+        });
+        __WEBPACK_IMPORTED_MODULE_1_imagesloaded__(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar .c-logo'), function () {
+            _this.bindEvents();
+            _this.eventHandlers();
+            _this.updateOnResize();
+            _this.toggleNavStateClass();
+        });
+        return _this;
+    }
+
+    _createClass(NotoHeader, [{
+        key: 'destroy',
+        value: function destroy() {
+            this.subscriptionActive = false;
+        }
+    }, {
+        key: 'bindEvents',
+        value: function bindEvents() {
+            var _this2 = this;
+
+            this.$menuToggle.on('change', this.onMenuToggleChange.bind(this));
+            this.$mainMenuItems.hoverIntent({
+                out: function out(e) {
+                    return _this2.toggleSubMenu(e, false);
+                },
+                over: function over(e) {
+                    return _this2.toggleSubMenu(e, true);
+                },
+                timeout: 300
+            });
+            __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
+                return _this2.subscriptionActive;
+            }).subscribe(function () {
+                _this2.updateOnResize();
+            });
+        }
+    }, {
+        key: 'eventHandlers',
+        value: function eventHandlers() {
+            if (__WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__["a" /* Helper */].below('lap') && !this.areMobileBindingsDone) {
+                this.$document.on('click', this.preventOneSelector, this.onMobileMenuExpand.bind(this));
+                this.areMobileBindingsDone = true;
+            }
+            if (__WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__["a" /* Helper */].above('lap') && this.areMobileBindingsDone) {
+                this.$document.off('click', this.preventOneSelector, this.onMobileMenuExpand.bind(this));
+                this.areMobileBindingsDone = false;
+            }
+        }
+    }, {
+        key: 'updateOnResize',
+        value: function updateOnResize() {
+            this.eventHandlers();
+            if (__WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__["a" /* Helper */].below('lap')) {
+                this.prepareMobileMenuMarkup();
+            } else {
+                this.prepareDesktopMenuMarkup();
+            }
+        }
+    }, {
+        key: 'prepareDesktopMenuMarkup',
+        value: function prepareDesktopMenuMarkup() {
+            if (this.isDesktopHeaderInitialised) {
+                return;
+            }
+            this.isDesktopHeaderInitialised = true;
+        }
+    }, {
+        key: 'prepareMobileMenuMarkup',
+        value: function prepareMobileMenuMarkup() {
+            // If if has not been done yet, prepare the mark-up for the mobile navigation
+            if (this.isMobileHeaderInitialised) {
+                return;
+            }
+            // Append the branding
+            var $branding = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-branding');
+            $branding.clone().addClass('c-branding--mobile');
+            $branding.find('img').removeClass('is--loading');
+            // Create the mobile site header
+            var $siteHeaderMobile = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<div class="site-header-mobile  u-header-sides-spacing"></div>');
+            // Append the social menu
+            var $searchTrigger = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-mobile-search-trigger');
+            $siteHeaderMobile.append($branding.clone());
+            $siteHeaderMobile.append($searchTrigger.clone().show());
+            $siteHeaderMobile.appendTo('.c-navbar');
+            // Handle sub menus:
+            // Make sure there are no open menu items
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu-item-has-children').removeClass('hover');
+            // Add a class so we know the items to handle
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu-item-has-children > a').each(function (index, element) {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).addClass('prevent-one');
+            });
+            this.isMobileHeaderInitialised = true;
+        }
+    }, {
+        key: 'toggleSubMenu',
+        value: function toggleSubMenu(e, toggle) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).toggleClass('hover', toggle);
+        }
+    }, {
+        key: 'onMobileMenuExpand',
+        value: function onMobileMenuExpand(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var $button = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget);
+            var activeClass = 'active';
+            var hoverClass = 'hover';
+            if ($button.hasClass(activeClass)) {
+                window.location.href = $button.attr('href');
+                return;
+            }
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this.preventOneSelector).removeClass(activeClass);
+            $button.addClass(activeClass);
+            // When a parent menu item is activated,
+            // close other menu items on the same level
+            $button.parent().siblings().removeClass(hoverClass);
+            // Open the sub menu of this parent item
+            $button.parent().addClass(hoverClass);
+        }
+    }, {
+        key: 'toggleNavStateClass',
+        value: function toggleNavStateClass() {
+            var isMenuOpen = this.$menuToggle.prop('checked');
+            this.$body.toggleClass('nav--is-open', isMenuOpen);
+            return isMenuOpen;
+        }
+    }, {
+        key: 'onMenuToggleChange',
+        value: function onMenuToggleChange(e) {
+            var _this3 = this;
+
+            if (!this.toggleNavStateClass()) {
+                setTimeout(function () {
+                    // Close the open submenus in the mobile menu overlay
+                    _this3.$mainMenuItems.removeClass('hover');
+                    _this3.$mainMenuItems.find('a').removeClass('active');
+                }, 300);
+            }
+        }
+    }]);
+
+    return NotoHeader;
+}(__WEBPACK_IMPORTED_MODULE_3__components_base_ts_models_DefaultComponent__["a" /* BaseComponent */]);
 
 /***/ })
 ],[8]);

@@ -3,10 +3,12 @@ import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
+import { NotoHeader } from './Header';
 
 export class Noto extends BaseTheme {
     public ProgressBar: ProgressBar;
     public SearchOverlay: SearchOverlay;
+    public Header: NotoHeader;
     public mouseX = 0;
     public mouseY = 0;
 
@@ -30,9 +32,11 @@ export class Noto extends BaseTheme {
 
     public initMobileNavigation() {
         const $nav = $( '<div class="c-navbar__content">' );
+        const $shadow = $( '<div class="c-navbar__shadow">' );
 
         $( '.c-navbar__zone--left, .c-navbar__zone--right' ).clone().appendTo( $nav );
         $nav.appendTo( '.c-noto' );
+        $shadow.appendTo( '.c-noto' );
     }
 
     public initProgressBar() {
@@ -89,6 +93,7 @@ export class Noto extends BaseTheme {
         super.onLoadAction();
 
         this.SearchOverlay = new SearchOverlay();
+        this.Header = new NotoHeader();
 
         this.adjustLayout();
     }
