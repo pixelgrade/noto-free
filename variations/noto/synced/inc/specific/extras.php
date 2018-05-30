@@ -166,6 +166,64 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 
 		return $meta;
 	}
-
 }
-add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10, 2 );
+add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10 );
+
+if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
+
+	function noto_alter_blog_component_config( $config ) {
+		unset( $config['sidebars']['sidebar-1'] );
+
+		$config = Pixelgrade_Config::merge( $config, array(
+			'sidebars' => array(
+				'sidebar-2' => array(
+					'sidebar_args' => array(
+						'before_title' => '<h2 class="widget__title h4"><span>',
+						'after_title' => '</span></h2>',
+					),
+				)
+			)
+		) );
+
+		return $config;
+	}
+}
+add_filter( 'pixelgrade_blog_initial_config', 'noto_alter_blog_component_config', 10 );
+
+
+if ( ! function_exists( 'noto_alter_footer_component_config' ) ) {
+
+	function noto_alter_footer_component_config( $config ) {
+		$config = Pixelgrade_Config::merge( $config, array(
+			'sidebars' => array(
+				'sidebar-footer' => array(
+					'sidebar_args' => array(
+						'before_title' => '<h2 class="widget__title h4"><span>',
+						'after_title' => '</span></h2>',
+					),
+				)
+			)
+		) );
+
+		return $config;
+	}
+}
+add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_config', 10 );
+
+/**
+ * Change the Tag Cloud's Font Sizes.
+ *
+ * @since 1.0.0
+ *
+ * @param array $args
+ *
+ * @return array
+ */
+function noto_change_tag_cloud_font_sizes( array $args ) {
+	$args['smallest'] = '1.25';
+	$args['largest'] = '2';
+	$args['unit'] = 'rem';
+
+	return $args;
+}
+add_filter( 'widget_tag_cloud_args', 'noto_change_tag_cloud_font_sizes');

@@ -66,7 +66,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'css' => array(
 						array(
 							'property' => 'color',
-							'selector' => '.menu-item-has-children:hover',
+							'selector' => '.c-navbar__zone .menu-item-has-children:hover',
 						),
 					),
 				),
@@ -398,7 +398,7 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css' => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.menu-item-has-children:hover, .site-content:before, .c-navbar__zone--left .sub-menu'
+							'selector' => '.c-navbar__zone .menu-item-has-children:hover, .site-content:before, .c-navbar__zone--left .sub-menu'
 						),
 					),
 				),
