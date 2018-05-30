@@ -1,23 +1,27 @@
 
 .c-author {
   display: block;
+  text-align: left;
 
-  @include above(lap) {
+  @include above(desk) {
 
     &[class][class][class] {
+      text-align: right;
       max-width: 12em;
       margin-left: auto;
     }
   }
 }
 
+.c-author__avatar img {
+  @include above(desk) {
+    margin-left: auto;
+  }
+}
+
 
 .c-author__avatar {
   max-width: none;
-
-  img {
-    margin-left: auto;
-  }
 }
 
 .c-author__avatar + .c-author__details {

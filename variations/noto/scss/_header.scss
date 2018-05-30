@@ -70,6 +70,10 @@
   .blog &,
   .archive & {
     max-height: none;
+
+    @include below(lap) {
+      max-height: 20vw;
+    }
   }
 }
 
@@ -186,7 +190,7 @@
   @include wp-offset(top, 0);
 }
 
-@media (max-width: 782px) {
+@media (max-width: 600px) {
 
   .c-navbar__label[class] {
     position: static;

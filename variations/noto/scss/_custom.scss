@@ -1,5 +1,6 @@
 $transition-duration: .5s;
 $transition-easing: $easeInOutCubic;
+$mobile-padding: 6.25vw;
 
 @import 'mixins';
 @import 'comments';
@@ -35,7 +36,6 @@ $transition-easing: $easeInOutCubic;
     left: 2rem;
     bottom: 4rem;
 
-    // (100% - 2rem) * 12 / 32
     width: calc(#{percentage(12/31)} - (24rem/31));
 
     background: $theme-accent-lighter-color;
@@ -56,7 +56,7 @@ $transition-easing: $easeInOutCubic;
 
     .header {
       margin-right: auto;
-      padding: 4vw;
+      padding: $mobile-padding;
       background: $theme-accent-lighter-color;
     }
   }
@@ -72,7 +72,7 @@ body:not(.single):not(.page) {
 
     .header {
       margin-right: auto;
-      padding: 4vw;
+      padding: $mobile-padding;
       background: $theme-accent-lighter-color;
     }
   }

@@ -124,7 +124,7 @@
 
   .c-card {
     overflow: hidden;
-    padding: 0 4vw;
+    padding: 0 $mobile-padding;
 
     .related-posts-container & {
       margin: 0;
@@ -176,7 +176,7 @@
     }
 
     > .pagination {
-      padding: 0 4vw;
+      padding: 0 $mobile-padding;
     }
   }
 }

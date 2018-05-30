@@ -40,9 +40,7 @@ define( 'VARIATION_BODY_FONT', 'IBM Plex Sans' );
  * @return array $section_options The modified specific config
  */
 function variation_change_customify_general_section( $section_options, $options ) {
-
 	unset( $section_options['general'] );
-
 	return $section_options;
 }
 
@@ -201,7 +199,14 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_heading_6_font'           => array(
-					'selector' => 'h6, ul.page-numbers, .c-author__name, .c-reading-progress__label',
+					'selector' => 'h6, 
+						ul.page-numbers, 
+						.c-author__name, 
+						.c-reading-progress__label, 
+						.post-navigation .nav-links__label,
+						.cats__title,
+						.tags__title,
+						.sharedaddy--official h3.sd-title[class]',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
 						'font-weight'    => '500italic',
