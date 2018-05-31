@@ -31,6 +31,12 @@
     }
 }
 
+.c-footer__zone {
+    & + & {
+        margin-top: 4rem;
+    }
+}
+
 .back-to-top {
     display: none;
 }

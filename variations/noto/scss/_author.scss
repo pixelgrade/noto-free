@@ -46,6 +46,15 @@
   }
 }
 
+//.c-author__description[class] {
+//  margin-bottom: 1rem;
+//}
+
+.c-author__avatar,
+.c-author__footer {
+  display: none;
+}
+
 .c-author__description[class] {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
