@@ -4,7 +4,7 @@
 }
 
 .c-card__excerpt + .c-card__footer {
-  margin-top: 2rem;
+  @include spacing(margin-top, $card-content-spacing);
 }
 
 .c-card__meta {

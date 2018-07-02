@@ -126,10 +126,15 @@ body:not(.single):not(.page) {
     padding-top: 50px;
 
     @include card-large;
-
+    
+    .c-card__meta,
     .c-card__excerpt,
     .c-card__footer {
-      margin-left: percentage(4/14);
+      margin-left: percentage(5/14);
+    }
+
+    .c-card__title {
+      text-align: right;
     }
 
     .c-card__content {

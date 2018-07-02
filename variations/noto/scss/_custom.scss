@@ -153,7 +153,8 @@ body {
   .wave-svg {
     width: 200%;
     display: block;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
+    @include spacing(margin-bottom, $card-content-spacing);
   }
 }
 
