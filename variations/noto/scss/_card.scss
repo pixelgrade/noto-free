@@ -16,13 +16,14 @@
 
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: -4px;
   right: 0;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   overflow: hidden;
 
   max-width: 200px;
+  min-width: 100px;
 
   border-bottom-left-radius: 999em;
   border-top-right-radius: 999em;
@@ -105,7 +106,12 @@
 }
 
 .c-card {
-  .c-card__content,
+
+  .c-card__content {
+    align-items: flex-start;
+    margin-top: 0;
+  }
+
   .c-card__title {
     margin-top: 0;
   }
@@ -118,12 +124,19 @@
 .c-card__meta {
   width: auto;
 
+  // Show only the first category
   li:not(:first-child) {
     display: none;
   }
+    // Hide comma
+    li:not(:last-child):after {
+      content: "";
+    }
+}
 
-  li:not(:last-child):after {
-    content: "";
+.c-meta__separator {
+  &:after {
+    content: " \B7 ";
   }
 }
 
@@ -196,16 +209,16 @@ $button-offset: 16px;
   .c-meta__primary {
 
     ul {
-      margin-left: -2rem;
-      margin-right: -2rem;
+      // margin-left: -2rem;
+      // margin-right: -2rem;
     }
 
     li {
-      position: relative;
+      // position: relative;
     }
 
     a {
-      padding: 0.5rem 2rem;
+      // padding: 0.5rem 2rem;
     }
   }
 
@@ -234,7 +247,7 @@ $button-offset: 16px;
     transition: transform $transition-duration $transition-easing;
 
     .c-card:hover & {
-      transform: translateZ(0);
+      transform: translateX(-1.5rem) translateZ(0);
     }
 
     &:after {

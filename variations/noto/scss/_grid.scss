@@ -10,10 +10,23 @@ $border-width: 2rem;
   .c-card__title span {
     font-size: 1.3125em;
   }
+
+}
+
+@mixin card-small {
+  // Hide the Secondary Meta
+  .c-meta__secondary,
+  .c-meta__separator {
+    display: none;
+  }
 }
 
 @mixin card-align-right {
   text-align: right;
+
+  .c-card__content {
+    align-items: flex-end;
+  }
 
   .c-card__meta {
     justify-content: flex-end;
