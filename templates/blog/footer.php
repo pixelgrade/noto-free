@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <div class="c-border"><i></i></div>
-</div><!-- .c-pierrot -->
+</div><!-- .c-noto -->
 </div><!-- .barba-container -->
 
 <?php
