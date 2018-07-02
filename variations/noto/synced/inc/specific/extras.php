@@ -27,7 +27,7 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 		* into your own language.
 		*/
 		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Sans: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'IBM Plex Sans:400,400i,700,700i';
+			$fonts[] = 'IBM Plex Sans:400,400i,500,500i,600,600i,700,700i';
 		}
 
 		/* Translators: If there are characters in your language that are not
@@ -156,7 +156,7 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 				foreach ( $categories as $this_category ) {
 					$category .= '<li>' . PHP_EOL;
 					$category .= '<a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a>' . PHP_EOL;
-					$category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
+					// $category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
 					$category .= '</li>' . PHP_EOL;
 				};
 				$category .= '</ul>' . PHP_EOL;

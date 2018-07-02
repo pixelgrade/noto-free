@@ -13,6 +13,21 @@ $burger-height: 14px;
 $burger-line-width: $burger-width;
 $burger-line-height: 2px;
 
+// STYLE MANAGER
+// Color Palettes
+$sm-color-primary   : #E87474;
+$sm-color-secondary : #E79696;
+$sm-color-tertiary  : #FCD9D2;
+$sm-light-quaternary: #FFEA80; // Bright Yellow
+
+$sm-dark-primary    : #49494B;
+$sm-dark-secondary  : #34394B; // Blueish
+$sm-dark-tertiary   : #34394B;
+
+$sm-light-primary    : #FFFFFF; // White
+$sm-light-secondary  : #FFF4F4; // Light Pink
+$sm-light-tertiary   : #FFF5C1; // Light Yellow
+
 
 // Variation Variables
 $theme-color-1: #E79696; // primary
@@ -28,9 +43,9 @@ $theme-text-color: #49494B;
 $theme-border-color: #34394B;
 $theme-background-color: #FFFFFF;
 
-$theme-body-font-family: 'PT Serif', serif;
-$theme-body-font-family-alt: 'Montserrat', sans-serif;
-$theme-headings-font-family: 'Lora', serif;
+$theme-body-font-family: 'IBM Plex Sans', serif;
+$theme-body-font-family-alt: 'IBM Plex Sans', sans-serif;
+$theme-headings-font-family: 'IBM Plex Sans', serif;
 $theme-logo-font-family: 'Playfair Display', serif;
 
 $typography-table-cell-padding: 0.8em;
@@ -38,7 +53,7 @@ $typography-table-cell-padding: 0.8em;
 // ----------------------------------------
 // BUTTONS
 // ========================================
-$btn-padding: 1em 2em;
+$btn-padding: 0.825em 2.5em;
 $btn-font: (
   font-family: $theme-headings-font-family,
   font-size: 16px,
@@ -283,9 +298,9 @@ $blog-excerpt-visibility: true;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
-$blog-card-title-color: #000;
-$blog-primary-meta-color: #3B3B3B;
-$blog-secondary-meta-color: #828282;
+$blog-card-title-color: $sm-dark-secondary;
+$blog-primary-meta-color: $sm-dark-secondary;
+$blog-secondary-meta-color: $sm-dark-secondary;
 $blog-thumbnail-background: $theme-accent-light-color;
 $blog-thumbnail-background-opacity: 0.5;
 // ----------------------------------------

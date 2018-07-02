@@ -27,7 +27,7 @@ define( 'VARIATION_LIGHT_COLOR', '#FCD9D2' );
 define( 'VARIATION_LIGHTER_COLOR', '#FFF4F4' );
 
 define( 'VARIATION_HEADINGS_FONT', 'IBM Plex Sans' );
-define( 'VARIATION_ACCENT_FONT', 'IBM Plex Mono' );
+define( 'VARIATION_ACCENT_FONT', 'IBM Plex Sans' );
 define( 'VARIATION_BODY_FONT', 'IBM Plex Sans' );
 
 /**
@@ -330,9 +330,6 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 		// Main Content
 		'blog_grid' => array(
 			'options' => array(
-				'blog_items_secondary_meta'      => array(
-					'default' => 'none',
-				),
 				'blog_item_title_font'           => array(
 					'selector' => '.c-card__title',
 					'default'  => array(
@@ -348,12 +345,18 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 					'selector' => '.c-card__meta',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
-						'font-weight'    => '500italic',
-						'font-size'      => 14,
-						'line-height'    => 1.071,
-						'letter-spacing' => 0.14,
+						'font-weight'    => '500',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
+				),
+				'blog_items_primary_meta'      => array(
+					'default' => 'category',
+				),
+				'blog_items_secondary_meta'      => array(
+					'default' => 'date',
 				),
 				'blog_item_excerpt_font'         => array(
 					'selector' => '.c-card__excerpt',

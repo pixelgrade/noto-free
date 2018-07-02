@@ -7,15 +7,22 @@
   margin-top: 2rem;
 }
 
+.c-card__meta {
+  position: relative; 
+}
+
 .c-meta__decoration {
   @include meta-style;
 
   position: absolute;
+  z-index: -1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   overflow: hidden;
+
+  max-width: 200px;
 
   border-bottom-left-radius: 999em;
   border-top-right-radius: 999em;
@@ -265,9 +272,9 @@ $button-offset: 16px;
     }
   }
 
-  .c-meta__primary {
+  .c-card__meta > div:not(.c-meta__decoration) {
 
-    li:after {
+    .not-li:after {
       transition: all $transition-duration $transition-easing;
       transition-property: transform, opacity;
       transform: translateX(100%);
@@ -279,7 +286,7 @@ $button-offset: 16px;
       }
     }
 
-    a {
+    & {
       display: block;
       transition: transform $transition-duration $transition-easing;
       transform: translateY(10px);

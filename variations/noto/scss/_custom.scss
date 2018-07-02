@@ -79,6 +79,12 @@ body:not(.single):not(.page) {
   }
 }
 
+body {
+  &.u-content-background {
+    background: $theme-border-color;
+  }
+}
+
 @include below(lap) {
 
   .c-noto {
@@ -173,4 +179,8 @@ body:not(.single):not(.page) {
 
 .site {
   overflow: hidden;
+
+  // Limit the container size until more work is done for large screens
+  max-width: 1440px;
+  margin: 0 auto;
 }
