@@ -151,7 +151,7 @@ export class NotoHeader extends BaseComponent {
 
         this.$headerGrid.css({
             height: headerHeight,
-            left: 0,
+            left: this.$headerGrid.offset().left,
             position: 'fixed',
             top: adminBarHeight,
             width: headerWidth,

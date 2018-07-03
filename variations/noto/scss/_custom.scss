@@ -20,8 +20,10 @@ $mobile-padding: 6.25vw;
 @import '../../../components/header/scss/elements/burger';
 @import '../../../components/blog/scss/elements/search-overlay';
 
+@import 'grid';
+
 @include above(lap) {
-  @import 'grid';
+  @import 'border';
 }
 
 .single,
@@ -53,37 +55,9 @@ body:not(.single):not(.page) {
   }
 }
 
-@include below(lap) {
-
-  .c-noto {
-    display: grid;
-    grid-template-columns: auto 1fr 1fr;
-    grid-template-rows: 8px;
-
-    > * {
-      grid-column: 1 / -1;
-    }
-
-    &:before {
-      content: "";
-      grid-column: 1 / 4;
-      grid-row: 1 / 2;
-      background: $theme-border-color;
-    }
-  }
-
-  .c-navbar__zone--middle {
-    grid-column: 1 / 2;
-    grid-row: 2 / 4;
-
-    &:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10px;
-      background-color: $theme-border-color;
-    }
+body {
+  &.u-content-background {
+    background: $theme-border-color;
   }
 }
 
@@ -104,7 +78,7 @@ body:not(.single):not(.page) {
 }
 
 .site-content {
-  display: grid;
+  position: relative;
 }
 
 .u-header-height[class] {
@@ -122,7 +96,8 @@ body:not(.single):not(.page) {
   .wave-svg {
     width: 200%;
     display: block;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
+    @include spacing(margin-bottom, $card-content-spacing);
   }
 }
 
@@ -148,14 +123,19 @@ body:not(.single):not(.page) {
 
 .site {
   overflow: hidden;
+
+  // Limit the container size until more work is done for large screens
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.site-content {
-  background-color: $theme-border-color;
+// Should be an option into Customizer (?)
+.c-meta__secondary {
+  font-weight: 400;
 }
 
 .c-noto--header {
-  z-index: 300;
+  z-index: 100;
 }
 
 .c-noto--body {
@@ -175,16 +155,19 @@ body:not(.single):not(.page) {
   right: 0;
   bottom: 0;
   left: 0;
-  grid-column: 1 / -1;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
 }
 
 .c-footer-layers__background {
+  grid-column: 1 / -1;
+
   background: #FFFFFF;
   z-index: -10;
 }
 
 .c-footer-layers__accent {
+  grid-column: 1 / -1;
+
   top: -1rem;
   right: 3rem;
   z-index: -20;
@@ -201,4 +184,6 @@ body:not(.single):not(.page) {
 
   background: $theme-border-lighter-color;
   transform: rotate(-0.5deg);
+
+  transform: none !important;
 }

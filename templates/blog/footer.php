@@ -35,6 +35,15 @@ do_action( 'noto_before_grid_end', 'main' );
 ?>
 
     </div><!-- .c-noto -->
+
+<?php
+/**
+* pixelgrade_before_footer hook.
+*
+* @hooked nothing() - 10 (outputs nothing)
+*/
+do_action( 'noto_after_grid_end', 'main' );
+?>
 </div><!-- .barba-container -->
 
 <?php

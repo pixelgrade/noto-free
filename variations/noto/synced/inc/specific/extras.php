@@ -27,7 +27,7 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 		* into your own language.
 		*/
 		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Sans: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'IBM Plex Sans:400,400i,700,700i';
+			$fonts[] = 'IBM Plex Sans:400,400i,500,500i,600,600i,700,700i';
 		}
 
 		/* Translators: If there are characters in your language that are not
@@ -156,7 +156,7 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 				foreach ( $categories as $this_category ) {
 					$category .= '<li>' . PHP_EOL;
 					$category .= '<a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a>' . PHP_EOL;
-					$category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
+					// $category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
 					$category .= '</li>' . PHP_EOL;
 				};
 				$category .= '</ul>' . PHP_EOL;
@@ -247,3 +247,10 @@ function noto_add_tags_list( $content ) {
 // add this filter with a priority smaller than sharedaddy - it has 19
 remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
 add_filter( 'the_content', 'noto_add_tags_list', 18 );
+
+function noto_add_card_meta_decoration( $location ) { ?>
+
+	<div class="c-meta__decoration"></div>
+
+<?php }
+add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
