@@ -157,13 +157,20 @@ $border-width: 2rem;
 // > 1125px
 // ----------------------------------------
 @include above(lap) {
+
   // Layout
   .c-noto {
     grid-template-columns: 2rem 1fr [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
-    grid-template-rows: 4rem minmax(4rem, auto);
-    grid-auto-rows: minmax(50px, auto);
+  }
 
-    padding-top: 2rem;
+  .c-noto--header {
+    padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .c-noto--body {
+    grid-template-rows: minmax(4rem, auto);
+    grid-auto-rows: minmax(50px, auto);
 
     counter-reset: count;
 
