@@ -1,4 +1,16 @@
-// TYPOGRAPHY SETTINGS
+// ----------------------------------------
+// GENERAL SETTINGS
+// ========================================
+$breakpoints: (
+  xsmall:   30em,   // ~ 480px
+  small:    42.5em, // ~ 680px
+  pad:      50em,   // ~ 800px
+  lap:      62.5em, // ~ 1000px
+  desk:     80em    // ~ 1280px
+);
+
+// Layout
+// ----------------------------------------
 $sidebar-width: 300px;
 $layout-side-width: 300px;
 $layout-spacing: 4rem;
@@ -7,14 +19,15 @@ $fa-font-path: 'assets/fonts/fontawesome';
 
 $content-selector: '.content-area > :not([class*="align"]):not([class*="gallery"]):not(blockquote)';
 
-// Burger
+// Burger Menu
 $burger-width: 19px;
 $burger-height: 14px;
 $burger-line-width: $burger-width;
 $burger-line-height: 2px;
 
-// STYLE MANAGER
-// Color Palettes
+// Style Manager
+// ----------------------------------------
+// Colors
 $sm-color-primary   : #E87474;
 $sm-color-secondary : #E79696;
 $sm-color-tertiary  : #FCD9D2;
@@ -43,6 +56,8 @@ $theme-text-color: #49494B;
 $theme-border-color: #34394B;
 $theme-background-color: #FFFFFF;
 
+// Typography
+// ----------------------------------------
 $theme-body-font-family: 'IBM Plex Sans', serif;
 $theme-body-font-family-alt: 'IBM Plex Sans', sans-serif;
 $theme-headings-font-family: 'IBM Plex Sans', serif;
