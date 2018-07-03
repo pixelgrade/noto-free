@@ -79,6 +79,7 @@ body {
 
 .site-content {
   position: relative;
+  z-index: 100;
 }
 
 .u-header-height[class] {
@@ -122,8 +123,6 @@ body {
 }
 
 .site {
-  overflow: hidden;
-
   // Limit the container size until more work is done for large screens
   max-width: 1440px;
   margin: 0 auto;
@@ -168,22 +167,20 @@ body {
 .c-footer-layers__accent {
   grid-column: 1 / -1;
 
-  top: -1rem;
+  top: -1.2rem;
   right: 3rem;
+  bottom: 0.2rem;
   z-index: -20;
 
   background: $theme-accent-light-color;
-  transform: rotate(1.2deg);
+  transform: rotate(1.1deg);
 }
 
 .c-footer-layers__dark {
   top: -4rem;
   left: 5rem;
   bottom: -2rem;
-  z-index: -30;
 
   background: $theme-border-lighter-color;
   transform: rotate(-0.5deg);
-
-  transform: none !important;
 }

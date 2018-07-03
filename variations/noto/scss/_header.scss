@@ -266,9 +266,10 @@
 
 
 .jetpack-social-navigation .screen-reader-text {
+  width: auto;
+  height: auto;
+  position: static !important;
+  text-transform: capitalize;
   clip: auto;
   clip-path: none;
-  height: auto;
-  position: relative;
-  text-transform: capitalize;
 }

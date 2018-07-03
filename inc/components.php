@@ -65,4 +65,4 @@ add_action( 'noto_after_grid_end', 'noto_add_other_footer_layers', 10 );
 function noto_add_search_overlay() {
 	pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG, 'search-overlay' );
 }
-add_action( 'pixelgrade_footer_before_content', 'noto_add_search_overlay', 10 );
+add_action( 'pixelgrade_after_barba_wrapper', 'noto_add_search_overlay', 10 );

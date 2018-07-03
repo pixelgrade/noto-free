@@ -30,6 +30,7 @@ if ( ! pixelgrade_header_is_valid_config() ) {
 <?php
 $zones = pixelgrade_header_get_zones();
 unset( $zones['middle'] );
+unset( $zones['right'] );
 
 // Cycle through each zone and display the nav menus or other "bogus" things.
 foreach ( $zones as $zone_id => $zone ) {

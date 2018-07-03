@@ -80,8 +80,9 @@ export class NotoHeader extends BaseComponent {
         const $darkLayer = $( '.c-footer-layers__dark' );
         const timeline = new TimelineMax( { paused: true } );
 
-        timeline.to( $accentLayer, .5, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
-        timeline.to( $darkLayer, .5, { rotation: 0 }, 0 );
+        timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
+        timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
+        timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
 
         WindowService
             .onScroll()
@@ -92,7 +93,6 @@ export class NotoHeader extends BaseComponent {
                 const progressBottom = 1 - ( scroll + this.windowHeight - this.footerOffset.top ) / this.footerHeight;
                 const progress = Math.max( 0, Math.min( 1, progressTop, progressBottom ) );
                 timeline.progress( progress );
-                console.log( progress );
             } );
 
         WindowService
@@ -143,11 +143,11 @@ export class NotoHeader extends BaseComponent {
     }
 
     private prepareDesktopMenuMarkup(): void {
-        const headerWidth = this.$headerGrid.width();
+        const headerWidth = this.$headerGrid.outerWidth();
         const headerHeight = this.$headerGrid.outerHeight();
-        // const footerWidth = this.$footer.width();
+        const footerWidth = this.$footer.outerWidth();
         const footerHeight = this.$footer.outerHeight();
-        const adminBarHeight = $( '#wpadminbar' ).outerHeight();
+        const adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
 
         this.$headerGrid.css({
             height: headerHeight,
@@ -160,9 +160,9 @@ export class NotoHeader extends BaseComponent {
         this.$footer.css({
             bottom: 0,
             height: footerHeight,
-            left: 0,
+            left: this.$footer.offset().left,
             position: 'fixed',
-            width: '100%',
+            width: footerWidth,
         });
 
         this.$bodyGrid.css({
