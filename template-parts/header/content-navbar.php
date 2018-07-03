@@ -86,3 +86,8 @@ foreach ( $zones as $zone_id => $zone ) {
 	</div><!-- .c-navbar__zone -->
 
 <?php } ?>
+
+<div class="c-header-layers">
+    <div class="c-header-layers__dark"></div>
+    <div class="c-header-layers__accent"></div>
+</div>

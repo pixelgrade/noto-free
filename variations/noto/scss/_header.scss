@@ -1,7 +1,6 @@
 .c-navbar__zone--left,
 .c-navbar__zone--right {
   z-index: 100;
-  background: $theme-border-color;
 }
 
 .c-branding a {
@@ -112,6 +111,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: stretch;
+      justify-content: flex-end;
     }
 
     .sub-menu {
@@ -122,7 +122,7 @@
 
       margin-top: 0;
       justify-content: flex-end;
-      padding-right: percentage(3/19);
+      padding-right: percentage(3/31);
 
       opacity: 0;
       pointer-events: none;

@@ -29,9 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
@@ -57,43 +57,46 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 ?>
 
 <div id="barba-wrapper" class="site u-wrap-text u-header-height-padding-top u-border-width">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
 
-  <div id="content" class="site-content barba-container u-content-background">
-		<div class="c-noto c-noto--alternate">
+    <div id="content" class="site-content barba-container">
 
-	<?php
-	/**
-	 * pixelgrade_before_header hook.
-	 *
-	 * @hooked nothing() - 10 (outputs nothing)
-	 */
-	do_action( 'pixelgrade_before_header', 'main' );
-	?>
+        <div class="c-noto c-noto--header">
+			<?php
+			/**
+			 * pixelgrade_before_header hook.
+			 *
+			 * @hooked nothing() - 10 (outputs nothing)
+			 */
+			do_action( 'pixelgrade_before_header', 'main' );
+			?>
 
-	<?php
-	/**
-	 * pixelgrade_header hook.
-	 *
-	 * @hooked pixelgrade_the_header() - 10 (outputs the header markup)
-	 */
-	do_action( 'pixelgrade_header', 'main' );
-	?>
+			<?php
+			/**
+			 * pixelgrade_header hook.
+			 *
+			 * @hooked pixelgrade_the_header() - 10 (outputs the header markup)
+			 */
+			do_action( 'pixelgrade_header', 'main' );
+			?>
 
-	<?php
-	/**
-	 * pixelgrade_after_header hook.
-	 *
-	 * @hooked nothing() - 10 (outputs nothing)
-	 */
-	do_action( 'pixelgrade_after_header', 'main' );
-	?>
+			<?php
+			/**
+			 * pixelgrade_after_header hook.
+			 *
+			 * @hooked nothing() - 10 (outputs nothing)
+			 */
+			do_action( 'pixelgrade_after_header', 'main' );
+			?>
+        </div>
 
-	<?php
-	/**
-	 * pixelgrade_before_barba_container hook.
-	 *
-	 * @hooked nothing() - 10 (outputs nothing)
-	 */
-	do_action( 'pixelgrade_before_barba_container', 'main' );
-	?>
+        <div class="c-noto c-noto--body">
+
+			<?php
+			/**
+			 * pixelgrade_before_barba_container hook.
+			 *
+			 * @hooked nothing() - 10 (outputs nothing)
+			 */
+			do_action( 'pixelgrade_before_barba_container', 'main' );
+			?>

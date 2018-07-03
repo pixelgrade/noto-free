@@ -14,6 +14,11 @@ export class NotoHeader extends BaseComponent {
 
     private $body: JQuery = $( 'body' );
     private $document: JQuery = $( document );
+
+    private $headerGrid: JQuery = $( '.c-noto--header' );
+    private $bodyGrid: JQuery = $( '.c-noto--body' );
+    private $footer: JQuery = $( '.site-footer' );
+
     private $mainMenu: JQuery = $( '.menu--primary' );
     private $mainMenuItems: JQueryExtended = this.$mainMenu.find( 'li' );
     private $menuToggle: JQuery = $( '#menu-toggle' );
@@ -85,6 +90,22 @@ export class NotoHeader extends BaseComponent {
     private updateOnResize() {
         this.eventHandlers();
 
+        this.$headerGrid.css({
+            height: '',
+            left: '',
+            position: '',
+            top: '',
+            width: '',
+        });
+
+        this.$footer.css({
+            bottom: '',
+            height: '',
+            left: '',
+            position: '',
+            width: '',
+        });
+
         if ( Helper.below( 'lap' ) ) {
             this.prepareMobileMenuMarkup();
         } else {
@@ -93,6 +114,33 @@ export class NotoHeader extends BaseComponent {
     }
 
     private prepareDesktopMenuMarkup(): void {
+        const headerWidth = this.$headerGrid.width();
+        const headerHeight = this.$headerGrid.outerHeight();
+        // const footerWidth = this.$footer.width();
+        // const footerHeight = this.$footer.outerHeight();
+        const adminBarHeight = $( '#wpadminbar' ).outerHeight();
+
+        this.$headerGrid.css({
+            height: headerHeight,
+            left: 0,
+            position: 'fixed',
+            top: adminBarHeight,
+            width: headerWidth,
+        });
+
+        // this.$footer.css({
+        //     bottom: 0,
+        //     height: footerHeight,
+        //     left: 0,
+        //     position: 'fixed',
+        //     width: footerWidth,
+        // });
+
+        this.$bodyGrid.css({
+            // marginBottom: footerHeight,
+            marginTop: headerHeight,
+        });
+
         if ( this.isDesktopHeaderInitialised ) {
             return;
         }
