@@ -247,3 +247,10 @@ function noto_add_tags_list( $content ) {
 // add this filter with a priority smaller than sharedaddy - it has 19
 remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
 add_filter( 'the_content', 'noto_add_tags_list', 18 );
+
+function noto_add_card_meta_decoration( $location ) { ?>
+
+	<div class="c-meta__decoration"></div>
+
+<?php }
+add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
