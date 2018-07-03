@@ -1019,8 +1019,9 @@ var NotoHeader = function (_BaseComponent) {
             var $accentLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__accent');
             var $darkLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__dark');
             var timeline = new __WEBPACK_IMPORTED_MODULE_6_gsap__["TimelineMax"]({ paused: true });
-            timeline.to($accentLayer, .5, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
-            timeline.to($darkLayer, .5, { rotation: 0 }, 0);
+            timeline.to($accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
+            timeline.to($darkLayer, 1, { rotation: 0 }, 0);
+            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right'), .5, { opacity: 0 }, 0);
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
@@ -1029,7 +1030,6 @@ var NotoHeader = function (_BaseComponent) {
                 var progressBottom = 1 - (scroll + _this2.windowHeight - _this2.footerOffset.top) / _this2.footerHeight;
                 var progress = Math.max(0, Math.min(1, progressTop, progressBottom));
                 timeline.progress(progress);
-                console.log(progress);
             });
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
                 return _this2.subscriptionActive;
@@ -1077,11 +1077,11 @@ var NotoHeader = function (_BaseComponent) {
     }, {
         key: 'prepareDesktopMenuMarkup',
         value: function prepareDesktopMenuMarkup() {
-            var headerWidth = this.$headerGrid.width();
+            var headerWidth = this.$headerGrid.outerWidth();
             var headerHeight = this.$headerGrid.outerHeight();
-            // const footerWidth = this.$footer.width();
+            var footerWidth = this.$footer.outerWidth();
             var footerHeight = this.$footer.outerHeight();
-            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight();
+            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
             this.$headerGrid.css({
                 height: headerHeight,
                 left: this.$headerGrid.offset().left,
@@ -1092,9 +1092,9 @@ var NotoHeader = function (_BaseComponent) {
             this.$footer.css({
                 bottom: 0,
                 height: footerHeight,
-                left: 0,
+                left: this.$footer.offset().left,
                 position: 'fixed',
-                width: '100%'
+                width: footerWidth
             });
             this.$bodyGrid.css({
                 marginBottom: footerHeight,
