@@ -1,5 +1,9 @@
 $border-width: 2rem;
 
+// CARDS PROPERTIES
+// ========================================
+
+// Size
 @mixin card-large {
   .c-card__title span {
     font-size: 1.75em;
@@ -21,6 +25,11 @@ $border-width: 2rem;
   }
 }
 
+// Alignment
+@mixin card-align-left {
+
+}
+
 @mixin card-align-right {
   text-align: right;
 
@@ -33,10 +42,81 @@ $border-width: 2rem;
   }
 }
 
+// Positioning
+@mixin card-position-left {
+  // background: red;
+  .c-card__aside {
+      left: 130%;
+  }
+}
+
+@mixin card-position-center {
+  // background: yellow;
+}
+
+@mixin card-position-right {
+    // background: blue;
+    .c-card__aside {
+      left: auto;
+      right: 130%;
+    }
+}
+
+// ========================================
+
+
+
+// CARDS GRID
+// ========================================
+
+// <div class="c-noto">                             → Grid Container
+//   <div class="c-navbar__zone--left">...</div>    → Main Menu
+//   <div class="c-navbar__zone--middle">...</div>  → Site Identity
+//   <div class="c-navbar__zone--right">...</div>   → Secondary Menu
+//   <article>                                      → Positioning
+//     <div class="c-card">...</div>                → Cards Styling
+//   </article>
+// </div>
+
+// General Styles
+
 .c-noto {
   position: relative;
-
   display: grid;
+}
+
+// Main Menu
+.c-navbar__zone--left {
+  
+}
+
+// Site Identity
+.c-navbar__zone--middle {
+
+}
+
+// Secondary Menu
+.c-navbar__zone--right {
+
+}
+
+
+
+@include above(lap) {
+
+}
+
+@include below(lap) {
+
+}
+
+// Layout
+// ----------------------------------------
+
+.c-noto {
+  // position: relative;
+
+  // display: grid;
   grid-template-columns: 2rem 1fr [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
   grid-template-rows: 4rem minmax(4rem, auto);
   grid-auto-rows: minmax(50px, auto);
@@ -67,28 +147,17 @@ $border-width: 2rem;
       pointer-events: none;
     }
   }
-}
 
-body:not(.page):not(.single) {
-  .c-noto {
+  body:not(.page):not(.single) & {
     padding-bottom: 8rem;
   }
 }
 
 
-.single,
-.page {
+// Site Identity
+// ----------------------------------------
 
-  .c-navbar__zone--middle {
-
-    @include above(lap) {
-      padding: 2rem 0;
-      grid-column: start / 13;
-      grid-row: 1 / 3;
-    }
-  }
-}
-
+// Front Page
 body:not(.single):not(.page) {
 
   .c-navbar__zone--middle {
@@ -101,31 +170,55 @@ body:not(.single):not(.page) {
   }
 }
 
+// Inner Pages
+body.single,
+body.page {
+  .c-navbar__zone--middle {
+    @include above(lap) {
+      padding: 2rem 0;
+      grid-column: start / 13;
+      grid-row: 1 / 3;
+    }
+  }
+}
+
 .c-noto > .entry-header {
   grid-row-start: 4;
   grid-column-end: span 11;
   padding-bottom: 8rem;
 }
 
+
+// Main Menu
+// ----------------------------------------
 .c-navbar__zone--left {
   grid-column: 14 / span 19;
   grid-row: 1 / 2;
   padding-right: percentage(3/19);
 }
 
+
+// Secondary Menu
+// ----------------------------------------
 .c-navbar__zone--right {
   grid-column: 15 / span 15;
   grid-row: 2 / 3;
 }
 
+
+// Cards Positioning
+// ----------------------------------------
 .c-noto > article {
 
+  // First Card
   &:nth-of-type(1) {
     grid-column: middle / span 14;
     grid-row-end: span 3;
+
     padding-top: 50px;
 
     @include card-large;
+    @include card-align-left;
     
     .c-card__meta,
     .c-card__excerpt,
@@ -288,6 +381,45 @@ body:not(.single):not(.page) {
   }
 }
 
+// Responsive
+// ----------------------------------------
+// @include below(lap) {
+
+//   .c-noto {
+//     display: grid;
+//     grid-template-columns: auto 1fr 1fr;
+//     grid-template-rows: 8px;
+
+//     > * {
+//       grid-column: 1 / -1;
+//     }
+
+//     &:before {
+//       content: "";
+//       grid-column: 1 / 4;
+//       grid-row: 1 / 2;
+//       background: $theme-border-color;
+//     }
+//   }
+
+//   .c-navbar__zone--middle {
+//     grid-column: 1 / 2;
+//     grid-row: 2 / 4;
+
+//     &:before {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 10px;
+//       background-color: $theme-border-color;
+//     }
+//   }
+// }
+
+
+// Footer
+// ----------------------------------------
 .site-footer {
   grid-column: 1 / -1;
 }
@@ -297,6 +429,11 @@ body:not(.single):not(.page) {
   padding-right: 6rem;
 }
 
+
+// Others
+// ----------------------------------------
+// Pagination
+// Posts Navigation (Prev / Next at the end of a single post)
 .navigation {
   grid-column: 19 / span 12;
   margin-left: auto;
