@@ -26,33 +26,8 @@ $mobile-padding: 6.25vw;
   @import 'border';
 }
 
-.site-content {
-  position: relative;
-
-  &:before {
-    content: "";
-    display: block;
-
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    bottom: 4rem;
-
-    width: calc(#{percentage(12/31)} - (24rem/31));
-
-    background: $theme-accent-lighter-color;
-  }
-}
-
 .single,
 .page {
-
-  @include below(lap) {
-
-    .site-content:before {
-      display: none;
-    }
-  }
 
   @include below(lap) {
 
@@ -96,13 +71,14 @@ body {
 
 .u-container-width,
 .u-blog-grid-width {
+
   &[class] {
     max-width: none;
   }
 }
 
 .site-content {
-  display: grid;
+  position: relative;
 }
 
 .u-header-height[class] {
@@ -156,4 +132,58 @@ body {
 // Should be an option into Customizer (?)
 .c-meta__secondary {
   font-weight: 400;
+}
+
+.c-noto--header {
+  z-index: 100;
+}
+
+.c-noto--body {
+  z-index: 200;
+  padding-bottom: 100px;
+}
+
+.site-footer {
+  position: relative;
+}
+
+.c-footer-layers__background,
+.c-footer-layers__accent,
+.c-footer-layers__dark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+.c-footer-layers__background {
+  grid-column: 1 / -1;
+
+  background: #FFFFFF;
+  z-index: -10;
+}
+
+.c-footer-layers__accent {
+  grid-column: 1 / -1;
+
+  top: -1rem;
+  right: 3rem;
+  z-index: -20;
+
+  background: $theme-accent-light-color;
+  transform: rotate(1.2deg);
+}
+
+.c-footer-layers__dark {
+  top: -4rem;
+  left: 5rem;
+  bottom: -2rem;
+  z-index: -30;
+
+  background: $theme-border-lighter-color;
+  transform: rotate(-0.5deg);
+
+  transform: none !important;
 }

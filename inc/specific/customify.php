@@ -106,6 +106,29 @@ function variation_change_customify_general_section( $section_options, $options 
 				),
 			),
 		),
+		'title_tagline' => array(
+			'section_id' => 'title_tagline', // This is needed so we avoid the prefixing and use the core defined section.
+			'options' => array(
+				'profile_photo' => array(
+					'label' => esc_html__( 'Profile Photo', '__theme_txtd' ),
+					'type' => 'cropped_image',
+					'priority'      => 7, // this will make it appear above Logo (that has a priority of 8).
+					'width'         => 700, // Suggested width for cropped image.
+					'height'        => 500, // Suggested height for cropped image.
+					'flex_width'    => true, // Whether the width is flexible.
+					'flex_height'   => true, // Whether the height is flexible.
+					'button_labels' => array(
+						'select'       => __( 'Select photo' ),
+						'change'       => __( 'Change photo' ),
+						'remove'       => __( 'Remove' ),
+						'default'      => __( 'Default' ),
+						'placeholder'  => __( 'No photo selected' ),
+						'frame_title'  => __( 'Select photo' ),
+						'frame_button' => __( 'Choose photo' ),
+					),
+				),
+			),
+		),
 	);
 
 	// Now we merge the modified config with the original one

@@ -4,6 +4,7 @@ import 'jquery-hoverintent';
 import { BaseComponent } from '../../../components/base/ts/models/DefaultComponent';
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { WindowService } from '../../../components/base/ts/services/window.service';
+import { TimelineMax } from 'gsap';
 
 interface JQueryExtended extends JQuery {
     hoverIntent?( params: any ): void;
@@ -14,6 +15,19 @@ export class NotoHeader extends BaseComponent {
 
     private $body: JQuery = $( 'body' );
     private $document: JQuery = $( document );
+
+    // private documentHeight = $( document ).height();
+    private windowHeight = $( window ).height();
+
+    private $headerGrid: JQuery = $( '.c-noto--header' );
+    private headerHeight = this.$headerGrid.outerHeight();
+
+    private $bodyGrid: JQuery = $( '.c-noto--body' );
+
+    private $footer: JQuery = $( '.site-footer' );
+    private footerOffset = this.$footer.offset();
+    private footerHeight = this.$footer.outerHeight();
+
     private $mainMenu: JQuery = $( '.menu--primary' );
     private $mainMenuItems: JQueryExtended = this.$mainMenu.find( 'li' );
     private $menuToggle: JQuery = $( '#menu-toggle' );
@@ -62,10 +76,30 @@ export class NotoHeader extends BaseComponent {
             timeout: 300
         } );
 
+        const $accentLayer = $( '.c-footer-layers__accent' );
+        const $darkLayer = $( '.c-footer-layers__dark' );
+        const timeline = new TimelineMax( { paused: true } );
+
+        timeline.to( $accentLayer, .5, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
+        timeline.to( $darkLayer, .5, { rotation: 0 }, 0 );
+
+        WindowService
+            .onScroll()
+            .takeWhile( () => this.subscriptionActive )
+            .subscribe( () => {
+                const scroll = window.scrollY;
+                const progressTop = scroll / ( 3 * this.headerHeight );
+                const progressBottom = 1 - ( scroll + this.windowHeight - this.footerOffset.top ) / this.footerHeight;
+                const progress = Math.max( 0, Math.min( 1, progressTop, progressBottom ) );
+                timeline.progress( progress );
+                console.log( progress );
+            } );
+
         WindowService
             .onResize()
             .takeWhile( () => this.subscriptionActive )
             .subscribe( () => {
+                this.windowHeight = $( window ).height();
                 this.updateOnResize();
             } );
     }
@@ -85,6 +119,22 @@ export class NotoHeader extends BaseComponent {
     private updateOnResize() {
         this.eventHandlers();
 
+        this.$headerGrid.css({
+            height: '',
+            left: '',
+            position: '',
+            top: '',
+            width: '',
+        });
+
+        this.$footer.css({
+            bottom: '',
+            height: '',
+            left: '',
+            position: '',
+            width: '',
+        });
+
         if ( Helper.below( 'lap' ) ) {
             this.prepareMobileMenuMarkup();
         } else {
@@ -93,6 +143,33 @@ export class NotoHeader extends BaseComponent {
     }
 
     private prepareDesktopMenuMarkup(): void {
+        const headerWidth = this.$headerGrid.width();
+        const headerHeight = this.$headerGrid.outerHeight();
+        // const footerWidth = this.$footer.width();
+        const footerHeight = this.$footer.outerHeight();
+        const adminBarHeight = $( '#wpadminbar' ).outerHeight();
+
+        this.$headerGrid.css({
+            height: headerHeight,
+            left: this.$headerGrid.offset().left,
+            position: 'fixed',
+            top: adminBarHeight,
+            width: headerWidth,
+        });
+
+        this.$footer.css({
+            bottom: 0,
+            height: footerHeight,
+            left: 0,
+            position: 'fixed',
+            width: '100%',
+        });
+
+        this.$bodyGrid.css({
+            marginBottom: footerHeight,
+            marginTop: headerHeight,
+        });
+
         if ( this.isDesktopHeaderInitialised ) {
             return;
         }
