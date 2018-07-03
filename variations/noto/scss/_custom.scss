@@ -20,8 +20,9 @@ $mobile-padding: 6.25vw;
 @import '../../../components/header/scss/elements/burger';
 @import '../../../components/blog/scss/elements/search-overlay';
 
+@import 'grid';
+
 @include above(lap) {
-  @import 'grid';
   @import 'border';
 }
 
@@ -88,7 +89,7 @@ body {
 @include below(lap) {
 
   .c-noto {
-    display: grid;
+    // display: grid;
     grid-template-columns: auto 1fr 1fr;
     grid-template-rows: 8px;
 
