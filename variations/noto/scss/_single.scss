@@ -60,6 +60,11 @@
 
   a {
     @include meta-style;
+
+    &:after {
+      left: -2rem;
+      right: -1rem;
+    }
   }
 }
 
