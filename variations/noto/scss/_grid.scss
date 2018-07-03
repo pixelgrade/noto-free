@@ -62,6 +62,10 @@ $border-width: 2rem;
   }
 }
 
+@mixin debug-colors {
+  // background: $sm-light-quaternary;
+}
+
 // Widgets
 // Highlighted Style
 @mixin highlighted-style {
@@ -191,8 +195,20 @@ $border-width: 2rem;
       grid-column: start / 32;
     }
 
+    // Widgets
+    > .widget {
+      display: none;
+      
+      grid-column: 14 / span 5;
+      grid-row: 4 / span 3;
+
+      @include highlighted-style-alt;
+    }
+
     > article {
       position: relative;
+
+      @include debug-colors;
 
       &:before {
         position: absolute;
