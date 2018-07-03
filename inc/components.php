@@ -48,8 +48,9 @@ add_filter( 'pixelgrade_header_initial_config', 'noto_customize_header_config', 
 function noto_add_footer_layers() { ?>
 	<div class="c-footer-layers__dark"></div>
 	<div class="c-footer-layers__accent"></div>
+    <div class="c-footer-layers__background"></div>
 <?php }
-add_action( 'pixelgrade_footer_before_content', 'noto_add_footer_layers', 10 );
+add_action( 'noto_before_grid_end', 'noto_add_footer_layers', 10 );
 
 /**
  * Add markup needed for paper stack effect in footer

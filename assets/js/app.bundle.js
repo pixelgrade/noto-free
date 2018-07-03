@@ -445,22 +445,27 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'updateCardsPosition',
         value: function updateCardsPosition() {
-            var that = this;
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-card').each(function (i, obj) {
-                var thereshold = 20;
-                var el = obj;
-                var cardRect = el.getBoundingClientRect();
-                var cardWidth = el.offsetWidth;
-                var cardHeight = el.offsetHeight;
-                var distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
-                var distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
-                var moveX = thereshold * 2 * distanceX / cardWidth;
-                var moveY = thereshold * 2 * distanceY / cardHeight;
-                var images = el.parentNode.querySelectorAll('.c-card__frame');
-                for (var j = 0; j < images.length; ++j) {
-                    images[j].style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
-                }
-            });
+            // const that = this;
+            //
+            // $('.c-card').each((i, obj) => {
+            //     const thereshold = 20;
+            //     const el = (obj as HTMLElement);
+            //     const cardRect = el.getBoundingClientRect();
+            //     const cardWidth = el.offsetWidth;
+            //     const cardHeight = el.offsetHeight;
+            //
+            //     const distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
+            //     const distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
+            //
+            //     const moveX = thereshold * 2 * distanceX / cardWidth;
+            //     const moveY = thereshold * 2 * distanceY / cardHeight;
+            //
+            //     const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
+            //
+            //     for (let j = 0; j < images.length; ++j) {
+            //         (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
+            //     }
+            // });
         }
     }, {
         key: 'bindEvents',
@@ -930,6 +935,8 @@ var ProgressBar = function (_BaseComponent) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_models_DefaultComponent__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_gsap__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_gsap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_gsap__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -937,6 +944,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -954,9 +962,14 @@ var NotoHeader = function (_BaseComponent) {
 
         _this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
         _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
+        // private documentHeight = $( document ).height();
+        _this.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
         _this.$headerGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--header');
+        _this.headerHeight = _this.$headerGrid.outerHeight();
         _this.$bodyGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body');
         _this.$footer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer');
+        _this.footerOffset = _this.$footer.offset();
+        _this.footerHeight = _this.$footer.outerHeight();
         _this.$mainMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu--primary');
         _this.$mainMenuItems = _this.$mainMenu.find('li');
         _this.$menuToggle = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#menu-toggle');
@@ -1003,9 +1016,25 @@ var NotoHeader = function (_BaseComponent) {
                 },
                 timeout: 300
             });
+            var $accentLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__accent');
+            var $darkLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__dark');
+            var timeline = new __WEBPACK_IMPORTED_MODULE_6_gsap__["TimelineMax"]({ paused: true });
+            timeline.to($accentLayer, .5, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
+            timeline.to($darkLayer, .5, { rotation: 0 }, 0);
+            __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
+                return _this2.subscriptionActive;
+            }).subscribe(function () {
+                var scroll = window.scrollY;
+                var progressTop = scroll / (3 * _this2.headerHeight);
+                var progressBottom = 1 - (scroll + _this2.windowHeight - _this2.footerOffset.top) / _this2.footerHeight;
+                var progress = Math.max(0, Math.min(1, progressTop, progressBottom));
+                timeline.progress(progress);
+                console.log(progress);
+            });
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
+                _this2.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
                 _this2.updateOnResize();
             });
         }
@@ -1051,7 +1080,7 @@ var NotoHeader = function (_BaseComponent) {
             var headerWidth = this.$headerGrid.width();
             var headerHeight = this.$headerGrid.outerHeight();
             // const footerWidth = this.$footer.width();
-            // const footerHeight = this.$footer.outerHeight();
+            var footerHeight = this.$footer.outerHeight();
             var adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight();
             this.$headerGrid.css({
                 height: headerHeight,
@@ -1060,15 +1089,15 @@ var NotoHeader = function (_BaseComponent) {
                 top: adminBarHeight,
                 width: headerWidth
             });
-            // this.$footer.css({
-            //     bottom: 0,
-            //     height: footerHeight,
-            //     left: 0,
-            //     position: 'fixed',
-            //     width: footerWidth,
-            // });
+            this.$footer.css({
+                bottom: 0,
+                height: footerHeight,
+                left: 0,
+                position: 'fixed',
+                width: '100%'
+            });
             this.$bodyGrid.css({
-                // marginBottom: footerHeight,
+                marginBottom: footerHeight,
                 marginTop: headerHeight
             });
             if (this.isDesktopHeaderInitialised) {
