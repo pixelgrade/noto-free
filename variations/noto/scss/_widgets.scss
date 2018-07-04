@@ -1,6 +1,24 @@
 // WIDGETS
 // ========================================
 
+@mixin widget-size-small {
+    padding: 25px;
+    background: $sm-light-tertiary;
+}
+
+@mixin widget-size-medium {
+    padding: 40px;
+}
+
+@mixin widget-style-post-it {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    border-radius: 90px;
+    transform: rotate(-5deg);
+
+    text-align: center;
+}
 
 // Frontpage Grid Widgets Styles
 // Use Container Queries for styling
@@ -8,39 +26,65 @@
 .c-noto {
     .widget {
         // Default Styles
-        background: $sm-light-secondary;
-        padding: 25px;
-        padding: 40px 25px;
-        // border-radius: 90px;
-        // margin: -15px;
 
-        .small {
-            font-size: 80%;
+        p, ul, ol {
+          &:not(:last-child) {
+            @include spacing(margin-bottom, $typography-spacing/2);
+          }
         }
+
+        // margin: -15px
 
         &.centered {
             text-align: center;
         }
+        
+        background: $sm-light-secondary;
+
+        @include widget-size-medium;
 
         // Small Size
-        @include cq-prolyfill("width < 100px") {
-            padding: 25px;
-        } 
-
-        // Medium Size
-        @include cq-prolyfill("width > 250px") {
-            padding: 40px;
+        &.small {
+            @include widget-size-small;
         }
 
         // Post-it Style
-        @include cq-prolyfill("height < 250px") {
-            background: $sm-light-tertiary;
-            padding: 40px 25px;
-            border-radius: 90px;
-            transform: rotate(-5deg);
-        } 
+        &.post-it {
+            @include widget-style-post-it;
+
+            a {
+                text-decoration: none;
+                border-bottom: 1px solid;
+            }
+
+            .wave-svg-mask {
+                .wave-svg {
+                    opacity: 0.6;
+                    width: 20px;
+                    margin: 0 auto;
+                    margin-top: $typography-spacing/2;
+
+                    rect {
+                        transform: translateX(-3px);
+                    }
+                }
+            }
+
+        }
+
+        // @include cq-prolyfill("height < 300px") {
+
+        // } 
+        // // Medium Size
+        // @include cq-prolyfill("width > 250px") {
+        //     padding: 40px;
+        //     background: $sm-light-secondary;
+        //     // background: red;
+        // }
     }
 }
+
+
 
 
 

@@ -217,8 +217,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => array(
 						'font-family'    => VARIATION_BODY_FONT,
 						'font-weight'    => 'regular',
-						'font-size'      => 18,
-						'line-height'    => 1.65,
+						'font-size'      => 15,
+						'line-height'    => 1.6,
 						'letter-spacing' => 0,
 						'text-transform' => 'none',
 					),
@@ -303,7 +303,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_heading_6_font'           => array(
-					'selector' => 'h6',
+					'selector' => 'h6, .h6',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
 						'font-weight'    => '500',

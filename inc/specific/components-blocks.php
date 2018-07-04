@@ -93,6 +93,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 		'blocks'   => array(
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
+			'blog/sidebar',
 		),
 	) );
 
@@ -105,6 +106,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/entry-header-archive',
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
+			'blog/sidebar',
 		),
 	) );
 
@@ -113,6 +115,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/entry-header-search',
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
+			'blog/sidebar',
 		),
 	) );
 
