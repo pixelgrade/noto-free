@@ -166,6 +166,12 @@ $border-width: 2rem;
   }
 }
 
+$offset: 2;
+@mixin nth-card( $index ) {
+  &:nth-child( #{$index + $offset} ) {
+    @content;
+  }
+}
 
 // BREAKPOINT
 // > 1125px
@@ -179,7 +185,6 @@ $border-width: 2rem;
 
   .c-noto--header {
     padding-top: 2.5rem;
-    padding-bottom: 0.5rem;
   }
 
   .c-noto--body {
@@ -193,10 +198,13 @@ $border-width: 2rem;
     }
 
     > .c-gallery__item {
+      //opacity: 0;
+      //pointer-events: none;
 
       // Cards Positioning
       // ----------------------------------------
       // First Card
+
       &:nth-child(1) {
         grid-column: middle / span 14;
         grid-row-end: span 3;

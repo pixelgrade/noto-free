@@ -963,13 +963,15 @@ var NotoHeader = function (_BaseComponent) {
         // private documentHeight = $( document ).height();
         _this.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
         _this.adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
+        _this.footerPinned = false;
+        _this.headerPinned = true;
         _this.$headerGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--header');
         _this.headerHeight = _this.$headerGrid.outerHeight();
         _this.$bodyGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body');
         _this.$footer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer');
         _this.footerOffset = _this.$footer.offset();
         _this.footerHeight = _this.$footer.outerHeight();
-        _this.$mainMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu--primary');
+        _this.$mainMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left .menu');
         _this.$mainMenuItems = _this.$mainMenu.find('li');
         _this.$menuToggle = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#menu-toggle');
         _this.isMobileHeaderInitialised = false;
@@ -977,6 +979,7 @@ var NotoHeader = function (_BaseComponent) {
         _this.areMobileBindingsDone = false;
         _this.subscriptionActive = true;
         _this.preventOneSelector = 'a.prevent-one';
+        console.log(_this.$mainMenu);
         __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone').each(function (i, obj) {
             var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
             if ($obj.find('.c-branding').length) {
@@ -1006,6 +1009,12 @@ var NotoHeader = function (_BaseComponent) {
             var _this2 = this;
 
             this.$menuToggle.on('change', this.onMenuToggleChange.bind(this));
+            this.$mainMenuItems.filter('.menu-item-has-children').on('mouseenter', function () {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right').addClass('is-hidden');
+            });
+            this.$mainMenuItems.filter('.menu-item-has-children').on('mouseleave', function () {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right').removeClass('is-hidden');
+            });
             this.$mainMenuItems.hoverIntent({
                 out: function out(e) {
                     return _this2.toggleSubMenu(e, false);
@@ -1024,7 +1033,6 @@ var NotoHeader = function (_BaseComponent) {
             timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left'), 0, { opacity: 0 }, 1);
             timeline.to($darkLayer, 1, { rotation: 1 }, 1);
             timeline.to($accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1);
-            var footerPinned = false;
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
@@ -1033,17 +1041,8 @@ var NotoHeader = function (_BaseComponent) {
                 var progressBottom = (scroll + _this2.windowHeight - _this2.footerOffset.top) / Math.min(_this2.footerHeight, _this2.windowHeight);
                 var progress = 0.5 * Math.max(0, Math.min(1, progressTop));
                 progress = progress + 0.5 * Math.max(0, Math.min(1, progressBottom));
-                if (scroll >= _this2.footerOffset.top) {
-                    if (!footerPinned) {
-                        __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: 0 });
-                        __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'static' });
-                        footerPinned = true;
-                    }
-                } else if (footerPinned) {
-                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: _this2.footerHeight });
-                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'fixed' });
-                    footerPinned = false;
-                }
+                _this2.pinFooter(scroll);
+                _this2.pinHeader(scroll);
                 timeline.progress(progress);
             });
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
@@ -1053,6 +1052,40 @@ var NotoHeader = function (_BaseComponent) {
                 _this2.adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
                 _this2.updateOnResize();
             });
+        }
+    }, {
+        key: 'pinFooter',
+        value: function pinFooter(scroll) {
+            if (scroll >= this.footerOffset.top) {
+                if (!this.footerPinned) {
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: 0 });
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'static' });
+                    this.footerPinned = true;
+                }
+            } else if (this.footerPinned) {
+                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: this.footerHeight });
+                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'fixed' });
+                this.footerPinned = false;
+            }
+        }
+    }, {
+        key: 'pinHeader',
+        value: function pinHeader(scroll) {
+            if (scroll >= 25) {
+                if (!this.headerPinned) {
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(this.$headerGrid, {
+                        pointerEvents: 'none',
+                        zIndex: 100
+                    });
+                    this.headerPinned = true;
+                }
+            } else if (this.headerPinned) {
+                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(this.$headerGrid, {
+                    pointerEvents: '',
+                    zIndex: ''
+                });
+                this.headerPinned = false;
+            }
         }
     }, {
         key: 'eventHandlers',
