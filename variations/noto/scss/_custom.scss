@@ -193,7 +193,6 @@ body {
 }
 
 .c-navbar__zone--right {
-  transition: opacity .3s ease-in-out;
 
   &.is-hidden {
     opacity: 0 !important;

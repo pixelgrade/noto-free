@@ -1022,7 +1022,7 @@ var NotoHeader = function (_BaseComponent) {
                 over: function over(e) {
                     return _this2.toggleSubMenu(e, true);
                 },
-                timeout: 300
+                timeout: 200
             });
             var $accentLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__accent');
             var $darkLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__dark');

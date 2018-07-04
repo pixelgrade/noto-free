@@ -86,7 +86,7 @@ export class NotoHeader extends BaseComponent {
         this.$mainMenuItems.hoverIntent( {
             out: (e) => this.toggleSubMenu(e, false),
             over: (e) => this.toggleSubMenu(e, true),
-            timeout: 300
+            timeout: 200
         } );
 
         const $accentLayer = $( '.c-footer-layers__accent' );

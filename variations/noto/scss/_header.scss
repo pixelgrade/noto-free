@@ -35,6 +35,8 @@
 
       text-decoration: none;
     }
+
+
   }
 
   .menu-item-has-children {
@@ -54,7 +56,7 @@
     }
   }
 }
-
+.c-navbar__zone .menu-item,
 .c-navbar__zone .menu-item-has-children {
 
   > a {
@@ -69,9 +71,15 @@
       left: 0;
       z-index: -1;
       background-color: #fff;
-      transition: transform .3s $easeInBack;
+      transition: transform 0.4s $easeInBack;
       transform-origin: 50% 100%;
       transform: scale(1,0) rotate( 0 );
+    }
+  }
+
+  &.hover:hover {
+    > a {
+      color: inherit;
     }
   }
 
@@ -80,7 +88,7 @@
       $rotation: (random(6) - 3) * 1deg;
       @debug $rotation;
       transform: scale(1,1) rotate( $rotation );
-      transition: transform .3s $easeOutBack;
+      transition: transform 0.4s $easeOutBack;
     }
   }
 }
@@ -91,10 +99,8 @@
 
   .menu > li > a {
     transition: color .2s .1s ease-out;
-  }
-
-  .menu > li.menu-item-has-children.hover:hover > a {
-    color: inherit;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
   }
 }
 
@@ -134,6 +140,11 @@
 
   @include above(lap) {
     background: none;
+
+    > * {
+      opacity: 0.6;
+      font-size: 93.75%;
+    }
   }
 
   @include below(lap) {
