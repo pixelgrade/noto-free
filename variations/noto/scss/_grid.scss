@@ -419,9 +419,9 @@ $offset: 2;
 
   // Main Menu
   .c-navbar__zone--left {
-    grid-column: 14 / span 19;
+    grid-column: 14 / span 17;
     grid-row: 1 / 2;
-    padding-right: percentage(3/19);
+    // padding-right: percentage(3/19);
   }
 
   // Site Identity
@@ -446,7 +446,7 @@ $offset: 2;
 
   // Secondary Menu
   .c-navbar__zone--right {
-    grid-column: 12 / span 18;
+    grid-column: 12 / span 19;
     grid-row: 1 / 2;
   }
 
