@@ -496,7 +496,7 @@ function variation_change_customify_header_section( $section_options, $options )
 					'default' => 48
 				),
 				'header_navigation_links_color' => array(
-					'default' => SM_COLOR_TERTIARY,
+					'default' => SM_LIGHT_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -562,10 +562,10 @@ function variation_change_customify_footer_section( $section_options, $options )
 					'default' => 48
 				),
 				'footer_body_text_color' => array(
-					'default' => SM_COLOR_TERTIARY
+					'default' => SM_LIGHT_PRIMARY
 				),
 				'footer_links_color'     => array(
-					'default' => SM_COLOR_TERTIARY
+					'default' => SM_LIGHT_SECONDARY
 				),
 				'footer_background'      => array(
 					'default' => SM_DARK_SECONDARY
