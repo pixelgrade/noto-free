@@ -98,7 +98,10 @@ function variation_change_customify_general_section( $section_options, $options 
 						),
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-card__frame:after',
+							'selector' => '
+								.c-card__frame:after,
+								.page .c-noto, 
+								.single .c-noto',
 						),
 					),
 				),
@@ -493,7 +496,16 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone--left .menu > li > a',
+							'selector' => '.c-navbar__zone--left, .c-navbar__zone--right',
+						),
+					),
+				),
+				'header_background' => array(
+					'default' => VARIATION_LIGHT_COLOR,
+					'css' => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-navbar__zone .menu-item-has-children:hover, .site-content:before, .c-navbar__zone--left .sub-menu'
 						),
 					),
 				),
