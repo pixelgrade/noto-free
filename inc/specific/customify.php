@@ -309,7 +309,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 						'font-weight'    => '500',
 						'font-size'      => 14,
 						'line-height'    => 1.5,
-						'letter-spacing' => 0.075,
+						'letter-spacing' => 0.1,
 						'text-transform' => 'uppercase',
 					),
 				),

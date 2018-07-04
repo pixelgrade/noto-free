@@ -125,7 +125,7 @@ export class Noto extends BaseTheme {
             $pattern.attr( 'id', patternID + i );
             $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
 
-            if($obj.is( '.intro' ) {
+            if ( $obj.is( '.intro' ) ) {
                 $wave.prependTo($obj).show();
             } else {
                 $wave.appendTo($obj).show();
@@ -172,7 +172,6 @@ export class Noto extends BaseTheme {
 
     private adjustLayout() {
         cq.reevaluate(false, () => {
-            console.log('here');
             // Do something after all elements were updated
         });
     }

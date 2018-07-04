@@ -560,7 +560,6 @@ var Noto = function (_BaseTheme) {
         key: 'adjustLayout',
         value: function adjustLayout() {
             cq.reevaluate(false, function () {
-                console.log('here');
                 // Do something after all elements were updated
             });
         }
