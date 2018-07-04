@@ -42,7 +42,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 		'wrappers' => array(
 			'primary' => array(
 				'id'       => 'primary',
-				'classes'  => 'content-area',
+				'classes'  => 'content-area entry-content',
 				'priority' => 10,
 			),
 		),

@@ -52,6 +52,9 @@ $theme-color-5: #49494B; // dark secondary
 $theme-accent-color: #E79696;
 $theme-accent-light-color: #FCD9D2;
 $theme-accent-lighter-color: #FFF4F4;
+
+$theme-border-lighter-color: #394059;
+
 $theme-text-color: #49494B;
 $theme-border-color: #34394B;
 $theme-background-color: #FFFFFF;
@@ -69,6 +72,7 @@ $typography-table-cell-padding: 0.8em;
 // BUTTONS
 // ========================================
 $btn-padding: 0.825em 2.5em;
+$btn-padding: 16px 2.5em;
 $btn-font: (
   font-family: $theme-headings-font-family,
   font-size: 16px,
@@ -349,9 +353,62 @@ $footer-links-color: #000;
 $footer-background-color: #FFF;
 // ----------------------------------------
 
-$arrow-caret-svg: 'assets/images/arrow-caret.svg';
-$select-arrow-svg: 'assets/images/select-arrow.svg';
-$checkbox-svg: 'assets/images/checkbox.svg';
+$arrow-caret-svg: 'assets/images/arrow-down.svg';
+$select-arrow-svg: 'assets/images/arrow-down.svg';
+$checkbox-svg: 'assets/images/icon-check.svg';
 $search-svg: 'assets/images/icon-search.svg';
 
+// ----------------------------------------
+// MEDIA
+// ----------------------------------------
+$wp-align-caption-font: (
+  font-size: 17px,
+  font-family: $theme-body-font-family,
+  spacing-top: 1rem,
+);
+
+$gallery-spacing: 4rem;
+
+$wp-align-image-vertical-padding: 3.5rem;
+$wp-align-image-horizontal-padding: 4rem;
+
+$wp-align-wrapped-image-vertical-padding: 2.5rem;
+$wp-align-wrapped-image-horizontal-padding: 3rem;
+
+// ----------------------------------------
+// FORMS
+// ----------------------------------------
+$checkbox-color: $sm-dark-secondary;
+$checkbox-background-color: $sm-dark-secondary;
+$checkbox-width: 1.7rem;
+$checkbox-height: 1.7rem;
+$input-focus-border-color: $sm-color-tertiary;
+$btn-default-background: #202423;
+$input-disabled-background-color: #E0E0E0;
+$input-disabled-border-color: #C7C7C7;
+$input-border-width: 2px;
+$input-border-radius: 0px;
+$input-padding: 11px 17px 13px;
+
+$input-horizontal-spacing: 0.7rem;
+$input-vertical-spacing: 0.6rem;
+
+$label-font: (
+  font-size: 17px,
+  line-height: 1.5,
+  font-weight: 500,
+  letter-spacing: 0,
+  text-transform: none,
+);
+
+$input-font: (
+  font-size: 17px,
+  line-height: 1.5,
+  font-weight: 400,
+);
+
+// ----------------------------------------
+// OTHERS
+// ----------------------------------------
 $jetpack-sharing-spacing: 15px;
+$jetpack-sharing-icon-bg: #3B3B3B;

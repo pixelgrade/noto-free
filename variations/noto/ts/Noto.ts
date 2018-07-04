@@ -5,6 +5,8 @@ import { SearchOverlay } from '../../../components/base/ts/components/SearchOver
 import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
 import { NotoHeader } from './Header';
 
+const cq = require('cq-prolyfill')({ /* configuration */ });
+
 export class Noto extends BaseTheme {
     public ProgressBar: ProgressBar;
     public SearchOverlay: SearchOverlay;
@@ -55,27 +57,27 @@ export class Noto extends BaseTheme {
     }
 
     public updateCardsPosition() {
-        const that = this;
-
-        $('.c-card').each((i, obj) => {
-            const thereshold = 20;
-            const el = (obj as HTMLElement);
-            const cardRect = el.getBoundingClientRect();
-            const cardWidth = el.offsetWidth;
-            const cardHeight = el.offsetHeight;
-
-            const distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
-            const distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
-
-            const moveX = thereshold * 2 * distanceX / cardWidth;
-            const moveY = thereshold * 2 * distanceY / cardHeight;
-
-            const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
-
-            for (let j = 0; j < images.length; ++j) {
-                (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
-            }
-        });
+        // const that = this;
+        //
+        // $('.c-card').each((i, obj) => {
+        //     const thereshold = 20;
+        //     const el = (obj as HTMLElement);
+        //     const cardRect = el.getBoundingClientRect();
+        //     const cardWidth = el.offsetWidth;
+        //     const cardHeight = el.offsetHeight;
+        //
+        //     const distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
+        //     const distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
+        //
+        //     const moveX = thereshold * 2 * distanceX / cardWidth;
+        //     const moveY = thereshold * 2 * distanceY / cardHeight;
+        //
+        //     const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
+        //
+        //     for (let j = 0; j < images.length; ++j) {
+        //         (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
+        //     }
+        // });
     }
 
     public bindEvents() {
@@ -164,6 +166,10 @@ export class Noto extends BaseTheme {
     }
 
     private adjustLayout() {
+        cq.reevaluate(false, () => {
+            console.log('here');
+            // Do something after all elements were updated
+        });
     }
 
 }

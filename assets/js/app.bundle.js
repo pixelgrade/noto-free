@@ -344,7 +344,8 @@ WindowService.$window = __WEBPACK_IMPORTED_MODULE_1_jquery___default()(window);
 
 /***/ }),
 /* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -356,7 +357,6 @@ var BaseComponent = function BaseComponent() {
 };
 
 /***/ }),
-/* 5 */,
 /* 6 */,
 /* 7 */,
 /* 8 */
@@ -397,6 +397,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var cq = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"cq-prolyfill\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))({});
 var Noto = function (_BaseTheme) {
     _inherits(Noto, _BaseTheme);
 
@@ -445,22 +446,27 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'updateCardsPosition',
         value: function updateCardsPosition() {
-            var that = this;
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-card').each(function (i, obj) {
-                var thereshold = 20;
-                var el = obj;
-                var cardRect = el.getBoundingClientRect();
-                var cardWidth = el.offsetWidth;
-                var cardHeight = el.offsetHeight;
-                var distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
-                var distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
-                var moveX = thereshold * 2 * distanceX / cardWidth;
-                var moveY = thereshold * 2 * distanceY / cardHeight;
-                var images = el.parentNode.querySelectorAll('.c-card__frame');
-                for (var j = 0; j < images.length; ++j) {
-                    images[j].style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
-                }
-            });
+            // const that = this;
+            //
+            // $('.c-card').each((i, obj) => {
+            //     const thereshold = 20;
+            //     const el = (obj as HTMLElement);
+            //     const cardRect = el.getBoundingClientRect();
+            //     const cardWidth = el.offsetWidth;
+            //     const cardHeight = el.offsetHeight;
+            //
+            //     const distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
+            //     const distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
+            //
+            //     const moveX = thereshold * 2 * distanceX / cardWidth;
+            //     const moveY = thereshold * 2 * distanceY / cardHeight;
+            //
+            //     const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
+            //
+            //     for (let j = 0; j < images.length; ++j) {
+            //         (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
+            //     }
+            // });
         }
     }, {
         key: 'bindEvents',
@@ -548,7 +554,12 @@ var Noto = function (_BaseTheme) {
         }
     }, {
         key: 'adjustLayout',
-        value: function adjustLayout() {}
+        value: function adjustLayout() {
+            cq.reevaluate(false, function () {
+                console.log('here');
+                // Do something after all elements were updated
+            });
+        }
     }]);
 
     return Noto;
@@ -738,7 +749,7 @@ var GlobalService = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rx_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rx_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_DefaultComponent__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -834,7 +845,7 @@ var SearchOverlay = function (_BaseComponent) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgressBar; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_DefaultComponent__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_window_service__ = __webpack_require__(2);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -927,9 +938,11 @@ var ProgressBar = function (_BaseComponent) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_imagesloaded___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_imagesloaded__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery_hoverintent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_models_DefaultComponent__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_base_ts_models_DefaultComponent__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_gsap__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_gsap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_gsap__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -937,6 +950,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -954,6 +968,15 @@ var NotoHeader = function (_BaseComponent) {
 
         _this.$body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
         _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
+        // private documentHeight = $( document ).height();
+        _this.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
+        _this.adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
+        _this.$headerGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--header');
+        _this.headerHeight = _this.$headerGrid.outerHeight();
+        _this.$bodyGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body');
+        _this.$footer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer');
+        _this.footerOffset = _this.$footer.offset();
+        _this.footerHeight = _this.$footer.outerHeight();
         _this.$mainMenu = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.menu--primary');
         _this.$mainMenuItems = _this.$mainMenu.find('li');
         _this.$menuToggle = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#menu-toggle');
@@ -1000,9 +1023,42 @@ var NotoHeader = function (_BaseComponent) {
                 },
                 timeout: 300
             });
+            var $accentLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__accent');
+            var $darkLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__dark');
+            var timeline = new __WEBPACK_IMPORTED_MODULE_6_gsap__["TimelineMax"]({ paused: true });
+            timeline.to($accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
+            timeline.to($darkLayer, 1, { rotation: 0 }, 0);
+            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right'), .5, { opacity: 0 }, 0);
+            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left'), 0, { opacity: 0 }, 1);
+            timeline.to($darkLayer, 1, { rotation: 1 }, 1);
+            timeline.to($accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1);
+            var footerPinned = false;
+            __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
+                return _this2.subscriptionActive;
+            }).subscribe(function () {
+                var scroll = window.scrollY;
+                var progressTop = scroll / (3 * _this2.headerHeight);
+                var progressBottom = (scroll + _this2.windowHeight - _this2.footerOffset.top) / Math.min(_this2.footerHeight, _this2.windowHeight);
+                var progress = 0.5 * Math.max(0, Math.min(1, progressTop));
+                progress = progress + 0.5 * Math.max(0, Math.min(1, progressBottom));
+                if (scroll >= _this2.footerOffset.top) {
+                    if (!footerPinned) {
+                        __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: 0 });
+                        __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'static' });
+                        footerPinned = true;
+                    }
+                } else if (footerPinned) {
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: _this2.footerHeight });
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'fixed' });
+                    footerPinned = false;
+                }
+                timeline.progress(progress);
+            });
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
+                _this2.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
+                _this2.adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
                 _this2.updateOnResize();
             });
         }
@@ -1022,6 +1078,20 @@ var NotoHeader = function (_BaseComponent) {
         key: 'updateOnResize',
         value: function updateOnResize() {
             this.eventHandlers();
+            this.$headerGrid.css({
+                height: '',
+                left: '',
+                position: '',
+                top: '',
+                width: ''
+            });
+            this.$footer.css({
+                bottom: '',
+                height: '',
+                left: '',
+                position: '',
+                width: ''
+            });
             if (__WEBPACK_IMPORTED_MODULE_4__components_base_ts_services_Helper__["a" /* Helper */].below('lap')) {
                 this.prepareMobileMenuMarkup();
             } else {
@@ -1031,6 +1101,28 @@ var NotoHeader = function (_BaseComponent) {
     }, {
         key: 'prepareDesktopMenuMarkup',
         value: function prepareDesktopMenuMarkup() {
+            var headerWidth = this.$headerGrid.outerWidth();
+            var headerHeight = this.$headerGrid.outerHeight();
+            var footerWidth = this.$footer.outerWidth();
+            var footerHeight = this.$footer.outerHeight();
+            this.$headerGrid.css({
+                height: headerHeight,
+                left: this.$headerGrid.offset().left,
+                position: 'fixed',
+                top: this.adminBarHeight,
+                width: headerWidth
+            });
+            this.$footer.css({
+                bottom: this.windowHeight - footerHeight,
+                height: footerHeight,
+                left: this.footerOffset.left,
+                position: 'fixed',
+                width: footerWidth
+            });
+            this.$bodyGrid.css({
+                marginBottom: footerHeight,
+                marginTop: headerHeight
+            });
             if (this.isDesktopHeaderInitialised) {
                 return;
             }

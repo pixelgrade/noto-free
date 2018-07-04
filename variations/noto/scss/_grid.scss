@@ -62,6 +62,20 @@ $border-width: 2rem;
   }
 }
 
+@mixin debug-colors {
+  // background: $sm-light-quaternary;
+}
+
+// Widgets
+// Highlighted Style
+@mixin highlighted-style {
+  background: $sm-light-secondary;
+  // padding: 25px;
+}
+
+@mixin highlighted-style-alt {
+  background: $sm-light-tertiary;
+}
 // ========================================
 
 
@@ -105,7 +119,7 @@ $border-width: 2rem;
 }
 
 
-// BREAKPOINT 
+// BREAKPOINT
 // < 1125px
 // ----------------------------------------
 @include below(lap) {
@@ -153,17 +167,24 @@ $border-width: 2rem;
 }
 
 
-// BREAKPOINT 
+// BREAKPOINT
 // > 1125px
 // ----------------------------------------
 @include above(lap) {
+
   // Layout
   .c-noto {
     grid-template-columns: 2rem 1fr [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
-    grid-template-rows: 4rem minmax(4rem, auto);
-    grid-auto-rows: minmax(50px, auto);
+  }
 
-    padding-top: 2rem;
+  .c-noto--header {
+    padding-top: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .c-noto--body {
+    grid-template-rows: minmax(4rem, auto);
+    grid-auto-rows: minmax(50px, auto);
 
     counter-reset: count;
 
@@ -171,8 +192,28 @@ $border-width: 2rem;
       grid-column: start / 32;
     }
 
+    // Widgets
+    > .widget {
+      // display: none;
+      
+      grid-column: start / span 5;
+      grid-row-end: span 3;
+
+      @include highlighted-style-alt;
+
+      + .widget {
+        grid-column: 10 / span 5;
+
+        + .widget {
+          grid-column: 18 / span 9;
+        }
+      }
+    }
+
     > article {
       position: relative;
+
+      @include debug-colors;
 
       &:before {
         position: absolute;
@@ -189,7 +230,7 @@ $border-width: 2rem;
         pointer-events: none;
       }
 
-      // Cards Positioning 123
+      // Cards Positioning
       // ----------------------------------------
       // First Card
       &:nth-of-type(1) {
@@ -200,7 +241,7 @@ $border-width: 2rem;
 
         @include card-large;
         @include card-align-left;
-        
+
         .c-card__meta,
         .c-card__excerpt,
         .c-card__footer {
@@ -232,6 +273,8 @@ $border-width: 2rem;
       &:nth-of-type(3) {
         grid-column: 15 / span 5;
         margin-top: -100px;
+
+        @include highlighted-style-alt;
       }
 
       &:nth-of-type(4) {
@@ -405,8 +448,8 @@ $border-width: 2rem;
 
   // Secondary Menu
   .c-navbar__zone--right {
-    grid-column: 15 / span 15;
-    grid-row: 2 / 3;
+    grid-column: 12 / span 18;
+    grid-row: 1 / 2;
   }
 
 
@@ -431,7 +474,7 @@ $border-width: 2rem;
 }
 
 
-// BREAKPOINT 
+// BREAKPOINT
 // ----------------------------------------
 
 // Others

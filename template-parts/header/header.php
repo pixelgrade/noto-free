@@ -36,5 +36,3 @@ if ( ! defined( 'ABSPATH' ) ) {
         <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
     </button>
 </div>
-
-<?php pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG, 'search-overlay' ); ?>

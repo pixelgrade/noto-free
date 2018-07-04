@@ -190,7 +190,7 @@ module.exports = function (env, argv) {
 				open: false,
 				browser: 'google chrome'
 			}, {
-				reload: true,
+				reload: false,
 			}),
 			new webpack.optimize.CommonsChunkPlugin({
 				name: 'commons',
