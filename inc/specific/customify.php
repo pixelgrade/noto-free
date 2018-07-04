@@ -97,10 +97,7 @@ function variation_change_customify_general_section( $section_options, $options 
 						),
 						array(
 							'property' => 'background-color',
-							'selector' => '
-								.c-card__frame:after,
-								.page .c-noto, 
-								.single .c-noto',
+							'selector' => '.c-card__frame:after',
 						),
 					),
 				),
