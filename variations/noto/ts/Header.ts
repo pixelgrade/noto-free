@@ -4,7 +4,7 @@ import 'jquery-hoverintent';
 import { BaseComponent } from '../../../components/base/ts/models/DefaultComponent';
 import { Helper } from '../../../components/base/ts/services/Helper';
 import { WindowService } from '../../../components/base/ts/services/window.service';
-import { TimelineMax } from 'gsap';
+import { TweenLite, TimelineMax } from 'gsap';
 
 interface JQueryExtended extends JQuery {
     hoverIntent?( params: any ): void;
@@ -18,6 +18,7 @@ export class NotoHeader extends BaseComponent {
 
     // private documentHeight = $( document ).height();
     private windowHeight = $( window ).height();
+    private adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
 
     private $headerGrid: JQuery = $( '.c-noto--header' );
     private headerHeight = this.$headerGrid.outerHeight();
@@ -83,6 +84,9 @@ export class NotoHeader extends BaseComponent {
         timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
         timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
         timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
+        timeline.to( $( '.c-navbar__zone--left' ), 0, { opacity: 0 }, 1 );
+        timeline.to( $darkLayer, 1, { rotation: 1 }, 1 );
+        timeline.to( $accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1 );
 
         let footerPinned = false;
 
@@ -92,17 +96,21 @@ export class NotoHeader extends BaseComponent {
             .subscribe( () => {
                 const scroll = window.scrollY;
                 const progressTop = scroll / ( 3 * this.headerHeight );
-                const progressBottom = 1 - ( scroll + this.windowHeight - this.footerOffset.top )
+                const progressBottom = ( scroll + this.windowHeight - this.footerOffset.top )
                     / Math.min( this.footerHeight, this.windowHeight );
-                const progress = Math.max( 0, Math.min( 1, progressTop, progressBottom ) );
+
+                let progress = 0.5 * Math.max(0, Math.min( 1, progressTop ) );
+                progress = progress + 0.5 * Math.max(0, Math.min( 1, progressBottom ) );
 
                 if ( scroll >= this.footerOffset.top ) {
                     if ( ! footerPinned ) {
-                        $( 'body' ).addClass( 'u-footer-is-pinned' );
+                        TweenLite.set( $( '.c-noto--body' ), { marginBottom: 0 } );
+                        TweenLite.set( $( '.site-footer' ), { position: 'static' } );
                         footerPinned = true;
                     }
                 } else if ( footerPinned ) {
-                    $( 'body' ).removeClass( 'u-footer-is-pinned' );
+                    TweenLite.set( $( '.c-noto--body' ), { marginBottom: this.footerHeight } );
+                    TweenLite.set( $( '.site-footer' ), { position: 'fixed' } );
                     footerPinned = false;
                 }
 
@@ -114,6 +122,7 @@ export class NotoHeader extends BaseComponent {
             .takeWhile( () => this.subscriptionActive )
             .subscribe( () => {
                 this.windowHeight = $( window ).height();
+                this.adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
                 this.updateOnResize();
             } );
     }
@@ -161,20 +170,19 @@ export class NotoHeader extends BaseComponent {
         const headerHeight = this.$headerGrid.outerHeight();
         const footerWidth = this.$footer.outerWidth();
         const footerHeight = this.$footer.outerHeight();
-        const adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
 
         this.$headerGrid.css({
             height: headerHeight,
             left: this.$headerGrid.offset().left,
             position: 'fixed',
-            top: adminBarHeight,
+            top: this.adminBarHeight,
             width: headerWidth,
         });
 
         this.$footer.css({
             bottom: this.windowHeight - footerHeight,
             height: footerHeight,
-            left: this.$footer.offset().left,
+            left: this.footerOffset.left,
             position: 'fixed',
             width: footerWidth,
         });

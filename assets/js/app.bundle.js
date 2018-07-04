@@ -970,6 +970,7 @@ var NotoHeader = function (_BaseComponent) {
         _this.$document = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(document);
         // private documentHeight = $( document ).height();
         _this.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
+        _this.adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
         _this.$headerGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--header');
         _this.headerHeight = _this.$headerGrid.outerHeight();
         _this.$bodyGrid = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body');
@@ -1028,21 +1029,27 @@ var NotoHeader = function (_BaseComponent) {
             timeline.to($accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
             timeline.to($darkLayer, 1, { rotation: 0 }, 0);
             timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right'), .5, { opacity: 0 }, 0);
+            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left'), 0, { opacity: 0 }, 1);
+            timeline.to($darkLayer, 1, { rotation: 1 }, 1);
+            timeline.to($accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1);
             var footerPinned = false;
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
                 var scroll = window.scrollY;
                 var progressTop = scroll / (3 * _this2.headerHeight);
-                var progressBottom = 1 - (scroll + _this2.windowHeight - _this2.footerOffset.top) / Math.min(_this2.footerHeight, _this2.windowHeight);
-                var progress = Math.max(0, Math.min(1, progressTop, progressBottom));
+                var progressBottom = (scroll + _this2.windowHeight - _this2.footerOffset.top) / Math.min(_this2.footerHeight, _this2.windowHeight);
+                var progress = 0.5 * Math.max(0, Math.min(1, progressTop));
+                progress = progress + 0.5 * Math.max(0, Math.min(1, progressBottom));
                 if (scroll >= _this2.footerOffset.top) {
                     if (!footerPinned) {
-                        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').addClass('u-footer-is-pinned');
+                        __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: 0 });
+                        __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'static' });
                         footerPinned = true;
                     }
                 } else if (footerPinned) {
-                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').removeClass('u-footer-is-pinned');
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: _this2.footerHeight });
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'fixed' });
                     footerPinned = false;
                 }
                 timeline.progress(progress);
@@ -1051,6 +1058,7 @@ var NotoHeader = function (_BaseComponent) {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
                 _this2.windowHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(window).height();
+                _this2.adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
                 _this2.updateOnResize();
             });
         }
@@ -1097,18 +1105,17 @@ var NotoHeader = function (_BaseComponent) {
             var headerHeight = this.$headerGrid.outerHeight();
             var footerWidth = this.$footer.outerWidth();
             var footerHeight = this.$footer.outerHeight();
-            var adminBarHeight = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#wpadminbar').outerHeight() || 0;
             this.$headerGrid.css({
                 height: headerHeight,
                 left: this.$headerGrid.offset().left,
                 position: 'fixed',
-                top: adminBarHeight,
+                top: this.adminBarHeight,
                 width: headerWidth
             });
             this.$footer.css({
                 bottom: this.windowHeight - footerHeight,
                 height: footerHeight,
-                left: this.$footer.offset().left,
+                left: this.footerOffset.left,
                 position: 'fixed',
                 width: footerWidth
             });
