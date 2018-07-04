@@ -45,7 +45,7 @@ define( 'SM_BODY_FONT', 'IBM Plex Sans' );
  *
  * @return array $section_options The modified specific config
  */
-function variation_change_customify_general_section( $section_options, $options ) {
+function SM_change_customify_general_section( $section_options, $options ) {
 	$new_section_options = array(
 		// General
 		'general' => array(
@@ -154,7 +154,7 @@ function variation_change_customify_general_section( $section_options, $options 
  *
  * @return array $section_options The modified specific config
  */
-function variation_change_customify_main_content_section( $section_options, $options ) {
+function SM_change_customify_main_content_section( $section_options, $options ) {
 
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
@@ -349,7 +349,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
  *
  * @return array $section_options The modified specific config
  */
-function variation_change_customify_blog_grid_section( $section_options, $options ) {
+function SM_change_customify_blog_grid_section( $section_options, $options ) {
 
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
@@ -483,7 +483,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
  *
  * @return array $section_options The modified specific config
  */
-function variation_change_customify_header_section( $section_options, $options ) {
+function SM_change_customify_header_section( $section_options, $options ) {
 
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
@@ -546,7 +546,7 @@ function variation_change_customify_header_section( $section_options, $options )
  *
  * @return array $section_options The modified specific config
  */
-function variation_change_customify_footer_section( $section_options, $options ) {
+function SM_change_customify_footer_section( $section_options, $options ) {
 
 	// First setup the default values
 	// These should always come from the theme, not relying on the component's defaults
@@ -617,7 +617,7 @@ function variation_change_customify_footer_section( $section_options, $options )
  *
  * @return array $main_content_section The modified specific config
  */
-function variation_change_customify_buttons_section( $section_options, $options ) {
+function SM_change_customify_buttons_section( $section_options, $options ) {
 
 	$buttons = array(
 		'.c-btn',

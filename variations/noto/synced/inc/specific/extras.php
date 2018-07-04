@@ -177,6 +177,8 @@ if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 			'sidebars' => array(
                 'sidebar-1' => array(
 	                'sidebar_args' => array(
+                		'name'          => esc_html__( 'Posts Grid Widgets', '__components_txtd' ),
+                    	'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__components_txtd' ),
 	                    'before_widget' => '<section id="%1$s" class="widget widget--misto c-gallery__item %2$s">',
                     ),
                 ),
