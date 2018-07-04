@@ -13,8 +13,6 @@
 
     .c-noto {
       grid-template-columns: 2rem 2rem [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
-      background-color: $theme-accent-lighter-color;
-      padding-bottom: 2rem;
     }
 
     .content-area {

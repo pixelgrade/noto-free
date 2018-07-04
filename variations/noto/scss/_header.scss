@@ -39,7 +39,11 @@
 
   .menu-item-has-children {
 
-    &:hover > .sub-menu {
+    > .sub-menu {
+      transition: opacity .3s ease-in-out;
+    }
+
+    &.hover:hover > .sub-menu {
       opacity: 1;
       pointer-events: auto;
     }
@@ -51,9 +55,47 @@
   }
 }
 
+.c-navbar__zone .menu-item-has-children {
+
+  > a {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: -.5rem;
+      left: 0;
+      z-index: -1;
+      background-color: #fff;
+      transition: transform .3s $easeInBack;
+      transform-origin: 50% 100%;
+      transform: scale(1,0) rotate( 0 );
+    }
+  }
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}).hover:hover > a:before {
+      $rotation: (random(6) - 3) * 1deg;
+      @debug $rotation;
+      transform: scale(1,1) rotate( $rotation );
+      transition: transform .3s $easeOutBack;
+    }
+  }
+}
+
 .c-navbar__zone--left {
   position: relative;
   z-index: 200;
+
+  .menu > li > a {
+    transition: color .2s .1s ease-out;
+  }
+
+  .menu > li.menu-item-has-children.hover:hover > a {
+    color: inherit;
+  }
 }
 
 .c-navbar__zone--left,
@@ -272,4 +314,5 @@
   text-transform: capitalize;
   clip: auto;
   clip-path: none;
+  margin: 0;
 }

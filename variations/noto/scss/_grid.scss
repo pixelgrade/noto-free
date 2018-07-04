@@ -166,6 +166,12 @@ $border-width: 2rem;
   }
 }
 
+$offset: 2;
+@mixin nth-card( $index ) {
+  &:nth-child( #{$index + $offset} ) {
+    @content;
+  }
+}
 
 // BREAKPOINT
 // > 1125px
@@ -179,7 +185,6 @@ $border-width: 2rem;
 
   .c-noto--header {
     padding-top: 2.5rem;
-    padding-bottom: 0.5rem;
   }
 
   .c-noto--body {
@@ -193,177 +198,208 @@ $border-width: 2rem;
     }
 
     > .c-gallery__item {
+      //opacity: 0;
+      //pointer-events: none;
 
       // Cards Positioning
       // ----------------------------------------
       // First Card
-      &:nth-child(1) {
+
+      &:nth-child(3) {
         grid-column: middle / span 14;
         grid-row-end: span 3;
 
-        padding-top: 50px;
+        &.post {
+          padding-top: 50px;
 
-        @include card-large;
-        @include card-align-left;
+          @include card-large;
+          @include card-align-left;
 
-        .c-card__meta,
-        .c-card__excerpt,
-        .c-card__footer {
-          margin-left: percentage(5/14);
-        }
+          .c-card__meta,
+          .c-card__excerpt,
+          .c-card__footer {
+            margin-left: percentage(5/14);
+          }
 
-        .c-card__title {
-          text-align: right;
-        }
+          .c-card__title {
+            text-align: right;
+          }
 
-        .c-card__content {
-          padding-bottom: 50px;
+          .c-card__content {
+            padding-bottom: 50px;
+          }
         }
       }
 
-      &:nth-child(2) {
+      &:nth-child(4) {
         grid-column: start / span 11;
         grid-row-end: span 2;
         align-self: center;
 
-        @include card-large;
+        &.post {
+          @include card-large;
 
-        .c-card__excerpt,
-        .c-card__footer {
-          margin-left: percentage(2/11);
+          .c-card__excerpt,
+          .c-card__footer {
+            margin-left: percentage(2/11);
+          }
         }
       }
 
-      &:nth-child(3) {
+      &:nth-child(5) {
         grid-column: 15 / span 5;
         margin-top: -100px;
       }
 
-      &:nth-child(4) {
+      &:nth-child(6) {
         grid-column: 22 / span 7;
 
-        @include card-medium;
-      }
-
-      &:nth-child(12n+5) {
-        grid-column: start / span 13;
-        align-self: flex-end;
-        padding-top: 50px;
-
-        @include card-large;
-
-        .c-card__excerpt,
-        .c-card__footer {
-          margin-right: percentage(5/13);
-        }
-
-        .c-card__content {
-          padding-bottom: 100px;
-        }
-      }
-
-      &:nth-child(12n+6) {
-        grid-column: 19 / span 13;
-        align-self: flex-end;
-        padding-top: 100px;
-
-        @include card-large;
-
-        .c-card__excerpt,
-        .c-card__footer {
-          margin-left: percentage(7/13);
-        }
-
-        .c-card__content {
-          padding-bottom: 50px;
+        &.post {
+          @include card-medium;
         }
       }
 
       &:nth-child(12n+7) {
-        grid-column: start / span 7;
+        grid-column: start / span 13;
+        align-self: flex-end;
+        padding-top: 50px;
+
+        &.post {
+          @include card-large;
+
+          .c-card__excerpt,
+          .c-card__footer {
+            margin-right: percentage(5/13);
+          }
+
+          .c-card__content {
+            padding-bottom: 100px;
+          }
+        }
       }
 
       &:nth-child(12n+8) {
-        grid-column: 12 / span 5;
-        margin-top: -100px;
+        grid-column: 19 / span 13;
+        align-self: flex-end;
+        margin-top: 100px;
 
-        @include card-medium;
+        + * + * + .post {
+          margin-top: 100px;
+        }
+
+        &.post {
+          @include card-large;
+
+          .c-card__excerpt,
+          .c-card__footer {
+            margin-left: percentage(7/13);
+          }
+
+          .c-card__content {
+            padding-bottom: 50px;
+          }
+        }
       }
 
       &:nth-child(12n+9) {
+        grid-column: start / span 7;
+      }
+
+      &:nth-child(12n+10) {
+        grid-column: 12 / span 5;
+        margin-top: -100px;
+
+        &.post {
+          @include card-medium;
+        }
+      }
+
+      &:nth-child(12n+11) {
         grid-column: 19 / span 5;
         margin-top: -100px;
       }
 
-      &:nth-child(12n+10) {
+      &:nth-child(12n+12) {
         grid-column: 25 / span 7;
 
-        @include card-medium;
-      }
-
-      &:nth-child(12n+11) {
-        grid-column: start / span 13;
-        align-self: flex-end;
-        padding-top: 100px;
-
-        @include card-large;
-
-        .c-card__excerpt,
-        .c-card__footer {
-          margin-left: percentage(7/13);
-        }
-
-        .c-card__content {
-          padding-bottom: 50px;
-        }
-      }
-
-      &:nth-child(12n) {
-        grid-column: 18 / span 13;
-        align-self: flex-end;
-        padding-top: 50px;
-
-        @include card-large;
-
-        .c-card__excerpt,
-        .c-card__footer {
-          margin-right: percentage(5/13);
-        }
-
-        .c-card__content {
-          padding-bottom: 50px;
+        &.post {
+          @include card-medium;
         }
       }
 
       &:nth-child(12n+13) {
+        grid-column: start / span 13;
+        align-self: flex-end;
+        margin-top: 100px;
+
+        &.post {
+          @include card-large;
+
+          .c-card__excerpt,
+          .c-card__footer {
+            margin-left: percentage(7/13);
+          }
+
+          .c-card__content {
+            padding-bottom: 50px;
+          }
+        }
+      }
+
+      &:nth-child(12n+14) {
+        grid-column: 18 / span 13;
+        align-self: flex-end;
+        margin-top: 50px;
+
+        &.post {
+          @include card-large;
+
+          .c-card__excerpt,
+          .c-card__footer {
+            margin-right: percentage(5/13);
+          }
+
+          .c-card__content {
+            padding-bottom: 50px;
+          }
+        }
+      }
+
+      &:nth-child(12n+15) {
         grid-column: start / span 5;
         margin-top: -100px;
       }
 
-      &:nth-child(12n+14) {
+      &:nth-child(12n+16) {
         grid-column: 9 / span 7;
         margin-top: 0;
 
-        @include card-medium;
+        &.post {
+          @include card-medium;
+        }
       }
 
-      &:nth-child(12n+15) {
+      &:nth-child(12n+17) {
         grid-column: 18 / span 7;
         margin-top: 0;
         align-self: flex-start;
       }
 
-      &:nth-child(12n+16) {
+      &:nth-child(12n+18) {
         grid-column: 27 / span 5;
         margin-top: -100px;
 
-        @include card-medium;
+        &.post {
+          @include card-medium;
+        }
       }
 
-      &:nth-child(3),
-      &:nth-child(6n+7),
-      &:nth-child(6n+9) {
-        @include card-align-right;
+      &:nth-child(5),
+      &:nth-child(6n+9),
+      &:nth-child(6n+11) {
+        &.post {
+          @include card-align-right;
+        }
       }
     }
     // End Cards Positioning

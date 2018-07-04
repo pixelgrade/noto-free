@@ -134,7 +134,7 @@ body {
 }
 
 .c-noto--header {
-  z-index: 100;
+  z-index: 300;
 }
 
 .c-noto--body {
@@ -189,5 +189,13 @@ body {
 
   .site-footer {
     position: static !important;
+  }
+}
+
+.c-navbar__zone--right {
+  transition: opacity .3s ease-in-out;
+
+  &.is-hidden {
+    opacity: 0 !important;
   }
 }
