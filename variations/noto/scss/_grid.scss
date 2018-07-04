@@ -70,14 +70,11 @@ $border-width: 2rem;
 // Highlighted Style
 @mixin highlighted-style {
   background: $sm-light-secondary;
-  padding: 25px;
+  // padding: 25px;
 }
 
 @mixin highlighted-style-alt {
   background: $sm-light-tertiary;
-  padding: 40px 25px;
-  // border-radius: 90px;
-  margin: -15px;
 }
 // ========================================
 
@@ -197,12 +194,20 @@ $border-width: 2rem;
 
     // Widgets
     > .widget {
-      display: none;
+      // display: none;
       
-      grid-column: 14 / span 5;
-      grid-row: 4 / span 3;
+      grid-column: start / span 5;
+      grid-row-end: span 3;
 
       @include highlighted-style-alt;
+
+      + .widget {
+        grid-column: 10 / span 5;
+
+        + .widget {
+          grid-column: 18 / span 9;
+        }
+      }
     }
 
     > article {

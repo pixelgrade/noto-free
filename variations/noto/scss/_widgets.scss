@@ -1,3 +1,49 @@
+// WIDGETS
+// ========================================
+
+
+// Frontpage Grid Widgets Styles
+// Use Container Queries for styling
+// ----------------------------------------
+.c-noto {
+    .widget {
+        // Default Styles
+        background: $sm-light-secondary;
+        padding: 25px;
+        padding: 40px 25px;
+        // border-radius: 90px;
+        // margin: -15px;
+
+        .small {
+            font-size: 80%;
+        }
+
+        &.centered {
+            text-align: center;
+        }
+
+        // Small Size
+        @include cq-prolyfill("width < 100px") {
+            padding: 25px;
+        } 
+
+        // Medium Size
+        @include cq-prolyfill("width > 250px") {
+            padding: 40px;
+        }
+
+        // Post-it Style
+        @include cq-prolyfill("height < 250px") {
+            background: $sm-light-tertiary;
+            padding: 40px 25px;
+            border-radius: 90px;
+            transform: rotate(-5deg);
+        } 
+    }
+}
+
+
+
 .widget-area--below-post > * {
     margin-top: 4rem;
 }
