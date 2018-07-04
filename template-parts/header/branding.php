@@ -28,11 +28,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() || pixelgrade_has_profile_photo() ) { ?>
 
-			<?php if ( pixelgrade_has_profile_photo() ) { ?>
-				<div class="c-profile-photo">
-					<?php pixelgrade_the_profile_photo(); ?>
-				</div>
-			<?php } ?>
+			<div class="c-profile-photo">
+				<?php if ( pixelgrade_has_profile_photo() ) { ?>
+					<div class="c-profile-photo__default">
+						<?php pixelgrade_the_profile_photo(); ?>
+					</div>
+				<?php } ?>
+			</div>
 
 			<div class="c-logo">
 				<?php if ( has_custom_logo() ) { ?>
