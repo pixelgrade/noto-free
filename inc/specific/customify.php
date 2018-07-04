@@ -19,17 +19,23 @@ add_filter( 'pixelgrade_customify_buttons_section_options', 'variation_change_cu
 add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_customify_footer_section', 20, 2 );
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
-define( 'VARIATION_DARK_COLOR', '#34394B' );
-define( 'VARIATION_DARK_SECONDARY_COLOR', '#49494B' );
+// Color Palette
+define( 'SM_DARK_PRIMARY', 	'#49494B' );
+define( 'SM_DARK_SECONDARY', '#34394B' ); // Blueish
+define( 'SM_DARK_TERTIARY', 	'#34394B' );
 
-define( 'VARIATION_ACCENT_COLOR', '#E79696' );
-define( 'VARIATION_LIGHT_COLOR', '#FCD9D2' );
-define( 'VARIATION_LIGHTER_COLOR', '#FFF4F4' );
+define( 'SM_COLOR_PRIMARY', 	 '#E87474' );
+define( 'SM_COLOR_SECONDARY', '#E79696' );
+define( 'SM_COLOR_TERTIARY',	 '#FCD9D2' );
+define( 'SM_COLOR_QUATERNARY','#FFEA80' ); // Bright Yellow
 
-define( 'VARIATION_HEADINGS_FONT', 'IBM Plex Sans' );
-define( 'VARIATION_ACCENT_FONT', 'IBM Plex Sans' );
-define( 'VARIATION_BODY_FONT', 'IBM Plex Sans' );
-define( 'VARIATION_ACCENT_FONT_MONO', 'IBM Plex Mono' );
+define( 'SM_LIGHT_PRIMARY', 	 '#FFFFFF' ); // White
+define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
+define( 'SM_LIGHT_TERTIARY',  '#FFF5C1' ); // Light Yellow
+
+define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
+define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
+define( 'SM_BODY_FONT', 'IBM Plex Sans' );
 
 /**
  * Footer Section
@@ -52,7 +58,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => VARIATION_ACCENT_COLOR,
+					'default' => SM_COLOR_SECONDARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -74,7 +80,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Light Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => VARIATION_LIGHT_COLOR,
+					'default' => SM_COLOR_TERTIARY,
 					'css'     => array(
 						array(
 							'property' => 'background',
@@ -87,7 +93,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Lighter Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => VARIATION_LIGHTER_COLOR,
+					'default' => SM_LIGHT_SECONDARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -99,9 +105,7 @@ function variation_change_customify_general_section( $section_options, $options 
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.c-card__frame:after,
-								.page .c-noto, 
-								.single .c-noto',
+								.c-card__frame:after',
 						),
 					),
 				),
@@ -160,7 +164,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 		'main_content' => array(
 			'options' => array(
 				'main_content_border_color'             => array(
-					'default' => VARIATION_DARK_SECONDARY_COLOR,
+					'default' => SM_DARK_PRIMARY,
 					'css' => array(
 						array(
 							'property' => 'color',
@@ -169,44 +173,44 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_body_text_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_body_link_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_body_link_active_color'   => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_underlined_body_links'    => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_heading_1_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_heading_2_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_heading_3_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_heading_6_color'          => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_content_background_color' => array(
 					'default' => '#FFFFFF'
 				),
 				'main_content_page_title_font'          => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 74,
 						'line-height'    => 1.08,
@@ -216,7 +220,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_body_text_font'           => array(
 					'default' => array(
-						'font-family'    => VARIATION_BODY_FONT,
+						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 15,
 						'line-height'    => 1.6,
@@ -226,7 +230,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_paragraph_text_font'      => array(
 					'default' => array(
-						'font-family'    => VARIATION_BODY_FONT,
+						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 18,
 						'line-height'    => 1.67,
@@ -237,8 +241,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_quote_block_font'         => array(
 					'selector' => 'blockquote, .intro',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT_MONO,
-						'font-weight'    => '400italic',
+						'font-family'    => SM_ACCENT_FONT,
+						'font-weight'    => 'italic',
 						'font-size'      => 18,
 						'line-height'    => 1.67,
 						'letter-spacing' => 0,
@@ -247,7 +251,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_1_font'           => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 56,
 						'line-height'    => 1,
@@ -257,7 +261,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_2_font'           => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 42,
 						'line-height'    => 1.0476,
@@ -267,7 +271,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_3_font'           => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 32,
 						'line-height'    => 1.0625,
@@ -277,7 +281,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_4_font'           => array(
 					'default' => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 24,
 						'line-height'    => 0.958,
@@ -295,7 +299,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 							.tags__title,
 							.sharedaddy--official h3.sd-title[class]',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 18,
 						'line-height'    => 0.833,
@@ -306,7 +310,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, .h6',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 14,
 						'line-height'    => 1.5,
@@ -357,7 +361,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 				'blog_item_title_font'           => array(
 					'selector' => '.c-card__title',
 					'default'  => array(
-						'font-family'    => VARIATION_HEADINGS_FONT,
+						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
 						'font-size'      => 32,
 						'line-height'    => 1.0625,
@@ -368,7 +372,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 				'blog_item_meta_font'            => array(
 					'selector' => '.c-card__meta',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 16,
 						'line-height'    => 1.5,
@@ -385,7 +389,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 				'blog_item_excerpt_font'         => array(
 					'selector' => '.c-card__excerpt',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 15,
 						'line-height'    => 1.6,
@@ -492,27 +496,18 @@ function variation_change_customify_header_section( $section_options, $options )
 					'default' => 48
 				),
 				'header_navigation_links_color' => array(
-					'default' => VARIATION_LIGHT_COLOR,
+					'default' => SM_COLOR_TERTIARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone--left, .c-navbar__zone--right',
-						),
-					),
-				),
-				'header_background' => array(
-					'default' => VARIATION_LIGHT_COLOR,
-					'css' => array(
-						array(
-							'property' => 'background-color',
-							'selector' => '.c-navbar__zone .menu-item-has-children:hover, .site-content:before, .c-navbar__zone--left .sub-menu'
+							'selector' => '.c-navbar__zone--left .menu > li > a',
 						),
 					),
 				),
 				'header_navigation_font' => array(
 					'selector' => '.c-navbar__zone--left, .c-navbar__zone--right',
 					'default' => array(
-						'font-family'    => VARIATION_BODY_FONT,
+						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',
 						'font-size'      => 16,
 						'line-height'    => 1.65,
@@ -567,13 +562,13 @@ function variation_change_customify_footer_section( $section_options, $options )
 					'default' => 48
 				),
 				'footer_body_text_color' => array(
-					'default' => VARIATION_LIGHT_COLOR
+					'default' => SM_COLOR_TERTIARY
 				),
 				'footer_links_color'     => array(
-					'default' => VARIATION_LIGHT_COLOR
+					'default' => SM_COLOR_TERTIARY
 				),
 				'footer_background'      => array(
-					'default' => VARIATION_DARK_COLOR
+					'default' => SM_DARK_SECONDARY
 				),
 			),
 		),
@@ -592,7 +587,7 @@ function variation_change_customify_footer_section( $section_options, $options )
 			'callback'    => 'typeline_font_cb',
 
 			'default'     => array(
-				'font-family' => VARIATION_ACCENT_FONT,
+				'font-family' => SM_ACCENT_FONT,
 				'font-weight' => 'regular',
 				'font-size' => 15,
 				'line-height' => 1.6,
@@ -662,7 +657,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 					'default' => 'square',
 				),
 				'buttons_color'      => array(
-					'default' => VARIATION_DARK_COLOR,
+					'default' => SM_DARK_SECONDARY,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
@@ -693,7 +688,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 						.nf-form-cont .list-radio-wrap .nf-field-element li label,
 						div.wpforms-container[class] .wpforms-form .wpforms-field-label',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT,
+						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 16,
 						'line-height'    => 1.27,
