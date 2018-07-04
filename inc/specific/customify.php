@@ -285,8 +285,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_heading_5_font'           => array(
-					'selector' => 'h5, .h5, 
-							.header-category,
+					'selector' => 'h5, .header-category,
 							ul.page-numbers, 
 							.c-author__name, 
 							.c-reading-progress__label, 
@@ -304,7 +303,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_heading_6_font'           => array(
-					// 'selector' => 'h6, .h6',
+					'selector' => 'h6',
 					'default'  => array(
 						'font-family'    => VARIATION_ACCENT_FONT,
 						'font-weight'    => '500',

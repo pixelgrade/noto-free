@@ -184,3 +184,21 @@ body {
   background: $theme-border-lighter-color;
   transform: rotate(-0.5deg);
 }
+
+.u-footer-is-pinned {
+
+  .c-noto--body {
+    margin-bottom: 0 !important;
+  }
+
+  .site-footer {
+    position: static !important;
+  }
+}
+
+.c-card {
+  @include cq-prolyfill( "width < 300px" ) {
+    /* If its container is between 100px and 200px high */
+    background: rgba(255,255,0,0.5);
+  }
+}
