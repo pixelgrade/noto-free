@@ -29,6 +29,7 @@ define( 'VARIATION_LIGHTER_COLOR', '#FFF4F4' );
 define( 'VARIATION_HEADINGS_FONT', 'IBM Plex Sans' );
 define( 'VARIATION_ACCENT_FONT', 'IBM Plex Sans' );
 define( 'VARIATION_BODY_FONT', 'IBM Plex Sans' );
+define( 'VARIATION_ACCENT_FONT_MONO', 'IBM Plex Mono' );
 
 /**
  * Footer Section
@@ -236,8 +237,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_quote_block_font'         => array(
 					'selector' => 'blockquote, .intro',
 					'default'  => array(
-						'font-family'    => VARIATION_ACCENT_FONT,
-						'font-weight'    => 'italic',
+						'font-family'    => VARIATION_ACCENT_FONT_MONO,
+						'font-weight'    => '400italic',
 						'font-size'      => 18,
 						'line-height'    => 1.67,
 						'letter-spacing' => 0,
