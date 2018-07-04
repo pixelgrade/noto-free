@@ -113,7 +113,7 @@ export class Noto extends BaseTheme {
     }
 
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find('.intro');
+        const $intro = $container.find('.intro, .post-it');
         const $waveTemplate = $('.js-wave-intro-template');
 
         $intro.each((i, obj) => {
@@ -124,7 +124,12 @@ export class Noto extends BaseTheme {
 
             $pattern.attr( 'id', patternID + i );
             $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
-            $wave.prependTo($obj).show();
+
+            if($obj.is( '.intro' ) {
+                $wave.prependTo($obj).show();
+            } else {
+                $wave.appendTo($obj).show();
+            }
 
         });
     }
