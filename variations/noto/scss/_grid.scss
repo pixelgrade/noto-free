@@ -62,6 +62,23 @@ $border-width: 2rem;
   }
 }
 
+@mixin debug-colors {
+  // background: $sm-light-quaternary;
+}
+
+// Widgets
+// Highlighted Style
+@mixin highlighted-style {
+  background: $sm-light-secondary;
+  padding: 25px;
+}
+
+@mixin highlighted-style-alt {
+  background: $sm-light-tertiary;
+  padding: 40px 25px;
+  // border-radius: 90px;
+  margin: -15px;
+}
 // ========================================
 
 
@@ -178,8 +195,20 @@ $border-width: 2rem;
       grid-column: start / 32;
     }
 
+    // Widgets
+    > .widget {
+      display: none;
+      
+      grid-column: 14 / span 5;
+      grid-row: 4 / span 3;
+
+      @include highlighted-style-alt;
+    }
+
     > article {
       position: relative;
+
+      @include debug-colors;
 
       &:before {
         position: absolute;
@@ -239,6 +268,8 @@ $border-width: 2rem;
       &:nth-of-type(3) {
         grid-column: 15 / span 5;
         margin-top: -100px;
+
+        @include highlighted-style-alt;
       }
 
       &:nth-of-type(4) {
