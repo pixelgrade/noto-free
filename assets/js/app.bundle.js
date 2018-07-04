@@ -397,7 +397,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var cq = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"cq-prolyfill\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))({});
 var Noto = function (_BaseTheme) {
     _inherits(Noto, _BaseTheme);
 
@@ -555,10 +554,9 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'adjustLayout',
         value: function adjustLayout() {
-            cq.reevaluate(false, function () {
-                console.log('here');
-                // Do something after all elements were updated
-            });
+            // cq.reevaluate(false, () => {
+            //     // Do something after all elements were updated
+            // });
         }
     }]);
 

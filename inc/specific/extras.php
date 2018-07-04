@@ -172,7 +172,6 @@ add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10 )
 if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 
 	function noto_alter_blog_component_config( $config ) {
-		unset( $config['sidebars']['sidebar-1'] );
 
 		$config = Pixelgrade_Config::merge( $config, array(
 			'sidebars' => array(
