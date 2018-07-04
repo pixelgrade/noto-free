@@ -5,6 +5,8 @@ import { SearchOverlay } from '../../../components/base/ts/components/SearchOver
 import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
 import { NotoHeader } from './Header';
 
+const cq = require('cq-prolyfill')({ /* configuration */ });
+
 export class Noto extends BaseTheme {
     public ProgressBar: ProgressBar;
     public SearchOverlay: SearchOverlay;
@@ -111,7 +113,7 @@ export class Noto extends BaseTheme {
     }
 
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find('.intro');
+        const $intro = $container.find('.intro, .post-it');
         const $waveTemplate = $('.js-wave-intro-template');
 
         $intro.each((i, obj) => {
@@ -122,7 +124,12 @@ export class Noto extends BaseTheme {
 
             $pattern.attr( 'id', patternID + i );
             $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
-            $wave.prependTo($obj).show();
+
+            if ( $obj.is( '.intro' ) ) {
+                $wave.prependTo($obj).show();
+            } else {
+                $wave.appendTo($obj).show();
+            }
 
         });
     }
@@ -164,9 +171,9 @@ export class Noto extends BaseTheme {
     }
 
     private adjustLayout() {
-        // cq.reevaluate(false, () => {
-        //     // Do something after all elements were updated
-        // });
+        cq.reevaluate(false, () => {
+            // Do something after all elements were updated
+        });
     }
 
 }

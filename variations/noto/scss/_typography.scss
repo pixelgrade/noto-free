@@ -1,3 +1,10 @@
+// Custom Styles
+
+h6,.h6 {
+  opacity: 0.6;
+}
+
+
 table {
   tbody,
   tfoot,
@@ -101,4 +108,8 @@ hr {
   &:not(:last-child) {
     margin-bottom: 3.5rem;
   }
+}
+
+p.small {
+  font-size: 87%;
 }

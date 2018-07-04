@@ -196,10 +196,12 @@ $border-width: 2rem;
     > .widget {
       // display: none;
       
+      align-self: flex-start;
       grid-column: start / span 5;
-      grid-row-end: span 3;
+      // grid-row-end: span 3;
 
-      @include highlighted-style-alt;
+
+      // @include highlighted-style-alt;
 
       + .widget {
         grid-column: 10 / span 5;

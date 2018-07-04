@@ -397,6 +397,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var cq = __webpack_require__(21)({});
 var Noto = function (_BaseTheme) {
     _inherits(Noto, _BaseTheme);
 
@@ -503,7 +504,7 @@ var Noto = function (_BaseTheme) {
         value: function appendSvgToIntro() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            var $intro = $container.find('.intro');
+            var $intro = $container.find('.intro, .post-it');
             var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-intro-template');
             $intro.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
@@ -512,7 +513,11 @@ var Noto = function (_BaseTheme) {
                 var patternID = $pattern.attr('id');
                 $pattern.attr('id', patternID + i);
                 $wave.find('rect').css('fill', 'url(#wavePattern-intro' + i + ')');
-                $wave.prependTo($obj).show();
+                if ($obj.is('.intro')) {
+                    $wave.prependTo($obj).show();
+                } else {
+                    $wave.appendTo($obj).show();
+                }
             });
         }
     }, {
@@ -554,9 +559,9 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'adjustLayout',
         value: function adjustLayout() {
-            // cq.reevaluate(false, () => {
-            //     // Do something after all elements were updated
-            // });
+            cq.reevaluate(false, function () {
+                // Do something after all elements were updated
+            });
         }
     }]);
 
