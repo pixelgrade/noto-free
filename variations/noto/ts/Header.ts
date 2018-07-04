@@ -84,14 +84,28 @@ export class NotoHeader extends BaseComponent {
         timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
         timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
 
+        let footerPinned = false;
+
         WindowService
             .onScroll()
             .takeWhile( () => this.subscriptionActive )
             .subscribe( () => {
                 const scroll = window.scrollY;
                 const progressTop = scroll / ( 3 * this.headerHeight );
-                const progressBottom = 1 - ( scroll + this.windowHeight - this.footerOffset.top ) / this.footerHeight;
+                const progressBottom = 1 - ( scroll + this.windowHeight - this.footerOffset.top )
+                    / Math.min( this.footerHeight, this.windowHeight );
                 const progress = Math.max( 0, Math.min( 1, progressTop, progressBottom ) );
+
+                if ( scroll >= this.footerOffset.top ) {
+                    if ( ! footerPinned ) {
+                        $( 'body' ).addClass( 'u-footer-is-pinned' );
+                        footerPinned = true;
+                    }
+                } else if ( footerPinned ) {
+                    $( 'body' ).removeClass( 'u-footer-is-pinned' );
+                    footerPinned = false;
+                }
+
                 timeline.progress( progress );
             } );
 
@@ -158,7 +172,7 @@ export class NotoHeader extends BaseComponent {
         });
 
         this.$footer.css({
-            bottom: 0,
+            bottom: this.windowHeight - footerHeight,
             height: footerHeight,
             left: this.$footer.offset().left,
             position: 'fixed',

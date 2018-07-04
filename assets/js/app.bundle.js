@@ -397,6 +397,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+var cq = __webpack_require__(27)({});
 var Noto = function (_BaseTheme) {
     _inherits(Noto, _BaseTheme);
 
@@ -553,7 +554,12 @@ var Noto = function (_BaseTheme) {
         }
     }, {
         key: 'adjustLayout',
-        value: function adjustLayout() {}
+        value: function adjustLayout() {
+            cq.reevaluate(false, function () {
+                console.log('here');
+                // Do something after all elements were updated
+            });
+        }
     }]);
 
     return Noto;
@@ -1022,13 +1028,23 @@ var NotoHeader = function (_BaseComponent) {
             timeline.to($accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
             timeline.to($darkLayer, 1, { rotation: 0 }, 0);
             timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right'), .5, { opacity: 0 }, 0);
+            var footerPinned = false;
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
                 return _this2.subscriptionActive;
             }).subscribe(function () {
                 var scroll = window.scrollY;
                 var progressTop = scroll / (3 * _this2.headerHeight);
-                var progressBottom = 1 - (scroll + _this2.windowHeight - _this2.footerOffset.top) / _this2.footerHeight;
+                var progressBottom = 1 - (scroll + _this2.windowHeight - _this2.footerOffset.top) / Math.min(_this2.footerHeight, _this2.windowHeight);
                 var progress = Math.max(0, Math.min(1, progressTop, progressBottom));
+                if (scroll >= _this2.footerOffset.top) {
+                    if (!footerPinned) {
+                        __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').addClass('u-footer-is-pinned');
+                        footerPinned = true;
+                    }
+                } else if (footerPinned) {
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').removeClass('u-footer-is-pinned');
+                    footerPinned = false;
+                }
                 timeline.progress(progress);
             });
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onResize().takeWhile(function () {
@@ -1090,7 +1106,7 @@ var NotoHeader = function (_BaseComponent) {
                 width: headerWidth
             });
             this.$footer.css({
-                bottom: 0,
+                bottom: this.windowHeight - footerHeight,
                 height: footerHeight,
                 left: this.$footer.offset().left,
                 position: 'fixed',
