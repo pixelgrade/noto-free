@@ -91,34 +91,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
         </div>
 
         <div class="c-noto c-noto--body">
-        	<div class="widget widget_text widget--content widget_custom_html small post-it">
-				<h2 class="widget__title h6">Salut</h2>
-				<div class="textwidget">
-					<p>Welcome to my blog! Check out the <a href="#">latest post</a>, browse the highlights or <a href="#">reach me</a> to say Hi!</p>
-				</div>
-			</div>
 
-			<div class="widget widget_text widget--content widget_custom_html small">
-				<h2 class="widget__title h6">Widget Title</h2>
-				<div class="textwidget">
-					<p>The Text Widget allows you to add text to your sidebar. It’s the most popular widget because of its power and flexibility — use one to display text, links, images, or any combination.</p>
-					<p class="small">
-						Put simply, smaller text will usually be read after smaller text. Small columns of text are easier to read than large ones.
-					</p>
-					<a href="#" class="button">Button</a>
-				</div>
-			</div>
-
-			<div class="widget widget_text widget--content widget_custom_html">
-				<h2 class="widget__title h6">Widget Title</h2>
-				<div class="textwidget">
-					<p>The Text Widget allows you to add text to your sidebar. It’s the most popular widget because of its power and flexibility — use one to display text, links, images, or any combination.</p>
-					<p class="small">
-						Put simply, smaller text will usually be read after smaller text. Small columns of text are easier to read than large ones.
-					</p>
-					<a href="#" class="button">Button</a>
-				</div>
-			</div>
 	        <?php
 	        $zones = pixelgrade_header_get_zones();
 	        unset( $zones['left'] );

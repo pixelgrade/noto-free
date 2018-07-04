@@ -192,50 +192,12 @@ $border-width: 2rem;
       grid-column: start / 32;
     }
 
-    // Widgets
-    > .widget {
-      // display: none;
-      
-      align-self: flex-start;
-      grid-column: start / span 5;
-      // grid-row-end: span 3;
-
-
-      // @include highlighted-style-alt;
-
-      + .widget {
-        grid-column: 10 / span 5;
-
-        + .widget {
-          grid-column: 18 / span 9;
-        }
-      }
-    }
-
-    > article {
-      position: relative;
-
-      @include debug-colors;
-
-      &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        counter-increment: count;
-        // content: counter(count);
-
-        font-size: 200px;
-        line-height: 0.8;
-        font-weight: 700;
-        opacity: 0.1;
-        pointer-events: none;
-      }
+    > .c-gallery__item {
 
       // Cards Positioning
       // ----------------------------------------
       // First Card
-      &:nth-of-type(1) {
+      &:nth-child(1) {
         grid-column: middle / span 14;
         grid-row-end: span 3;
 
@@ -259,7 +221,7 @@ $border-width: 2rem;
         }
       }
 
-      &:nth-of-type(2) {
+      &:nth-child(2) {
         grid-column: start / span 11;
         grid-row-end: span 2;
         align-self: center;
@@ -272,20 +234,20 @@ $border-width: 2rem;
         }
       }
 
-      &:nth-of-type(3) {
+      &:nth-child(3) {
         grid-column: 15 / span 5;
         margin-top: -100px;
 
         @include highlighted-style-alt;
       }
 
-      &:nth-of-type(4) {
+      &:nth-child(4) {
         grid-column: 22 / span 7;
 
         @include card-medium;
       }
 
-      &:nth-of-type(12n+5) {
+      &:nth-child(12n+5) {
         grid-column: start / span 13;
         align-self: flex-end;
         padding-top: 50px;
@@ -302,7 +264,7 @@ $border-width: 2rem;
         }
       }
 
-      &:nth-of-type(12n+6) {
+      &:nth-child(12n+6) {
         grid-column: 19 / span 13;
         align-self: flex-end;
         padding-top: 100px;
@@ -319,29 +281,29 @@ $border-width: 2rem;
         }
       }
 
-      &:nth-of-type(12n+7) {
+      &:nth-child(12n+7) {
         grid-column: start / span 7;
       }
 
-      &:nth-of-type(12n+8) {
+      &:nth-child(12n+8) {
         grid-column: 12 / span 5;
         margin-top: -100px;
 
         @include card-medium;
       }
 
-      &:nth-of-type(12n+9) {
+      &:nth-child(12n+9) {
         grid-column: 19 / span 5;
         margin-top: -100px;
       }
 
-      &:nth-of-type(12n+10) {
+      &:nth-child(12n+10) {
         grid-column: 25 / span 7;
 
         @include card-medium;
       }
 
-      &:nth-of-type(12n+11) {
+      &:nth-child(12n+11) {
         grid-column: start / span 13;
         align-self: flex-end;
         padding-top: 100px;
@@ -358,7 +320,7 @@ $border-width: 2rem;
         }
       }
 
-      &:nth-of-type(12n) {
+      &:nth-child(12n) {
         grid-column: 18 / span 13;
         align-self: flex-end;
         padding-top: 50px;
@@ -375,34 +337,34 @@ $border-width: 2rem;
         }
       }
 
-      &:nth-of-type(12n+13) {
+      &:nth-child(12n+13) {
         grid-column: start / span 5;
         margin-top: -100px;
       }
 
-      &:nth-of-type(12n+14) {
+      &:nth-child(12n+14) {
         grid-column: 9 / span 7;
         margin-top: 0;
 
         @include card-medium;
       }
 
-      &:nth-of-type(12n+15) {
+      &:nth-child(12n+15) {
         grid-column: 18 / span 7;
         margin-top: 0;
         align-self: flex-start;
       }
 
-      &:nth-of-type(12n+16) {
+      &:nth-child(12n+16) {
         grid-column: 27 / span 5;
         margin-top: -100px;
 
         @include card-medium;
       }
 
-      &:nth-of-type(3),
-      &:nth-of-type(6n+7),
-      &:nth-of-type(6n+9) {
+      &:nth-child(3),
+      &:nth-child(6n+7),
+      &:nth-child(6n+9) {
         @include card-align-right;
       }
     }

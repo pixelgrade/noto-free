@@ -408,10 +408,8 @@ var Noto = function (_BaseTheme) {
 
         _this.mouseX = 0;
         _this.mouseY = 0;
-        var that = _this;
         _this.handleContent();
         function loop() {
-            that.updateCardsPosition();
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
@@ -446,27 +444,17 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'updateCardsPosition',
         value: function updateCardsPosition() {
-            // const that = this;
-            //
-            // $('.c-card').each((i, obj) => {
-            //     const thereshold = 20;
-            //     const el = (obj as HTMLElement);
-            //     const cardRect = el.getBoundingClientRect();
-            //     const cardWidth = el.offsetWidth;
-            //     const cardHeight = el.offsetHeight;
-            //
-            //     const distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
-            //     const distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
-            //
-            //     const moveX = thereshold * 2 * distanceX / cardWidth;
-            //     const moveY = thereshold * 2 * distanceY / cardHeight;
-            //
-            //     const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
-            //
-            //     for (let j = 0; j < images.length; ++j) {
-            //         (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
-            //     }
-            // });
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            var $noto = $container.find('.c-noto--body');
+            var $posts = $noto.children('.post');
+            var $widgets = $noto.children('.widget--misto');
+            var step = $posts.length / $widgets.length;
+            console.log($posts.length, $widgets.length);
+            $widgets.each(function (i, obj) {
+                var $widget = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                $widget.insertAfter($posts.eq(i * step));
+            });
         }
     }, {
         key: 'bindEvents',
@@ -549,6 +537,7 @@ var Noto = function (_BaseTheme) {
             this.appendSvgToIntro($container);
             this.appendSvgToBlockquote($container);
             this.eventHandlers($container);
+            this.updateCardsPosition($container);
             $container.find('.sharedaddy').each(function (i, obj) {
                 var $sharedaddy = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 if ($sharedaddy.find('.sd-social-official').length) {

@@ -175,6 +175,11 @@ if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 
 		$config = Pixelgrade_Config::merge( $config, array(
 			'sidebars' => array(
+                'sidebar-1' => array(
+	                'sidebar_args' => array(
+	                    'before_widget' => '<section id="%1$s" class="widget widget--misto c-gallery__item %2$s">',
+                    ),
+                ),
 				'sidebar-2' => array(
 					'sidebar_args' => array(
 						'before_title' => '<h2 class="widget__title h4"><span>',
