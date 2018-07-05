@@ -3,6 +3,7 @@ $transition-easing: $easeInOutCubic;
 $mobile-padding: 6.25vw;
 
 @import 'mixins';
+@import 'branding';
 @import 'comments';
 @import 'author';
 @import 'header';
@@ -24,38 +25,6 @@ $mobile-padding: 6.25vw;
 
 @include above(lap) {
   @import 'border';
-}
-
-@include below(lap) {
-
-  .site-content:before {
-    display: none;
-  }
-
-  .header {
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: auto;
-    padding: 30px;
-    background: #ffffff;
-  }
-
-  .c-profile-photo {
-    margin-top: -40px;
-    margin-left: -20px;
-    padding-right: 30px;
-
-    img {
-      max-width: 150px;
-    }
-  }
-}
-
-@include above(lap) {
-  .header {
-    padding: 20px;
-    background: $theme-accent-lighter-color;
-  }
 }
 
 body {
@@ -193,7 +162,11 @@ body {
 
 .c-navbar__zone--right {
 
-  &.is-hidden {
-    opacity: 0 !important;
+  > nav {
+    transition: opacity .3s ease-in-out;
+  }
+
+  &.is-hidden > nav {
+    opacity: 0;
   }
 }

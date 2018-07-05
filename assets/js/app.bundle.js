@@ -1092,6 +1092,15 @@ var NotoHeader = function (_BaseComponent) {
         key: 'updateOnResize',
         value: function updateOnResize() {
             this.eventHandlers();
+            var $title = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-title');
+            $title.css('fontSize', '');
+            var titleWidth = $title.outerWidth();
+            var fontSize = parseInt($title.css('fontSize'), 10);
+            var $parent = $title.parent();
+            var parentWidth = $parent.outerWidth();
+            $title.css({
+                fontSize: fontSize * parentWidth / titleWidth
+            });
             this.$headerGrid.css({
                 height: '',
                 left: '',

@@ -57,12 +57,10 @@ export class NotoHeader extends BaseComponent {
         });
 
         imagesLoaded( $( '.c-navbar .c-logo' ), () => {
-
             this.bindEvents();
             this.eventHandlers();
             this.updateOnResize();
             this.toggleNavStateClass();
-
         });
     }
 
@@ -167,6 +165,19 @@ export class NotoHeader extends BaseComponent {
 
     private updateOnResize() {
         this.eventHandlers();
+
+        const $title = $( '.site-title' );
+
+        $title.css( 'fontSize', '' );
+
+        const titleWidth = $title.outerWidth();
+        const fontSize = parseInt( $title.css( 'fontSize' ), 10 );
+        const $parent = $title.parent();
+        const parentWidth = $parent.outerWidth();
+
+        $title.css({
+            fontSize: fontSize * parentWidth / titleWidth
+        });
 
         this.$headerGrid.css({
             height: '',

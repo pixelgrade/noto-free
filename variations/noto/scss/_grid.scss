@@ -141,52 +141,6 @@ $border-width: 2rem;
     }
   }
 
-  // logo grid
-  .c-branding {
-    display: grid;
-    grid-template-row: 1fr auto auto auto 1fr;
-
-    &:before {
-      content: "";
-      display: block;
-      grid-row: 1 / 2;
-    }
-
-    &:after {
-      content: "";
-      display: block;
-      grid-row: 5 / 6;
-    }
-  }
-
-  .c-profile-photo {
-    grid-column: 1;
-    grid-row: 1 / 6;
-  }
-
-  .c-logo {
-    grid-column: 2;
-    grid-row: 2 / 3;
-  }
-
-  [rel="home"] {
-    grid-column: 2;
-    grid-row: 3 / 4;
-
-    .c-logo + & {
-      margin-top: 1em;
-    }
-  }
-
-  .site-description {
-    grid-column: 2;
-    grid-row: 4 / 5;
-
-    [rel="home"] + & {
-      margin-top: 1em;
-    }
-  }
-
   // Main Menu
   .c-navbar__zone--left {
 
@@ -472,10 +426,11 @@ $offset: 2;
 
   // Site Identity
   .c-navbar__zone--middle {
+    margin-top: -60px;
+    transform: rotate(1deg);
 
     // Front Page
     body:not(.single):not(.page) & {
-      padding: 2rem 0;
       grid-column: start / 13;
       grid-row: 1 / 4;
     }
@@ -483,7 +438,6 @@ $offset: 2;
     // Inner Pages
     body.single &,
     body.page & {
-      padding: 2rem 0;
       grid-column: start / 13;
       grid-row: 1 / 3;
     }

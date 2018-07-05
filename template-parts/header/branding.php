@@ -36,19 +36,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php } ?>
 			</div>
 
-			<div class="c-logo">
-				<?php if ( has_custom_logo() ) { ?>
-					<div class="c-logo__default">
-						<?php the_custom_logo(); ?>
-					</div>
-				<?php } ?>
+            <?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() ) { ?>
+                <div class="c-logo">
+                    <?php if ( has_custom_logo() ) { ?>
+                        <div class="c-logo__default">
+                            <?php the_custom_logo(); ?>
+                        </div>
+                    <?php } ?>
 
-				<?php if ( pixelgrade_has_custom_logo_transparent() ) { ?>
-					<div class="c-logo__inverted">
-						<?php pixelgrade_the_custom_logo_transparent(); ?>
-					</div>
-				<?php } ?>
-			</div>
+                    <?php if ( pixelgrade_has_custom_logo_transparent() ) { ?>
+                        <div class="c-logo__inverted">
+                            <?php pixelgrade_the_custom_logo_transparent(); ?>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
 
 		<?php } ?>
 
