@@ -1015,15 +1015,6 @@ var NotoHeader = function (_BaseComponent) {
             this.$mainMenuItems.filter('.menu-item-has-children').on('mouseleave', function () {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right').removeClass('is-hidden');
             });
-            this.$mainMenuItems.hoverIntent({
-                out: function out(e) {
-                    return _this2.toggleSubMenu(e, false);
-                },
-                over: function over(e) {
-                    return _this2.toggleSubMenu(e, true);
-                },
-                timeout: 300
-            });
             var $accentLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__accent');
             var $darkLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__dark');
             var timeline = new __WEBPACK_IMPORTED_MODULE_6_gsap__["TimelineMax"]({ paused: true });
@@ -1179,11 +1170,6 @@ var NotoHeader = function (_BaseComponent) {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).addClass('prevent-one');
             });
             this.isMobileHeaderInitialised = true;
-        }
-    }, {
-        key: 'toggleSubMenu',
-        value: function toggleSubMenu(e, toggle) {
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).toggleClass('hover', toggle);
         }
     }, {
         key: 'onMobileMenuExpand',

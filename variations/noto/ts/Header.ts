@@ -83,12 +83,6 @@ export class NotoHeader extends BaseComponent {
             $( '.c-navbar__zone--right' ).removeClass( 'is-hidden' );
         } );
 
-        this.$mainMenuItems.hoverIntent( {
-            out: (e) => this.toggleSubMenu(e, false),
-            over: (e) => this.toggleSubMenu(e, true),
-            timeout: 300
-        } );
-
         const $accentLayer = $( '.c-footer-layers__accent' );
         const $darkLayer = $( '.c-footer-layers__dark' );
         const timeline = new TimelineMax( { paused: true } );
@@ -263,10 +257,6 @@ export class NotoHeader extends BaseComponent {
         } );
 
         this.isMobileHeaderInitialised = true;
-    }
-
-    private toggleSubMenu(e: JQuery.Event, toggle: boolean) {
-        $( e.currentTarget ).toggleClass( 'hover', toggle );
     }
 
     private onMobileMenuExpand(e: JQuery.Event): void {
