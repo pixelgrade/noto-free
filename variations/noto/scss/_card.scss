@@ -196,6 +196,12 @@
       }
     }
 
+    > .widget[class] {
+      margin-top: 4rem;
+      padding-left: $mobile-padding;
+      padding-right: $mobile-padding;
+    }
+
     > .pagination {
       padding: 0 $mobile-padding;
     }
