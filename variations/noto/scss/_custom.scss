@@ -130,6 +130,12 @@ body {
   padding: 25px 20px 16px;
 }
 
+.search-trigger[class] {
+    // @todo: check for duplicate rules on component
+    grid-column: 31 / span 2;
+    grid-row: 1 / span 1;
+}
+
 .search-trigger svg {
   display: block;
 }
@@ -205,7 +211,6 @@ body {
 }
 
 .c-navbar__zone--right {
-  transition: opacity .3s ease-in-out;
 
   &.is-hidden {
     opacity: 0 !important;

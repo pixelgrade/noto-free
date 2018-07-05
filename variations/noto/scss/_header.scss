@@ -35,6 +35,8 @@
 
       text-decoration: none;
     }
+
+
   }
 
   .menu-item-has-children {
@@ -54,7 +56,7 @@
     }
   }
 }
-
+.c-navbar__zone .menu-item,
 .c-navbar__zone--left {
   position: relative;
   z-index: 200;
@@ -68,6 +70,8 @@
 
     > a {
       position: relative;
+      padding-left: 1.5em;
+      padding-right: 1.5em;
       transition: color .2s .2s ease-out;
 
       &:before {
@@ -79,7 +83,7 @@
         left: 0;
         z-index: -1;
         background-color: #fff;
-        transition: transform .3s $easeInBack;
+        transition: transform 0.4s $easeInBack;
         transform-origin: 50% 100%;
         transform: scale(1, 0) rotate(0);
       }
@@ -132,6 +136,11 @@
 
   @include above(lap) {
     background: none;
+
+    > * {
+      opacity: 0.6;
+      font-size: 93.75%;
+    }
   }
 
   @include below(lap) {
@@ -162,7 +171,6 @@
 
       margin-top: 0;
       justify-content: flex-end;
-      padding-right: percentage(3/31);
 
       opacity: 0;
       pointer-events: none;
