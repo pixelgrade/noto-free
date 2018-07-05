@@ -1019,7 +1019,7 @@ var NotoHeader = function (_BaseComponent) {
             timeline.to($accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
             timeline.to($darkLayer, 1, { rotation: 0 }, 0);
             timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right'), .5, { opacity: 0 }, 0);
-            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left'), 0, { opacity: 0 }, 1);
+            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--header'), 0, { opacity: 0 }, 1);
             timeline.to($darkLayer, 1, { rotation: 1 }, 1);
             timeline.to($accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1);
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {

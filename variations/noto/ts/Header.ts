@@ -89,7 +89,7 @@ export class NotoHeader extends BaseComponent {
         timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
         timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
         timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
-        timeline.to( $( '.c-navbar__zone--left' ), 0, { opacity: 0 }, 1 );
+        timeline.to( $( '.c-noto--header' ), 0, { opacity: 0 }, 1 );
         timeline.to( $darkLayer, 1, { rotation: 1 }, 1 );
         timeline.to( $accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1 );
 
