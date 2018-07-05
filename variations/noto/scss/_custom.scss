@@ -121,6 +121,13 @@ body {
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
 }
 
+.c-footer-layers__accent,
+.c-footer-layers__dark {
+  @include below(lap) {
+    display: none;
+  }
+}
+
 .c-footer-layers__background {
   grid-column: 1 / -1;
 

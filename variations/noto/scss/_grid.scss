@@ -126,7 +126,7 @@ $border-width: 2rem;
 
   // Layout
   .c-noto {
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: auto minmax(60px, 1fr) minmax(60px, 1fr);
     margin-top: 0 !important;
 
     &:before {
@@ -189,6 +189,8 @@ $offset: 2;
   }
 
   .c-noto--body {
+    padding-left: 25px;
+
     grid-template-rows: minmax(4rem, auto);
     grid-auto-rows: minmax(50px, auto);
 
@@ -284,7 +286,7 @@ $offset: 2;
         align-self: flex-end;
         margin-top: 100px;
 
-        + * + * + .post {
+        &.widget + * + * + .post {
           margin-top: 100px;
         }
 
