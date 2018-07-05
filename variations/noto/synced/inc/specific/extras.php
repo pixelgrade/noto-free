@@ -169,6 +169,31 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 }
 add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10 );
 
+
+if ( ! function_exists( 'noto_alter_header_component_config' ) ) {
+
+	function noto_alter_header_component_config( $config ) {
+
+		$config = Pixelgrade_Config::merge( $config, array(
+			'menu_locations' => array(
+				'primary-left' => array(
+					'title'    => esc_html__( 'Header Top', '__components_txtd' ),
+				),
+				'primary-right'  => array(
+					'title'    => esc_html__( 'Header Bottom', '__components_txtd' ),
+					'nav_menu_args' => array(
+						
+					)
+				)
+			)
+		) );
+
+		return $config;
+	}
+}
+add_filter( 'pixelgrade_header_config', 'noto_alter_header_component_config', 10 );
+
+
 if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 
 	function noto_alter_blog_component_config( $config ) {
