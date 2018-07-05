@@ -43,7 +43,6 @@ export class NotoHeader extends BaseComponent {
 
     constructor() {
         super();
-        console.log( this.$mainMenu );
 
         $( '.c-navbar__zone' ).each( (i, obj) => {
             const $obj = $(obj);
@@ -83,12 +82,6 @@ export class NotoHeader extends BaseComponent {
             $( '.c-navbar__zone--right' ).removeClass( 'is-hidden' );
         } );
 
-        this.$mainMenuItems.hoverIntent( {
-            out: (e) => this.toggleSubMenu(e, false),
-            over: (e) => this.toggleSubMenu(e, true),
-            timeout: 200
-        } );
-
         const $accentLayer = $( '.c-footer-layers__accent' );
         const $darkLayer = $( '.c-footer-layers__dark' );
         const timeline = new TimelineMax( { paused: true } );
@@ -96,7 +89,7 @@ export class NotoHeader extends BaseComponent {
         timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
         timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
         timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
-        timeline.to( $( '.c-navbar__zone--left' ), 0, { opacity: 0 }, 1 );
+        timeline.to( $( '.c-noto--header' ), 0, { opacity: 0 }, 1 );
         timeline.to( $darkLayer, 1, { rotation: 1 }, 1 );
         timeline.to( $accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1 );
 
@@ -263,10 +256,6 @@ export class NotoHeader extends BaseComponent {
         } );
 
         this.isMobileHeaderInitialised = true;
-    }
-
-    private toggleSubMenu(e: JQuery.Event, toggle: boolean) {
-        $( e.currentTarget ).toggleClass( 'hover', toggle );
     }
 
     private onMobileMenuExpand(e: JQuery.Event): void {

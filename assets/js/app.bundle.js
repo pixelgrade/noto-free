@@ -450,7 +450,6 @@ var Noto = function (_BaseTheme) {
             var $posts = $noto.children('.post');
             var $widgets = $noto.children('.widget--misto');
             var step = $posts.length / $widgets.length;
-            console.log($posts.length, $widgets.length);
             $widgets.each(function (i, obj) {
                 var $widget = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 $widget.insertAfter($posts.eq(i * step));
@@ -979,7 +978,6 @@ var NotoHeader = function (_BaseComponent) {
         _this.areMobileBindingsDone = false;
         _this.subscriptionActive = true;
         _this.preventOneSelector = 'a.prevent-one';
-        console.log(_this.$mainMenu);
         __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone').each(function (i, obj) {
             var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
             if ($obj.find('.c-branding').length) {
@@ -1015,22 +1013,13 @@ var NotoHeader = function (_BaseComponent) {
             this.$mainMenuItems.filter('.menu-item-has-children').on('mouseleave', function () {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right').removeClass('is-hidden');
             });
-            this.$mainMenuItems.hoverIntent({
-                out: function out(e) {
-                    return _this2.toggleSubMenu(e, false);
-                },
-                over: function over(e) {
-                    return _this2.toggleSubMenu(e, true);
-                },
-                timeout: 200
-            });
             var $accentLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__accent');
             var $darkLayer = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-footer-layers__dark');
             var timeline = new __WEBPACK_IMPORTED_MODULE_6_gsap__["TimelineMax"]({ paused: true });
             timeline.to($accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0);
             timeline.to($darkLayer, 1, { rotation: 0 }, 0);
             timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--right'), .5, { opacity: 0 }, 0);
-            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--left'), 0, { opacity: 0 }, 1);
+            timeline.to(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--header'), 0, { opacity: 0 }, 1);
             timeline.to($darkLayer, 1, { rotation: 1 }, 1);
             timeline.to($accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1);
             __WEBPACK_IMPORTED_MODULE_5__components_base_ts_services_window_service__["a" /* WindowService */].onScroll().takeWhile(function () {
@@ -1179,11 +1168,6 @@ var NotoHeader = function (_BaseComponent) {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(element).addClass('prevent-one');
             });
             this.isMobileHeaderInitialised = true;
-        }
-    }, {
-        key: 'toggleSubMenu',
-        value: function toggleSubMenu(e, toggle) {
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()(e.currentTarget).toggleClass('hover', toggle);
         }
     }, {
         key: 'onMobileMenuExpand',
