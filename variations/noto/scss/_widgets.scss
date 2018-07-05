@@ -244,13 +244,9 @@
     }
 }
 
-// increase selector specificity to overwrite footer links color
-body {
-
-    .widget_pages,
-    .widget_nav_menu {
-        @extend %widget--links;
-    }
+.widget_pages,
+.widget_nav_menu {
+    @extend %widget--links;
 }
 
 .widget_wpcom_social_media_icons_widget {
