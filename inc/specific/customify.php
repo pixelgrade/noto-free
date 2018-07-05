@@ -33,11 +33,9 @@ define( 'SM_LIGHT_PRIMARY', 	 '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
 define( 'SM_LIGHT_TERTIARY',  '#FFF5C1' ); // Light Yellow
 
-// Font Palette
 define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
 define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
 define( 'SM_BODY_FONT', 'IBM Plex Sans' );
-define( 'SM_LOGO_FONT', 'Bungee Inline' );
 
 /**
  * Footer Section
@@ -68,8 +66,8 @@ function variation_change_customify_general_section( $section_options, $options 
 								.intro[class],
 								.c-author__name[class], 
 								.c-card:hover .c-card__excerpt,
-								body .widget_nav_menu a, 
-								body .widget_pages a,
+								.widget_nav_menu a, 
+								.widget_pages a,
 								.slick-dots .slick-active',
 						),
 						array(
@@ -503,21 +501,6 @@ function variation_change_customify_header_section( $section_options, $options )
 						array(
 							'property' => 'color',
 							'selector' => '.c-navbar__zone--left .menu > li > a',
-						),
-					),
-				),
-				'header_site_title_font'          => array(
-					'default' => array(
-						'font-family'    => SM_LOGO_FONT,
-						'font-weight'    => 'regular',
-						'font-size'      => 70,
-						'line-height'    => 1,
-						'letter-spacing' => 0,
-						'text-transform' => 'uppercase',
-					),
-					'fields'      => array(
-						'font-size'       => array( 
-							'max'  => 100,
 						),
 					),
 				),
