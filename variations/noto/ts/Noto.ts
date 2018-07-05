@@ -60,8 +60,6 @@ export class Noto extends BaseTheme {
 
         const step = $posts.length / $widgets.length;
 
-        console.log( $posts.length, $widgets.length );
-
         $widgets.each( ( i, obj ) => {
             const $widget = $( obj );
             $widget.insertAfter( $posts.eq( i * step ) );
@@ -73,7 +71,7 @@ export class Noto extends BaseTheme {
 
         const that = this;
 
-        $('body').on('mousemove', (e) => {
+        $( 'body' ).on('mousemove', (e) => {
             that.mouseX = e.pageX;
             that.mouseY = e.pageY;
         });
@@ -94,17 +92,17 @@ export class Noto extends BaseTheme {
     }
 
     public onJetpackPostLoad() {
-        const $container = ($('#posts-container') as JQueryExtended );
+        const $container = ( $( '#posts-container' ) as JQueryExtended );
 
         this.handleContent($container);
         this.adjustLayout();
     }
 
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find('.intro, .post-it');
-        const $waveTemplate = $('.js-wave-intro-template');
+        const $intro = $container.find('.intro, .post-it' );
+        const $waveTemplate = $( '.js-wave-intro-template' );
 
-        $intro.each((i, obj) => {
+        $intro.each(( i, obj ) => {
             const $obj = $(obj);
             const $wave = $waveTemplate.clone();
             const $pattern = $wave.find( 'pattern' );
@@ -114,11 +112,10 @@ export class Noto extends BaseTheme {
             $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
 
             if ( $obj.is( '.intro' ) ) {
-                $wave.prependTo($obj).show();
+                $wave.prependTo( $obj ).show();
             } else {
-                $wave.appendTo($obj).show();
+                $wave.appendTo( $obj ).show();
             }
-
         });
     }
 

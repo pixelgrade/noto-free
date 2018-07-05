@@ -450,7 +450,6 @@ var Noto = function (_BaseTheme) {
             var $posts = $noto.children('.post');
             var $widgets = $noto.children('.widget--misto');
             var step = $posts.length / $widgets.length;
-            console.log($posts.length, $widgets.length);
             $widgets.each(function (i, obj) {
                 var $widget = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 $widget.insertAfter($posts.eq(i * step));
@@ -979,7 +978,6 @@ var NotoHeader = function (_BaseComponent) {
         _this.areMobileBindingsDone = false;
         _this.subscriptionActive = true;
         _this.preventOneSelector = 'a.prevent-one';
-        console.log(_this.$mainMenu);
         __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone').each(function (i, obj) {
             var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
             if ($obj.find('.c-branding').length) {

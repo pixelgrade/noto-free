@@ -43,7 +43,6 @@ export class NotoHeader extends BaseComponent {
 
     constructor() {
         super();
-        console.log( this.$mainMenu );
 
         $( '.c-navbar__zone' ).each( (i, obj) => {
             const $obj = $(obj);

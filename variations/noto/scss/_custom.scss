@@ -48,9 +48,21 @@ body:not(.single):not(.page) {
     }
 
     .header {
+      margin-top: 10px;
+      margin-left: 10px;
       margin-right: auto;
-      padding: $mobile-padding;
-      background: $theme-accent-lighter-color;
+      padding: 30px;
+      background: #ffffff;
+    }
+
+    .c-profile-photo {
+      margin-top: -40px;
+      margin-left: -20px;
+      padding-right: 30px;
+
+      img {
+        max-width: 150px;
+      }
     }
   }
 }
@@ -115,7 +127,7 @@ body {
 .search-trigger[class] {
   display: flex;
   align-items: center;
-  padding: 1em 1.3125rem;
+  padding: 25px 20px 16px;
 }
 
 .search-trigger svg {

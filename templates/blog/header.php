@@ -91,6 +91,18 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
         </div>
 
         <div class="c-noto c-noto--body">
+            <input class="c-navbar__checkbox" id="menu-toggle" type="checkbox">
+            <label class="c-navbar__label u-header-sides-spacing" for="menu-toggle">
+                <span class="c-navbar__label-icon"><?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'burger' ); ?></span>
+                <span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', '__components_txtd' ); ?></span>
+            </label><!-- .c-navbar__label -->
+
+            <div class="search-trigger">
+                <button class="js-search-trigger">
+			        <?php get_template_part( 'template-parts/svg/icon-search-svg' );?>
+                    <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
+                </button>
+            </div>
 
 	        <?php
 	        $zones = pixelgrade_header_get_zones();
