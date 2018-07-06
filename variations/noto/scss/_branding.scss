@@ -54,16 +54,14 @@
             background: $theme-accent-lighter-color;
         }
 
-        .c-profile-photo img {
+        .profile-photo-link {
             max-width: 350px;
         }
 
-        .c-logo,
-        [rel="home"],
-        .site-description {
-            * + & {
-                margin-top: 1em;
-            }
+        * + .c-logo,
+        * + [rel="home"],
+        * + .site-description {
+            margin-top: 1em;
         }
 
         .site-description {
@@ -87,10 +85,10 @@
 
         .c-profile-photo {
             padding-right: 28px;
+        }
 
-            img {
-                max-width: 150px;
-            }
+        .profile-photo-link {
+            max-width: 150px;
         }
 
         .site-description {
@@ -114,10 +112,10 @@
         margin-top: -10px;
         margin-left: -20px;
         padding-right: 30px;
+    }
 
-        img {
-            max-width: 85px;
-        }
+    .profile-photo-link {
+        max-width: 85px;
     }
 
     @include branding-grid;
