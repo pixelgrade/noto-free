@@ -230,7 +230,6 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_paragraph_text_font'      => array(
-					'selector' => '.entry-content, .site-description',
 					'default' => array(
 						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',

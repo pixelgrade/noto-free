@@ -57,7 +57,7 @@
   }
 }
 
-.c-navbar__zone {
+.c-navbar__zone--left {
   position: relative;
   z-index: 200;
 
@@ -92,7 +92,6 @@
     @for $i from 1 through 20 {
       &:nth-child(#{$i}):hover > a:before {
         $rotation: (random(6) - 3) * 1deg;
-        @debug $rotation;
         transform: scale(1, 1) rotate($rotation);
         transition: transform .3s $easeOutBack;
       }

@@ -3,40 +3,11 @@
     display: inline-block;
 }
 
-@include above(lap) {
-
-    .header {
-        padding: 20px;
-        background: $theme-accent-lighter-color;
-    }
-
-    .c-logo,
-    [rel="home"],
-    .site-description {
-        * + & {
-            margin-top: 1em;
-        }
-    }
-}
-
-@include below(lap) {
-
-    .header {
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: auto;
-        padding: 0 30px;
-        background: #ffffff;
-    }
-
-    .c-profile-photo {
-        margin-top: -10px;
-        margin-left: -20px;
-        padding-right: 30px;
-    }
+@mixin branding-grid {
 
     .c-branding {
         display: grid;
+        grid-template-columns: auto 1fr;
         grid-template-rows: 1fr auto auto auto 1fr;
 
         &:before {
@@ -71,10 +42,88 @@
     .site-description {
         grid-column: 2;
         grid-row: 4 / 5;
+    }
+}
 
-        [rel="home"] + & {
-            margin-top: 1em;
+@include above(lap) {
+
+    body:not(.page):not(.single) {
+
+        .header {
+            padding: 20px;
+            background: $theme-accent-lighter-color;
         }
+
+        .c-profile-photo img {
+            max-width: 350px;
+        }
+
+        .c-logo,
+        [rel="home"],
+        .site-description {
+            * + & {
+                margin-top: 1em;
+            }
+        }
+
+        .site-description {
+            font-size: 17/15 * 1em;
+            line-height: (26/17);
+        }
+    }
+
+    .page,
+    .single {
+        @include branding-grid;
+
+        .c-branding {
+            margin-top: -50px;
+        }
+
+        .header {
+            background: #ffffff;
+            padding: 28px;
+        }
+
+        .c-profile-photo {
+            padding-right: 28px;
+
+            img {
+                max-width: 150px;
+            }
+        }
+
+        .site-description {
+            font-size: 13/15 * 1em;
+            line-height: (19/13);
+        }
+    }
+}
+
+@include below(lap) {
+
+    .header {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: auto;
+        padding: 0 30px;
+        background: #ffffff;
+    }
+
+    .c-profile-photo {
+        margin-top: -10px;
+        margin-left: -20px;
+        padding-right: 30px;
+
+        img {
+            max-width: 85px;
+        }
+    }
+
+    @include branding-grid;
+
+    .site-description {
+        display: none;
     }
 
     :not(.c-profile-photo) + [rel="home"],
