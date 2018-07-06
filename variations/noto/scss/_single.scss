@@ -13,15 +13,13 @@
 
     .c-noto {
       grid-template-columns: 2rem 2rem [start] repeat(14, 1fr) [middle] repeat(14, 1fr) [end] 1fr 1fr;
-      background-color: $theme-accent-lighter-color;
-      padding-bottom: 2rem;
     }
 
     .content-area {
       position: relative;
       z-index: 10;
 
-      grid-column-end: -1;
+      // grid-column-end: -1;
       background: white;
     }
   }
@@ -34,23 +32,37 @@
     }
 
     .content-area {
-      padding: 6rem 2rem 0;
+      padding: 6rem 0 0;
 
       display: grid;
-      grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 5em [hs] 35em [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
+      // grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 5em [hs] 35em [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
+
+      grid-template-columns:    [edge-start] 4fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem [ps] 35em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
 
       > * {
+        grid-column: cs / ce;
+      }
+
+      .intro {
         grid-column: cso / ce;
       }
 
-      .gallery {
-        grid-column: ms / end;
+      // Share Icons
+      .sharedaddy:not(.sharedaddy--official) {
+        grid-column: cso / cs;
+        grid-row: 5 / span 3;
       }
 
       .header-category,
       .entry-title {
         grid-column: ms / ce;
       }
+    }
+
+    #{$content-selector} {
+      margin-left: 0; 
+      margin-right: 0;
+      max-width: none;
     }
   }
 }
@@ -75,7 +87,7 @@
     .content-area {
 
       .header-stuff {
-        grid-column: s / hs;
+        grid-column: mso / ps;
         display: flex;
         flex-direction: column;
         text-align: right;
@@ -86,7 +98,7 @@
       }
 
       .entry-thumbnail {
-        grid-column: hs / end;
+        grid-column: ps / end;
       }
     }
 
@@ -102,28 +114,37 @@
     .header-stuff {
       grid-row-end: span 2;
       margin-top: auto;
+
+      .header-category {
+        margin-left: 1.5rem;
+      }
+
+      .header-meta {
+        // Align meta with content
+        // margin-left: 9rem;
+      }
     }
   }
 
   .entry-image--landscape {
 
     .c-author {
-      grid-column: s / ms;
+      grid-column: edge-start / mso;
       grid-row-end: span 2;
       align-self: flex-end;
     }
 
     .entry-thumbnail[class][class],
     .header-stuff[class][class] {
-      grid-column: ms / end;
-      margin-left: 4rem;
+      grid-column: ms / me;
+      // margin-left: 4rem;
     }
   }
 
   .entry-image--none {
 
     .c-author {
-      grid-column: s / cs;
+      grid-column: mso / cs;
     }
 
     .entry-thumbnail {
@@ -238,14 +259,6 @@
   }
 }
 
-@include above(desk) {
-  #{$content-selector} {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-  }
-}
-
 //@include below(lap) {
 //  padding-left: 0;
 //  padding-right: 0;
@@ -266,3 +279,8 @@
     content: none;
   }
 }
+
+
+
+
+

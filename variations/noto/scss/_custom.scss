@@ -3,6 +3,7 @@ $transition-easing: $easeInOutCubic;
 $mobile-padding: 6.25vw;
 
 @import 'mixins';
+@import 'branding';
 @import 'comments';
 @import 'author';
 @import 'header';
@@ -24,35 +25,6 @@ $mobile-padding: 6.25vw;
 
 @include above(lap) {
   @import 'border';
-}
-
-.single,
-.page {
-
-  @include below(lap) {
-
-    .header {
-      margin-right: auto;
-      padding: $mobile-padding;
-      background: $theme-accent-lighter-color;
-    }
-  }
-}
-
-body:not(.single):not(.page) {
-
-  @include below(lap) {
-
-    .site-content:before {
-      display: none;
-    }
-
-    .header {
-      margin-right: auto;
-      padding: $mobile-padding;
-      background: $theme-accent-lighter-color;
-    }
-  }
 }
 
 body {
@@ -115,11 +87,12 @@ body {
 .search-trigger[class] {
   display: flex;
   align-items: center;
-  padding: 1em 1.3125rem;
+  padding: 25px 20px 16px;
 }
 
-.search-trigger svg {
-  display: block;
+.c-navbar__label-icon {
+  height: 62px;
+  padding-top: 22px;
 }
 
 .site {
@@ -134,7 +107,7 @@ body {
 }
 
 .c-noto--header {
-  z-index: 100;
+  z-index: 300;
 }
 
 .c-noto--body {
@@ -151,6 +124,13 @@ body {
   bottom: 0;
   left: 0;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+.c-footer-layers__accent,
+.c-footer-layers__dark {
+  @include below(lap) {
+    display: none;
+  }
 }
 
 .c-footer-layers__background {
@@ -189,5 +169,16 @@ body {
 
   .site-footer {
     position: static !important;
+  }
+}
+
+.c-navbar__zone--right {
+
+  > nav {
+    transition: opacity .3s ease-in-out;
+  }
+
+  &.is-hidden > nav {
+    opacity: 0;
   }
 }

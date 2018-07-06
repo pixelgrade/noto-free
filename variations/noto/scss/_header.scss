@@ -35,9 +35,15 @@
 
       text-decoration: none;
     }
+
+
   }
 
   .menu-item-has-children {
+
+    > .sub-menu {
+      transition: opacity .3s ease-in-out;
+    }
 
     &:hover > .sub-menu {
       opacity: 1;
@@ -51,9 +57,47 @@
   }
 }
 
-.c-navbar__zone--left {
+.c-navbar__zone {
   position: relative;
   z-index: 200;
+
+  .menu > li {
+
+    &:hover > a {
+      color: inherit;
+      transition: color .2s .1s ease-out;
+    }
+
+    > a {
+      position: relative;
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+      transition: color .2s .2s ease-out;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: -.5rem;
+        left: 0;
+        z-index: -1;
+        background-color: #fff;
+        transition: transform 0.4s $easeInBack;
+        transform-origin: 50% 100%;
+        transform: scale(1, 0) rotate(0);
+      }
+    }
+
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}):hover > a:before {
+        $rotation: (random(6) - 3) * 1deg;
+        @debug $rotation;
+        transform: scale(1, 1) rotate($rotation);
+        transition: transform .3s $easeOutBack;
+      }
+    }
+  }
 }
 
 .c-navbar__zone--left,
@@ -92,6 +136,11 @@
 
   @include above(lap) {
     background: none;
+
+    > * {
+      opacity: 0.6;
+      font-size: 93.75%;
+    }
   }
 
   @include below(lap) {
@@ -122,7 +171,6 @@
 
       margin-top: 0;
       justify-content: flex-end;
-      padding-right: percentage(3/31);
 
       opacity: 0;
       pointer-events: none;
@@ -150,6 +198,7 @@
 
   .c-navbar__content {
     position: fixed;
+    top: 0;
     left: 100%;
     bottom: 0;
     z-index: 300;
@@ -200,8 +249,6 @@
     right: 0;
     z-index: 310;
 
-    padding-top: 8px;
-
     background: $theme-border-color;
     color: $theme-accent-light-color;
   }
@@ -236,7 +283,7 @@
     position: static;
     padding-top: 0;
     grid-column: 3 / -1;
-    grid-row: 2 / 3;
+    grid-row: 1 / 2;
   }
 }
 
@@ -260,11 +307,6 @@
   @include wp-offset();
 }
 
-.c-navbar__label-icon {
-  height: 54px;
-}
-
-
 .jetpack-social-navigation .screen-reader-text {
   width: auto;
   height: auto;
@@ -272,4 +314,5 @@
   text-transform: capitalize;
   clip: auto;
   clip-path: none;
+  margin: 0;
 }

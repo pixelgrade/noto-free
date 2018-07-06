@@ -170,7 +170,7 @@
     display: none;
   }
 
-  .c-noto {
+  .c-noto--body {
     padding-bottom: 4rem;
 
     > article {
@@ -194,6 +194,12 @@
           text-align: right;
         }
       }
+    }
+
+    > .widget[class] {
+      margin-top: 4rem;
+      padding-left: $mobile-padding;
+      padding-right: $mobile-padding;
     }
 
     > .pagination {

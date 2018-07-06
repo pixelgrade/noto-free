@@ -17,12 +17,9 @@ export class Noto extends BaseTheme {
     constructor() {
         super();
 
-        const that = this;
-
         this.handleContent();
 
         function loop() {
-            that.updateCardsPosition();
             requestAnimationFrame(loop);
         }
 
@@ -56,28 +53,17 @@ export class Noto extends BaseTheme {
         }
     }
 
-    public updateCardsPosition() {
-        // const that = this;
-        //
-        // $('.c-card').each((i, obj) => {
-        //     const thereshold = 20;
-        //     const el = (obj as HTMLElement);
-        //     const cardRect = el.getBoundingClientRect();
-        //     const cardWidth = el.offsetWidth;
-        //     const cardHeight = el.offsetHeight;
-        //
-        //     const distanceX = that.mouseX - (cardRect.left + cardWidth / 2);
-        //     const distanceY = that.mouseY - (cardRect.top + cardHeight / 2) - window.scrollY;
-        //
-        //     const moveX = thereshold * 2 * distanceX / cardWidth;
-        //     const moveY = thereshold * 2 * distanceY / cardHeight;
-        //
-        //     const images = (el.parentNode as Element).querySelectorAll('.c-card__frame');
-        //
-        //     for (let j = 0; j < images.length; ++j) {
-        //         (images[j] as HTMLElement).style.transform = 'translate(' + moveX + 'px,' + moveY + 'px)';
-        //     }
-        // });
+    public updateCardsPosition($container: JQuery = this.$body) {
+        const $noto = $container.find( '.c-noto--body' );
+        const $posts = $noto.children( '.post' );
+        const $widgets = $noto.children( '.widget--misto' );
+
+        const step = $posts.length / $widgets.length;
+
+        $widgets.each( ( i, obj ) => {
+            const $widget = $( obj );
+            $widget.insertAfter( $posts.eq( i * step ) );
+        } );
     }
 
     public bindEvents() {
@@ -85,7 +71,7 @@ export class Noto extends BaseTheme {
 
         const that = this;
 
-        $('body').on('mousemove', (e) => {
+        $( 'body' ).on('mousemove', (e) => {
             that.mouseX = e.pageX;
             that.mouseY = e.pageY;
         });
@@ -106,17 +92,17 @@ export class Noto extends BaseTheme {
     }
 
     public onJetpackPostLoad() {
-        const $container = ($('#posts-container') as JQueryExtended );
+        const $container = ( $( '#posts-container' ) as JQueryExtended );
 
         this.handleContent($container);
         this.adjustLayout();
     }
 
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find('.intro, .post-it');
-        const $waveTemplate = $('.js-wave-intro-template');
+        const $intro = $container.find('.intro, .post-it' );
+        const $waveTemplate = $( '.js-wave-intro-template' );
 
-        $intro.each((i, obj) => {
+        $intro.each(( i, obj ) => {
             const $obj = $(obj);
             const $wave = $waveTemplate.clone();
             const $pattern = $wave.find( 'pattern' );
@@ -126,11 +112,10 @@ export class Noto extends BaseTheme {
             $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
 
             if ( $obj.is( '.intro' ) ) {
-                $wave.prependTo($obj).show();
+                $wave.prependTo( $obj ).show();
             } else {
-                $wave.appendTo($obj).show();
+                $wave.appendTo( $obj ).show();
             }
-
         });
     }
 
@@ -160,6 +145,7 @@ export class Noto extends BaseTheme {
         this.appendSvgToIntro($container);
         this.appendSvgToBlockquote($container);
         this.eventHandlers($container);
+        this.updateCardsPosition($container);
 
         $container.find('.sharedaddy').each((i, obj) => {
             const $sharedaddy = $(obj);

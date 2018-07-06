@@ -169,12 +169,44 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 }
 add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10 );
 
+
+if ( ! function_exists( 'noto_alter_header_component_config' ) ) {
+
+	function noto_alter_header_component_config( $config ) {
+
+		$config = Pixelgrade_Config::merge( $config, array(
+			'menu_locations' => array(
+				'primary-left' => array(
+					'title'    => esc_html__( 'Header Top', '__components_txtd' ),
+				),
+				'primary-right'  => array(
+					'title'    => esc_html__( 'Header Bottom', '__components_txtd' ),
+					'nav_menu_args' => array(
+						
+					)
+				)
+			)
+		) );
+
+		return $config;
+	}
+}
+add_filter( 'pixelgrade_header_config', 'noto_alter_header_component_config', 10 );
+
+
 if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 
 	function noto_alter_blog_component_config( $config ) {
 
 		$config = Pixelgrade_Config::merge( $config, array(
 			'sidebars' => array(
+                'sidebar-1' => array(
+	                'sidebar_args' => array(
+                		'name'          => esc_html__( 'Posts Grid Widgets', '__components_txtd' ),
+                    	'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__components_txtd' ),
+	                    'before_widget' => '<section id="%1$s" class="widget widget--misto c-gallery__item %2$s">',
+                    ),
+                ),
 				'sidebar-2' => array(
 					'sidebar_args' => array(
 						'before_title' => '<h2 class="widget__title h4"><span>',

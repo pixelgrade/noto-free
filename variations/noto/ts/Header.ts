@@ -20,6 +20,9 @@ export class NotoHeader extends BaseComponent {
     private windowHeight = $( window ).height();
     private adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
 
+    private footerPinned = false;
+    private headerPinned = true;
+
     private $headerGrid: JQuery = $( '.c-noto--header' );
     private headerHeight = this.$headerGrid.outerHeight();
 
@@ -29,7 +32,7 @@ export class NotoHeader extends BaseComponent {
     private footerOffset = this.$footer.offset();
     private footerHeight = this.$footer.outerHeight();
 
-    private $mainMenu: JQuery = $( '.menu--primary' );
+    private $mainMenu: JQueryExtended = $( '.c-navbar__zone--left .menu' );
     private $mainMenuItems: JQueryExtended = this.$mainMenu.find( 'li' );
     private $menuToggle: JQuery = $( '#menu-toggle' );
     private isMobileHeaderInitialised: boolean = false;
@@ -54,12 +57,10 @@ export class NotoHeader extends BaseComponent {
         });
 
         imagesLoaded( $( '.c-navbar .c-logo' ), () => {
-
             this.bindEvents();
             this.eventHandlers();
             this.updateOnResize();
             this.toggleNavStateClass();
-
         });
     }
 
@@ -71,10 +72,12 @@ export class NotoHeader extends BaseComponent {
 
         this.$menuToggle.on( 'change', this.onMenuToggleChange.bind(this));
 
-        this.$mainMenuItems.hoverIntent( {
-            out: (e) => this.toggleSubMenu(e, false),
-            over: (e) => this.toggleSubMenu(e, true),
-            timeout: 300
+        this.$mainMenuItems.filter( '.menu-item-has-children' ).on( 'mouseenter', () => {
+            $( '.c-navbar__zone--right' ).addClass( 'is-hidden' );
+        } );
+
+        this.$mainMenuItems.filter( '.menu-item-has-children' ).on( 'mouseleave', () => {
+            $( '.c-navbar__zone--right' ).removeClass( 'is-hidden' );
         } );
 
         const $accentLayer = $( '.c-footer-layers__accent' );
@@ -84,11 +87,9 @@ export class NotoHeader extends BaseComponent {
         timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
         timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
         timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
-        timeline.to( $( '.c-navbar__zone--left' ), 0, { opacity: 0 }, 1 );
+        timeline.to( $( '.c-noto--header' ), 0, { opacity: 0 }, 1 );
         timeline.to( $darkLayer, 1, { rotation: 1 }, 1 );
         timeline.to( $accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1 );
-
-        let footerPinned = false;
 
         WindowService
             .onScroll()
@@ -102,17 +103,8 @@ export class NotoHeader extends BaseComponent {
                 let progress = 0.5 * Math.max(0, Math.min( 1, progressTop ) );
                 progress = progress + 0.5 * Math.max(0, Math.min( 1, progressBottom ) );
 
-                if ( scroll >= this.footerOffset.top ) {
-                    if ( ! footerPinned ) {
-                        TweenLite.set( $( '.c-noto--body' ), { marginBottom: 0 } );
-                        TweenLite.set( $( '.site-footer' ), { position: 'static' } );
-                        footerPinned = true;
-                    }
-                } else if ( footerPinned ) {
-                    TweenLite.set( $( '.c-noto--body' ), { marginBottom: this.footerHeight } );
-                    TweenLite.set( $( '.site-footer' ), { position: 'fixed' } );
-                    footerPinned = false;
-                }
+                this.pinFooter( scroll );
+                this.pinHeader( scroll );
 
                 timeline.progress( progress );
             } );
@@ -125,6 +117,38 @@ export class NotoHeader extends BaseComponent {
                 this.adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
                 this.updateOnResize();
             } );
+    }
+
+    public pinFooter( scroll ) {
+        if ( scroll >= this.footerOffset.top ) {
+            if ( ! this.footerPinned ) {
+                TweenLite.set( $( '.c-noto--body' ), { marginBottom: 0 } );
+                TweenLite.set( $( '.site-footer' ), { position: 'static' } );
+                this.footerPinned = true;
+            }
+        } else if ( this.footerPinned ) {
+            TweenLite.set( $( '.c-noto--body' ), { marginBottom: this.footerHeight } );
+            TweenLite.set( $( '.site-footer' ), { position: 'fixed' } );
+            this.footerPinned = false;
+        }
+    }
+
+    public pinHeader( scroll ) {
+        if ( scroll >= 25 ) {
+            if ( ! this.headerPinned ) {
+                TweenLite.set( this.$headerGrid, {
+                    pointerEvents: 'none',
+                    zIndex: 100,
+                } );
+                this.headerPinned = true;
+            }
+        } else if ( this.headerPinned ) {
+            TweenLite.set( this.$headerGrid, {
+                pointerEvents: '',
+                zIndex: ''
+            } );
+            this.headerPinned = false;
+        }
     }
 
     public eventHandlers() {
@@ -141,6 +165,19 @@ export class NotoHeader extends BaseComponent {
 
     private updateOnResize() {
         this.eventHandlers();
+
+        const $title = $( '.site-title' );
+
+        $title.css( 'fontSize', '' );
+
+        const titleWidth = $title.outerWidth();
+        const fontSize = parseInt( $title.css( 'fontSize' ), 10 );
+        const $parent = $title.parent();
+        const parentWidth = $parent.outerWidth();
+
+        $title.css({
+            fontSize: fontSize * parentWidth / titleWidth
+        });
 
         this.$headerGrid.css({
             height: '',
@@ -230,10 +267,6 @@ export class NotoHeader extends BaseComponent {
         } );
 
         this.isMobileHeaderInitialised = true;
-    }
-
-    private toggleSubMenu(e: JQuery.Event, toggle: boolean) {
-        $( e.currentTarget ).toggleClass( 'hover', toggle );
     }
 
     private onMobileMenuExpand(e: JQuery.Event): void {
