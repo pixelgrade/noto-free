@@ -186,6 +186,11 @@ $offset: 2;
 
   .c-noto--header {
     padding-top: 2.5rem;
+    pointer-events: none;
+
+    > * {
+      pointer-events: auto;
+    }
   }
 
   .c-noto--body {
@@ -428,7 +433,7 @@ $offset: 2;
 
   // Site Identity
   .c-navbar__zone--middle {
-    margin-top: -60px;
+    margin-top: -80px;
     transform: rotate(1deg);
 
     // Front Page
