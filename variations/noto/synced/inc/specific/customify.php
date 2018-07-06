@@ -114,7 +114,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type' => 'cropped_image',
 					'priority'      => 7, // this will make it appear above Logo (that has a priority of 8).
 					'width'         => 700, // Suggested width for cropped image.
-					'height'        => 500, // Suggested height for cropped image.
+					'height'        => 700, // Suggested height for cropped image.
 					'flex_width'    => true, // Whether the width is flexible.
 					'flex_height'   => true, // Whether the height is flexible.
 					'button_labels' => array(
