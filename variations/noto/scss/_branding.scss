@@ -2,6 +2,7 @@ $header-horizontal-spacing: 28px;
 $header-horizontal-position-top: 20px;
 $header-horizontal-profile-rotation: -1deg;
 
+$header-vertical-spacing: 25px;
 $header-vertical-position-top: 25px;
 
 .c-navbar__zone--branding {
@@ -10,10 +11,10 @@ $header-vertical-position-top: 25px;
     // Vertical Layout
     body:not(.page):not(.single) & {
         transform: translateY(0px) rotate(1deg);
-        transition: $transition--default;
+        transition: all $transition--macro ease;
 
         &:hover {
-            transform: translateY(10px) rotate(-1deg);
+            transform: translateY(-30px) rotate(-1deg);
         }
     }
 
@@ -101,8 +102,13 @@ $header-vertical-position-top: 25px;
     // Vertical Layout
     body:not(.page):not(.single) {
 
+        .c-navbar__zone--branding {
+            // margin-top: -80px;
+            margin-top: -($site-content-top-spacing - $header-vertical-position-top); // -72px
+        }
+
         .header {
-            padding: 20px;
+            padding: $header-vertical-spacing;
             background: $theme-accent-lighter-color;
         }
 
@@ -125,12 +131,12 @@ $header-vertical-position-top: 25px;
         @include branding-grid;
 
         .c-navbar__zone--branding {
-            margin-top: -($site-content-top-spacing - $header-horizontal-position-top);
+            margin-top: -($site-content-top-spacing - $header-horizontal-position-top); // -77px
         }
 
         .c-branding {
             // margin-top: -50px;
-            margin-top: -($header-horizontal-spacing + $header-horizontal-position-top + 2px);
+            margin-top: -($header-horizontal-spacing + $header-horizontal-position-top + 2px); // -50px
         }
 
         .header {

@@ -433,11 +433,10 @@ $offset: 2;
 
   // Site Identity
   .c-navbar__zone--middle {
-    margin-top: -80px;
 
     // Front Page
     body:not(.single):not(.page) & {
-      grid-column: start / 13;
+      grid-column: start / 12;
       grid-row: 1 / 4;
     }
 
