@@ -186,6 +186,7 @@ $offset: 2;
 
   .c-noto--header {
     padding-top: 2.5rem;
+    padding-top: $header-vertical-position-top;
     pointer-events: none;
 
     > * {

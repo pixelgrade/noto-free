@@ -136,9 +136,15 @@
   @include above(lap) {
     background: none;
 
-    > * {
+    a {
       opacity: 0.6;
       font-size: 93.75%;
+
+      transition: all $transition--micro ease;
+
+      &:hover {
+        opacity: initial;
+      }
     }
   }
 
