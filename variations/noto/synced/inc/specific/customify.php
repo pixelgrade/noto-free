@@ -132,7 +132,7 @@ function variation_change_customify_general_section( $section_options, $options 
 						'frame_title'  => __( 'Select photo' ),
 						'frame_button' => __( 'Choose photo' ),
 					),
-				),
+				)
 			),
 		),
 	);
@@ -510,7 +510,7 @@ function variation_change_customify_header_section( $section_options, $options )
 					'default' => array(
 						'font-family'    => SM_LOGO_FONT,
 						'font-weight'    => 'regular',
-						'font-size'      => 70,
+						'font-size'      => 60,
 						'line-height'    => 1,
 						'letter-spacing' => 0,
 						'text-transform' => 'uppercase',

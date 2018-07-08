@@ -1,4 +1,4 @@
-$border-width: 2rem;
+ $border-width: 2rem;
 
 // CARDS PROPERTIES
 // ========================================
@@ -434,7 +434,6 @@ $offset: 2;
   // Site Identity
   .c-navbar__zone--middle {
     margin-top: -80px;
-    transform: rotate(1deg);
 
     // Front Page
     body:not(.single):not(.page) & {

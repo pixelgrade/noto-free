@@ -1,3 +1,15 @@
+.c-navbar__zone--branding {
+    transform: translateY(0px) rotate(1deg);
+    transition: all .3s ease;
+
+    &:hover {
+        transform: translateY(10px) rotate(-1deg);
+    }
+
+    a:hover img {
+        opacity: 1;
+    }
+}
 
 .site-title {
     display: inline-block;
