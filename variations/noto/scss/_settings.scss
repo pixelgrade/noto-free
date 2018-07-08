@@ -9,6 +9,10 @@ $breakpoints: (
   desk:     80em    // ~ 1280px
 );
 
+$transition--default: all 0.3s ease;
+$transition--micro: 0.15s;
+$transition--macro: 0.3s;
+
 // Layout
 // ----------------------------------------
 $sidebar-width: 300px;
@@ -414,3 +418,13 @@ $input-font: (
 // ----------------------------------------
 $jetpack-sharing-spacing: 15px;
 $jetpack-sharing-icon-bg: #3B3B3B;
+
+
+// ----------------------------------------
+// NOTO SPECIFIC SETTINGS
+// ----------------------------------------
+
+// The point where .c-noto--body starts
+// Determined in Javascript and added inline
+// as margin-top 
+$site-content-top-spacing: 97px;

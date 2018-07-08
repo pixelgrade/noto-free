@@ -1,9 +1,47 @@
-.c-navbar__zone--branding {
-    transform: translateY(0px) rotate(1deg);
-    transition: all .3s ease;
+$header-horizontal-spacing: 28px;
+$header-horizontal-position-top: 20px;
+$header-horizontal-profile-rotation: -1deg;
 
-    &:hover {
-        transform: translateY(10px) rotate(-1deg);
+$header-vertical-position-top: 25px;
+
+.c-navbar__zone--branding {
+    
+    // Grid
+    // Vertical Layout
+    body:not(.page):not(.single) & {
+        transform: translateY(0px) rotate(1deg);
+        transition: $transition--default;
+
+        &:hover {
+            transform: translateY(10px) rotate(-1deg);
+        }
+    }
+
+    // Single and Pages
+    // Horizontal Layout
+    .page &, .single & {
+
+        .c-branding {
+            transition: $transition--default;
+        }
+
+        .profile-photo {
+            transform: rotate($header-horizontal-profile-rotation);
+            transition: $transition--default;
+        }
+
+        &:hover {
+            .c-branding {
+                transform: translateY(-$header-horizontal-position-top/3*2);
+            }
+            .profile-photo {
+                transform: scale(0.92) rotate(2deg);
+            }
+
+            .header:after {
+                transform: translateY(-$header-horizontal-position-top) rotate(0deg); 
+            }
+        }
     }
 
     a:hover img {
@@ -20,7 +58,7 @@
     .c-branding {
         display: grid;
         grid-template-columns: auto 1fr;
-        grid-template-rows: 1fr auto auto auto 1fr;
+        grid-template-rows: 3fr auto auto auto 2fr;
 
         &:before {
             content: "";
@@ -59,6 +97,8 @@
 
 @include above(lap) {
 
+    // Grid
+    // Vertical Layout
     body:not(.page):not(.single) {
 
         .header {
@@ -78,21 +118,48 @@
         }
     }
 
+    // Single and Pages
+    // Horizontal Layout
     .page,
     .single {
         @include branding-grid;
 
+        .c-navbar__zone--branding {
+            margin-top: -($site-content-top-spacing - $header-horizontal-position-top);
+        }
+
         .c-branding {
-            margin-top: -50px;
+            // margin-top: -50px;
+            margin-top: -($header-horizontal-spacing + $header-horizontal-position-top + 2px);
         }
 
         .header {
-            background: #ffffff;
-            padding: 28px;
+            position: relative;
+            padding: $header-horizontal-spacing;
+            padding-bottom: 0;
+            
+
+            // Separate the background
+            // to make it "animatable" on hover
+            &:after {
+                position: absolute;
+                content: "";
+                display: block;
+                top: 0;
+                right: 0;
+                bottom: 0; 
+                left: 0;
+
+                z-index: -1;
+                
+                background: #ffffff;
+
+                transition: $transition--default;
+            }
         }
 
         .c-profile-photo {
-            padding-right: 28px;
+            padding-right: $header-horizontal-spacing;
         }
 
         .profile-photo-link {
