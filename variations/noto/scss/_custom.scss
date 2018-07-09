@@ -159,6 +159,10 @@ body {
 
   background: $theme-border-lighter-color;
   transform: rotate(-0.5deg);
+
+  opacity: 0;
+  transition: $transition--default;
+  transition-property: opacity;
 }
 
 .u-footer-is-pinned {

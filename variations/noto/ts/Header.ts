@@ -23,13 +23,20 @@ export class NotoHeader extends BaseComponent {
     private footerPinned = false;
     private headerPinned = true;
 
+    private lastScroll = -1;
+    private latestScroll = 0;
+    private timeline = new TimelineMax( { paused: true } );
+
     private $headerGrid: JQuery = $( '.c-noto--header' );
+    private headerOffset = this.$headerGrid.offset();
+    private headerWidth = this.$headerGrid.outerWidth();
     private headerHeight = this.$headerGrid.outerHeight();
 
     private $bodyGrid: JQuery = $( '.c-noto--body' );
 
     private $footer: JQuery = $( '.site-footer' );
     private footerOffset = this.$footer.offset();
+    private footerWidth = this.$footer.outerWidth();
     private footerHeight = this.$footer.outerHeight();
 
     private $mainMenu: JQueryExtended = $( '.c-navbar__zone--left .menu' );
@@ -44,6 +51,8 @@ export class NotoHeader extends BaseComponent {
     constructor() {
         super();
 
+        const that = this;
+
         $( '.c-navbar__zone' ).each( (i, obj) => {
             const $obj = $(obj);
 
@@ -57,10 +66,11 @@ export class NotoHeader extends BaseComponent {
         });
 
         imagesLoaded( $( '.c-navbar .c-logo' ), () => {
-            this.bindEvents();
-            this.eventHandlers();
-            this.updateOnResize();
-            this.toggleNavStateClass();
+            that.bindEvents();
+            that.eventHandlers();
+            that.onResize();
+            that.toggleNavStateClass();
+            that.updateLoop();
         });
     }
 
@@ -81,46 +91,57 @@ export class NotoHeader extends BaseComponent {
         } );
 
         const $accentLayer = $( '.c-footer-layers__accent' );
-        const $darkLayer = $( '.c-footer-layers__dark' );
-        const timeline = new TimelineMax( { paused: true } );
+        const $darkLayer = $( '.c-footer-layers__dark' ).css( 'opacity', 1 );
 
-        timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
-        timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
-        timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
-        timeline.to( $( '.c-noto--header' ), 0, { opacity: 0 }, 1 );
-        timeline.to( $darkLayer, 1, { rotation: 1 }, 1 );
-        timeline.to( $accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1 );
+        this.timeline.to( $accentLayer, 1, { rotation: 0, y: this.headerHeight * 0.64, x: -10 }, 0 );
+        this.timeline.to( $darkLayer, 1, { rotation: 0 }, 0 );
+        this.timeline.to( $( '.c-navbar__zone--right' ), .5, { opacity: 0 }, 0 );
+        this.timeline.to( $( '.c-noto--header' ), 0, { opacity: 0 }, 1 );
+        this.timeline.to( $darkLayer, 1, { rotation: 1 }, 1 );
+        this.timeline.to( $accentLayer, 1, { rotation: 1, y: 0, x: 0 }, 1 );
 
         WindowService
             .onScroll()
             .takeWhile( () => this.subscriptionActive )
             .subscribe( () => {
-                const scroll = window.scrollY;
-                const progressTop = scroll / ( 3 * this.headerHeight );
-                const progressBottom = ( scroll + this.windowHeight - this.footerOffset.top )
-                    / Math.min( this.footerHeight, this.windowHeight );
-
-                let progress = 0.5 * Math.max(0, Math.min( 1, progressTop ) );
-                progress = progress + 0.5 * Math.max(0, Math.min( 1, progressBottom ) );
-
-                this.pinFooter( scroll );
-                this.pinHeader( scroll );
-
-                timeline.progress( progress );
+                this.latestScroll = window.scrollY;
             } );
 
         WindowService
             .onResize()
             .takeWhile( () => this.subscriptionActive )
+            .debounce( 200 )
             .subscribe( () => {
-                this.windowHeight = $( window ).height();
-                this.adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
-                this.updateOnResize();
+                this.onResize();
             } );
     }
 
+    public updateLoop() {
+        const that = this;
+
+        if ( this.subscriptionActive && this.latestScroll !== this.lastScroll ) {
+            this.lastScroll = this.latestScroll;
+
+            const progressTop = this.lastScroll / ( 3 * this.headerHeight );
+            const progressBottom = ( this.lastScroll + this.windowHeight - this.footerOffset.top )
+                / Math.min( this.footerHeight, this.windowHeight );
+
+            let progress = 0.5 * Math.max(0, Math.min( 1, progressTop ) );
+            progress = progress + 0.5 * Math.max(0, Math.min( 1, progressBottom ) );
+
+            this.pinFooter( this.lastScroll );
+            this.pinHeader( this.lastScroll );
+
+            this.timeline.progress( progress );
+        }
+
+        requestAnimationFrame( () => {
+            that.updateLoop();
+        } );
+    }
+
     public pinFooter( scroll ) {
-        if ( scroll >= this.footerOffset.top ) {
+        if ( scroll >= this.footerOffset.top - this.windowHeight / 2 ) {
             if ( ! this.footerPinned ) {
                 TweenLite.set( $( '.c-noto--body' ), { marginBottom: 0 } );
                 TweenLite.set( $( '.site-footer' ), { position: 'static' } );
@@ -151,7 +172,7 @@ export class NotoHeader extends BaseComponent {
         }
     }
 
-    public eventHandlers() {
+    private eventHandlers() {
         if ( Helper.below( 'lap' ) && !this.areMobileBindingsDone ) {
             this.$document.on( 'click', this.preventOneSelector, this.onMobileMenuExpand.bind(this) );
             this.areMobileBindingsDone = true;
@@ -163,9 +184,7 @@ export class NotoHeader extends BaseComponent {
         }
     }
 
-    private updateOnResize() {
-        this.eventHandlers();
-
+    private updateSiteTitleSize() {
         const $title = $( '.site-title' );
 
         $title.css( 'fontSize', '' );
@@ -175,9 +194,12 @@ export class NotoHeader extends BaseComponent {
         const $parent = $title.parent();
         const parentWidth = $parent.outerWidth();
 
-        $title.css({
-            fontSize: fontSize * parentWidth / titleWidth
-        });
+        $title.css({ fontSize: fontSize * parentWidth / titleWidth } );
+    }
+
+    private onResize() {
+        this.eventHandlers();
+        this.updateSiteTitleSize();
 
         this.$headerGrid.css({
             height: '',
@@ -195,6 +217,11 @@ export class NotoHeader extends BaseComponent {
             width: '',
         });
 
+        this.$bodyGrid.css({
+            marginBottom: '',
+            marginTop: '',
+        });
+
         if ( Helper.below( 'lap' ) ) {
             this.prepareMobileMenuMarkup();
         } else {
@@ -203,30 +230,36 @@ export class NotoHeader extends BaseComponent {
     }
 
     private prepareDesktopMenuMarkup(): void {
-        const headerWidth = this.$headerGrid.outerWidth();
-        const headerHeight = this.$headerGrid.outerHeight();
-        const footerWidth = this.$footer.outerWidth();
-        const footerHeight = this.$footer.outerHeight();
+        this.headerWidth = this.$headerGrid.outerWidth();
+        this.headerHeight = this.$headerGrid.outerHeight();
+        this.headerOffset = this.$headerGrid.offset();
+
+        this.footerWidth = this.$footer.outerWidth();
+        this.footerHeight = this.$footer.outerHeight();
+        this.footerOffset = this.$footer.offset();
+
+        this.windowHeight = $( window ).height();
+        this.adminBarHeight = $( '#wpadminbar' ).outerHeight() || 0;
 
         this.$headerGrid.css({
-            height: headerHeight,
-            left: this.$headerGrid.offset().left,
+            height: this.headerHeight,
+            left: this.headerOffset.left,
             position: 'fixed',
             top: this.adminBarHeight,
-            width: headerWidth,
+            width: this.headerWidth,
         });
 
         this.$footer.css({
-            bottom: this.windowHeight - footerHeight,
-            height: footerHeight,
+            bottom: this.windowHeight / 2 - this.footerHeight,
+            height: this.footerHeight,
             left: this.footerOffset.left,
             position: 'fixed',
-            width: footerWidth,
+            width: this.footerWidth,
         });
 
         this.$bodyGrid.css({
-            marginBottom: footerHeight,
-            marginTop: headerHeight,
+            marginBottom: this.footerHeight,
+            marginTop: this.headerHeight,
         });
 
         if ( this.isDesktopHeaderInitialised ) {
