@@ -105,12 +105,8 @@ $header-vertical-position-top: 25px;
     // Vertical Layout
     body:not(.page):not(.single) {
 
-        .c-navbar__zone--branding {
-            // margin-top: -80px;
-            margin-top: -($site-content-top-spacing - $header-vertical-position-top); // -72px
-        }
-
         .header {
+            margin-top: -($site-content-top-spacing - $header-vertical-position-top); // -72px
             padding: $header-vertical-spacing;
             background: $theme-accent-lighter-color;
         }
@@ -133,7 +129,7 @@ $header-vertical-position-top: 25px;
     .single {
         @include branding-grid;
 
-        .c-navbar__zone--branding {
+        .header {
             margin-top: -($site-content-top-spacing - $header-horizontal-position-top); // -77px
         }
 
