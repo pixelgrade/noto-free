@@ -449,11 +449,33 @@ var Noto = function (_BaseTheme) {
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.post');
             var $widgets = $noto.children('.widget--misto');
-            var step = $posts.length / $widgets.length;
-            $widgets.each(function (i, obj) {
-                var $widget = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                $widget.insertAfter($posts.eq(i * step));
-            });
+            var postsCount = $posts.length + $widgets.length;
+            var maxCount = 0;
+            if (postsCount > 3) {
+                maxCount = 1;
+            }
+            //          3,  4
+            //  7,  8,  9, 10
+            // 13, 14, 15, 16
+            // P P W W P P W W W W P P W W W W
+            // $widgets.remove();
+            var w = 0;
+            for (var p = 0; p < $posts.length; p++) {
+                if (!$widgets.length) {
+                    break;
+                }
+                if (p > 1 && p % 6 === 1 || p > 2 && p % 6 === 2 || p > 3 && p % 6 === 3 || p % 6 === 4) {
+                    console.log(p, $posts.slice(p - 1, p));
+                    var $widget = $widgets.splice(0, 1);
+                    var $post = $posts.slice(p - w - 1, p - w);
+                    $post.before($widget);
+                    w++;
+                }
+            }
+            // $widgets.each( ( i, obj ) => {
+            //     const $widget = $( obj );
+            //     $widget.insertAfter( $posts.eq( i * step ) );
+            // } );
         }
     }, {
         key: 'bindEvents',

@@ -57,13 +57,50 @@ export class Noto extends BaseTheme {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.post' );
         const $widgets = $noto.children( '.widget--misto' );
+        const postsCount = $posts.length + $widgets.length;
 
-        const step = $posts.length / $widgets.length;
+        let maxCount = 0;
 
-        $widgets.each( ( i, obj ) => {
-            const $widget = $( obj );
-            $widget.insertAfter( $posts.eq( i * step ) );
-        } );
+        if ( postsCount > 3 ) {
+            maxCount = 1;
+        }
+
+        //          3,  4
+        //  7,  8,  9, 10
+        // 13, 14, 15, 16
+
+        // P P W W P P W W W W P P W W W W
+
+        // $widgets.remove();
+
+        let w = 0;
+
+        for ( let p = 0; p < $posts.length; p++ ) {
+
+            if ( ! $widgets.length ) {
+                break;
+            }
+
+            if ( ( p > 1 && p % 6 === 1 ) ||
+                 ( p > 2 && p % 6 === 2 ) ||
+                 ( p > 3 && p % 6 === 3 ) ||
+                 p % 6 === 4 ) {
+
+                console.log(p, $posts.slice(p - 1, p) );
+
+                const $widget = ( $widgets as JQueryExtended ).splice(0, 1);
+                const $post = $posts.slice(p - w - 1, p - w);
+
+                $post.before( $widget );
+
+                w++;
+            }
+        }
+
+        // $widgets.each( ( i, obj ) => {
+        //     const $widget = $( obj );
+        //     $widget.insertAfter( $posts.eq( i * step ) );
+        // } );
     }
 
     public bindEvents() {

@@ -12,6 +12,7 @@
  * @since 1.0.0
  */
 
+add_filter( 'customify_filter_fields', 'pixelgrade_add_customify_style_manager_section', 12, 1 );
 add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'variation_change_customify_main_content_section', 20, 2 );
@@ -20,23 +21,116 @@ add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_cus
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
 // Color Palette
-define( 'SM_DARK_PRIMARY', 	'#49494B' );
-define( 'SM_DARK_SECONDARY', '#34394B' ); // Blueish
-define( 'SM_DARK_TERTIARY', 	'#34394B' );
-
-define( 'SM_COLOR_PRIMARY', 	 '#E87474' );
+define( 'SM_COLOR_PRIMARY', '#E87474' );
 define( 'SM_COLOR_SECONDARY', '#E79696' );
-define( 'SM_COLOR_TERTIARY',	 '#FCD9D2' );
-define( 'SM_COLOR_QUATERNARY','#FFEA80' ); // Bright Yellow
+define( 'SM_COLOR_TERTIARY', '#FCD9D2' );
+define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow
 
-define( 'SM_LIGHT_PRIMARY', 	 '#FFFFFF' ); // White
+define( 'SM_DARK_PRIMARY', '#49494B' );
+define( 'SM_DARK_SECONDARY', '#34394B' ); // Blueish
+define( 'SM_DARK_TERTIARY', '#34394B' );
+
+define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
-define( 'SM_LIGHT_TERTIARY',  '#FFF5C1' ); // Light Yellow
+define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
 
 define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
 define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
 define( 'SM_BODY_FONT', 'IBM Plex Sans' );
 define( 'SM_LOGO_FONT', 'Bungee' );
+
+/**
+ * Add the Style Manager cross-theme Customizer section.
+ *
+ * @param array $options
+ *
+ * @return array
+ */
+function pixelgrade_add_customify_style_manager_section( $options ) {
+	// If the theme hasn't declared support for style manager, bail.
+	if ( ! current_theme_supports( 'customizer_style_manager' ) ) {
+		return $options;
+	}
+
+	if ( ! isset( $options['sections']['style_manager_section'] ) ) {
+		$options['sections']['style_manager_section'] = array();
+	}
+
+	// The section might be already defined, thus we merge, not replace the entire section config.
+	$options['sections']['style_manager_section'] = array_replace_recursive( $options['sections']['style_manager_section'], array(
+		'options' => array(
+			'sm_color_primary' => array(
+				'default' => SM_COLOR_PRIMARY,
+				'connected_fields' => array(
+				),
+			),
+			'sm_color_secondary' => array(
+				'default' => SM_COLOR_SECONDARY,
+				'connected_fields' => array(
+					'accent_color'
+				),
+			),
+			'sm_color_tertiary' => array(
+				'default' => SM_COLOR_TERTIARY,
+				'connected_fields' => array(
+					'accent_light_color'
+				),
+			),
+			'sm_dark_primary' => array(
+				'default' => SM_DARK_PRIMARY,
+				'connected_fields' => array(
+					'main_content_border_color'
+				),
+			),
+			'sm_dark_secondary' => array(
+				'default' => SM_DARK_SECONDARY,
+				'connected_fields' => array(
+					'main_content_page_title_color',
+					'main_content_body_text_color',
+					'main_content_body_link_color',
+					'main_content_body_link_active_color',
+					'main_content_underlined_body_links',
+					'main_content_heading_1_color',
+					'main_content_heading_2_color',
+					'main_content_heading_3_color',
+					'main_content_heading_4_color',
+					'main_content_heading_5_color',
+					'main_content_heading_6_color',
+					'footer_background',
+					'buttons_color',
+				),
+			),
+			'sm_dark_tertiary' => array(
+				'default' => SM_LIGHT_TERTIARY,
+				'connected_fields' => array(
+				),
+			),
+			'sm_light_primary' => array(
+				'default' => SM_LIGHT_PRIMARY,
+				'connected_fields' => array(
+					'main_content_content_background_color',
+					'header_navigation_links_color',
+					'footer_body_text_color',
+					'buttons_text_color',
+				),
+			),
+			'sm_light_secondary' => array(
+				'default' => SM_LIGHT_PRIMARY,
+				'connected_fields' => array(
+					'accent_lighter_color',
+					'footer_links_color',
+				),
+			),
+			'sm_light_tertiary' => array(
+				'default' => SM_LIGHT_PRIMARY,
+				'connected_fields' => array(
+				),
+			),
+	    ),
+	));
+
+	return $options;
+}
 
 /**
  * Footer Section
@@ -88,6 +182,12 @@ function variation_change_customify_general_section( $section_options, $options 
 							'selector' => '.header-category a:after',
 							'callback_filter' => 'noto_meta_background_gradient_cb',
 						),
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.c-footer-layers__accent,
+								.c-card__action:before',
+						),
 					),
 				),
 				'accent_lighter_color' => array(
@@ -106,7 +206,8 @@ function variation_change_customify_general_section( $section_options, $options 
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.c-card__frame:after',
+								.c-card__frame:after,
+								.c-noto .widget',
 						),
 					),
 				),
@@ -207,7 +308,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_content_background_color' => array(
-					'default' => '#FFFFFF'
+					'default' => SM_LIGHT_PRIMARY
 				),
 				'main_content_page_title_font'          => array(
 					'default' => array(
@@ -506,6 +607,16 @@ function variation_change_customify_header_section( $section_options, $options )
 						),
 					),
 				),
+				'header_background' => array(
+					'default' => SM_LIGHT_SECONDARY,
+					'css'   => array(
+						array(
+							'media' => 'only screen and (min-width: 62.5em)',
+							'property' => 'background-color',
+							'selector' => 'body:not(.page):not(.single) .header'
+						),
+					),
+				),
 				'header_site_title_font'          => array(
 					'default' => array(
 						'font-family'    => SM_LOGO_FONT,
@@ -687,7 +798,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 					),
 				),
 				'buttons_text_color' => array(
-					'default' => '#FFFFFF',
+					'default' => SM_LIGHT_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -843,3 +954,27 @@ if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) 
 endif;
 
 add_action( 'customize_preview_init', 'noto_meta_background_gradient_cb_customizer_preview', 20 );
+
+function themename_add_default_color_palette( $color_palettes ) {
+
+	$color_palettes = array_merge(array(
+		'default' => array(
+			'label' => esc_html__( 'Default', '__theme_txtd' ),
+			'background_image_url' => '',
+			'options' => array(
+				'sm_color_primary' => SM_COLOR_PRIMARY,
+				'sm_color_secondary' => SM_COLOR_SECONDARY,
+				'sm_color_tertiary' => SM_COLOR_TERTIARY,
+				'sm_dark_primary' => SM_DARK_PRIMARY,
+				'sm_dark_secondary' => SM_DARK_SECONDARY,
+				'sm_dark_tertiary' => SM_DARK_TERTIARY,
+				'sm_light_primary' => SM_LIGHT_PRIMARY,
+				'sm_light_secondary' => SM_LIGHT_SECONDARY,
+				'sm_light_tertiary' => SM_LIGHT_TERTIARY,
+			),
+		),
+	), $color_palettes);
+
+	return $color_palettes;
+}
+add_filter( 'customify_get_color_palettes', 'themename_add_default_color_palette' );
