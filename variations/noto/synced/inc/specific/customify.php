@@ -624,7 +624,7 @@ function variation_change_customify_header_section( $section_options, $options )
 		'header_section' => array(
 			'options' => array(
 				'header_logo_height' => array(
-					'default' => 48
+					'default' => 40
 				),
 				'header_navigation_links_color' => array(
 					'default' => SM_LIGHT_PRIMARY,

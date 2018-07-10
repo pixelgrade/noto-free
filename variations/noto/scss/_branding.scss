@@ -68,7 +68,7 @@ $header-vertical-position-top: 25px;
             content: "";
             display: block;
             grid-row: 1 / 2;
-            min-height: 20px;
+            min-height: 30px;
         }
 
         &:after {
@@ -174,7 +174,12 @@ $header-vertical-position-top: 25px;
         .site-description {
             font-size: 13/15 * 1em;
             line-height: (19/13);
+
+            margin-top: 0.5em;
         }
+
+        // Use cases
+
     }
 }
 
