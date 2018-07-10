@@ -28,7 +28,7 @@ define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow
 
 define( 'SM_DARK_PRIMARY', '#49494B' );
 define( 'SM_DARK_SECONDARY', '#34394B' ); // Blueish
-define( 'SM_DARK_TERTIARY', '#34394B' );
+define( 'SM_DARK_TERTIARY', '#394059' );
 
 define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
@@ -79,12 +79,12 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_dark_primary' => array(
 				'default' => SM_DARK_PRIMARY,
 				'connected_fields' => array(
-					'main_content_border_color'
 				),
 			),
 			'sm_dark_secondary' => array(
 				'default' => SM_DARK_SECONDARY,
 				'connected_fields' => array(
+					'main_content_border_color',
 					'main_content_page_title_color',
 					'main_content_body_text_color',
 					'main_content_body_link_color',
@@ -103,6 +103,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_dark_tertiary' => array(
 				'default' => SM_LIGHT_TERTIARY,
 				'connected_fields' => array(
+					'dark_tertiary_color'
 				),
 			),
 			'sm_light_primary' => array(
@@ -118,6 +119,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				'default' => SM_LIGHT_PRIMARY,
 				'connected_fields' => array(
 					'accent_lighter_color',
+					'header_background',
 					'footer_links_color',
 				),
 			),
@@ -179,7 +181,9 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background',
-							'selector' => '.header-category a:after',
+							'selector' => '
+								.header-category a:after,
+								.c-meta__decoration:after',
 							'callback_filter' => 'noto_meta_background_gradient_cb',
 						),
 						array(
@@ -208,6 +212,18 @@ function variation_change_customify_general_section( $section_options, $options 
 							'selector' => '
 								.c-card__frame:after,
 								.c-noto .widget',
+						),
+					),
+				),
+				'dark_tertiary_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Dark Tertiary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => SM_DARK_TERTIARY,
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-footer-layers__dark',
 						),
 					),
 				),
@@ -269,8 +285,12 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => SM_DARK_PRIMARY,
 					'css' => array(
 						array(
+							'property' => 'background-color',
+							'selector' => 'body.u-content-background',
+						),
+						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone .menu-item-has-children:hover',
+							'selector' => '.c-card .wave-svg-mask',
 						),
 					),
 				),
@@ -308,7 +328,16 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_content_background_color' => array(
-					'default' => SM_LIGHT_PRIMARY
+					'default' => SM_LIGHT_PRIMARY,
+					'css' => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '
+								.c-footer-layers__background,
+								.c-navbar__zone--left .menu > li > a:before,
+								.c-search-overlay'
+						),
+					),
 				),
 				'main_content_page_title_font'          => array(
 					'default' => array(
@@ -532,11 +561,10 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 		'blog_item_thumbnail_background',
 		'blog_grid_title_thumbnail_hover_section',
 		'blog_item_thumbnail_hover_opacity',
-
 		'blog_grid_title_colors_section',
-		'blog_item_title_color_control',
-		'blog_item_meta_primary_color_control',
-		'blog_item_meta_secondary_color_control',
+		'blog_item_title_color',
+		'blog_item_meta_primary_color',
+		'blog_item_meta_secondary_color',
 		'blog_item_excerpt_color',
 	);
 

@@ -449,11 +449,12 @@ var Noto = function (_BaseTheme) {
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.post');
             var $widgets = $noto.children('.widget--misto');
-            var postsCount = $posts.length + $widgets.length;
-            var maxCount = 0;
-            if (postsCount > 3) {
-                maxCount = 1;
-            }
+            // const postsCount = $posts.length + $widgets.length;
+            // let maxCount = 0;
+            //
+            // if ( postsCount > 3 ) {
+            //     maxCount = 1;
+            // }
             //          3,  4
             //  7,  8,  9, 10
             // 13, 14, 15, 16

@@ -57,13 +57,13 @@ export class Noto extends BaseTheme {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.post' );
         const $widgets = $noto.children( '.widget--misto' );
-        const postsCount = $posts.length + $widgets.length;
+        // const postsCount = $posts.length + $widgets.length;
 
-        let maxCount = 0;
-
-        if ( postsCount > 3 ) {
-            maxCount = 1;
-        }
+        // let maxCount = 0;
+        //
+        // if ( postsCount > 3 ) {
+        //     maxCount = 1;
+        // }
 
         //          3,  4
         //  7,  8,  9, 10
