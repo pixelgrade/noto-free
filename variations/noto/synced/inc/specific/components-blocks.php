@@ -31,6 +31,15 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 		),
 	));
 
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/badge', array(
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'slug' => 'template-parts/badge',
+			),
+		),
+	));
+
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'blocks' => array(
 			'blog/entry-header-single',
@@ -94,6 +103,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/sidebar',
+			'blog/badge',
 		),
 	) );
 
@@ -107,6 +117,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/sidebar',
+			'blog/badge',
 		),
 	) );
 
@@ -116,6 +127,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/sidebar',
+			'blog/badge',
 		),
 	) );
 

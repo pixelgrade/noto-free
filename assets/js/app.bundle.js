@@ -466,7 +466,7 @@ var Noto = function (_BaseTheme) {
                     break;
                 }
                 if (p > 1 && p % 6 === 1 || p > 2 && p % 6 === 2 || p > 3 && p % 6 === 3 || p % 6 === 4) {
-                    console.log(p, $posts.slice(p - 1, p));
+                    // console.log(p, $posts.slice(p - 1, p) );
                     var $widget = $widgets.splice(0, 1);
                     var $post = $posts.slice(p - w - 1, p - w);
                     $post.before($widget);

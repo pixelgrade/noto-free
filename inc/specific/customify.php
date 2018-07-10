@@ -101,7 +101,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				),
 			),
 			'sm_dark_tertiary' => array(
-				'default' => SM_LIGHT_TERTIARY,
+				'default' => SM_DARK_TERTIARY,
 				'connected_fields' => array(
 					'dark_tertiary_color'
 				),
@@ -116,7 +116,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				),
 			),
 			'sm_light_secondary' => array(
-				'default' => SM_LIGHT_PRIMARY,
+				'default' => SM_LIGHT_SECONDARY,
 				'connected_fields' => array(
 					'accent_lighter_color',
 					'header_background',
@@ -124,8 +124,9 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				),
 			),
 			'sm_light_tertiary' => array(
-				'default' => SM_LIGHT_PRIMARY,
+				'default' => SM_LIGHT_TERTIARY,
 				'connected_fields' => array(
+					'light_tertiary_color'
 				),
 			),
 	    ),
@@ -147,6 +148,21 @@ function variation_change_customify_general_section( $section_options, $options 
 		// General
 		'general' => array(
 			'options' => array(
+				'archive_badge_title' => array(
+					'type'              => 'text',
+					'label'             => esc_html__( 'Badge Title', '__theme_txtd' ),
+					'desc'              => esc_html__( '', '__theme_txtd' ),
+					'default'           => 'Salut',
+					'live'              => array( '.c-badge__title' ),
+				),
+				'archive_badge_content' => array(
+					'type'              => 'textarea',
+					'label'             => esc_html__( 'Badge Content', '__theme_txtd' ),
+					'desc'              => esc_html__( '', '__theme_txtd' ),
+					'default'           => '<p>Welcome to my blog! Check out the <del>latest post</del>, browse the highlights or <del>reach me</del> to say Hi!</p>',
+					'sanitize_callback' => 'wp_kses_post',
+					'live'              => array( '.c-badge__content' ),
+				),
 				'general_title_colors_section'     => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-general-colors" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Colors', '__theme_txtd' ) . '</span>',
@@ -224,6 +240,18 @@ function variation_change_customify_general_section( $section_options, $options 
 						array(
 							'property' => 'background-color',
 							'selector' => '.c-footer-layers__dark',
+						),
+					),
+				),
+				'light_tertiary_color' => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Light Tertiary Color', '__theme_txtd' ),
+					'live'    => true,
+					'default' => SM_LIGHT_TERTIARY,
+					'css'     => array(
+						array(
+							'property' => 'background-color',
+							'selector' => '.c-badge[class]',
 						),
 					),
 				),
@@ -575,7 +603,7 @@ function variation_change_customify_blog_grid_section( $section_options, $option
 	$section_options['blog_grid']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['blog_grid']['options'], 'blog_item_excerpt_font', array(
 		'blog_item_dropcap_font' => array(
 			'type'        => 'font',
-			'label'       => esc_html__( 'Item Dropcap Font', '__components_txtd' ),
+			'label'       => esc_html__( 'Item Dropcap Font', '__theme_txtd' ),
 			'desc'        => '',
 			'selector'    => '.c-card__letter',
 			'callback'    => 'typeline_font_cb',
@@ -737,7 +765,7 @@ function variation_change_customify_footer_section( $section_options, $options )
 	$section_options['footer_section']['options'] = Pixelgrade_Array::insertAfterKey( $section_options['footer_section']['options'], 'footer_background', array(
 		'footer_font' => array(
 			'type'        => 'font',
-			'label'       => esc_html__( 'Footer Font', '__components_txtd' ),
+			'label'       => esc_html__( 'Footer Font', '__theme_txtd' ),
 			'desc'        => '',
 			'selector'    => '.c-footer',
 			'callback'    => 'typeline_font_cb',
