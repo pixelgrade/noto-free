@@ -37,7 +37,7 @@
       display: grid;
       // grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 5em [hs] 35em [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
 
-      grid-template-columns:    [edge-start] 4fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem [ps] 35em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
+      grid-template-columns:    [edge-start] 4fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem [pso] 5em [ps] 30em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
 
       > * {
         grid-column: cs / ce;
@@ -87,7 +87,7 @@
     .content-area {
 
       .header-stuff {
-        grid-column: mso / ps;
+        grid-column: edge-start / pso;
         display: flex;
         flex-direction: column;
         text-align: right;
@@ -98,7 +98,7 @@
       }
 
       .entry-thumbnail {
-        grid-column: ps / end;
+        grid-column: ps / me;
       }
     }
 
