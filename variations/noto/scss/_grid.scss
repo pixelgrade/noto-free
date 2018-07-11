@@ -218,13 +218,17 @@ $offset: 2;
       // First Card
 
       &:nth-child(6) {
-        grid-column: middle / span 14;
+        grid-column: 19 / span 12;
 
         &.post {
           padding-top: 50px;
 
           @include card-large;
-          @include card-align-left;
+
+          .c-card__title {
+            align-self: flex-end;
+            text-align: right;
+          }
 
           .c-card__meta,
           .c-card__excerpt,
@@ -309,6 +313,12 @@ $offset: 2;
         &.post {
           @include card-large;
 
+          .c-card__title {
+            align-self: flex-end;
+            text-align: right;
+          }
+
+          .c-card__meta,
           .c-card__excerpt,
           .c-card__footer {
             margin-left: percentage(7/13);
