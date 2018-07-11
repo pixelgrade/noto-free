@@ -22,8 +22,8 @@
     letter-spacing: -0.3px;
 }
 
+
 // Frontpage Grid Widgets Styles
-// Use Container Queries for styling
 // ----------------------------------------
 .c-gallery__item--widget {
     @include widget-size-medium;
@@ -75,6 +75,22 @@
                 }
             }
 
+            @include above(lap) {
+                grid-column: 13 / span 4;
+                align-self: flex-end;
+
+                margin-right: -3.5em;
+            }
+
+            @include below(lap) {
+                margin-top: 2em;
+                margin-bottom: 2em;
+
+                max-width: 15em;
+                grid-column: 2/4;
+                align-self: center;
+                justify-self: center;
+            }
         }
     }
 }
