@@ -113,8 +113,8 @@ add_filter( 'mce_buttons_2', 'noto_mce_editor_buttons' );
 function noto_mce_before_init( $settings ) {
 
 	$style_formats =array(
-		array( 'title' => esc_html__( 'Display', '__theme_txtd' ), 'block' => 'h1', 'classes' => 'h0'),
 		array( 'title' => esc_html__( 'Intro Text', '__theme_txtd' ), 'selector' => 'p', 'classes' => 'intro'),
+		array( 'title' => esc_html__( 'Dropcap', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'dropcap'),
 		array( 'title' => esc_html__( 'Pull Left', '__theme_txtd' ), 'block' => 'div', 'classes' => 'pull-left' ),
 		array( 'title' => esc_html__( 'Pull Right', '__theme_txtd' ), 'block' => 'div', 'classes' => 'pull-right' ),
 	);
@@ -281,18 +281,8 @@ remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
 add_filter( 'the_content', 'noto_add_tags_list', 18 );
 
 function noto_add_card_meta_decoration( $location ) { ?>
+
 	<div class="c-meta__decoration"></div>
+
 <?php }
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
-
-function noto_alter_archive_post_class( $classes = array() ) {
-	// we first need to know the bigger picture - the location this template part was loaded from
-	$location = pixelgrade_get_location();
-
-	if ( pixelgrade_in_location( 'index blog post portfolio jetpack', $location, false ) && ! is_single() ) {
-	    $classes[] = 'c-gallery__item--post';
-	}
-
-	return $classes;
-}
-add_filter( 'post_class', 'noto_alter_archive_post_class', 10, 1 );
