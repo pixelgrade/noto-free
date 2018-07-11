@@ -281,8 +281,18 @@ remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
 add_filter( 'the_content', 'noto_add_tags_list', 18 );
 
 function noto_add_card_meta_decoration( $location ) { ?>
-
 	<div class="c-meta__decoration"></div>
-
 <?php }
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
+
+function noto_alter_archive_post_class( $classes = array() ) {
+	// we first need to know the bigger picture - the location this template part was loaded from
+	$location = pixelgrade_get_location();
+
+	if ( pixelgrade_in_location( 'index blog post portfolio jetpack', $location, false ) && ! is_single() ) {
+	    $classes[] = 'c-gallery__item--post';
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'noto_alter_archive_post_class', 10, 1 );
