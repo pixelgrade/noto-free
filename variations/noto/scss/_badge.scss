@@ -4,9 +4,7 @@
     font-size: 1.066em;
     text-align: center;
 
-    border-radius: 40% / 50%;
     background-color: $sm-light-tertiary;
-    transform: rotate(-8deg);
 
     .wave-svg-mask {
         width: 20px;
@@ -18,19 +16,27 @@
     }
 
     @include above(lap) {
+        margin-right: -3.5em;
+
         grid-column: 13 / span 4;
         align-self: flex-end;
 
-        margin-right: -3.5em;
+        border-radius: 40% / 50%;
+        transform: rotate(-8deg);
     }
 
     @include below(lap) {
-        margin-top: 2em;
-        margin-bottom: 2em;
+        margin-top: 4rem;
 
-        max-width: 15em;
-        grid-column: 2/4;
-        align-self: center;
-        justify-self: center;
+        > .c-badge__title,
+        > .c-badge__content {
+            max-width: 40em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wave-svg-mask {
+            display: none;
+        }
     }
 }

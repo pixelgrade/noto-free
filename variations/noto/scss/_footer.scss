@@ -1,6 +1,10 @@
 .site-footer {
     position: relative;
     padding-top: 4rem;
+
+    @include below(lap) {
+        position: static !important;
+    }
 }
 
 .c-footer {
