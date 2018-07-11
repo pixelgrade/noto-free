@@ -1,8 +1,4 @@
 .c-badge[class] {
-    grid-column: 13 / span 4;
-    align-self: flex-end;
-
-    margin-right: -3.5em;
     padding: 2em 1.5em;
 
     font-size: 1.066em;
@@ -19,5 +15,22 @@
 
     .wave-svg {
         margin-bottom: 0;
+    }
+
+    @include above(lap) {
+        grid-column: 13 / span 4;
+        align-self: flex-end;
+
+        margin-right: -3.5em;
+    }
+
+    @include below(lap) {
+        margin-top: 2em;
+        margin-bottom: 2em;
+
+        max-width: 15em;
+        grid-column: 2/4;
+        align-self: center;
+        justify-self: center;
     }
 }

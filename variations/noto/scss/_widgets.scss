@@ -25,9 +25,14 @@
 // Frontpage Grid Widgets Styles
 // Use Container Queries for styling
 // ----------------------------------------
+.c-gallery__item--widget {
+    @include widget-size-medium;
+    background: $sm-light-secondary;
+}
+
 .c-noto {
+
     .widget {
-        // Default Styles
 
         p, ul, ol {
           &:not(:last-child) {
@@ -38,10 +43,6 @@
         &.centered {
             text-align: center;
         }
-        
-        background: $sm-light-secondary;
-
-        @include widget-size-medium;
 
         // Small Size
         &.small {
@@ -75,22 +76,8 @@
             }
 
         }
-
-        // @include cq-prolyfill("height < 300px") {
-
-        // } 
-        // // Medium Size
-        // @include cq-prolyfill("width > 250px") {
-        //     padding: 40px;
-        //     background: $sm-light-secondary;
-        //     // background: red;
-        // }
     }
 }
-
-
-
-
 
 .widget-area--below-post > * {
     margin-top: 4rem;

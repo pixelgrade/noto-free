@@ -227,7 +227,7 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-noto .widget',
+								.c-gallery__item--widget',
 						),
 					),
 				),

@@ -144,8 +144,6 @@
 @include below(lap) {
 
   .c-card {
-    overflow: hidden;
-    padding: 0 $mobile-padding;
 
     .related-posts-container & {
       margin: 0;

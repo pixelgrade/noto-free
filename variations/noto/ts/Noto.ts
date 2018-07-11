@@ -56,7 +56,7 @@ export class Noto extends BaseTheme {
     public updateCardsPosition($container: JQuery = this.$body) {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.post' );
-        const $widgets = $noto.children( '.widget--misto' );
+        const $widgets = $noto.children( '.c-gallery__item--widget' );
         // const postsCount = $posts.length + $widgets.length;
 
         // let maxCount = 0;
