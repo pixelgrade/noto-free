@@ -550,7 +550,9 @@ $offset: 2;
     order: -2;
   }
 
-  .c-badge {
+  .c-gallery__item--post-it {
+    grid-column: 13 / span 4;
+    align-self: flex-end;
     order: -1;
   }
 }

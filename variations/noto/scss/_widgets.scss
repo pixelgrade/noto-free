@@ -6,6 +6,7 @@
     background: $sm-light-tertiary;
 }
 
+// Default Widgets Style
 @mixin widget-size-medium {
     padding: 35px;
 }
@@ -14,12 +15,21 @@
     padding-top: 35px;
     padding-bottom: 35px;
 
-    border-radius: 90px;
-    transform: rotate(-5deg);
-
-    text-align: center;
     font-size: 105%;
-    letter-spacing: -0.3px;
+    text-align: center;
+    letter-spacing: (-3em/160);
+
+    @include above(lap) {
+        margin-right: -3.5em;
+
+        grid-column: 13 / span 4;
+        align-self: flex-end;
+
+        transform: rotate(-5deg);
+
+        border-radius: 40% / 50%;
+        // border-radius: 90px;
+    }
 }
 
 
@@ -28,6 +38,42 @@
 .c-gallery__item--widget {
     @include widget-size-medium;
     background: $sm-light-secondary;
+
+    &.centered {
+        text-align: center;
+    }
+
+    // Small Size
+    &.small {
+        @include widget-size-small;
+    }
+
+    // Post-it Style
+    &.post-it {
+        @include widget-style-post-it;
+
+        a {
+            text-decoration: line-through;
+            // border-bottom: 1px solid;
+            &:hover {
+                text-decoration: underline;
+                opacity: 0.8;
+            }
+        }
+
+        .wave-svg-mask {
+            .wave-svg {
+                opacity: 0.6;
+                width: 20px;
+                margin: 0 auto;
+                margin-top: 19px;
+
+                rect {
+                    transform: translateX(-3px);
+                }
+            }
+        }
+    }
 }
 
 .c-noto {
@@ -40,58 +86,7 @@
           }
         }
 
-        &.centered {
-            text-align: center;
-        }
 
-        // Small Size
-        &.small {
-            @include widget-size-small;
-        }
-
-        // Post-it Style
-        &.post-it {
-            @include widget-style-post-it;
-
-            a {
-                text-decoration: line-through;
-                // border-bottom: 1px solid;
-                &:hover {
-                    text-decoration: underline;
-                    opacity: 0.8;
-                }
-            }
-
-            .wave-svg-mask {
-                .wave-svg {
-                    opacity: 0.6;
-                    width: 20px;
-                    margin: 0 auto;
-                    margin-top: 19px;
-
-                    rect {
-                        transform: translateX(-3px);
-                    }
-                }
-            }
-
-            @include above(lap) {
-                grid-column: 13 / span 4;
-                align-self: flex-end;
-
-                margin-right: -3.5em;
-            }
-
-            @include below(lap) {
-                margin-top: 2em;
-                margin-bottom: 2em;
-
-                max-width: 15em;
-                grid-column: 2/4;
-                align-self: center;
-                justify-self: center;
-            }
-        }
     }
 }
 
