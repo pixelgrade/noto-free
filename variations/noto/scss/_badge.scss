@@ -2,12 +2,22 @@
     grid-column: 13 / span 4;
     align-self: flex-end;
 
-    margin-right: -3em;
-    padding: 2em;
+    margin-right: -3.5em;
+    padding: 2em 1.5em;
 
+    font-size: 1.066em;
     text-align: center;
 
     border-radius: 40% / 50%;
     background-color: $sm-light-tertiary;
     transform: rotate(-8deg);
+
+    .wave-svg-mask {
+        width: 20px;
+        margin: 20px auto 0;
+    }
+
+    .wave-svg {
+        margin-bottom: 0;
+    }
 }
