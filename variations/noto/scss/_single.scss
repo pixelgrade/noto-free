@@ -37,7 +37,7 @@
       display: grid;
       // grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 5em [hs] 35em [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
 
-      grid-template-columns:    [edge-start] 4fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem [pso] 5em [ps] 30em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
+      grid-template-columns:    [edge-start] 4fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem 4em [pso] 1fr [ps] 26em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
 
       > * {
         grid-column: cs / ce;
@@ -144,11 +144,11 @@
   .entry-image--none {
 
     .c-author {
-      grid-column: mso / cs;
+      grid-column: edge-start / mso;
     }
 
-    .entry-thumbnail {
-      grid-column: cs / end;
+    .header-stuff[class][class] {
+      grid-column: cs / ce;
     }
   }
 }

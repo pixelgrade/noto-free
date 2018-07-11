@@ -35,11 +35,15 @@
 }
 
 @mixin caption {
-  font-size: 0.765em;
+  font-size: 0.720em;
 }
 
 .c-author__details {
   @include caption;
+
+  .c-author__description {
+    opacity: 0.8;
+  }
 
   a {
     text-decoration: none;
