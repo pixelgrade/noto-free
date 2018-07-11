@@ -50,7 +50,7 @@
       // Share Icons
       .sharedaddy:not(.sharedaddy--official) {
         grid-column: cso / cs;
-        grid-row: 5 / span 3;
+        grid-row: 4 / span 3;
       }
 
       .header-category,
@@ -191,7 +191,11 @@
 .header-meta {
   margin-left: -1rem;
 
-  .posted-on .updated {
+  .byline {
+    display: none;
+  }
+
+  .posted-on .updated:not(.published) {
       display: none;
   }
 
