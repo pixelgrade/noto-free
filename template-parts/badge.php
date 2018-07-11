@@ -3,7 +3,7 @@ $badge_title = pixelgrade_option( 'archive_badge_title' );
 $badge_content = pixelgrade_option( 'archive_badge_content' );
 
 if ( ! empty( $badge_title ) || ! empty( $badge_content ) ) { ?>
-	<div class="c-gallery__ite  c-gallery__item--widget  c-gallery__item--post-it  post-it  small">
+	<div class="c-gallery__item  c-gallery__item--widget  c-gallery__item--post-it  post-it  small">
 		
 		<div class="widget">
 			<?php if ( ! empty ( $badge_title ) ) { ?>

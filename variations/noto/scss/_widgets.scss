@@ -15,20 +15,26 @@
     padding-top: 35px;
     padding-bottom: 35px;
 
-    font-size: 105%;
     text-align: center;
     letter-spacing: (-3em/160);
 
     @include above(lap) {
         margin-right: -3.5em;
+        margin-bottom: 100px;
 
         grid-column: 13 / span 4;
         align-self: flex-end;
 
         transform: rotate(-5deg);
+        border-radius: 6em;
 
-        border-radius: 40% / 50%;
-        // border-radius: 90px;
+        font-size: 105%;
+    }
+
+    @include below(lap) {
+        .wave-svg-mask {
+            display: none !important;
+        }
     }
 }
 
