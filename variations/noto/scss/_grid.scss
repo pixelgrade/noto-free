@@ -515,3 +515,14 @@ $offset: 2;
 
   }
 }
+
+.c-noto--body {
+
+  .c-navbar__zone {
+    order: -2;
+  }
+
+  .c-badge {
+    order: -1;
+  }
+}

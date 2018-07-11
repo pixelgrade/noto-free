@@ -1,0 +1,13 @@
+.c-badge[class] {
+    grid-column: 13 / span 4;
+    align-self: flex-end;
+
+    margin-right: -3em;
+    padding: 2em;
+
+    text-align: center;
+
+    border-radius: 40% / 50%;
+    background-color: $sm-light-tertiary;
+    transform: rotate(-8deg);
+}

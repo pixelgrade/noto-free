@@ -86,7 +86,7 @@ export class Noto extends BaseTheme {
                  ( p > 3 && p % 6 === 3 ) ||
                  p % 6 === 4 ) {
 
-                console.log(p, $posts.slice(p - 1, p) );
+                // console.log(p, $posts.slice(p - 1, p) );
 
                 const $widget = ( $widgets as JQueryExtended ).splice(0, 1);
                 const $post = $posts.slice(p - w - 1, p - w);
