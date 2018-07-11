@@ -318,7 +318,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.c-card .wave-svg-mask',
+							'selector' => '.c-card .wave-svg-mask,
+							.c-reading-progress',
 						),
 					),
 				),
@@ -468,13 +469,15 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_heading_6_font'           => array(
-					'selector' => 'h6, .h6',
+					'selector' => 'h6, .h6,
+									.comment-reply-title a, .comment__metadata a, 
+									.edit-link a, .logged-in-as a, .reply a',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 14,
 						'line-height'    => 1.5,
-						'letter-spacing' => 0.1,
+						'letter-spacing' => 0.05,
 						'text-transform' => 'uppercase',
 					),
 				),
