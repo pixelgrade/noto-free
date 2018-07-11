@@ -26,8 +26,8 @@ define( 'SM_COLOR_SECONDARY', '#E79696' );
 define( 'SM_COLOR_TERTIARY', '#FCD9D2' );
 define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow
 
-define( 'SM_DARK_PRIMARY', '#49494B' );
-define( 'SM_DARK_SECONDARY', '#34394B' ); // Blueish
+define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
+define( 'SM_DARK_SECONDARY', '#49494B' ); 
 define( 'SM_DARK_TERTIARY', '#394059' );
 
 define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
@@ -79,14 +79,8 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_dark_primary' => array(
 				'default' => SM_DARK_PRIMARY,
 				'connected_fields' => array(
-				),
-			),
-			'sm_dark_secondary' => array(
-				'default' => SM_DARK_SECONDARY,
-				'connected_fields' => array(
 					'main_content_border_color',
 					'main_content_page_title_color',
-					'main_content_body_text_color',
 					'main_content_body_link_color',
 					'main_content_body_link_active_color',
 					'main_content_underlined_body_links',
@@ -98,6 +92,12 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_6_color',
 					'footer_background',
 					'buttons_color',
+				),
+			),
+			'sm_dark_secondary' => array(
+				'default' => SM_DARK_SECONDARY,
+				'connected_fields' => array(
+					'main_content_body_text_color',
 				),
 			),
 			'sm_dark_tertiary' => array(

@@ -7,7 +7,7 @@
 
     &[class][class][class] {
       text-align: right;
-      max-width: 12em;
+      max-width: 10em;
       margin-left: auto;
     }
   }
@@ -35,11 +35,15 @@
 }
 
 @mixin caption {
-  font-size: 0.765em;
+  font-size: 0.720em;
 }
 
 .c-author__details {
   @include caption;
+
+  .c-author__description {
+    opacity: 0.8;
+  }
 
   a {
     text-decoration: none;
