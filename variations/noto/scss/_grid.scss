@@ -219,16 +219,16 @@ $offset: 2;
 
     counter-reset: count;
 
+    > * {
+      grid-column: start / 32;
+    }
+
     // End Cards Positioning
     // ----------------------------------------
 
     body:not(.page):not(.single) & {
       padding-bottom: 8rem;
     }
-  }
-
-  .c-gallery__item {
-    grid-column: start / 32;
   }
 
   .c-gallery__item--widget {

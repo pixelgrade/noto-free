@@ -323,37 +323,37 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_body_link_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_body_link_active_color'   => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_underlined_body_links'    => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_1_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_2_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_3_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_6_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_content_background_color' => array(
 					'default' => SM_LIGHT_PRIMARY,
@@ -841,7 +841,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 					'default' => 'square',
 				),
 				'buttons_color'      => array(
-					'default' => SM_DARK_SECONDARY,
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
