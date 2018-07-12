@@ -363,7 +363,10 @@ function variation_change_customify_main_content_section( $section_options, $opt
 							'selector' => '
 								.c-footer-layers__background,
 								.c-navbar__zone--left .menu > li > a:before,
-								.c-search-overlay'
+								.c-search-overlay,
+								.c-reading-progress,
+								.page .header:after, 
+								.single .header:after'
 						),
 					),
 				),
