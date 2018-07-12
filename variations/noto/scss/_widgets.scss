@@ -38,6 +38,10 @@
     }
 }
 
+@mixin widget-content-elements-spacing {
+    @include spacing(margin-bottom, $typography-spacing/2);
+}
+
 
 // Frontpage Grid Widgets Styles
 // ----------------------------------------
@@ -82,14 +86,21 @@
     }
 }
 
+
+// General Widgets Styling
 .c-noto {
 
     .widget {
 
-        p, ul, ol {
+        h1, h2, h3, h4, h5, h6, 
+        p, ul, ol, hr {
           &:not(:last-child) {
-            @include spacing(margin-bottom, $typography-spacing/2);
+            @include widget-content-elements-spacing;
           }
+        }
+
+        hr {
+            height: 12px;
         }
 
 
@@ -123,6 +134,11 @@
         text-decoration: underline;
     }
 }
+
+
+
+// Specific Widgets Styling
+// ----------------------------------------
 
 // List Widgets
 %widget--list {
@@ -253,6 +269,11 @@
     @extend %widget--links;
 }
 
+
+
+// 3rd Party Widgets
+// ----------------------------------------
+
 .widget_wpcom_social_media_icons_widget {
 
     ul {
@@ -290,5 +311,23 @@
                 @include fontsize(18px);
             }
         }
+    }
+}
+
+// Blog Subscriptions (Jetpack)
+// https://jetpack.com/support/subscriptions/
+.jetpack_subscription_widget {
+
+    #subscribe-text,
+    #subscribe-email {
+     @include spacing(margin-bottom, $typography-spacing/3*2);
+    }
+
+    input {
+        width: 100%;
+    }
+
+    body & input[type=submit] {
+        @extend .button.solid;
     }
 }

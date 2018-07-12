@@ -125,7 +125,9 @@ hr {
   // Decorated <hr/> style
   // Noto: Waves
   &.decoration {
-
+      // SVG added via JS
+      // <div class="wave-svg-mask">
+      // color: red;
   }
 }
 
