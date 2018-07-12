@@ -83,7 +83,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_page_title_color',
 					'main_content_body_link_color',
 					'main_content_body_link_active_color',
-					'main_content_underlined_body_links',
 					'main_content_heading_1_color',
 					'main_content_heading_2_color',
 					'main_content_heading_3_color',
@@ -251,7 +250,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-badge[class]',
+							'selector' => '.c-gallery__item--widget.small',
 						),
 					),
 				),
@@ -364,7 +363,10 @@ function variation_change_customify_main_content_section( $section_options, $opt
 							'selector' => '
 								.c-footer-layers__background,
 								.c-navbar__zone--left .menu > li > a:before,
-								.c-search-overlay'
+								.c-search-overlay,
+								.c-reading-progress,
+								.page .header:after, 
+								.single .header:after'
 						),
 					),
 				),
