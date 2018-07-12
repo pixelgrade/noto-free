@@ -37,7 +37,7 @@
       display: grid;
       // grid-template-columns: [edge-start] 1fr [s] 2fr [ms] 2fr [cs] 4rem [cso] 5em [hs] 35em [ce] auto [me] 4rem [ceo] 2fr [end] 1fr 1fr [edge-end];
 
-      grid-template-columns:    [edge-start] 4fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem 4em [pso] 1fr [ps] 26em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
+      grid-template-columns:    [edge-start] 2fr [eso] 2fr [mso] 1fr [ms] 2fr [cso] 4rem [cs] 4rem 4em [pso] 1fr [ps] 26em [ce] 4rem [ceo] 2fr [me] 4fr [edge-end];
 
       > * {
         grid-column: cs / ce;
@@ -148,7 +148,7 @@
     }
 
     .header-stuff[class][class] {
-      grid-column: cs / ce;
+      grid-column: cso / ceo;
     }
   }
 }
@@ -274,6 +274,9 @@
   .content-area > .related-posts-container[class] {
     max-width: none;
     grid-column: ms / end;
+
+    // @todo: needs more styling
+    display: none;
   }
 }
 

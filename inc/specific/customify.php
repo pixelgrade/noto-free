@@ -318,42 +318,43 @@ function variation_change_customify_main_content_section( $section_options, $opt
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.c-card .wave-svg-mask',
+							'selector' => '.c-card .wave-svg-mask,
+							.c-reading-progress',
 						),
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
 				),
 				'main_content_body_link_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_body_link_active_color'   => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_underlined_body_links'    => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_1_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_2_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_3_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_4_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_5_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_6_color'          => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_content_background_color' => array(
 					'default' => SM_LIGHT_PRIMARY,
@@ -468,13 +469,15 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_heading_6_font'           => array(
-					'selector' => 'h6, .h6',
+					'selector' => 'h6, .h6,
+									.comment-reply-title a, .comment__metadata a, 
+									.edit-link a, .logged-in-as a, .reply a',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
 						'font-size'      => 14,
 						'line-height'    => 1.5,
-						'letter-spacing' => 0.1,
+						'letter-spacing' => 0.05,
 						'text-transform' => 'uppercase',
 					),
 				),
@@ -841,7 +844,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 					'default' => 'square',
 				),
 				'buttons_color'      => array(
-					'default' => SM_DARK_SECONDARY,
+					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'background-color',

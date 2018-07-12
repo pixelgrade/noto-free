@@ -39,7 +39,7 @@ gulp.task( 'copy-folder', 'Copy theme production files to a build folder', funct
             destination: '../build/' + variation + '/',
             // archive: true,
             progress: false,
-            silent: false,
+            silent: true,
             compress: false,
             recursive: true,
             emptyDirectories: true,
@@ -199,6 +199,10 @@ gulp.task( 'zip', 'Create the theme installer archive and delete the build folde
     versionString = versionLine[0].replace( /^[Vv]ersion:/, '' ).trim();
     versionString = '-' + versionString.replace( /\./g, '-' );
 
+    var command = 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0].toUpperCase() + variation.slice( 1 ) + '-Installer' + versionString + '.zip ./; cd ./../; rm -rf build';
+
     return gulp.src( './' )
-        .pipe( plugins.exec( 'cd ./../; rm -rf ' + variation[0].toUpperCase() + variation.slice( 1 ) + '*.zip; cd ./build/; zip -r -X ./../' + variation[0].toUpperCase() + variation.slice( 1 ) + '-Installer' + versionString + '.zip ./; cd ./../; rm -rf build' ) );
+        .pipe( plugins.exec( command, {
+	        maxBuffer : 500 * 1024
+        } ) );
 } );

@@ -115,8 +115,8 @@ function noto_mce_before_init( $settings ) {
 	$style_formats =array(
 		array( 'title' => esc_html__( 'Intro Text', '__theme_txtd' ), 'selector' => 'p', 'classes' => 'intro'),
 		array( 'title' => esc_html__( 'Dropcap', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'dropcap'),
-		array( 'title' => esc_html__( 'Pull Left', '__theme_txtd' ), 'block' => 'div', 'classes' => 'pull-left' ),
-		array( 'title' => esc_html__( 'Pull Right', '__theme_txtd' ), 'block' => 'div', 'classes' => 'pull-right' ),
+		array( 'title' => esc_html__( 'Pull Left', '__theme_txtd' ), 'wrapper' => true, 'block' => 'blockquote', 'classes' => 'pull-left' ),
+		array( 'title' => esc_html__( 'Pull Right', '__theme_txtd' ), 'wrapper' => true, 'block' => 'blockquote', 'classes' => 'pull-right' ),
 	);
 
 	$settings['style_formats'] = json_encode( $style_formats );

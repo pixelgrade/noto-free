@@ -2,28 +2,33 @@
 .pull-right {
     @include spacing(margin-bottom, 2rem);
     grid-row-end: span 3;
+}
 
-    blockquote {
-        padding-left: 0;
+// Different styles for Blockuotes
+.pull-left blockquote, // Patch Style
+.pull-right blockquote,
+blockquote.pull-left, // New Style Formats
+blockquote.pull-right {
+    padding-left: 0;
 
-        font: inherit;
-        font-size: 0.7225em;
-        line-height: 1.5;
+    font: inherit;
+    font-size: 0.7225em;
+    line-height: 1.5;
 
-        .wave-svg-mask {
-            margin-left: 0;
-            opacity: 0.5;
-        }
-
-        .wave-svg {
-            margin-bottom: 1rem;
-        }
-
-        &:before,
-        &:after {
-            content: "";
-        }
+    .wave-svg-mask {
+        margin-left: 0;
+        opacity: 0.5;
     }
+
+    .wave-svg {
+        margin-bottom: 1rem;
+    }
+
+    &:before,
+    &:after {
+        content: "";
+    }
+
 }
 
 .pull-left {
@@ -62,7 +67,7 @@
         margin-right: 0;
 
         &[class] {
-            grid-column: s / cs;
+            grid-column: eso / cso;
         }
     }
 
@@ -70,7 +75,7 @@
         margin-left: 0;
 
         &[class] {
-            grid-column: ceo/edge-end;
+            grid-column: ceo / edge-end;
         }
     }
 }

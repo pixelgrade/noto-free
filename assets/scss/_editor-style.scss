@@ -1,10 +1,12 @@
 @import "../../components/base/scss/defaults";
-
 @import "../../variations/noto/scss/settings";
+
+@import 'mixins';
 
 @import "typeline-config-editor";
 
 $editor-style: true;
+$content-wrapper-selector: 'html';
 $content-selector: '.mce-content-body > :not(.wpview)';
 
 @import "../../components/base/scss/editor-style";
@@ -17,7 +19,7 @@ $content-selector: '.mce-content-body > :not(.wpview)';
 
 ._hero_content_description {
     color: white;
-    padding-top: 50px;
+    padding-top: 50px; 
 }
 
 html {
