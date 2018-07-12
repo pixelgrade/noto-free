@@ -1,3 +1,6 @@
+// Author Box 
+// Header Version (near title)
+// ----------------------------------------
 .c-header__author {
 
   .c-author {
@@ -59,3 +62,58 @@
     margin-bottom: 0;
   }
 }
+
+// Author Box 
+// Footer version
+// ----------------------------------------
+.entry-footer {
+
+  // Box Styling
+  .c-author {
+
+    @include spacing(margin-top, 3rem);
+    @include spacing(margin-bottom, 3rem);
+    @include spacing(padding, 3rem);
+
+    background: $sm-light-secondary;
+  }
+
+  .c-author__avatar {
+    display: block;
+    border-radius: 0px;
+    overflow: hidden;
+    transform: rotate(-3deg);
+
+    + .c-author__details {
+      padding-left: 2rem;
+    }
+
+    img {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .c-author__name:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .c-author__description {
+    margin-bottom: 1.5rem;
+  }
+
+  .c-author__footer {
+
+  }
+
+  .c-author__links {
+    a {
+      // color: $theme-accent-color;
+
+      .u-underlined-links & {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
