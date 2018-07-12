@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+// Helper Classes for Humans & Nature
+
+.button {
+	&.solid {
+		color: $sm-light-primary;
+		background-color: $sm-dark-primary;
+		border-color: $sm-dark-primary;
+
+		&:hover {
+			color: initial;
+		}
+	}
+}

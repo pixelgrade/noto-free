@@ -136,7 +136,7 @@ export class Noto extends BaseTheme {
     }
 
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find( '.intro, .post-it' );
+        const $intro = $container.find( '.intro, .post-it, hr.decoration' );
         const $waveTemplate = $( '.js-wave-intro-template' );
 
         $intro.each(( i, obj ) => {
