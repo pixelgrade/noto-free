@@ -114,13 +114,18 @@
         margin-left: 1.5rem;
       }
     }
+
+    .header-meta {
+      grid-column-start: cso;
+      margin-bottom: 3rem;
+    }
   }
 
   .entry-image--landscape {
 
     .c-header__author {
       grid-column: edge-start / mso;
-      grid-row: 1 / span 3;
+      grid-row: 1 / span 2;
 
       align-self: flex-end;
     }
@@ -182,7 +187,14 @@
 }
 
 .header-meta {
-  margin-left: -1rem;
+
+  #primary & {
+    margin-left: -1rem;
+
+    > * {
+      margin-left: 1rem;
+    }
+  }
 
   .byline {
     display: none;
@@ -190,10 +202,6 @@
 
   .posted-on .updated:not(.published) {
       display: none;
-  }
-
-  > * {
-    margin-left: 1rem;
   }
 
   a {
@@ -273,22 +281,32 @@
 
 
 // WOAH
+// move header elements and the first intro paragraph above everything else
 .header-stuff,
+.entry-image--landscape .header-meta {
+  order: -3;
+}
+
 .header-stuff + .intro,
 .header-stuff + .entry-thumbnail,
 .header-stuff + .entry-thumbnail + .intro,
 .header-stuff + .entry-thumbnail + .header-meta,
 .header-stuff + .entry-thumbnail + .header-meta + .intro,
 
-// no-image
-.header-stuff + .c-header__author + .header-meta,
+// no image
+.entry-image--none .header-meta,
 
 // landscape
-.header-stuff + .entry-thumbnail + .c-header__author + .header-meta,
 .header-stuff + .entry-thumbnail + .c-header__author + .header-meta + .intro {
   order: -2;
 }
 
+// also move the share icons right after the header elements
 .sharedaddy:not(.sharedaddy--official) {
   order: -1;
+}
+
+// move the author box below the post meta on posts with portrait featured image
+.entry-image--portrait .c-header__author {
+  order: 1;
 }
