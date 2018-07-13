@@ -178,6 +178,8 @@ function variation_change_customify_general_section( $section_options, $options 
 								.intro[class],
 								.c-author__name[class], 
 								.c-card:hover .c-card__excerpt,
+								.widget_nav_menu a, 
+								.widget_pages a,
 								.slick-dots .slick-active',
 						),
 						array(
@@ -203,32 +205,7 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-footer-layers__accent,
-								.c-card__action:before,
-								.c-comments-toggle__label:before,
-								.cats a:before,
-								.comment-respond .submit:before',
-						),
-						array(
-							'property' => 'border-color',
-							'selector' => '
-								input[type=date]:active, 
-								input[type=date]:focus, 
-								input[type=email]:active, 
-								input[type=email]:focus, 
-								input[type=number]:active, 
-								input[type=number]:focus, 
-								input[type=password]:active, 
-								input[type=password]:focus, 
-								input[type=search]:active, 
-								input[type=search]:focus, 
-								input[type=tel]:active, 
-								input[type=tel]:focus, 
-								input[type=text]:active, 
-								input[type=text]:focus, 
-								input[type=url]:active, 
-								input[type=url]:focus
-								select:active, 
-								select:focus',
+								.c-card__action:before',
 						),
 					),
 				),
@@ -249,8 +226,7 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-noto__item--widget,
-								.entry-footer .c-author',
+								.c-gallery__item--widget',
 						),
 					),
 				),
@@ -274,7 +250,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-noto__item--widget.small',
+							'selector' => '.c-gallery__item--widget.small',
 						),
 					),
 				),
@@ -341,18 +317,13 @@ function variation_change_customify_main_content_section( $section_options, $opt
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.c-reading-progress',
+							'selector' => '.c-card .wave-svg-mask,
+							.c-reading-progress',
 						),
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_PRIMARY,
-					'css' => array(
-						array(
-							'property' => 'color',
-							'selector' => '.c-card .wave-svg-mask'
-						),
-					),
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
@@ -364,7 +335,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_underlined_body_links'    => array(
-					'default' => true
+					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_heading_1_color'          => array(
 					'default' => SM_DARK_PRIMARY
@@ -502,8 +473,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, .h6,
 									.comment-reply-title a, .comment__metadata a, 
-									.edit-link a, .logged-in-as a, .reply a,
-									.c-author__links',
+									.edit-link a, .logged-in-as a, .reply a',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
@@ -1050,8 +1020,10 @@ function themename_add_default_color_palette( $color_palettes ) {
 
 	$color_palettes = array_merge(array(
 		'default' => array(
-			'label' => esc_html__( 'Default', '__theme_txtd' ),
-			'background_image_url' => '',
+			'label' => esc_html__( 'Theme Default', '__theme_txtd' ),
+			'preview' => array(
+				'background_image_url' => 'https://cloud.pixelgrade.com/wp-content/uploads/2018/07/noto-palette-e1531482820427.jpg',
+			),
 			'options' => array(
 				'sm_color_primary' => SM_COLOR_PRIMARY,
 				'sm_color_secondary' => SM_COLOR_SECONDARY,

@@ -1020,8 +1020,10 @@ function themename_add_default_color_palette( $color_palettes ) {
 
 	$color_palettes = array_merge(array(
 		'default' => array(
-			'label' => esc_html__( 'Default', '__theme_txtd' ),
-			'background_image_url' => '',
+			'label' => esc_html__( 'Theme Default', '__theme_txtd' ),
+			'preview' => array(
+				'background_image_url' => 'https://cloud.pixelgrade.com/wp-content/uploads/2018/07/noto-palette-e1531482820427.jpg',
+			),
 			'options' => array(
 				'sm_color_primary' => SM_COLOR_PRIMARY,
 				'sm_color_secondary' => SM_COLOR_SECONDARY,
