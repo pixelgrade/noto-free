@@ -34,10 +34,10 @@ define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
 define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
 
-define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
-define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
-define( 'SM_BODY_FONT', 'IBM Plex Sans' );
-define( 'SM_LOGO_FONT', 'Bungee' );
+define( 'SM_HEADINGS_FONT', 'IBM Plex Sans, sans-serif' );
+define( 'SM_ACCENT_FONT', 'IBM Plex Sans, sans-serif' );
+define( 'SM_BODY_FONT', 'IBM Plex Sans, sans-serif' );
+define( 'SM_LOGO_FONT', 'Bungee, cursive' );
 
 /**
  * Add the Style Manager cross-theme Customizer section.
@@ -226,7 +226,7 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-gallery__item--widget',
+								.c-noto__item--widget',
 						),
 					),
 				),
@@ -250,7 +250,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-gallery__item--widget.small',
+							'selector' => '.c-noto__item--widget.small',
 						),
 					),
 				),
@@ -1016,7 +1016,7 @@ endif;
 
 add_action( 'customize_preview_init', 'noto_meta_background_gradient_cb_customizer_preview', 20 );
 
-function themename_add_default_color_palette( $color_palettes ) {
+function noto_add_default_color_palette( $color_palettes ) {
 
 	$color_palettes = array_merge(array(
 		'default' => array(
@@ -1040,4 +1040,4 @@ function themename_add_default_color_palette( $color_palettes ) {
 
 	return $color_palettes;
 }
-add_filter( 'customify_get_color_palettes', 'themename_add_default_color_palette' );
+add_filter( 'customify_get_color_palettes', 'noto_add_default_color_palette' );

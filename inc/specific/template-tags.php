@@ -1,4 +1,12 @@
 <?php
+/**
+ * Custom template tags specific for this variation.
+ *
+ * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
+ *
+ * @package Noto
+ * @since 1.0.0
+ */
 
 if ( ! function_exists( 'pixelgrade_has_profile_photo' ) ) {
 	/**

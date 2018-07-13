@@ -33,7 +33,6 @@ add_action( 'after_setup_theme', 'noto_setup_components', 10 );
 function noto_customize_header_config( $config ) {
 	// Don't output empty markup in the header
 	$config['zones']['left']['display_blank'] = false;
-	$config['zones']['right']['display_blank'] = false;
 
 	return $config;
 }
