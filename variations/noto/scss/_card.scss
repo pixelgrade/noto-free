@@ -92,7 +92,7 @@
   color: $theme-accent-light-color;
   transform: translateY(-50%) translateX(-50%);
 
-  .c-gallery__item:not(.c-gallery__item--no-image) & {
+  .c-noto__item:not(.c-noto__item--no-image) & {
     display: none;
   }
 }
