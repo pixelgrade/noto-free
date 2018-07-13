@@ -15,27 +15,11 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 
 
 		/* Translators: If there are characters in your language that are not
-		* supported by IBM Plex Mono, translate this to 'off'. Do not translate
+		* supported by Bungee, translate this to 'off'. Do not translate
 		* into your own language.
 		*/
-		if ( 'off' !== esc_html_x( 'on', 'IMB Plex Mono font: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'IBM Plex Mono:500,500i';
-		}
-
-		/* Translators: If there are characters in your language that are not
-		* supported by IBM Plex Sans, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Sans: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'IBM Plex Sans:400,400i,500,500i,600,600i,700,700i';
-		}
-
-		/* Translators: If there are characters in your language that are not
-		* supported by IBM Plex Sans, translate this to 'off'. Do not translate
-		* into your own language.
-		*/
-		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Serif: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'IBM Plex Serif:300i';
+		if ( 'off' !== esc_html_x( 'on', 'Bungee font: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'Bungee';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
@@ -204,7 +188,7 @@ if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 	                'sidebar_args' => array(
                 		'name'          => esc_html__( 'Posts Grid Widgets', '__components_txtd' ),
                     	'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__components_txtd' ),
-	                    'before_widget' => '<div class="c-gallery__item c-gallery__item--widget %2$s"><section id="%1$s" class="widget">',
+	                    'before_widget' => '<div class="c-noto__item c-noto__item--widget %2$s"><section id="%1$s" class="widget">',
 	                    'after_widget' => '</section></div>',
 	                    'before_title'  => '<h2 class="widget__title h6"><span>',
 	                    'after_title'   => '</span></h2>',

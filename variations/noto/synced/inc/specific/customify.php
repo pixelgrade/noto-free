@@ -34,10 +34,10 @@ define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
 define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
 
-define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
-define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
-define( 'SM_BODY_FONT', 'IBM Plex Sans' );
-define( 'SM_LOGO_FONT', 'Bungee' );
+define( 'SM_HEADINGS_FONT', 'IBM Plex Sans, sans-serif' );
+define( 'SM_ACCENT_FONT', 'IBM Plex Sans, sans-serif' );
+define( 'SM_BODY_FONT', 'IBM Plex Sans, sans-serif' );
+define( 'SM_LOGO_FONT', 'Bungee, cursive' );
 
 /**
  * Add the Style Manager cross-theme Customizer section.
@@ -226,7 +226,7 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-gallery__item--widget',
+								.c-noto__item--widget',
 						),
 					),
 				),
@@ -250,7 +250,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-gallery__item--widget.small',
+							'selector' => '.c-noto__item--widget.small',
 						),
 					),
 				),

@@ -25,6 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="c-gallery__item  entry-header">
+<div class="c-noto__item  entry-header">
 	<h2 class="entry-title  u-page-title-color  h2"><?php the_archive_title(); ?></h2>
 </div>
