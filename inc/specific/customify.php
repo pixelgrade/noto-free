@@ -381,7 +381,6 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_body_text_font'           => array(
-					'selector' => 'body, .entry-footer .c-author__description',
 					'default' => array(
 						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',
@@ -474,8 +473,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, .h6,
 									.comment-reply-title a, .comment__metadata a, 
-									.edit-link a, .logged-in-as a, .reply a,
-									.c-author__footer',
+									.edit-link a, .logged-in-as a, .reply a',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
