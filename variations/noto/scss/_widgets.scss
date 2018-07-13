@@ -143,19 +143,11 @@
 // List Widgets
 %widget--list {
     @extend %widget-with-list;
-
-    a:hover {
-        color: inherit;
-    }
 }
 
 // Links Widgets
 %widget--links {
     @extend %widget-with-list;
-
-    a {
-        color: $theme-accent-color;
-    }
 }
 
 .widget_categories,

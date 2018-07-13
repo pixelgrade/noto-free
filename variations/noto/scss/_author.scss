@@ -47,10 +47,6 @@
     .c-author__description {
       opacity: 0.8;
     }
-
-    a {
-      text-decoration: none;
-    }
   }
 
   .c-author__avatar,
@@ -70,7 +66,6 @@
 
   // Box Styling
   .c-author {
-
     @include spacing(margin-top, 3rem);
     @include spacing(margin-bottom, 3rem);
     @include spacing(padding, 3rem);
@@ -80,7 +75,7 @@
 
   .c-author__avatar {
     display: block;
-    border-radius: 0px;
+    border-radius: 0;
     overflow: hidden;
     transform: rotate(-3deg);
 
@@ -108,7 +103,12 @@
 
   .c-author__links {
     a {
-      // color: $theme-accent-color;
+
+      &,
+      &:hover,
+      &:active {
+        color: inherit;
+      }
 
       .u-underlined-links & {
         text-decoration: none;

@@ -68,6 +68,16 @@
   a {
     @include meta-style;
 
+    &,
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+
+    .u-underlined-links & {
+      text-decoration: none;
+    }
+
     &:after {
       left: -2rem;
       right: -1rem;
@@ -180,12 +190,6 @@
   }
 }
 
-.header-category {
-  a {
-    text-decoration: none;
-  }
-}
-
 .header-meta {
 
   #primary & {
@@ -205,7 +209,16 @@
   }
 
   a {
-    text-decoration: none;
+
+    &,
+    &:hover,
+    &:active {
+      color: inherit;
+    }
+
+    .u-underlined-links & {
+      text-decoration: none;
+    }
   }
 }
 
