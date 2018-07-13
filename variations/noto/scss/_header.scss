@@ -3,7 +3,7 @@
   z-index: 100;
 }
 
-.c-branding a {
+.u-underlined-links .c-branding a {
   text-decoration: none;
 }
 
@@ -33,10 +33,16 @@
       height: 100%;
       padding: 1em;
 
-      text-decoration: none;
+      &,
+      &:hover,
+      &:active {
+        color: inherit;
+      }
+
+      .u-underlined-links & {
+        text-decoration: none;
+      }
     }
-
-
   }
 
   .menu-item-has-children {

@@ -178,8 +178,6 @@ function variation_change_customify_general_section( $section_options, $options 
 								.intro[class],
 								.c-author__name[class], 
 								.c-card:hover .c-card__excerpt,
-								.widget_nav_menu a, 
-								.widget_pages a,
 								.slick-dots .slick-active',
 						),
 						array(
