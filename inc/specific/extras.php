@@ -204,7 +204,7 @@ if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 	                'sidebar_args' => array(
                 		'name'          => esc_html__( 'Posts Grid Widgets', '__components_txtd' ),
                     	'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__components_txtd' ),
-	                    'before_widget' => '<div class="c-gallery__item c-gallery__item--widget %2$s"><section id="%1$s" class="widget">',
+	                    'before_widget' => '<div class="c-noto__item c-noto__item--widget %2$s"><section id="%1$s" class="widget">',
 	                    'after_widget' => '</section></div>',
 	                    'before_title'  => '<h2 class="widget__title h6"><span>',
 	                    'after_title'   => '</span></h2>',
@@ -283,8 +283,21 @@ remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
 add_filter( 'the_content', 'noto_add_tags_list', 18 );
 
 function noto_add_card_meta_decoration( $location ) { ?>
-
 	<div class="c-meta__decoration"></div>
-
 <?php }
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
+
+function noto_alter_archive_post_classes( $classes = array() ) {
+	$location = pixelgrade_get_location();
+
+	if ( pixelgrade_in_location( 'index blog post portfolio jetpack', $location, false ) && ! is_single() ) {
+	    $classes = array( 'c-noto__item', 'c-noto__item--post' );
+
+		if ( ! has_post_thumbnail() ) {
+			$classes[] = 'c-noto__item--no-image';
+		}
+	}
+
+    return $classes;
+}
+add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );

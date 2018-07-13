@@ -447,8 +447,8 @@ var Noto = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $noto = $container.find('.c-noto--body');
-            var $posts = $noto.children('.post');
-            var $widgets = $noto.children('.c-gallery__item--widget');
+            var $posts = $noto.children('.c-noto__item--post');
+            var $widgets = $noto.children('.c-noto__item--widget');
             // const postsCount = $posts.length + $widgets.length;
             // let maxCount = 0;
             //

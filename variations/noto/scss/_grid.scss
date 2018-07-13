@@ -145,7 +145,7 @@ $border-width: 2rem;
   .c-noto--body {
     overflow: hidden;
 
-    > .c-gallery__item {
+    > .c-noto__item {
       margin-top: 4rem;
       padding-left: 2rem;
       padding-right: 2rem;
@@ -229,7 +229,7 @@ $offset: 2;
     }
   }
 
-  .c-gallery__item--widget {
+  .c-noto__item--widget {
     margin-top: 50px;
     align-self: flex-start;
   }
@@ -292,7 +292,7 @@ $offset: 2;
     margin-left: auto;
   }
 
-  .c-gallery__item {
+  .c-noto__item {
 
     // Cards Positioning
     // ----------------------------------------
@@ -301,7 +301,7 @@ $offset: 2;
     &:nth-child(6) {
       grid-column: 19 / span 12;
 
-      &.post {
+      &.c-noto__item--post {
         padding-top: 50px;
 
         @include card-large;
@@ -332,7 +332,7 @@ $offset: 2;
       grid-row-end: span 2;
       align-self: center;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-large;
 
         .c-card__excerpt,
@@ -350,7 +350,7 @@ $offset: 2;
     &:nth-child(9) {
       grid-column: 22 / span 8;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-medium;
       }
     }
@@ -360,15 +360,15 @@ $offset: 2;
       align-self: flex-end;
       padding-top: 50px;
 
-      &.c-gallery__item--widget {
+      &.c-noto__item--widget {
         margin-bottom: 50px;
       }
 
-      &.c-gallery__item--widget + * + * + .post {
+      &.c-noto__item--widget + * + * + .post {
         margin-top: 0;
       }
 
-      &.post {
+      &.c-noto__item--post {
         @include card-large;
 
         .c-card__excerpt,
@@ -387,11 +387,11 @@ $offset: 2;
       align-self: flex-end;
       margin-top: 100px;
 
-      &.c-gallery__item--widget + * + * + .post {
+      &.c-noto__item--widget + * + * + .post {
         margin-top: 100px;
       }
 
-      &.post {
+      &.c-noto__item--post {
         @include card-large;
 
         .c-card__title {
@@ -419,7 +419,7 @@ $offset: 2;
       grid-column: 12 / span 5;
       margin-top: -100px;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-medium;
       }
     }
@@ -432,7 +432,7 @@ $offset: 2;
     &:nth-child(12n+15) {
       grid-column: 25 / span 7;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-medium;
       }
     }
@@ -442,7 +442,7 @@ $offset: 2;
       align-self: flex-end;
       margin-top: 100px;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-large;
 
         .c-card__excerpt,
@@ -461,7 +461,7 @@ $offset: 2;
       align-self: flex-end;
       margin-top: 50px;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-large;
 
         .c-card__excerpt,
@@ -484,7 +484,7 @@ $offset: 2;
       grid-column: 9 / span 7;
       margin-top: 0;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-medium;
       }
     }
@@ -499,7 +499,7 @@ $offset: 2;
       grid-column: 27 / span 5;
       margin-top: -100px;
 
-      &.post {
+      &.c-noto__item--post {
         @include card-medium;
       }
     }
@@ -507,7 +507,7 @@ $offset: 2;
     &:nth-child(8),
     &:nth-child(6n+12),
     &:nth-child(6n+14) {
-      &.post {
+      &.c-noto__item--post {
         @include card-align-right;
       }
     }
@@ -547,7 +547,7 @@ $offset: 2;
     order: -2;
   }
 
-  .c-gallery__item--post-it {
+  .c-noto__item--post-it {
     order: -1;
 
     @include above(lap) {

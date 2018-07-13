@@ -283,8 +283,21 @@ remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
 add_filter( 'the_content', 'noto_add_tags_list', 18 );
 
 function noto_add_card_meta_decoration( $location ) { ?>
-
 	<div class="c-meta__decoration"></div>
-
 <?php }
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
+
+function noto_alter_archive_post_classes( $classes = array() ) {
+	$location = pixelgrade_get_location();
+
+	if ( pixelgrade_in_location( 'index blog post portfolio jetpack', $location, false ) && ! is_single() ) {
+	    $classes = array( 'c-noto__item', 'c-noto__item--post' );
+
+		if ( ! has_post_thumbnail() ) {
+			$classes[] = 'c-noto__item--no-image';
+		}
+	}
+
+    return $classes;
+}
+add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
