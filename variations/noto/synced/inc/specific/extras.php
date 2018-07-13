@@ -269,7 +269,7 @@ function noto_add_tags_list( $content ) {
 	// Hide tag text for pages.
 	$add = ( 'post' === get_post_type() && is_singular( 'post' ) && is_main_query() );
 	if ( apply_filters( 'pixelgrade_add_tags_to_content', $add ) ) {
-		$tags_list = get_the_tag_list( '', ', ' );
+		$tags_list = get_the_tag_list();
 
 		if ( ! empty( $tags_list ) ) {
 			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', '__components_txtd' ) . sprintf( '</div>' . esc_html__( '%1$s', '__components_txtd' ) . '</div>', $tags_list ); // WPCS: XSS OK.
