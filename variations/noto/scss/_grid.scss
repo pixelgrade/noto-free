@@ -509,6 +509,21 @@ $offset: 2;
     &:nth-child(6n+14) {
       &.c-noto__item--post {
         @include card-align-right;
+
+        .wave-svg-mask {
+          direction: ltr;
+        }
+
+        .c-card:hover {
+          .c-card__title,
+          .wave-svg-mask {
+            transform: translateX($card-offset);
+          }
+
+          .wave-svg {
+            transform: translateX(-$card-offset);
+          }
+        }
       }
     }
   }
