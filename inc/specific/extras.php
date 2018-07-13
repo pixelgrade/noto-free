@@ -1,4 +1,12 @@
 <?php
+/**
+ * Custom functionality specific to this variation.
+ *
+ * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
+ *
+ * @package Noto
+ * @since 1.0.0
+ */
 
 if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 	/**
@@ -63,6 +71,9 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 endif;
 
 if ( ! function_exists( 'noto_output_wave_svg' ) ) :
+	/**
+	 * Output the wave card SVG code.
+	 */
 	function noto_output_wave_svg() {
 		get_template_part( 'template-parts/svg/wave-card-svg' );
 	}
@@ -70,6 +81,9 @@ endif;
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
 if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
+	/**
+	 *  Output the wave quote svg code in the footer.
+	 */
 	function noto_append_svg_to_footer() {
 		get_template_part( 'template-parts/svg/wave-quote-svg' );
 	}
@@ -77,13 +91,26 @@ endif;
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
 
 if ( ! function_exists( 'noto_hide_comments_by_default' ) ) {
+	/**
+	 * Prevent the comments from being shown by default.
+	 *
+	 * It will force the comments display control to be unchecked.
+	 *
+	 * @param string $string
+	 *
+	 * @return string
+	 */
 	function noto_hide_comments_by_default( $string ) {
-			return '';
+		return '';
 	}
 }
 add_filter( 'pixelgrade_get_comments_toggle_checked_attribute', 'noto_hide_comments_by_default' );
 
+/**
+ * Dequeue various scripts.
+ */
 function noto_dequeue_scripts() {
+	// Dequeue the Jetpack Social Menu Javascript as we don't need it.
 	wp_dequeue_style( 'jetpack-social-menu' );
 }
 add_action( 'wp_enqueue_scripts', 'noto_dequeue_scripts', 20 );
@@ -95,14 +122,13 @@ add_action( 'wp_enqueue_scripts', 'noto_dequeue_scripts', 20 );
  */
 function noto_mce_editor_buttons( $buttons ) {
 	array_unshift($buttons, 'styleselect' );
+
 	return $buttons;
 }
 add_filter( 'mce_buttons_2', 'noto_mce_editor_buttons' );
 
 /**
  * Add styles/classes to the "Styles" drop-down.
- *
- * @since Julia 1.0
  *
  * @see https://codex.wordpress.org/TinyMCE_Custom_Styles
  *
@@ -126,6 +152,11 @@ function noto_mce_before_init( $settings ) {
 add_filter( 'tiny_mce_before_init', 'noto_mce_before_init' );
 
 if ( ! function_exists( 'noto_get_the_reading_time_in_minutes' ) ) {
+	/**
+	 * Calculate the reading time in minutes for the current post's content.
+	 *
+	 * @return float
+	 */
 	function noto_get_the_reading_time_in_minutes() {
 		$words_per_minute = 200;
 		$words_per_second = $words_per_minute / 60;
@@ -152,7 +183,7 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 			// On archives we want to show all the categories, not just the main one
 			$categories = get_the_terms( get_the_ID(), 'category' );
 			if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-				$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__components_txtd' ) . '</span><ul>' . PHP_EOL;
+				$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
 				foreach ( $categories as $this_category ) {
 					$category .= '<li>' . PHP_EOL;
 					$category .= '<a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a>' . PHP_EOL;
@@ -177,10 +208,10 @@ if ( ! function_exists( 'noto_alter_header_component_config' ) ) {
 		$config = Pixelgrade_Config::merge( $config, array(
 			'menu_locations' => array(
 				'primary-left' => array(
-					'title'    => esc_html__( 'Header Top', '__components_txtd' ),
+					'title'    => esc_html__( 'Header Top', '__theme_txtd' ),
 				),
 				'primary-right'  => array(
-					'title'    => esc_html__( 'Header Bottom', '__components_txtd' ),
+					'title'    => esc_html__( 'Header Bottom', '__theme_txtd' ),
 					'nav_menu_args' => array(
 						
 					)
@@ -202,8 +233,8 @@ if ( ! function_exists( 'noto_alter_blog_component_config' ) ) {
 			'sidebars' => array(
                 'sidebar-1' => array(
 	                'sidebar_args' => array(
-                		'name'          => esc_html__( 'Posts Grid Widgets', '__components_txtd' ),
-                    	'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__components_txtd' ),
+                		'name'          => esc_html__( 'Posts Grid Widgets', '__theme_txtd' ),
+                    	'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__theme_txtd' ),
 	                    'before_widget' => '<div class="c-gallery__item c-gallery__item--widget %2$s"><section id="%1$s" class="widget">',
 	                    'after_widget' => '</section></div>',
 	                    'before_title'  => '<h2 class="widget__title h6"><span>',
@@ -247,8 +278,6 @@ add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_con
 /**
  * Change the Tag Cloud's Font Sizes.
  *
- * @since 1.0.0
- *
  * @param array $args
  *
  * @return array
@@ -272,7 +301,7 @@ function noto_add_tags_list( $content ) {
 		$tags_list = get_the_tag_list();
 
 		if ( ! empty( $tags_list ) ) {
-			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', '__components_txtd' ) . sprintf( '</div>' . esc_html__( '%1$s', '__components_txtd' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', '__theme_txtd' ) . sprintf( '</div>' . esc_html__( '%1$s', '__theme_txtd' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 

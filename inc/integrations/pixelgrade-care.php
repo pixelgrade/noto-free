@@ -1,6 +1,6 @@
 <?php
 /**
- * PixCare Compatibility File.
+ * Pixelgrade Care Compatibility File.
  *
  * @package Noto
  * @since Noto 1.0.0

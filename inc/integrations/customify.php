@@ -1,6 +1,6 @@
 <?php
 /**
- * Noto Customizer Options Config
+ * Noto Customizer Options Config.
  *
  * @package Noto
  * @since 1.0.0
@@ -12,13 +12,13 @@
  * The config can turn to be complex so is best to visit:
  * https://github.com/pixelgrade/customify
  *
- * @param array $options Contains the plugin's options array right before they are used, so edit with care
+ * @param array $options Contains the plugin's options array right before they are used, so edit with care.
  *
- * @return array The returned options are required, if you don't need options return an empty array
+ * @return array The returned options are required, if you don't need options return an empty array.
  */
 add_filter( 'customify_filter_fields', 'noto_add_customify_options', 11, 1 );
 
-// Modify Customify Config
+// Modify Customify Config.
 add_filter( 'pixelgrade_customify_general_section_options', 'noto_customify_general_section', 10, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'noto_customify_header_section', 10, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'noto_customify_main_content_section', 10, 2 );
@@ -37,50 +37,51 @@ define( 'THEME_SITE_TITLE_FONT', 'Roboto' );
 function noto_add_customify_options( $options ) {
 	$options['opt-name'] = 'noto_options';
 
-	//start with a clean slate - no Customify default sections
+	//start with a clean slate - no Customify default sections.
 	$options['sections'] = array();
 
 	return $options;
 }
 
 /**
- * Modify the Customify config for the General Section - from the Base component
+ * Modify the Customify config for the General Section - from the Base component.
  *
- * @param array $section_options The specific Customify config to be filtered
- * @param array $options The whole Customify config
+ * @param array $section_options The specific Customify config to be filtered.
+ * @param array $options The whole Customify config.
  *
- * @return array $general_section The modified specific config
+ * @return array $general_section The modified specific config.
  */
 function noto_customify_general_section( $section_options, $options ) {
 
 	$new_section_options = array(
-		// General
+		// Remove the General section default fields.
 		'general' => array(
 			'options' => array(
+				// empty.
 			),
 		),
 	);
 
-	// Now we merge the modified config with the original one
-	// Thus overwriting what we have changed
+	// Now we merge the modified config with the original one.
+	// Thus overwriting what we have changed.
 	$section_options = Pixelgrade_Config::merge( $section_options, $new_section_options );
 
 	return $section_options;
 }
 
 /**
- * Main Content Section
+ * Main Content Section.
  *
- * @param array $section_options The specific Customify config to be filtered
- * @param array $options The whole Customify config
+ * @param array $section_options The specific Customify config to be filtered.
+ * @param array $options The whole Customify config.
  *
- * @return array $main_content_section The modified specific config
+ * @return array $main_content_section The modified specific config.
  */
 function noto_customify_main_content_section( $section_options, $options ) {
 
 	$modified_config = array(
 
-		// Main Content
+		// Main Content.
 		'main_content' => array(
 			'options' => array(
 				'main_content_container_width'          => array(
@@ -102,7 +103,7 @@ function noto_customify_main_content_section( $section_options, $options ) {
 					'default' => '#F7F6F5',
 				),
 
-				// [Section] COLORS
+				// [Section] COLORS.
 				'main_content_page_title_color'         => array(
 					'default' => THEME_TEXT_COLOR,
 				),
@@ -119,7 +120,7 @@ function noto_customify_main_content_section( $section_options, $options ) {
 					'default' => 1,
 				),
 
-				// [Sub Section] Headings Color
+				// [Sub Section] Headings Color.
 				'main_content_heading_1_color'          => array(
 					'default' => THEME_TEXT_COLOR,
 				),
@@ -139,12 +140,12 @@ function noto_customify_main_content_section( $section_options, $options ) {
 					'default' => THEME_ACCENT_COLOR,
 				),
 
-				// [Sub Section] Backgrounds
+				// [Sub Section] Backgrounds.
 				'main_content_content_background_color' => array(
 					'default' => '#F5F6F1',
 				),
 
-				// [Section] FONTS
+				// [Section] FONTS.
 				'main_content_page_title_font'          => array(
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
@@ -188,7 +189,7 @@ function noto_customify_main_content_section( $section_options, $options ) {
 					),
 				),
 
-				// [Sub Section] Headings Fonts
+				// [Sub Section] Headings Fonts.
 				'main_content_heading_1_font'   => array(
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
@@ -258,20 +259,20 @@ function noto_customify_main_content_section( $section_options, $options ) {
 		),
 	);
 
-	// Now we merge the modified config with the original one
-	// Thus overwriting what we have changed
+	// Now we merge the modified config with the original one.
+	// Thus overwriting what we have changed.
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 	
 	return $section_options;
 }
 
 /**
- * Buttons Section
+ * Buttons Section.
  *
- * @param array $section_options The specific Customify config to be filtered
- * @param array $options The whole Customify config
+ * @param array $section_options The specific Customify config to be filtered.
+ * @param array $options The whole Customify config.
  *
- * @return array $main_content_section The modified specific config
+ * @return array $main_content_section The modified specific config.
  */
 function noto_customify_buttons_section( $section_options, $options ) {
 	$modified_config = array(
@@ -304,36 +305,36 @@ function noto_customify_buttons_section( $section_options, $options ) {
 		),
 	);
 
-	// Now we merge the modified config with the original one
-	// Thus overwriting what we have changed
+	// Now we merge the modified config with the original one.
+	// Thus overwriting what we have changed.
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
 
 /**
- * Blog Grid Section
+ * Blog Grid Section.
  *
- * @param array $section_options The specific Customify config to be filtered
- * @param array $options The whole Customify config
+ * @param array $section_options The specific Customify config to be filtered.
+ * @param array $options The whole Customify config.
  *
- * @return array $main_content_section The modified specific config
+ * @return array $main_content_section The modified specific config.
  */
 function noto_customify_blog_grid_section( $section_options, $options ) {
-	// First setup the default values
-	// These should always come from the theme, not relying on the component's defaults
+	// First setup the default values.
+	// These should always come from the theme, not relying on the component's defaults.
 	$modified_config = array(
-		// Blog Grid
+		// Blog Grid.
 		'blog_grid' => array(
 			'options' => array(
-				// [Section] Layout
+				// [Section] Layout.
 				'blog_grid_width'                    => array(
 					'default' => 1240,
 				),
 				'blog_container_sides_spacing'       => array(
 					'default' => 42,
 				),
-				// [Sub Section] Items Grid
+				// [Sub Section] Items Grid.
 				'blog_grid_layout'                   => array(
 					'default' => 'regular',
 				),
@@ -349,7 +350,7 @@ function noto_customify_blog_grid_section( $section_options, $options ) {
 				'blog_items_horizontal_spacing'      => array(
 					'default' => 32,
 				),
-				// [Sub Section] Items Title
+				// [Sub Section] Items Title.
 				'blog_items_title_position'          => array(
 					'default' => 'below',
 				),
@@ -359,15 +360,15 @@ function noto_customify_blog_grid_section( $section_options, $options ) {
 				'blog_items_title_alignment_overlay' => array(
 					'default' => 'middle-center',
 				),
-				// Title Visiblity
+				// Title Visiblity.
 				'blog_items_title_visibility'        => array(
 					'default' => 1,
 				),
-				// Excerpt Visiblity
+				// Excerpt Visiblity.
 				'blog_items_excerpt_visibility'      => array(
 					'default' => 1,
 				),
-				// [Sub Section] Items Meta
+				// [Sub Section] Items Meta.
 				'blog_items_primary_meta'            => array(
 					'default' => 'category',
 				),
@@ -375,7 +376,7 @@ function noto_customify_blog_grid_section( $section_options, $options ) {
 					'default' => 'date',
 				),
 
-				// [Section] COLORS
+				// [Section] COLORS.
 				'blog_item_title_color'              => array(
 					'default' => '#333131',
 				),
@@ -392,12 +393,12 @@ function noto_customify_blog_grid_section( $section_options, $options ) {
 					'default' => THEME_ACCENT_COLOR,
 				),
 
-				// [Sub Section] Thumbnail Hover
+				// [Sub Section] Thumbnail Hover.
 				'blog_item_thumbnail_hover_opacity'  => array(
 					'default' => 1,
 				),
 
-				// [Section] FONTS
+				// [Section] FONTS.
 				'blog_item_title_font'           => array(
 					'default' => array(
 						'font-family'    => THEME_HEADINGS_FONT,
@@ -432,27 +433,27 @@ function noto_customify_blog_grid_section( $section_options, $options ) {
 		),
 	);
 
-	// Now we merge the modified config with the original one
-	// Thus overwriting what we have changed
+	// Now we merge the modified config with the original one.
+	// Thus overwriting what we have changed.
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
 
 /**
- * Header Section
+ * Header Section.
  *
- * @param array $section_options The specific Customify config to be filtered
- * @param array $options The whole Customify config
+ * @param array $section_options The specific Customify config to be filtered.
+ * @param array $options The whole Customify config.
  *
- * @return array $main_content_section The modified specific config
+ * @return array $main_content_section The modified specific config.
  */
 function noto_customify_header_section( $section_options, $options ) {
 
 	$modified_config = array(
 		'header_section' => array(
 			'options' => array(
-				// [Section] Layout
+				// [Section] Layout.
 				'header_logo_height'              => array(
 					'default' => 30,
 				),
@@ -472,7 +473,7 @@ function noto_customify_header_section( $section_options, $options ) {
 					'default' => 42,
 				),
 
-				// [Section] COLORS
+				// [Section] COLORS.
 				'header_navigation_links_color'   => array(
 					'default' => '#323232',
 				),
@@ -486,7 +487,7 @@ function noto_customify_header_section( $section_options, $options ) {
 					'default' => '#F5F6F1',
 				),
 
-				// [Section] FONTS
+				// [Section] FONTS.
 				'header_site_title_font'          => array(
 					'default' => array(
 						'font-family'    => THEME_SITE_TITLE_FONT,
@@ -511,29 +512,29 @@ function noto_customify_header_section( $section_options, $options ) {
 		),
 	);
 
-	// Now we merge the modified config with the original one
-	// Thus overwriting what we have changed
+	// Now we merge the modified config with the original one.
+	// Thus overwriting what we have changed.
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;
 }
 
 /**
- * Footer Section
+ * Footer Section.
  *
- * @param array $section_options The specific Customify config to be filtered
- * @param array $options The whole Customify config
+ * @param array $section_options The specific Customify config to be filtered.
+ * @param array $options The whole Customify config.
  *
- * @return array $main_content_section The modified specific config
+ * @return array $main_content_section The modified specific config.
  */
 function noto_customify_footer_section( $section_options, $options ) {
-	// First setup the default values
-	// These should always come from the theme, not relying on the component's defaults
+	// First setup the default values.
+	// These should always come from the theme, not relying on the component's defaults.
 	$modified_config = array(
-		// Footer
+		// Footer.
 		'footer_section' => array(
 			'options' => array(
-				// [Section] Layout
+				// [Section] Layout.
 				'copyright_text'               => array(
 					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
 				),
@@ -567,8 +568,8 @@ function noto_customify_footer_section( $section_options, $options ) {
 		),
 	);
 
-	// Now we merge the modified config with the original one
-	// Thus overwriting what we have changed
+	// Now we merge the modified config with the original one.
+	// Thus overwriting what we have changed.
 	$section_options = Pixelgrade_Config::merge( $section_options, $modified_config );
 
 	return $section_options;

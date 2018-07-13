@@ -25,9 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! pixelgrade_header_is_valid_config() ) {
 	return;
 }
-?>
 
-<?php
 $zones = pixelgrade_header_get_zones();
 unset( $zones['middle'] );
 unset( $zones['right'] );
@@ -87,4 +85,4 @@ foreach ( $zones as $zone_id => $zone ) {
 		<?php echo $output; ?>
 	</div><!-- .c-navbar__zone -->
 
-<?php } ?>
+<?php }

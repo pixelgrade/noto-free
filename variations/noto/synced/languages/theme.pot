@@ -2615,15 +2615,15 @@ msgstr ""
 msgid "Share:"
 msgstr ""
 #. Theme Name of the plugin/theme
-msgid "Julia"
+msgid "Noto"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://demos.pixelgrade.com/julia/"
+msgid "https://demos.pixelgrade.com/noto/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "A food blogging theme tailored on those who want to reach their creative potential and build a digital path."
+msgid "A awesome theme."
 msgstr ""
 
 #. Author of the plugin/theme
