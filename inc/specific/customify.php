@@ -205,7 +205,32 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-footer-layers__accent,
-								.c-card__action:before',
+								.c-card__action:before,
+								.c-comments-toggle__label:before,
+								.cats a:before,
+								.comment-respond .submit:before',
+						),
+						array(
+							'property' => 'border-color',
+							'selector' => '
+								input[type=date]:active, 
+								input[type=date]:focus, 
+								input[type=email]:active, 
+								input[type=email]:focus, 
+								input[type=number]:active, 
+								input[type=number]:focus, 
+								input[type=password]:active, 
+								input[type=password]:focus, 
+								input[type=search]:active, 
+								input[type=search]:focus, 
+								input[type=tel]:active, 
+								input[type=tel]:focus, 
+								input[type=text]:active, 
+								input[type=text]:focus, 
+								input[type=url]:active, 
+								input[type=url]:focus
+								select:active, 
+								select:focus',
 						),
 					),
 				),
@@ -226,7 +251,8 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-gallery__item--widget',
+								.c-noto__item--widget,
+								.entry-footer .c-author',
 						),
 					),
 				),
@@ -250,7 +276,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-gallery__item--widget.small',
+							'selector' => '.c-noto__item--widget.small',
 						),
 					),
 				),
@@ -317,13 +343,18 @@ function variation_change_customify_main_content_section( $section_options, $opt
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.c-card .wave-svg-mask,
-							.c-reading-progress',
+							'selector' => '.c-reading-progress',
 						),
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_PRIMARY
+					'default' => SM_DARK_PRIMARY,
+					'css' => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-card .wave-svg-mask'
+						),
+					),
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
@@ -335,7 +366,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'default' => SM_DARK_PRIMARY
 				),
 				'main_content_underlined_body_links'    => array(
-					'default' => SM_DARK_PRIMARY
+					'default' => true
 				),
 				'main_content_heading_1_color'          => array(
 					'default' => SM_DARK_PRIMARY
@@ -473,7 +504,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, .h6,
 									.comment-reply-title a, .comment__metadata a, 
-									.edit-link a, .logged-in-as a, .reply a',
+									.edit-link a, .logged-in-as a, .reply a,
+									.c-author__links',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
 						'font-weight'    => '500',
