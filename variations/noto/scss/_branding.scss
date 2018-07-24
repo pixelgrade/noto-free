@@ -241,6 +241,17 @@ $header-vertical-position-top: 25px;
     }
 }
 
+.profile-photo-link {
+    transform: translateZ(0);
+
+    svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        background-color: $sm-light-primary;
+    }
+}
+
 .profile-photo-link__label,
 .profile-photo-link__label:after {
     position: absolute;
@@ -250,7 +261,7 @@ $header-vertical-position-top: 25px;
     height: 100%;
 }
 
-.profile-photo-link {
+.profile-photo-link--admin {
     position: relative;
 
     &[class] {

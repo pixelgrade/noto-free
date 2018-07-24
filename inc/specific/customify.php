@@ -367,7 +367,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 								.c-search-overlay,
 								.c-reading-progress,
 								.page .header:after, 
-								.single .header:after'
+								.single .header:after,
+								.profile-photo-link--admin svg'
 						),
 						array(
 							'property' => 'color',

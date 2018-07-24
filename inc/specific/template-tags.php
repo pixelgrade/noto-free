@@ -79,10 +79,22 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			);
 		} else {
 			// If no profile picture is set, leave a placeholder (needed for the live preview).
-			$html = sprintf( '<a href="%1$s" class="profile-photo-link  profile-photo-link--default"><img class="profile-photo" src="' . get_template_directory_uri() . '/assets/images/profile-photo.png"/><div class="profile-photo-link__label"><span>%2$s</span></div></a>',
-				esc_url( admin_url( '/customize.php?autofocus[section]=title_tagline' ) ),
-				__( 'Add Profile Photo', '__theme_txtd' )
-			);
+			$url = esc_url( home_url( '/' ) );
+			$classname = 'profile-photo-link--default';
+			$label = '';
+
+			if ( is_user_logged_in() ) {
+				$url = esc_url( admin_url( '/customize.php?autofocus[section]=title_tagline' ) );
+				$label = '<div class="profile-photo-link__label"><span>' . __( 'Add Profile Photo', '__theme_txtd' ) . '</span></div>';
+				$classname .= '  profile-photo-link--admin';
+			}
+
+			ob_start();
+			get_template_part( 'assets/images/profile-photo' );
+			$image = ob_get_contents();
+			ob_end_clean();
+
+			$html = sprintf( '<a href="%1$s" class="profile-photo-link  '. $classname .'">' . $image . $label . '</a>', $url);
 		}
 
 		if ( $switched_blog ) {

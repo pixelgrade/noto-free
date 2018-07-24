@@ -26,13 +26,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="c-branding">
 
-		<?php if ( pixelgrade_has_profile_photo() || is_user_logged_in() ) { ?>
-            <div class="c-profile-photo">
-                <div class="c-profile-photo__default">
-                    <?php pixelgrade_the_profile_photo(); ?>
-                </div>
+        <div class="c-profile-photo">
+            <div class="c-profile-photo__default">
+                <?php pixelgrade_the_profile_photo(); ?>
             </div>
-		<?php } ?>
+        </div>
 
         <?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() ) { ?>
             <div class="c-logo">
