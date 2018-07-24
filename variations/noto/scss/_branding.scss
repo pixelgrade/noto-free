@@ -111,7 +111,10 @@ $header-vertical-position-top: 25px;
             background: $theme-accent-lighter-color;
         }
 
-        * + .c-logo,
+        * + .c-logo {
+            margin-top: 1.5em;
+        }
+
         * + .c-logo__title,
         * + .site-description {
             margin-top: 1em;
@@ -120,6 +123,11 @@ $header-vertical-position-top: 25px;
         .site-description {
             font-size: 17/15 * 1em;
             line-height: (26/17);
+        }
+
+
+        .c-logo__title {
+            margin-bottom: -0.5em;
         }
     }
 
