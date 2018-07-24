@@ -134,3 +134,10 @@ hr {
 p.small {
   font-size: 87%;
 }
+
+.highlight {
+  padding: 0 0.5em;
+
+  border-radius: 0 1em 0 1em;
+  background-image: linear-gradient( to right, $sm-light-quaternary 30%, transparent);
+}
