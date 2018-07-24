@@ -34,10 +34,10 @@ define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
 define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
 
-define( 'SM_HEADINGS_FONT', 'IBM Plex Sans, sans-serif' );
-define( 'SM_ACCENT_FONT', 'IBM Plex Sans, sans-serif' );
-define( 'SM_BODY_FONT', 'IBM Plex Sans, sans-serif' );
-define( 'SM_LOGO_FONT', 'Bungee, cursive' );
+define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
+define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
+define( 'SM_BODY_FONT', 'IBM Plex Sans' );
+define( 'SM_LOGO_FONT', 'Bungee' );
 
 /**
  * Add the Style Manager cross-theme Customizer section.
