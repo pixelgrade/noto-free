@@ -313,12 +313,13 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'css' => array(
 						array(
 							'property' => 'background-color',
-							'selector' => 'body.u-content-background',
+							'selector' => 'body.u-content-background,
+								.profile-photo-link__label:after',
 						),
 						array(
 							'property' => 'color',
 							'selector' => '.c-card .wave-svg-mask,
-							.c-reading-progress',
+								.c-reading-progress',
 						),
 					),
 				),
@@ -367,6 +368,10 @@ function variation_change_customify_main_content_section( $section_options, $opt
 								.c-reading-progress,
 								.page .header:after, 
 								.single .header:after'
+						),
+						array(
+							'property' => 'color',
+							'selector' => '.profile-photo-link__label'
 						),
 					),
 				),

@@ -222,3 +222,59 @@ $header-vertical-position-top: 25px;
         margin-top: 1em;
     }
 }
+
+.profile-photo-link__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $sm-light-primary;
+
+    &:after {
+        content: "";
+        background: $sm-dark-secondary;
+    }
+
+    span {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+.profile-photo-link__label,
+.profile-photo-link__label:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-photo-link {
+    position: relative;
+
+    &[class] {
+        cursor: pointer !important;
+    }
+
+    .profile-photo-link__label,
+    .profile-photo-link__label:after {
+        opacity: 0;
+    }
+
+    .profile-photo-link__label,
+    .profile-photo-link__label:after {
+        transition: opacity .3s ease-in-out;
+    }
+
+    &:hover {
+
+        .profile-photo-link__label:after {
+            opacity: 0.5;
+        }
+
+        .profile-photo-link__label {
+            opacity: 1;
+        }
+    }
+}

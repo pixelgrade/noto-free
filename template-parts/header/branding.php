@@ -26,33 +26,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="c-branding">
 
-		<?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() || pixelgrade_has_profile_photo() ) { ?>
-
-			<div class="c-profile-photo">
-				<?php if ( pixelgrade_has_profile_photo() ) { ?>
-					<div class="c-profile-photo__default">
-						<?php pixelgrade_the_profile_photo(); ?>
-					</div>
-				<?php } ?>
-			</div>
-
-            <?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() ) { ?>
-                <div class="c-logo">
-                    <?php if ( has_custom_logo() ) { ?>
-                        <div class="c-logo__default">
-                            <?php the_custom_logo(); ?>
-                        </div>
-                    <?php } ?>
-
-                    <?php if ( pixelgrade_has_custom_logo_transparent() ) { ?>
-                        <div class="c-logo__inverted">
-                            <?php pixelgrade_the_custom_logo_transparent(); ?>
-                        </div>
-                    <?php } ?>
+		<?php if ( pixelgrade_has_profile_photo() || is_user_logged_in() ) { ?>
+            <div class="c-profile-photo">
+                <div class="c-profile-photo__default">
+                    <?php pixelgrade_the_profile_photo(); ?>
                 </div>
-            <?php } ?>
-
+            </div>
 		<?php } ?>
+
+        <?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() ) { ?>
+            <div class="c-logo">
+                <?php if ( has_custom_logo() ) { ?>
+                    <div class="c-logo__default">
+                        <?php the_custom_logo(); ?>
+                    </div>
+                <?php } ?>
+
+                <?php if ( pixelgrade_has_custom_logo_transparent() ) { ?>
+                    <div class="c-logo__inverted">
+                        <?php pixelgrade_the_custom_logo_transparent(); ?>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+
 
 		<a class="c-logo__title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<?php if ( is_front_page() || is_home() ) : ?>

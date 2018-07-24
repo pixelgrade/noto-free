@@ -77,10 +77,11 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 				esc_url( home_url( '/' ) ),
 				wp_get_attachment_image( $profile_photo_id, 'full', false, $profile_photo_attr )
 			);
-		} // If no logo is set but we're in the Customizer, leave a placeholder (needed for the live preview).
-		elseif ( is_customize_preview() ) {
-			$html = sprintf( '<a href="%1$s" class="profile-photo-link" style="display:none;"><img class="profile-photo"/></a>',
-				esc_url( home_url( '/' ) )
+		} else {
+			// If no profile picture is set, leave a placeholder (needed for the live preview).
+			$html = sprintf( '<a href="%1$s" class="profile-photo-link  profile-photo-link--default"><img class="profile-photo" src="' . get_template_directory_uri() . '/assets/images/profile-photo.png"/><div class="profile-photo-link__label"><span>%2$s</span></div></a>',
+				esc_url( admin_url( '/customize.php?autofocus[section]=title_tagline' ) ),
+				__( 'Add Profile Photo', '__theme_txtd' )
 			);
 		}
 
