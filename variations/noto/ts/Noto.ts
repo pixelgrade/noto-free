@@ -53,25 +53,10 @@ export class Noto extends BaseTheme {
         }
     }
 
-    public updateCardsPosition($container: JQuery = this.$body) {
+    public insertWidgetsBetweenPosts($container: JQuery = this.$body) {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.c-noto__item--post' );
-        const $widgets = $noto.children( '.c-noto__item--widget' ); 
-        // const postsCount = $posts.length + $widgets.length;
-
-        // let maxCount = 0;
-        //
-        // if ( postsCount > 3 ) {
-        //     maxCount = 1;
-        // }
-
-        //          3,  4
-        //  7,  8,  9, 10
-        // 13, 14, 15, 16
-
-        // P P W W P P W W W W P P W W W W
-
-        // $widgets.remove();
+        const $widgets = $noto.children( '.c-noto__item--widget' );
 
         let w = 0;
 
@@ -81,26 +66,67 @@ export class Noto extends BaseTheme {
                 break;
             }
 
-            if ( ( p > 1 && p % 6 === 1 ) ||
-                 ( p > 2 && p % 6 === 2 ) ||
-                 ( p > 3 && p % 6 === 3 ) ||
-                 p % 6 === 4 ) {
-
-                // console.log(p, $posts.slice(p - 1, p) );
-
+            if ( ( p % 12 === 8 ) || ( p % 12 === 4 ) ) {
                 const $widget = ( $widgets as JQueryExtended ).splice(0, 1);
                 const $post = $posts.slice(p - w - 1, p - w);
 
                 $post.before( $widget );
-
                 w++;
             }
         }
+    }
 
-        // $widgets.each( ( i, obj ) => {
-        //     const $widget = $( obj );
-        //     $widget.insertAfter( $posts.eq( i * step ) );
-        // } );
+    public adjustPostsMargins($container: JQuery = this.$body) {
+        const $noto = $container.find( '.c-noto--body' );
+        const $posts = $noto.children( '.c-noto__item' );
+
+        for ( let p = 0; p < $posts.length; p++ ) {
+            const $post = $posts.slice(p - 1, p);
+            let $target;
+
+            if (
+                p % 12 === 7 ||
+                p % 12 === 8 ||
+                ( p > 0 && p % 12 === 0 ) ||
+                ( p > 3 && p % 12 === 3 ) ) {
+            }
+
+            if ( p % 12 === 8 || p % 12 === 9 ) {
+
+                $target = $( $posts.get( p - 4 ) );
+
+                if ( $target.is( '.c-noto__item--post' ) ) {
+                    const targetOffset = $target.find( '.c-card__excerpt' ).offset().top;
+                    const currentOffset = $post.offset().top;
+                    const marginTop = targetOffset - currentOffset;
+                    $post.css( 'marginTop', marginTop );
+                }
+            }
+
+            if ( p > 1 && p % 12 === 1 ) {
+
+                $target = $( $posts.get( p - 3 ) );
+
+                if ( $target.is( '.c-noto__item--post' ) ) {
+                    const targetOffset = $target.find( '.c-card__excerpt' ).offset().top;
+                    const currentOffset = $post.offset().top;
+                    const marginTop = targetOffset - currentOffset;
+                    $post.css( 'marginTop', marginTop );
+                }
+            }
+
+            if ( p > 4 && p % 12 === 4 ) {
+
+                $target = $( $posts.get( p - 5 ) );
+
+                if ( $target.is( '.c-noto__item--post' ) ) {
+                    const targetOffset = $target.find( '.c-card__excerpt' ).offset().top;
+                    const currentOffset = $post.offset().top;
+                    const marginTop = targetOffset - currentOffset;
+                    $post.css( 'marginTop', marginTop );
+                }
+            }
+        }
     }
 
     public bindEvents() {
@@ -182,7 +208,9 @@ export class Noto extends BaseTheme {
         this.appendSvgToIntro($container);
         this.appendSvgToBlockquote($container);
         this.eventHandlers($container);
-        this.updateCardsPosition($container);
+
+        this.insertWidgetsBetweenPosts($container);
+        this.adjustPostsMargins($container);
 
         $container.find('.sharedaddy').each((i, obj) => {
             const $sharedaddy = $(obj);
