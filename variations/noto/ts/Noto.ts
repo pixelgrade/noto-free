@@ -78,52 +78,42 @@ export class Noto extends BaseTheme {
 
     public adjustPostsMargins($container: JQuery = this.$body) {
         const $noto = $container.find( '.c-noto--body' );
-        const $posts = $noto.children( '.c-noto__item' );
+        const $posts = $noto.children( '.c-noto__item' ).not( '.c-noto__item--post-it' );
 
         for ( let p = 0; p < $posts.length; p++ ) {
             const $post = $posts.slice(p - 1, p);
             let $target;
 
-            if (
-                p % 12 === 7 ||
-                p % 12 === 8 ||
-                ( p > 0 && p % 12 === 0 ) ||
-                ( p > 3 && p % 12 === 3 ) ) {
-            }
-
             if ( p % 12 === 8 || p % 12 === 9 ) {
-
                 $target = $( $posts.get( p - 4 ) );
-
                 if ( $target.is( '.c-noto__item--post' ) ) {
                     const targetOffset = $target.find( '.c-card__excerpt' ).offset().top;
                     const currentOffset = $post.offset().top;
-                    const marginTop = targetOffset - currentOffset;
-                    $post.css( 'marginTop', marginTop );
+                    const oldMarginTop = parseInt( $post.css( 'marginTop' ), 10 );
+                    const newMarginTop = targetOffset - currentOffset + oldMarginTop;
+                    $post.css('marginTop', newMarginTop );
                 }
             }
 
             if ( p > 1 && p % 12 === 1 ) {
-
                 $target = $( $posts.get( p - 3 ) );
-
                 if ( $target.is( '.c-noto__item--post' ) ) {
                     const targetOffset = $target.find( '.c-card__excerpt' ).offset().top;
                     const currentOffset = $post.offset().top;
-                    const marginTop = targetOffset - currentOffset;
-                    $post.css( 'marginTop', marginTop );
+                    const oldMarginTop = parseInt( $post.css( 'marginTop' ), 10 );
+                    const newMarginTop = targetOffset - currentOffset + oldMarginTop;
+                    $post.css('marginTop', newMarginTop );
                 }
             }
 
             if ( p > 4 && p % 12 === 4 ) {
-
                 $target = $( $posts.get( p - 5 ) );
-
                 if ( $target.is( '.c-noto__item--post' ) ) {
                     const targetOffset = $target.find( '.c-card__excerpt' ).offset().top;
                     const currentOffset = $post.offset().top;
-                    const marginTop = targetOffset - currentOffset;
-                    $post.css( 'marginTop', marginTop );
+                    const oldMarginTop = parseInt( $post.css( 'marginTop' ), 10 );
+                    const newMarginTop = targetOffset - currentOffset + oldMarginTop;
+                    $post.css('marginTop', newMarginTop );
                 }
             }
         }
@@ -198,12 +188,29 @@ export class Noto extends BaseTheme {
         });
     }
 
+    public autoStyleIntro() {
+        const $body = $( 'body' );
+        const $content = $( '.content-area' );
+
+        if ( ! $body.is( '.u-intro-autostyle' ) ) {
+            return;
+        }
+
+        const $firstElement = $content.children().not( 'div' ).first();
+
+        if ( ( $firstElement ).is( 'p' ) ) {
+            $firstElement.addClass( 'intro' );
+        }
+    }
+
     public handleContent($container: JQuery = this.$body) {
 
         Helper.unwrapImages($container.find('.entry-content'));
         Helper.wrapEmbeds($container.find('.entry-content'));
         Helper.handleVideos($container);
         Helper.handleCustomCSS($container);
+
+        this.autoStyleIntro();
 
         this.appendSvgToIntro($container);
         this.appendSvgToBlockquote($container);
