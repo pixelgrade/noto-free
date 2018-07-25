@@ -468,18 +468,18 @@ var Noto = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $noto = $container.find('.c-noto--body');
-            var $posts = $noto.children('.c-noto__item');
+            var $posts = $noto.children('.c-noto__item').not('.c-noto__item--post-it');
             for (var p = 0; p < $posts.length; p++) {
                 var $post = $posts.slice(p - 1, p);
                 var $target = void 0;
-                if (p % 12 === 7 || p % 12 === 8 || p > 0 && p % 12 === 0 || p > 3 && p % 12 === 3) {}
                 if (p % 12 === 8 || p % 12 === 9) {
                     $target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()($posts.get(p - 4));
                     if ($target.is('.c-noto__item--post')) {
                         var targetOffset = $target.find('.c-card__excerpt').offset().top;
                         var currentOffset = $post.offset().top;
-                        var marginTop = targetOffset - currentOffset;
-                        $post.css('marginTop', marginTop);
+                        var oldMarginTop = parseInt($post.css('marginTop'), 10);
+                        var newMarginTop = targetOffset - currentOffset + oldMarginTop;
+                        $post.css('marginTop', newMarginTop);
                     }
                 }
                 if (p > 1 && p % 12 === 1) {
@@ -487,8 +487,9 @@ var Noto = function (_BaseTheme) {
                     if ($target.is('.c-noto__item--post')) {
                         var _targetOffset = $target.find('.c-card__excerpt').offset().top;
                         var _currentOffset = $post.offset().top;
-                        var _marginTop = _targetOffset - _currentOffset;
-                        $post.css('marginTop', _marginTop);
+                        var _oldMarginTop = parseInt($post.css('marginTop'), 10);
+                        var _newMarginTop = _targetOffset - _currentOffset + _oldMarginTop;
+                        $post.css('marginTop', _newMarginTop);
                     }
                 }
                 if (p > 4 && p % 12 === 4) {
@@ -496,8 +497,9 @@ var Noto = function (_BaseTheme) {
                     if ($target.is('.c-noto__item--post')) {
                         var _targetOffset2 = $target.find('.c-card__excerpt').offset().top;
                         var _currentOffset2 = $post.offset().top;
-                        var _marginTop2 = _targetOffset2 - _currentOffset2;
-                        $post.css('marginTop', _marginTop2);
+                        var _oldMarginTop2 = parseInt($post.css('marginTop'), 10);
+                        var _newMarginTop2 = _targetOffset2 - _currentOffset2 + _oldMarginTop2;
+                        $post.css('marginTop', _newMarginTop2);
                     }
                 }
             }

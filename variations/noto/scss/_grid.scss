@@ -229,12 +229,7 @@ $offset: 2;
     }
   }
 
-  .c-noto__item--widget {
-    align-self: flex-start;
-  }
-
-  // (?)
-  & > .entry-header {
+  > .entry-header {
     grid-row-start: 4;
     grid-column-end: span 11;
     padding-bottom: 8rem;
@@ -288,6 +283,8 @@ $offset: 2;
   }
 
   .c-noto__item {
+    margin-top: 50px;
+    align-self: flex-start;
 
     // Cards Positioning
     // ----------------------------------------
