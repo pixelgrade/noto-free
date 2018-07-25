@@ -320,13 +320,13 @@ add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
 /**
  * Add specific classes for Body.
  */
-function noto_body_classes( $classes ) {
+function noto_alter_body_classes( $classes ) {
 
-	if ( is_single() && pixelgrade_option( 'single_disable_autostyle_titles', false ) ) {
+	if ( is_single() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
 		$classes[] = 'u-intro-autostyle';
 	}
 
 	return $classes;
 }
 
-add_filter( 'body_class', 'noto_body_classes' );
+add_filter( 'body_class', 'noto_alter_body_classes', 20, 1 );

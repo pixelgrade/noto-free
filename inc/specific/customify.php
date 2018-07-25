@@ -147,7 +147,7 @@ function variation_change_customify_general_section( $section_options, $options 
 		// General
 		'general' => array(
 			'options' => array(
-				'single_disable_autostyle_titles' => array(
+				'single_disable_intro_autostyle' => array(
 					'type'              => 'checkbox',
 					'label'             => esc_html__( 'Disable auto-style first paragraph', '__theme_txtd' ),
 					'default'           => false,
