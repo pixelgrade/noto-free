@@ -299,6 +299,9 @@ function noto_add_card_meta_decoration( $location ) { ?>
 <?php }
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
 
+/**
+ * Add specific classes for Archive page
+ */
 function noto_alter_archive_post_classes( $classes = array() ) {
 	$location = pixelgrade_get_location();
 
@@ -313,3 +316,17 @@ function noto_alter_archive_post_classes( $classes = array() ) {
 	return $classes;
 }
 add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
+
+/**
+ * Add specific classes for Body.
+ */
+function noto_alter_body_classes( $classes ) {
+
+	if ( is_single() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
+		$classes[] = 'u-intro-autostyle';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'noto_alter_body_classes', 20, 1 );

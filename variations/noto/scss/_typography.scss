@@ -52,9 +52,9 @@ tbody {
 // CUSTOM THEME STYLES
 // ========================================
 
-.intro[class],
-.not-entry-content > p:first-child // Auto-styling the first paragraph (in-progress)
-{
+// Auto-styling the first paragraph
+// Add .intro class through Javascript
+.intro[class] {
   font-size: (28/18) * 1em;
   line-height: 1.25em;
   color: $theme-accent-color;
