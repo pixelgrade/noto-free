@@ -84,7 +84,7 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			$label = '';
 
 			if ( is_user_logged_in() ) {
-				$url = esc_url( admin_url( '/customize.php?autofocus[section]=title_tagline' ) );
+				$url = esc_url( admin_url( '/customize.php?autofocus[section]=noto_options[general]' ) );
 				$label = '<div class="profile-photo-link__label"><span>' . __( 'Add Profile Photo', '__theme_txtd' ) . '</span></div>';
 				$classname .= '  profile-photo-link--admin';
 			}

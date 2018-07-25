@@ -152,34 +152,38 @@ function variation_change_customify_general_section( $section_options, $options 
 					'label'             => esc_html__( 'Disable auto-style first paragraph on articles', '__theme_txtd' ),
 					'default'           => false,
 				),
-				'general_title_badge_section'     => array(
+				'general_title_post_it_section'     => array(
 					'type' => 'html',
-					'html' => '<span id="section-title-general-badge" class="separator sub-section label">&#x1F3F7; ' . esc_html__( 'Post-it Note', '__theme_txtd' ) . '</span><span class="description customize-control-description">A welcome message to your readers that will appear near the logo on the Front Page.</span>',
+					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1F3F7; ' . esc_html__( 'Post-it Note', '__theme_txtd' ) . '</span><span class="description customize-control-description">A welcome message to your readers that will appear near the logo on the Front Page.</span>',
+					'show_if' => array(
+						'id' => 'archive_post_it_disable',
+						'value' => 0,
+					)
 				),
-				'archive_badge_title' => array(
+				'archive_post_it_title' => array(
 					'type'              => 'text',
 					'label'             => esc_html__( 'Note Title', '__theme_txtd' ),
 					'desc'              => esc_html__( '', '__theme_txtd' ),
 					'default'           => 'Hello!',
-					'live'              => array( '.c-badge__title' ),
+					'live'              => array( '.c-post-it__title' ),
 					'show_if' => array(
-						'id' => 'archive_badge_disable',
+						'id' => 'archive_post_it_disable',
 						'value' => 0,
 					)
 				),
-				'archive_badge_content' => array(
+				'archive_post_it_content' => array(
 					'type'              => 'textarea',
 					'label'             => esc_html__( 'Note Content', '__theme_txtd' ),
 					'desc'              => esc_html__( '', '__theme_txtd' ),
-					'default'           => '<p>Welcome to my blog! Check out the <a href="#">latest post</a>, browse the highlights or <a href="#">reach me</a> to say Hi!</p>',
+					'default'           => '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="#contact">reach me</a> to say Hi!</p>',
 					'sanitize_callback' => 'wp_kses_post',
-					'live'              => array( '.c-badge__content' ),
+					'live'              => array( '.c-post-it__content' ),
 					'show_if' => array(
-						'id' => 'archive_badge_disable',
+						'id' => 'archive_post_it_disable',
 						'value' => 0,
 					)
 				),
-				'archive_badge_disable' => array(
+				'archive_post_it_disable' => array(
 					'type'              => 'checkbox',
 					'label'             => esc_html__( 'Hide Post-it Note', '__theme_txtd' ),
 					'default'           => false,
