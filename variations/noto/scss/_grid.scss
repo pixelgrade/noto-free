@@ -230,7 +230,6 @@ $offset: 2;
   }
 
   .c-noto__item--widget {
-    margin-top: 50px;
     align-self: flex-start;
   }
 
@@ -253,9 +252,7 @@ $offset: 2;
     // Front Page
     body:not(.single):not(.page) & {
       grid-column: start / 12;
-      grid-row: 1 / 4;
-
-      margin-bottom: 50px;
+      grid-row: 1 / 3;
     }
 
     // Inner Pages
@@ -272,7 +269,6 @@ $offset: 2;
     grid-row: 1 / 2;
   }
 
-
   // Footer
   .site-footer {
     grid-column: 1 / -1;
@@ -282,7 +278,6 @@ $offset: 2;
     padding-left: 6rem;
     padding-right: 6rem;
   }
-
 
   // Others
   // Pagination
@@ -302,7 +297,6 @@ $offset: 2;
       grid-column: 19 / span 12;
 
       &.c-noto__item--post {
-        padding-top: 50px;
 
         @include card-large;
 
@@ -319,10 +313,6 @@ $offset: 2;
 
         .c-card__title {
           text-align: right;
-        }
-
-        .c-card__content {
-          padding-bottom: 50px;
         }
       }
     }
@@ -344,7 +334,6 @@ $offset: 2;
 
     &:nth-child(8) {
       grid-column: 15 / span 5;
-      margin-top: -100px;
     }
 
     &:nth-child(9) {
@@ -357,16 +346,6 @@ $offset: 2;
 
     &:nth-child(12n+10) {
       grid-column: start / span 13;
-      align-self: flex-end;
-      padding-top: 50px;
-
-      &.c-noto__item--widget {
-        margin-bottom: 50px;
-      }
-
-      &.c-noto__item--widget + * + * + .post {
-        margin-top: 0;
-      }
 
       &.c-noto__item--post {
         @include card-large;
@@ -375,21 +354,12 @@ $offset: 2;
         .c-card__footer {
           margin-right: percentage(5/13);
         }
-
-        .c-card__content {
-          padding-bottom: 100px;
-        }
       }
     }
 
     &:nth-child(12n+11) {
       grid-column: 19 / span 13;
       align-self: flex-end;
-      margin-top: 100px;
-
-      &.c-noto__item--widget + * + * + .post {
-        margin-top: 100px;
-      }
 
       &.c-noto__item--post {
         @include card-large;
@@ -404,10 +374,6 @@ $offset: 2;
         .c-card__footer {
           margin-left: percentage(7/13);
         }
-
-        .c-card__content {
-          padding-bottom: 50px;
-        }
       }
     }
 
@@ -417,7 +383,6 @@ $offset: 2;
 
     &:nth-child(12n+13) {
       grid-column: 12 / span 5;
-      margin-top: -100px;
 
       &.c-noto__item--post {
         @include card-medium;
@@ -426,7 +391,6 @@ $offset: 2;
 
     &:nth-child(12n+14) {
       grid-column: 19 / span 5;
-      margin-top: -100px;
     }
 
     &:nth-child(12n+15) {
@@ -440,7 +404,6 @@ $offset: 2;
     &:nth-child(12n+16) {
       grid-column: start / span 13;
       align-self: flex-end;
-      margin-top: 100px;
 
       &.c-noto__item--post {
         @include card-large;
@@ -449,17 +412,12 @@ $offset: 2;
         .c-card__footer {
           margin-left: percentage(7/13);
         }
-
-        .c-card__content {
-          padding-bottom: 50px;
-        }
       }
     }
 
     &:nth-child(12n+17) {
       grid-column: 18 / span 13;
       align-self: flex-end;
-      margin-top: 50px;
 
       &.c-noto__item--post {
         @include card-large;
@@ -468,21 +426,15 @@ $offset: 2;
         .c-card__footer {
           margin-right: percentage(5/13);
         }
-
-        .c-card__content {
-          padding-bottom: 50px;
-        }
       }
     }
 
     &:nth-child(12n+18) {
       grid-column: start / span 5;
-      margin-top: -100px;
     }
 
     &:nth-child(12n+19) {
       grid-column: 9 / span 7;
-      margin-top: 0;
 
       &.c-noto__item--post {
         @include card-medium;
@@ -491,13 +443,11 @@ $offset: 2;
 
     &:nth-child(12n+20) {
       grid-column: 18 / span 7;
-      margin-top: 0;
       align-self: flex-start;
     }
 
     &:nth-child(12n+21) {
       grid-column: 27 / span 5;
-      margin-top: -100px;
 
       &.c-noto__item--post {
         @include card-medium;
