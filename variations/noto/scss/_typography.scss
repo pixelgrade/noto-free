@@ -53,7 +53,7 @@ tbody {
 // ========================================
 
 .intro[class],
-.not-entry-content > p:first-child // Auto-styling the first paragraph (in-progress)
+.u-intro-autostyle .entry-content > p:first-child // Auto-styling the first paragraph (in-progress)
 {
   font-size: (28/18) * 1em;
   line-height: 1.25em;

@@ -147,6 +147,15 @@ function variation_change_customify_general_section( $section_options, $options 
 		// General
 		'general' => array(
 			'options' => array(
+				'single_disable_autostyle_titles' => array(
+					'type'              => 'checkbox',
+					'label'             => esc_html__( 'Disable auto-style first paragraph', '__theme_txtd' ),
+					'default'           => false,
+				),
+				'general_title_badge_section'     => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-general-badge" class="separator section label large">&#x1f3a8; ' . esc_html__( 'Badge', '__theme_txtd' ) . '</span>',
+				),
 				'archive_badge_title' => array(
 					'type'              => 'text',
 					'label'             => esc_html__( 'Badge Title', '__theme_txtd' ),
