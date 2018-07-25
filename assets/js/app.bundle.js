@@ -574,6 +574,19 @@ var Noto = function (_BaseTheme) {
             });
         }
     }, {
+        key: 'autoStyleIntro',
+        value: function autoStyleIntro() {
+            var $body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+            var $content = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content-area');
+            if (!$body.is('.u-intro-autostyle')) {
+                return;
+            }
+            var $firstElement = $content.children().not('div').first();
+            if ($firstElement.is('p')) {
+                $firstElement.addClass('intro');
+            }
+        }
+    }, {
         key: 'handleContent',
         value: function handleContent() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
@@ -582,6 +595,7 @@ var Noto = function (_BaseTheme) {
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
+            this.autoStyleIntro();
             this.appendSvgToIntro($container);
             this.appendSvgToBlockquote($container);
             this.eventHandlers($container);

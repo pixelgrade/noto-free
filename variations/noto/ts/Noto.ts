@@ -188,12 +188,29 @@ export class Noto extends BaseTheme {
         });
     }
 
+    public autoStyleIntro() {
+        const $body = $( 'body' );
+        const $content = $( '.content-area' );
+
+        if ( ! $body.is( '.u-intro-autostyle' ) ) {
+            return;
+        }
+
+        const $firstElement = $content.children().not( 'div' ).first();
+
+        if ( ( $firstElement ).is( 'p' ) ) {
+            $firstElement.addClass( 'intro' );
+        }
+    }
+
     public handleContent($container: JQuery = this.$body) {
 
         Helper.unwrapImages($container.find('.entry-content'));
         Helper.wrapEmbeds($container.find('.entry-content'));
         Helper.handleVideos($container);
         Helper.handleCustomCSS($container);
+
+        this.autoStyleIntro();
 
         this.appendSvgToIntro($container);
         this.appendSvgToBlockquote($container);
