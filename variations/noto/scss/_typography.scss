@@ -137,9 +137,14 @@ p.small {
   font-size: 87%;
 }
 
-.highlight {
+// Brush style highlight
+.highlight,
+.entry-content em,
+.mce-content-body em {
   padding: 0 0.5em;
 
   border-radius: 0 1em 0 1em;
-  background-image: linear-gradient( to right, $sm-light-quaternary 30%, transparent);
+  background-image: linear-gradient( to right, var(--sm-light-tertiary) 30%, transparent);
+
+  font-style: normal;
 }
