@@ -63,17 +63,35 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 				'default' => SM_COLOR_PRIMARY,
 				'connected_fields' => array(
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-color-primary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_color_secondary' => array(
 				'default' => SM_COLOR_SECONDARY,
 				'connected_fields' => array(
 					'accent_color'
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-color-secondary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_color_tertiary' => array(
 				'default' => SM_COLOR_TERTIARY,
 				'connected_fields' => array(
 					'accent_light_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-color-tertiary',
+						'selector' => ':root',
+					),
 				),
 			),
 			'sm_dark_primary' => array(
@@ -92,17 +110,35 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'footer_background',
 					'buttons_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-dark-primary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_dark_secondary' => array(
 				'default' => SM_DARK_SECONDARY,
 				'connected_fields' => array(
 					'main_content_body_text_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-dark-secondary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_dark_tertiary' => array(
 				'default' => SM_DARK_TERTIARY,
 				'connected_fields' => array(
 					'dark_tertiary_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-dark-tertiary',
+						'selector' => ':root',
+					),
 				),
 			),
 			'sm_light_primary' => array(
@@ -113,6 +149,12 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'footer_body_text_color',
 					'buttons_text_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-light-primary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_light_secondary' => array(
 				'default' => SM_LIGHT_SECONDARY,
@@ -121,11 +163,23 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'header_background',
 					'footer_links_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-light-secondary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_light_tertiary' => array(
 				'default' => SM_LIGHT_TERTIARY,
 				'connected_fields' => array(
 					'light_tertiary_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-light-tertiary',
+						'selector' => ':root',
+					),
 				),
 			),
 	    ),
@@ -423,7 +477,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_paragraph_text_font'      => array(
-					'selector' => '.entry-content, .site-description',
+					'selector' => '.entry-content, .site-description, .mce-content-body',
 					'default' => array(
 						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',
