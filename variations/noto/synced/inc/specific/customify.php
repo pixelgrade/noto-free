@@ -21,10 +21,9 @@ add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_cus
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
 // Color Palette
-define( 'SM_COLOR_PRIMARY', '#E87474' );
+define( 'SM_COLOR_PRIMARY', '#FFB1A5' ); // Problematic Pink (#FCD9D2) it's primary at 40% opacity
 define( 'SM_COLOR_SECONDARY', '#E79696' );
-define( 'SM_COLOR_TERTIARY', '#FFB1A5' ); // Problematic Pink #FCD9D2
-define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow — Not Used
+define( 'SM_COLOR_TERTIARY', '#FFEA80' ); // Bright Yellow
 
 define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
 define( 'SM_DARK_SECONDARY', '#49494B' );
