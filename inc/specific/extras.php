@@ -330,6 +330,10 @@ function noto_alter_body_classes( $classes ) {
 		$classes[] = 'u-intro-autostyle';
 	}
 
+	$pattern = pixelgrade_option( 'pattern_style', 'wave' );
+
+	$classes[] = 'u-pattern-' . $pattern;
+
 	return $classes;
 }
 

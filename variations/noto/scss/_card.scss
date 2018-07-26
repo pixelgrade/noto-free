@@ -246,14 +246,17 @@ $button-offset: 16px;
     }
   }
 
-  .c-card__title,
-  .wave-svg-mask,
-  .wave-svg {
-    transition: transform $transition-duration $transition-easing;
-  }
+  .c-card {
+    .c-card__title,
+    .wave-svg-mask,
+    .wave-svg {
+      transition: transform $transition-duration $transition-easing;
+    }
 
-  .wave-svg-mask {
-    direction: rtl;
+    .wave-svg-mask {
+      width: 200%;
+      direction: rtl;
+    }
   }
 
   .c-card:hover {

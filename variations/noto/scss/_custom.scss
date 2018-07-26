@@ -66,16 +66,20 @@ body {
 
 .wave-svg-mask {
   overflow: hidden;
-
-  .wave-svg {
-    width: 200%;
-    display: block;
-    height: 12px;
-    background-repeat: repeat-x;
-    @include spacing(margin-bottom, $card-content-spacing);
-  }
 }
 
+.wave-svg {
+  display: block;
+  height: 12px;
+  background-repeat: repeat no-repeat;
+  @include spacing(margin-bottom, $card-content-spacing);
+
+  .u-pattern-bubbles &,
+  .u-pattern-lines &,
+  .u-pattern-triangles & {
+    background-repeat: space no-repeat;
+  }
+}
 
 [hidden] {
   display: none;
