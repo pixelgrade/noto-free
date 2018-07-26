@@ -135,6 +135,33 @@ if ( ! function_exists( 'noto_get_pattern_svg' ) ) {
 			        </g>
 				</svg>
 		        <?php break;
+		    case "bubbles": ?>
+			    <svg width="45px" height="10px" viewBox="0 0 45 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <g id="bubbles" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		                <circle id="Oval" stroke="<?php echo $color; ?>" cx="3.5" cy="3.5" r="2.5"></circle>
+		                <circle id="Oval" stroke="<?php echo $color; ?>" cx="18.5" cy="3.5" r="2.5"></circle>
+		                <circle id="Oval" stroke="<?php echo $color; ?>" cx="33.5" cy="3.5" r="2.5"></circle>
+				    </g>
+				</svg>
+		    <?php break;
+		    case "lines": ?>
+			    <svg width="50px" height="8px" viewBox="0 0 50 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				    <g id="lines" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+		                <path d="M7.3887012,1.3612988 L2.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
+		                <path d="M17.3887012,1.3612988 L12.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
+		                <path d="M27.3887012,1.3612988 L22.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
+		                <path d="M37.3887012,1.3612988 L32.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
+		                <path d="M47.3887012,1.3612988 L42.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
+				    </g>
+				</svg>
+		    <?php break;
+		    case "zigzag": ?>
+			    <svg width="10px" height="7px" viewBox="0 0 10 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g id="lines" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+						<polyline id="Line" stroke="<?php echo $color; ?>" points="10 6 5.13870121 1 0 6"></polyline>
+					</g>
+				</svg>
+		    <?php break;
 		    default: ?>
 			    <svg width="18px" height="8px" viewBox="0 0 18 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			        <g id="wave" transform="translate(-12, 1)" fill="none" stroke="<?php echo $color; ?>" stroke-width="2">
