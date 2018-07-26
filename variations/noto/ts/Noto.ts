@@ -153,7 +153,7 @@ export class Noto extends BaseTheme {
 
     public appendSvgToIntro($container: JQuery = this.$body) {
         const $intro = $container.find( '.intro, .post-it, hr.decoration' );
-        const $waveTemplate = $( '.js-wave-intro-template' );
+        const $waveTemplate = $( '.js-pattern-template' );
 
         $intro.each(( i, obj ) => {
             const $obj = $(obj);
@@ -174,7 +174,7 @@ export class Noto extends BaseTheme {
 
     public appendSvgToBlockquote($container: JQuery = this.$body) {
         const $blockquote = $container.find('.content-area blockquote');
-        const $waveTemplate = $('.js-wave-quote-template');
+        const $waveTemplate = $('.js-pattern-template');
 
         $blockquote.each((i, obj) => {
             const $obj = $(obj);
