@@ -56,9 +56,11 @@ if ( ! function_exists( 'noto_output_wave_svg' ) ) :
 	/**
 	 * Output the wave card SVG code.
 	 */
-	function noto_output_wave_svg() {
-		get_template_part( 'template-parts/svg/wave-card-svg' );
-	}
+	function noto_output_wave_svg() { ?>
+		<div class="wave-svg-mask">
+			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+		</div>
+	<?php }
 endif;
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
@@ -66,9 +68,11 @@ if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
 	/**
 	 *  Output the wave quote svg code in the footer.
 	 */
-	function noto_append_svg_to_footer() {
-		get_template_part( 'template-parts/svg/wave-quote-svg' );
-	}
+	function noto_append_svg_to_footer() { ?>
+		<div class="wave-svg-mask js-pattern-template" hidden>
+			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+		</div>
+	<?php }
 endif;
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
 

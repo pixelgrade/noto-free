@@ -3,7 +3,7 @@
 }
 
 .c-card__meta {
-  position: relative; 
+  position: relative;
 }
 
 .c-meta__decoration {
@@ -77,10 +77,6 @@
 
 .c-card {
   transform: translateZ(0);
-
-  .wave-svg-mask {
-    color: $theme-text-color;
-  }
 }
 
 .c-card__letter {

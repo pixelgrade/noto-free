@@ -235,13 +235,36 @@ pixelgrade_autoload_dir( 'inc' );
  */
 function add_css_for_autostyled_intro_in_editor() {
     $disable_intro_autostyle = pixelgrade_option( 'single_disable_intro_autostyle', true );
+	$color = pixelgrade_option( 'secondary_color', '#E79696' );
 
-    if ( ! $disable_intro_autostyle ) {
-		ob_start();
-		get_template_part( 'template-parts/svg/wave-accent-svg' );
-		$svg = ob_get_clean();
-		$svg = base64_encode( $svg );
-    	?>
+	if ( ! $disable_intro_autostyle ) {
+		$selectors = array(
+			".intro[class], .mce-content-body > p:first-child",
+			".intro[class]:before, .mce-content-body > p:first-child:before",
+		);
+	} else {
+		$selectors = array(
+			".intro[class]",
+			".intro[class]:before",
+		);
+	}
+
+	$css =
+		$selectors[0] . ' { ' .
+			'font-size: 1.555em;' .
+			'line-height: 1.25em;' .
+			'font-style: italic;' .
+			'color: ' . $color . ';' .
+		' } ' .
+		$selectors[1] . ' { ' .
+			'content: "";' .
+			'display: block;' .
+			'height: 8px;' .
+			'margin-bottom: 21px;' .
+			'background: ' . noto_get_pattern_background_image( $color ) . ';' .
+		' } ';
+
+    if ( ! $disable_intro_autostyle ) { ?>
         <script>
 	        (function ($) {
 		        $( window ).load( function() {
@@ -251,20 +274,7 @@ function add_css_for_autostyled_intro_in_editor() {
 			        );
 			        var head = ifrm.getElementsByTagName( 'head' )[0];
 			        var style = document.createElement( 'style' );
-			        var color = '<?php echo pixelgrade_option( 'secondary_color', '#E79696' ); ?>';
-			        var css =
-			        	'.mce-content-body > p:first-child {' +
-							'font-size: 1.555em;' +
-							'line-height: 1.25em;' +
-							'color: ' + color + ';' +
-						'}' +
-						'.mce-content-body > p:first-child:before {' +
-							'content: "";' +
-							'display: block;' +
-							'height: 8px;' +
-							'margin-bottom: 21px;' +
-							'background: url("data:image/svg+xml;base64,<?php echo $svg; ?>");' +
-						'}';
+			        var css = '<?php echo $css; ?>';
 			        style.type = 'text/css';
 			        if ( style.styleSheet ) {
 				        // This is required for IE8 and below.
