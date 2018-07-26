@@ -206,6 +206,24 @@ function variation_change_customify_general_section( $section_options, $options 
 					'label'             => esc_html__( 'Disable auto-style first paragraph on articles', '__theme_txtd' ),
 					'default'           => false,
 				),
+				'general_patterns_section'     => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1f3c1; ' . esc_html__( 'Patterns', '__theme_txtd' ) . '</span>',
+				),
+				'pattern_style'           => array(
+					'type'    => 'select',
+					'label'   => esc_html__( 'Pattern Style', '__theme_txtd' ),
+					'desc'    => '',
+					'default' => 'waves',
+					'choices' => array(
+						'none'     => esc_html__( 'None', '__theme_txtd' ),
+						'waves'    => esc_html__( 'Waves', '__theme_txtd' ),
+						'bubbles'   => esc_html__( 'Bubbles', '__theme_txtd' ),
+						'triangles'     => esc_html__( 'Triangles', '__theme_txtd' ),
+						'lines'     => esc_html__( 'Lines', '__theme_txtd' ),
+						'zigzag' => esc_html__( 'Zig Zag', '__theme_txtd' ),
+					),
+				),
 				'general_title_post_it_section'     => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1F3F7; ' . esc_html__( 'Post-it Note', '__theme_txtd' ) . '</span><span class="description customize-control-description">A welcome message to your readers that will appear near the logo on the Front Page.</span>',
