@@ -70,7 +70,8 @@ body {
   .wave-svg {
     width: 200%;
     display: block;
-    height: 8px;
+    height: 12px;
+    background-repeat: repeat-x;
     @include spacing(margin-bottom, $card-content-spacing);
   }
 }

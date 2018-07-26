@@ -27,7 +27,7 @@ define( 'SM_COLOR_TERTIARY', '#FFB1A5' ); // Problematic Pink #FCD9D2
 define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow — Not Used
 
 define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
-define( 'SM_DARK_SECONDARY', '#49494B' ); 
+define( 'SM_DARK_SECONDARY', '#49494B' );
 define( 'SM_DARK_TERTIARY', '#394059' );
 
 define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
@@ -216,12 +216,12 @@ function variation_change_customify_general_section( $section_options, $options 
 					'desc'    => '',
 					'default' => 'waves',
 					'choices' => array(
-						'none'     => esc_html__( 'None', '__theme_txtd' ),
-						'waves'    => esc_html__( 'Waves', '__theme_txtd' ),
+						'none'     	=> esc_html__( 'None', '__theme_txtd' ),
+						'waves'    	=> esc_html__( 'Waves', '__theme_txtd' ),
 						'bubbles'   => esc_html__( 'Bubbles', '__theme_txtd' ),
-						'triangles'     => esc_html__( 'Triangles', '__theme_txtd' ),
+						'triangles' => esc_html__( 'Triangles', '__theme_txtd' ),
 						'lines'     => esc_html__( 'Lines', '__theme_txtd' ),
-						'zigzag' => esc_html__( 'Zig Zag', '__theme_txtd' ),
+						'zigzag' 	=> esc_html__( 'Zig Zag', '__theme_txtd' ),
 					),
 				),
 				'general_title_post_it_section'     => array(
@@ -274,9 +274,9 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'color',
 							'selector' => '
 								.intro[class],
-								.c-author__name[class], 
+								.c-author__name[class],
 								.c-card:hover .c-card__excerpt,
-								.widget_nav_menu a, 
+								.widget_nav_menu a,
 								.widget_pages a,
 								.slick-dots .slick-active',
 						),
@@ -464,7 +464,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 								.c-navbar__zone--left .menu > li > a:before,
 								.c-search-overlay,
 								.c-reading-progress,
-								.page .header:after, 
+								.page .header:after,
 								.single .header:after,
 								.profile-photo-link--admin svg'
 						),
@@ -558,9 +558,9 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_5_font'           => array(
 					'selector' => 'h5, .header-category,
-							ul.page-numbers, 
-							.c-author__name, 
-							.c-reading-progress__label, 
+							ul.page-numbers,
+							.c-author__name,
+							.c-reading-progress__label,
 							.post-navigation .nav-links__label,
 							.cats__title,
 							.tags__title,
@@ -576,7 +576,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, .h6,
-									.comment-reply-title a, .comment__metadata a, 
+									.comment-reply-title a, .comment__metadata a,
 									.edit-link a, .logged-in-as a, .reply a',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
@@ -1088,28 +1088,28 @@ if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) 
 
 		$js = "
 			function noto_meta_background_gradient_cb( value, selector, property, unit ) {
-			
+
 			    var css = '',
 			        style = document.getElementById('noto_meta_background_gradient_cb_style_tag'),
 			        head = document.head || document.getElementsByTagName('head')[0];
-			
+
 			    css += selector + ' {' +
 			        property + ': linear-gradient(90deg, ' + value + ' 50%, transparent);' +
 		        '}';
-			
+
 			    if ( style !== null ) {
 			        style.innerHTML = css;
 			    } else {
 			        style = document.createElement('style');
 			        style.setAttribute('id', 'noto_meta_background_gradient_cb_style_tag');
-			
+
 			        style.type = 'text/css';
 			        if ( style.styleSheet ) {
 			            style.styleSheet.cssText = css;
 			        } else {
 			            style.appendChild(document.createTextNode(css));
 			        }
-			
+
 			        head.appendChild(style);
 			    }
 			}" . PHP_EOL;
