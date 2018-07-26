@@ -229,3 +229,55 @@ add_action('customize_controls_print_scripts', 'noto_bind_profile_picture_script
  * ==================================================
  */
 pixelgrade_autoload_dir( 'inc' );
+
+/**
+ * add our customizer styling edits into the wp_editor
+ */
+function add_css_for_autostyled_intro_in_editor() {
+    $disable_intro_autostyle = pixelgrade_option( 'single_disable_intro_autostyle', true );
+
+    if ( ! $disable_intro_autostyle ) {
+		ob_start();
+		get_template_part( 'template-parts/svg/wave-accent-svg' );
+		$svg = ob_get_clean();
+		$svg = base64_encode( $svg );
+    	?>
+        <script>
+	        (function ($) {
+		        $( window ).load( function() {
+			        var ifrm = window.frames['content_ifr'];
+			        ifrm = (
+				        ifrm.contentDocument || ifrm.contentDocument || ifrm.document
+			        );
+			        var head = ifrm.getElementsByTagName( 'head' )[0];
+			        var style = document.createElement( 'style' );
+			        var color = '<?php echo pixelgrade_option( 'secondary_color', '#E79696' ); ?>';
+			        var css =
+			        	'.mce-content-body > p:first-child {' +
+							'font-size: 1.555em;' +
+							'line-height: 1.25em;' +
+							'color: ' + color + ';' +
+						'}' +
+						'.mce-content-body > p:first-child:before {' +
+							'content: "";' +
+							'display: block;' +
+							'height: 8px;' +
+							'margin-bottom: 21px;' +
+							'background: url("data:image/svg+xml;base64,<?php echo $svg; ?>");' +
+						'}';
+			        style.type = 'text/css';
+			        if ( style.styleSheet ) {
+				        // This is required for IE8 and below.
+				        style.styleSheet.cssText = css;
+			        } else {
+				        style.appendChild( document.createTextNode( css ) );
+			        }
+
+			        head.appendChild( style );
+		        } );
+	        })(jQuery);
+        </script>
+<?php get_template_part( 'template-parts/svg/wave-accent-svg' );
+	}
+}
+add_action( 'admin_head', 'add_css_for_autostyled_intro_in_editor' );

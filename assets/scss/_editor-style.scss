@@ -25,3 +25,10 @@ $content-selector: '.mce-content-body > :not(.wpview)';
 html {
     @include spacing(padding, 40px);
 }
+
+
+.mce-content-body > p:first-child {
+    font-size: (28/18) * 1em;
+    line-height: 1.25em;
+    color: $theme-accent-color;
+}
