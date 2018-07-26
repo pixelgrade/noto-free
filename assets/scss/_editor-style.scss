@@ -19,16 +19,9 @@ $content-selector: '.mce-content-body > :not(.wpview)';
 
 ._hero_content_description {
     color: white;
-    padding-top: 50px; 
+    padding-top: 50px;
 }
 
 html {
     @include spacing(padding, 40px);
-}
-
-
-.mce-content-body > p:first-child {
-    font-size: (28/18) * 1em;
-    line-height: 1.25em;
-    color: $theme-accent-color;
 }
