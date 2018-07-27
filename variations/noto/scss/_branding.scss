@@ -111,7 +111,10 @@ $header-vertical-position-top: 25px;
             background: $theme-accent-lighter-color;
         }
 
-        * + .c-logo,
+        * + .c-logo {
+            margin-top: 1.5em;
+        }
+
         * + .c-logo__title,
         * + .site-description {
             margin-top: 1em;
@@ -120,6 +123,11 @@ $header-vertical-position-top: 25px;
         .site-description {
             font-size: 17/15 * 1em;
             line-height: (26/17);
+        }
+
+
+        .c-logo__title {
+            margin-bottom: -0.5em;
         }
     }
 
@@ -220,5 +228,72 @@ $header-vertical-position-top: 25px;
     :not(.c-profile-photo) + .c-logo__title,
     :not(.c-profile-photo) + .site-description {
         margin-top: 1em;
+    }
+}
+
+.profile-photo-link__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $sm-light-primary;
+
+    &:after {
+        content: "";
+        background: $sm-dark-secondary;
+    }
+
+    span {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+.profile-photo-link {
+    transform: translateZ(0);
+
+    svg {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        background-color: $sm-light-primary;
+    }
+}
+
+.profile-photo-link__label,
+.profile-photo-link__label:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-photo-link--admin {
+    position: relative;
+
+    &[class] {
+        cursor: pointer !important;
+    }
+
+    .profile-photo-link__label,
+    .profile-photo-link__label:after {
+        opacity: 0;
+    }
+
+    .profile-photo-link__label,
+    .profile-photo-link__label:after {
+        transition: opacity .3s ease-in-out;
+    }
+
+    &:hover {
+
+        .profile-photo-link__label:after {
+            opacity: 0.5;
+        }
+
+        .profile-photo-link__label {
+            opacity: 1;
+        }
     }
 }

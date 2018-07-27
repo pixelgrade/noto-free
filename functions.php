@@ -180,6 +180,10 @@ function noto_scripts() {
 	wp_enqueue_script( 'noto-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
 	wp_enqueue_script( 'noto-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'noto-commons-scripts' ), $theme->get( 'Version' ), true );
 
+	if ( is_customize_preview() ) {
+		wp_enqueue_script( 'noto-customizer-scripts', get_theme_file_uri( '/assets/js/customizer.js' ), array(), $theme->get( 'Version' ), true );
+	}
+
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	);
@@ -200,9 +204,90 @@ function noto_get_blog_grid_class( $classes ) {
 }
 add_filter( 'pixelgrade_blog_grid_class', 'noto_get_blog_grid_class' );
 
+function noto_bind_profile_picture_script() {
+	?>
+	<script type="text/javascript">
+		(function($) {
+			wp.customize.bind('ready', function() {
+				wp.customize.previewer.bind('ready', function() {
+					var $body = $( wp.customize.previewer.targetWindow().document.body );
+					$body.on( 'click', '.profile-photo-link--default', function() {
+						wp.customize['section'].instance('title_tagline').focus();
+					} );
+				} );
+			});
+		})(jQuery);
+	</script>
+	<?php
+}
+
+add_action('customize_controls_print_scripts', 'noto_bind_profile_picture_script');
+
 /*
  * ==================================================
  * Load all the files directly in the `inc` directory
  * ==================================================
  */
 pixelgrade_autoload_dir( 'inc' );
+
+/**
+ * add our customizer styling edits into the wp_editor
+ */
+function add_css_for_autostyled_intro_in_editor() {
+    $disable_intro_autostyle = pixelgrade_option( 'single_disable_intro_autostyle', true );
+	$color = pixelgrade_option( 'secondary_color', '#E79696' );
+
+	if ( ! $disable_intro_autostyle ) {
+		$selectors = array(
+			".intro[class], .mce-content-body > p:first-child",
+			".intro[class]:before, .mce-content-body > p:first-child:before",
+		);
+	} else {
+		$selectors = array(
+			".intro[class]",
+			".intro[class]:before",
+		);
+	}
+
+	$css =
+		$selectors[0] . ' { ' .
+			'font-size: 1.555em;' .
+			'line-height: 1.25em;' .
+			'font-style: italic;' .
+			'color: ' . $color . ';' .
+		' } ' .
+		$selectors[1] . ' { ' .
+			'content: "";' .
+			'display: block;' .
+			'height: 8px;' .
+			'margin-bottom: 21px;' .
+			'background: ' . noto_get_pattern_background_image( $color ) . ';' .
+		' } ';
+
+    if ( ! $disable_intro_autostyle ) { ?>
+        <script>
+	        (function ($) {
+		        $( window ).load( function() {
+			        var ifrm = window.frames['content_ifr'];
+			        ifrm = (
+				        ifrm.contentDocument || ifrm.contentDocument || ifrm.document
+			        );
+			        var head = ifrm.getElementsByTagName( 'head' )[0];
+			        var style = document.createElement( 'style' );
+			        var css = '<?php echo $css; ?>';
+			        style.type = 'text/css';
+			        if ( style.styleSheet ) {
+				        // This is required for IE8 and below.
+				        style.styleSheet.cssText = css;
+			        } else {
+				        style.appendChild( document.createTextNode( css ) );
+			        }
+
+			        head.appendChild( style );
+		        } );
+	        })(jQuery);
+        </script>
+<?php get_template_part( 'template-parts/svg/wave-accent-svg' );
+	}
+}
+add_action( 'admin_head', 'add_css_for_autostyled_intro_in_editor' );

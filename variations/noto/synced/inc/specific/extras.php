@@ -56,9 +56,11 @@ if ( ! function_exists( 'noto_output_wave_svg' ) ) :
 	/**
 	 * Output the wave card SVG code.
 	 */
-	function noto_output_wave_svg() {
-		get_template_part( 'template-parts/svg/wave-card-svg' );
-	}
+	function noto_output_wave_svg() { ?>
+		<div class="wave-svg-mask">
+			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+		</div>
+	<?php }
 endif;
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
@@ -66,9 +68,11 @@ if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
 	/**
 	 *  Output the wave quote svg code in the footer.
 	 */
-	function noto_append_svg_to_footer() {
-		get_template_part( 'template-parts/svg/wave-quote-svg' );
-	}
+	function noto_append_svg_to_footer() { ?>
+		<div class="wave-svg-mask js-pattern-template" hidden>
+			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+		</div>
+	<?php }
 endif;
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
 
@@ -122,6 +126,7 @@ function noto_mce_before_init( $settings ) {
 
 	$style_formats =array(
 		array( 'title' => esc_html__( 'Intro Text', '__theme_txtd' ), 'selector' => 'p', 'classes' => 'intro'),
+		array( 'title' => esc_html__( 'Highlight', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'highlight'),
 		array( 'title' => esc_html__( 'Dropcap', '__theme_txtd' ), 'inline' => 'span', 'classes' => 'dropcap'),
 		array( 'title' => esc_html__( 'Pull Left', '__theme_txtd' ), 'wrapper' => true, 'block' => 'blockquote', 'classes' => 'pull-left' ),
 		array( 'title' => esc_html__( 'Pull Right', '__theme_txtd' ), 'wrapper' => true, 'block' => 'blockquote', 'classes' => 'pull-right' ),
@@ -298,6 +303,9 @@ function noto_add_card_meta_decoration( $location ) { ?>
 <?php }
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
 
+/**
+ * Add specific classes for Archive page
+ */
 function noto_alter_archive_post_classes( $classes = array() ) {
 	$location = pixelgrade_get_location();
 
@@ -312,3 +320,20 @@ function noto_alter_archive_post_classes( $classes = array() ) {
 	return $classes;
 }
 add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
+
+/**
+ * Add specific classes for Body.
+ */
+function noto_alter_body_classes( $classes ) {
+
+	if ( is_single() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
+		$classes[] = 'u-intro-autostyle';
+	}
+
+	$pattern = pixelgrade_option( 'pattern_style', 'wave' );
+	$classes[] = 'u-pattern-' . $pattern;
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'noto_alter_body_classes', 20, 1 );

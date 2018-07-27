@@ -310,6 +310,7 @@
 
 // no image
 .entry-image--none .header-meta,
+.entry-image--none .header-meta + .intro,
 
 // landscape
 .header-stuff + .entry-thumbnail + .c-header__author + .header-meta + .intro {

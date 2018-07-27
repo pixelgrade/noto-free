@@ -442,41 +442,67 @@ var Noto = function (_BaseTheme) {
             }
         }
     }, {
-        key: 'updateCardsPosition',
-        value: function updateCardsPosition() {
+        key: 'insertWidgetsBetweenPosts',
+        value: function insertWidgetsBetweenPosts() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.c-noto__item--post');
             var $widgets = $noto.children('.c-noto__item--widget');
-            // const postsCount = $posts.length + $widgets.length;
-            // let maxCount = 0;
-            //
-            // if ( postsCount > 3 ) {
-            //     maxCount = 1;
-            // }
-            //          3,  4
-            //  7,  8,  9, 10
-            // 13, 14, 15, 16
-            // P P W W P P W W W W P P W W W W
-            // $widgets.remove();
             var w = 0;
             for (var p = 0; p < $posts.length; p++) {
                 if (!$widgets.length) {
                     break;
                 }
-                if (p > 1 && p % 6 === 1 || p > 2 && p % 6 === 2 || p > 3 && p % 6 === 3 || p % 6 === 4) {
-                    // console.log(p, $posts.slice(p - 1, p) );
+                if (p % 12 === 8 || p % 12 === 4) {
                     var $widget = $widgets.splice(0, 1);
                     var $post = $posts.slice(p - w - 1, p - w);
                     $post.before($widget);
                     w++;
                 }
             }
-            // $widgets.each( ( i, obj ) => {
-            //     const $widget = $( obj );
-            //     $widget.insertAfter( $posts.eq( i * step ) );
-            // } );
+        }
+    }, {
+        key: 'adjustPostsMargins',
+        value: function adjustPostsMargins() {
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            var $noto = $container.find('.c-noto--body');
+            var $posts = $noto.children('.c-noto__item').not('.c-noto__item--post-it');
+            for (var p = 0; p < $posts.length; p++) {
+                var $post = $posts.slice(p - 1, p);
+                var $target = void 0;
+                if (p % 12 === 8 || p % 12 === 9) {
+                    $target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()($posts.get(p - 4));
+                    if ($target.is('.c-noto__item--post')) {
+                        var targetOffset = $target.find('.c-card__excerpt').offset().top;
+                        var currentOffset = $post.offset().top;
+                        var oldMarginTop = parseInt($post.css('marginTop'), 10);
+                        var newMarginTop = targetOffset - currentOffset + oldMarginTop;
+                        $post.css('marginTop', newMarginTop);
+                    }
+                }
+                if (p > 1 && p % 12 === 1) {
+                    $target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()($posts.get(p - 3));
+                    if ($target.is('.c-noto__item--post')) {
+                        var _targetOffset = $target.find('.c-card__excerpt').offset().top;
+                        var _currentOffset = $post.offset().top;
+                        var _oldMarginTop = parseInt($post.css('marginTop'), 10);
+                        var _newMarginTop = _targetOffset - _currentOffset + _oldMarginTop;
+                        $post.css('marginTop', _newMarginTop);
+                    }
+                }
+                if (p > 4 && p % 12 === 4) {
+                    $target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()($posts.get(p - 5));
+                    if ($target.is('.c-noto__item--post')) {
+                        var _targetOffset2 = $target.find('.c-card__excerpt').offset().top;
+                        var _currentOffset2 = $post.offset().top;
+                        var _oldMarginTop2 = parseInt($post.css('marginTop'), 10);
+                        var _newMarginTop2 = _targetOffset2 - _currentOffset2 + _oldMarginTop2;
+                        $post.css('marginTop', _newMarginTop2);
+                    }
+                }
+            }
         }
     }, {
         key: 'bindEvents',
@@ -515,7 +541,7 @@ var Noto = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $intro = $container.find('.intro, .post-it, hr.decoration');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-intro-template');
+            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
             $intro.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 var $wave = $waveTemplate.clone();
@@ -536,7 +562,7 @@ var Noto = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $blockquote = $container.find('.content-area blockquote');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-wave-quote-template');
+            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
             $blockquote.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 var $wave = $waveTemplate.clone();
@@ -548,6 +574,19 @@ var Noto = function (_BaseTheme) {
             });
         }
     }, {
+        key: 'autoStyleIntro',
+        value: function autoStyleIntro() {
+            var $body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+            var $content = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.content-area');
+            if (!$body.is('.u-intro-autostyle')) {
+                return;
+            }
+            var $firstElement = $content.children().not('div').first();
+            if ($firstElement.is('p')) {
+                $firstElement.addClass('intro');
+            }
+        }
+    }, {
         key: 'handleContent',
         value: function handleContent() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
@@ -556,10 +595,12 @@ var Noto = function (_BaseTheme) {
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
+            this.autoStyleIntro();
             this.appendSvgToIntro($container);
             this.appendSvgToBlockquote($container);
             this.eventHandlers($container);
-            this.updateCardsPosition($container);
+            this.insertWidgetsBetweenPosts($container);
+            this.adjustPostsMargins($container);
             $container.find('.sharedaddy').each(function (i, obj) {
                 var $sharedaddy = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 if ($sharedaddy.find('.sd-social-official').length) {

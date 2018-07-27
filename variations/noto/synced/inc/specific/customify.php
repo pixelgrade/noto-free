@@ -21,23 +21,22 @@ add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_cus
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
 // Color Palette
-define( 'SM_COLOR_PRIMARY', '#E87474' );
+define( 'SM_COLOR_PRIMARY', '#FFB1A5' ); // Problematic Pink (#FCD9D2) it's primary at 40% opacity
 define( 'SM_COLOR_SECONDARY', '#E79696' );
-define( 'SM_COLOR_TERTIARY', '#FCD9D2' );
-define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow
+define( 'SM_COLOR_TERTIARY', '#383E5A' ); // Bright Yellow (#FFEA80) replaced by a more vibrant Blueish 
 
 define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
-define( 'SM_DARK_SECONDARY', '#49494B' ); 
+define( 'SM_DARK_SECONDARY', '#49494B' );
 define( 'SM_DARK_TERTIARY', '#394059' );
 
 define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
 define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
 
-define( 'SM_HEADINGS_FONT', 'IBM Plex Sans, sans-serif' );
-define( 'SM_ACCENT_FONT', 'IBM Plex Sans, sans-serif' );
-define( 'SM_BODY_FONT', 'IBM Plex Sans, sans-serif' );
-define( 'SM_LOGO_FONT', 'Bungee, cursive' );
+define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
+define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
+define( 'SM_BODY_FONT', 'IBM Plex Sans' );
+define( 'SM_LOGO_FONT', 'Bungee' );
 
 /**
  * Add the Style Manager cross-theme Customizer section.
@@ -62,18 +61,36 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_color_primary' => array(
 				'default' => SM_COLOR_PRIMARY,
 				'connected_fields' => array(
+					'accent_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-color-primary',
+						'selector' => ':root',
+					),
 				),
 			),
 			'sm_color_secondary' => array(
 				'default' => SM_COLOR_SECONDARY,
 				'connected_fields' => array(
-					'accent_color'
+					'accent_light_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-color-secondary',
+						'selector' => ':root',
+					),
 				),
 			),
 			'sm_color_tertiary' => array(
 				'default' => SM_COLOR_TERTIARY,
 				'connected_fields' => array(
-					'accent_light_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-color-tertiary',
+						'selector' => ':root',
+					),
 				),
 			),
 			'sm_dark_primary' => array(
@@ -92,17 +109,35 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'footer_background',
 					'buttons_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-dark-primary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_dark_secondary' => array(
 				'default' => SM_DARK_SECONDARY,
 				'connected_fields' => array(
 					'main_content_body_text_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-dark-secondary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_dark_tertiary' => array(
 				'default' => SM_DARK_TERTIARY,
 				'connected_fields' => array(
 					'dark_tertiary_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-dark-tertiary',
+						'selector' => ':root',
+					),
 				),
 			),
 			'sm_light_primary' => array(
@@ -113,6 +148,12 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'footer_body_text_color',
 					'buttons_text_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-light-primary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_light_secondary' => array(
 				'default' => SM_LIGHT_SECONDARY,
@@ -121,11 +162,23 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'header_background',
 					'footer_links_color',
 				),
+				'css'     => array(
+					array(
+						'property' => '--sm-light-secondary',
+						'selector' => ':root',
+					),
+				),
 			),
 			'sm_light_tertiary' => array(
 				'default' => SM_LIGHT_TERTIARY,
 				'connected_fields' => array(
 					'light_tertiary_color'
+				),
+				'css'     => array(
+					array(
+						'property' => '--sm-light-tertiary',
+						'selector' => ':root',
+					),
 				),
 			),
 	    ),
@@ -147,20 +200,64 @@ function variation_change_customify_general_section( $section_options, $options 
 		// General
 		'general' => array(
 			'options' => array(
-				'archive_badge_title' => array(
-					'type'              => 'text',
-					'label'             => esc_html__( 'Badge Title', '__theme_txtd' ),
-					'desc'              => esc_html__( '', '__theme_txtd' ),
-					'default'           => 'Salut',
-					'live'              => array( '.c-badge__title' ),
+				'single_disable_intro_autostyle' => array(
+					'type'              => 'checkbox',
+					'label'             => esc_html__( 'Disable auto-style first paragraph on articles', '__theme_txtd' ),
+					'default'           => false,
 				),
-				'archive_badge_content' => array(
-					'type'              => 'textarea',
-					'label'             => esc_html__( 'Badge Content', '__theme_txtd' ),
+				'general_patterns_section'     => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1f3c1; ' . esc_html__( 'Patterns', '__theme_txtd' ) . '</span>',
+				),
+				'pattern_style'           => array(
+					'type'    => 'select',
+					'label'   => esc_html__( 'Pattern Style', '__theme_txtd' ),
+					'desc'    => '',
+					'default' => 'waves',
+					'choices' => array(
+						'none'     	=> esc_html__( 'None', '__theme_txtd' ),
+						'waves'    	=> esc_html__( 'Waves', '__theme_txtd' ),
+						'bubbles'   => esc_html__( 'Bubbles', '__theme_txtd' ),
+						'triangles' => esc_html__( 'Triangles', '__theme_txtd' ),
+						'lines'     => esc_html__( 'Lines', '__theme_txtd' ),
+						'zigzag' 	=> esc_html__( 'Zig Zag', '__theme_txtd' ),
+					),
+				),
+				'general_title_post_it_section'     => array(
+					'type' => 'html',
+					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1F3F7; ' . esc_html__( 'Post-it Note', '__theme_txtd' ) . '</span><span class="description customize-control-description">A welcome message to your readers that will appear near the logo on the Front Page.</span>',
+					'show_if' => array(
+						'id' => 'archive_post_it_disable',
+						'value' => 0,
+					)
+				),
+				'archive_post_it_title' => array(
+					'type'              => 'text',
+					'label'             => esc_html__( 'Note Title', '__theme_txtd' ),
 					'desc'              => esc_html__( '', '__theme_txtd' ),
-					'default'           => '<p>Welcome to my blog! Check out the <del>latest post</del>, browse the highlights or <del>reach me</del> to say Hi!</p>',
+					'default'           => 'Hello!',
+					'live'              => array( '.c-post-it__title' ),
+					'show_if' => array(
+						'id' => 'archive_post_it_disable',
+						'value' => 0,
+					)
+				),
+				'archive_post_it_content' => array(
+					'type'              => 'textarea',
+					'label'             => esc_html__( 'Note Content', '__theme_txtd' ),
+					'desc'              => esc_html__( '', '__theme_txtd' ),
+					'default'           => '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="#contact">reach me</a> to say Hi!</p>',
 					'sanitize_callback' => 'wp_kses_post',
-					'live'              => array( '.c-badge__content' ),
+					'live'              => array( '.c-post-it__content' ),
+					'show_if' => array(
+						'id' => 'archive_post_it_disable',
+						'value' => 0,
+					)
+				),
+				'archive_post_it_disable' => array(
+					'type'              => 'checkbox',
+					'label'             => esc_html__( 'Hide Post-it Note', '__theme_txtd' ),
+					'default'           => false,
 				),
 				'general_title_colors_section'     => array(
 					'type' => 'html',
@@ -170,15 +267,15 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => SM_COLOR_SECONDARY,
+					'default' => SM_COLOR_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
 							'selector' => '
 								.intro[class],
-								.c-author__name[class], 
+								.c-author__name[class],
 								.c-card:hover .c-card__excerpt,
-								.widget_nav_menu a, 
+								.widget_nav_menu a,
 								.widget_pages a,
 								.slick-dots .slick-active',
 						),
@@ -192,20 +289,21 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Light Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => SM_COLOR_TERTIARY,
+					'default' => SM_COLOR_SECONDARY,
 					'css'     => array(
 						array(
-							'property' => 'background',
+							'property' => 'color',
 							'selector' => '
-								.header-category a:after,
-								.c-meta__decoration:after',
-							'callback_filter' => 'noto_meta_background_gradient_cb',
+								.header-category a,
+								.c-meta__decoration',
 						),
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.c-footer-layers__accent,
-								.c-card__action:before',
+								.c-footer-layers__accent:after,
+								.c-card__action:before,
+								.cats a:before,
+								.c-comments-toggle__label:before',
 						),
 					),
 				),
@@ -226,7 +324,8 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-noto__item--widget',
+								.c-noto__item--widget,
+								.entry-footer .c-author',
 						),
 					),
 				),
@@ -313,12 +412,13 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					'css' => array(
 						array(
 							'property' => 'background-color',
-							'selector' => 'body.u-content-background',
+							'selector' => 'body.u-content-background,
+								.profile-photo-link__label:after',
 						),
 						array(
 							'property' => 'color',
 							'selector' => '.c-card .wave-svg-mask,
-							.c-reading-progress',
+								.c-reading-progress',
 						),
 					),
 				),
@@ -362,11 +462,17 @@ function variation_change_customify_main_content_section( $section_options, $opt
 							'property' => 'background-color',
 							'selector' => '
 								.c-footer-layers__background,
+								.c-footer-layers__accent,
 								.c-navbar__zone--left .menu > li > a:before,
 								.c-search-overlay,
 								.c-reading-progress,
-								.page .header:after, 
-								.single .header:after'
+								.page .header:after,
+								.single .header:after,
+								.profile-photo-link--admin svg'
+						),
+						array(
+							'property' => 'color',
+							'selector' => '.profile-photo-link__label'
 						),
 					),
 				),
@@ -391,7 +497,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_paragraph_text_font'      => array(
-					'selector' => '.entry-content, .site-description',
+					'selector' => '.entry-content, .site-description, .mce-content-body',
 					'default' => array(
 						'font-family'    => SM_BODY_FONT,
 						'font-weight'    => 'regular',
@@ -454,9 +560,9 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_5_font'           => array(
 					'selector' => 'h5, .header-category,
-							ul.page-numbers, 
-							.c-author__name, 
-							.c-reading-progress__label, 
+							ul.page-numbers,
+							.c-author__name,
+							.c-reading-progress__label,
 							.post-navigation .nav-links__label,
 							.cats__title,
 							.tags__title,
@@ -472,7 +578,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 				),
 				'main_content_heading_6_font'           => array(
 					'selector' => 'h6, .h6,
-									.comment-reply-title a, .comment__metadata a, 
+									.comment-reply-title a, .comment__metadata a,
 									.edit-link a, .logged-in-as a, .reply a',
 					'default'  => array(
 						'font-family'    => SM_ACCENT_FONT,
@@ -984,28 +1090,28 @@ if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) 
 
 		$js = "
 			function noto_meta_background_gradient_cb( value, selector, property, unit ) {
-			
+
 			    var css = '',
 			        style = document.getElementById('noto_meta_background_gradient_cb_style_tag'),
 			        head = document.head || document.getElementsByTagName('head')[0];
-			
+
 			    css += selector + ' {' +
 			        property + ': linear-gradient(90deg, ' + value + ' 50%, transparent);' +
 		        '}';
-			
+
 			    if ( style !== null ) {
 			        style.innerHTML = css;
 			    } else {
 			        style = document.createElement('style');
 			        style.setAttribute('id', 'noto_meta_background_gradient_cb_style_tag');
-			
+
 			        style.type = 'text/css';
 			        if ( style.styleSheet ) {
 			            style.styleSheet.cssText = css;
 			        } else {
 			            style.appendChild(document.createTextNode(css));
 			        }
-			
+
 			        head.appendChild(style);
 			    }
 			}" . PHP_EOL;

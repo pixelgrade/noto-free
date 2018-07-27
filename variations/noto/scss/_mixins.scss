@@ -1,8 +1,9 @@
 @mixin meta-style {
     position: relative;
     display: inline-block;
-    padding: 0.5rem 0rem;
+    padding: 0.5rem 0;
     transition: opacity .3s ease-in-out;
+    opacity: 0.4;
 
     &:after {
         content: "";
@@ -16,7 +17,7 @@
         border-top-right-radius: 999em;
 
         overflow: hidden;
-        background: linear-gradient( to right, $theme-accent-light-color 50%, transparent);
+        background: linear-gradient( to right, currentColor 50%, transparent);
         z-index: -1;
     }
 }
@@ -35,6 +36,7 @@
         z-index: -1;
 
         background: $theme-accent-light-color;
+        opacity: 0.4;
     }
 
     &:after {
