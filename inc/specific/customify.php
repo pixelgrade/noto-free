@@ -21,17 +21,17 @@ add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_cus
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
 // Color Palette
-define( 'SM_COLOR_PRIMARY', '#F6B4A6' ); // Problematic Pink (#FCD9D2) it's primary at 40% opacity
-define( 'SM_COLOR_SECONDARY', '#DD9997' );
-define( 'SM_COLOR_TERTIARY', '#FDEB89' ); // Bright Yellow
+define( 'SM_COLOR_PRIMARY', '#FFB1A5' ); // Problematic Pink (#FCD9D2) it's primary at 40% opacity
+define( 'SM_COLOR_SECONDARY', '#E79696' );
+define( 'SM_COLOR_TERTIARY', '#383E5A' ); // Bright Yellow (#FFEA80) replaced by a more vibrant Blueish 
 
-define( 'SM_DARK_PRIMARY', '#34394A' ); // Blueish
+define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
 define( 'SM_DARK_SECONDARY', '#49494B' );
-define( 'SM_DARK_TERTIARY', '#A2A3A2' );
+define( 'SM_DARK_TERTIARY', '#394059' );
 
 define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
-define( 'SM_LIGHT_SECONDARY', '#FDF4F4' ); // Light Pink
-define( 'SM_LIGHT_TERTIARY', '#FEF5C4' ); // Light Yellow
+define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
+define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
 
 define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
 define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
