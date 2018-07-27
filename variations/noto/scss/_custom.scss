@@ -93,7 +93,7 @@ body {
 .search-trigger[class] {
   display: flex;
   align-items: center;
-  padding: 25px 20px 16px;
+  padding: 1em;
 }
 
 .c-navbar__label-icon {
@@ -212,4 +212,12 @@ body {
 
 .site {
   padding-left: 25px;
+}
+
+.c-noto--body > :not(.c-footer-layers) {
+  transition: opacity .3s ease-out;
+
+  html:not(.is-ready) & {
+    opacity: 0;
+  }
 }

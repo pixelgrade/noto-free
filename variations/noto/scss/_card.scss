@@ -240,7 +240,7 @@ $button-offset: 16px;
       transition-property: transform, opacity;
 
       .c-card:hover & {
-        opacity: 1;
+        opacity: 0.4;
         transform: translateZ(0);
       }
     }

@@ -67,6 +67,16 @@
   position: relative;
   z-index: 200;
 
+  .sub-menu a {
+    opacity: 0.6;
+    font-size: 93.75%;
+    transition: opacity $transition--micro ease;
+  }
+
+  .sub-menu li:hover > a {
+    opacity: 1;
+  }
+
   .menu > li {
     color: $sm-light-primary;
 
@@ -152,7 +162,7 @@
       opacity: 0.6;
       font-size: 93.75%;
 
-      transition: all $transition--micro ease;
+      transition: opacity $transition--micro ease;
 
       &:hover {
         opacity: initial;

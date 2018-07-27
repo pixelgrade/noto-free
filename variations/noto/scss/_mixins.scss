@@ -6,7 +6,6 @@
 
     color: $sm-color-primary;
 
-    opacity: 0.4;
     transition: opacity .3s ease-in-out;
 
     &:after {
@@ -23,6 +22,7 @@
         overflow: hidden;
         background: linear-gradient( to right, currentColor 50%, transparent);
         z-index: -1;
+        opacity: 0.4;
     }
 }
 

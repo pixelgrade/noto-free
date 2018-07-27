@@ -276,8 +276,11 @@ function variation_change_customify_general_section( $section_options, $options 
 								.intro[class],
 								.c-author__name[class],
 								.c-card:hover .c-card__excerpt,
-								.slick-dots .slick-active,
-								
+								.slick-dots .slick-active',
+						),
+						array(
+							'property' => 'border-color',
+							'selector' => '
 								select:active, 
 								select:focus,
 								
@@ -298,7 +301,7 @@ function variation_change_customify_general_section( $section_options, $options 
 								input[type=url]:active, 
 								input[type=url]:focus,
 								
-								textarea:active.
+								textarea:active,
 								textarea:focus',
 						),
 						array(
@@ -316,8 +319,8 @@ function variation_change_customify_general_section( $section_options, $options 
 						array(
 							'property' => 'color',
 							'selector' => '
-								.header-category a,
-								.c-meta__decoration',
+								.header-category a:after,
+								.c-meta__decoration:after',
 						),
 						array(
 							'property' => 'background-color',
