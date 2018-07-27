@@ -11,7 +11,7 @@ $header-vertical-position-top: 25px;
     // Vertical Layout
     body:not(.page):not(.single) & {
         transform: translateY(0px) rotate(1deg);
-        transition: transform $transition--macro ease;
+        transition: all $transition--macro ease;
 
         &:hover {
             transform: translateY(-30px) rotate(-1deg);

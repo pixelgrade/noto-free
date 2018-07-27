@@ -1178,6 +1178,7 @@ var NotoHeader = function (_BaseComponent) {
             var $parent = $title.parent();
             var parentWidth = $parent.outerWidth();
             $title.css({ fontSize: fontSize * parentWidth / titleWidth });
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--middle').css('opacity', 1);
         }
     }, {
         key: 'onResize',
