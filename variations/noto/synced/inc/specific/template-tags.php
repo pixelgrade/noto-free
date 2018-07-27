@@ -186,7 +186,7 @@ if ( ! function_exists( 'noto_get_pattern_background_image' ) ) {
 		if ( empty( $color ) ) {
 			$color = pixelgrade_option( 'main_content_body_text_color', '#49494B' );
 			if ( is_single() || is_admin() ) {
-			    $color = pixelgrade_option( 'secondary_color', '#E79696' );
+			    $color = pixelgrade_option( 'accent_color', '#FFB1A5' );
 			}
 		}
 

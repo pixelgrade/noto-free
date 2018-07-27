@@ -21,10 +21,9 @@ add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_cus
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
 // Color Palette
-define( 'SM_COLOR_PRIMARY', '#E87474' );
+define( 'SM_COLOR_PRIMARY', '#FFB1A5' ); // Problematic Pink (#FCD9D2) it's primary at 40% opacity
 define( 'SM_COLOR_SECONDARY', '#E79696' );
-define( 'SM_COLOR_TERTIARY', '#FCD9D2' );
-define( 'SM_COLOR_QUATERNARY', '#FFEA80' ); // Bright Yellow
+define( 'SM_COLOR_TERTIARY', '#FFEA80' ); // Bright Yellow
 
 define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
 define( 'SM_DARK_SECONDARY', '#49494B' );
@@ -62,6 +61,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_color_primary' => array(
 				'default' => SM_COLOR_PRIMARY,
 				'connected_fields' => array(
+					'accent_color'
 				),
 				'css'     => array(
 					array(
@@ -73,7 +73,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_color_secondary' => array(
 				'default' => SM_COLOR_SECONDARY,
 				'connected_fields' => array(
-					'accent_color'
+					'accent_light_color'
 				),
 				'css'     => array(
 					array(
@@ -85,7 +85,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_color_tertiary' => array(
 				'default' => SM_COLOR_TERTIARY,
 				'connected_fields' => array(
-					'accent_light_color'
 				),
 				'css'     => array(
 					array(
@@ -268,7 +267,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => SM_COLOR_SECONDARY,
+					'default' => SM_COLOR_PRIMARY,
 					'css'     => array(
 						array(
 							'property' => 'color',
@@ -290,20 +289,21 @@ function variation_change_customify_general_section( $section_options, $options 
 					'type'    => 'color',
 					'label'   => esc_html__( 'Accent Light Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => SM_COLOR_TERTIARY,
+					'default' => SM_COLOR_SECONDARY,
 					'css'     => array(
 						array(
-							'property' => 'background',
+							'property' => 'color',
 							'selector' => '
-								.header-category a:after,
-								.c-meta__decoration:after',
-							'callback_filter' => 'noto_meta_background_gradient_cb',
+								.header-category a,
+								.c-meta__decoration',
 						),
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.c-footer-layers__accent,
-								.c-card__action:before',
+								.c-footer-layers__accent:after,
+								.c-card__action:before,
+								.cats a:before,
+								.c-comments-toggle__label:before',
 						),
 					),
 				),
@@ -324,7 +324,8 @@ function variation_change_customify_general_section( $section_options, $options 
 							'property' => 'background-color',
 							'selector' => '
 								.c-card__frame:after,
-								.c-noto__item--widget',
+								.c-noto__item--widget,
+								.entry-footer .c-author',
 						),
 					),
 				),
@@ -461,6 +462,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 							'property' => 'background-color',
 							'selector' => '
 								.c-footer-layers__background,
+								.c-footer-layers__accent,
 								.c-navbar__zone--left .menu > li > a:before,
 								.c-search-overlay,
 								.c-reading-progress,

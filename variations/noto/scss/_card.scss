@@ -247,6 +247,7 @@ $button-offset: 16px;
   }
 
   .c-card {
+
     .c-card__title,
     .wave-svg-mask,
     .wave-svg {
@@ -254,8 +255,11 @@ $button-offset: 16px;
     }
 
     .wave-svg-mask {
-      width: 200%;
       direction: rtl;
+    }
+
+    .wave-svg {
+      width: 200%;
     }
   }
 

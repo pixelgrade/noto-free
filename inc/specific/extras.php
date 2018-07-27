@@ -331,7 +331,6 @@ function noto_alter_body_classes( $classes ) {
 	}
 
 	$pattern = pixelgrade_option( 'pattern_style', 'wave' );
-
 	$classes[] = 'u-pattern-' . $pattern;
 
 	return $classes;

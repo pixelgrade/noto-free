@@ -1,9 +1,9 @@
 
 .sharedaddy:not(.sharedaddy--official) {
 
-    .entry-image--portrait &,
-    .entry-image--none & {
-        //grid-row-start: 2;
+
+    .sd-content ul li a.sd-button {
+
     }
 
     .sd-title {
@@ -35,6 +35,7 @@
     #content &[class] .sd-social-icon .sd-content.sd-content ul li[class*=share-] a.sd-button {
         padding: 0;
         background: none;
+        color: inherit !important;
 
         &:before {
             width: auto;
@@ -65,7 +66,7 @@
             &:before {
                 display: block;
                 font-size: 24px;
-                filter: grayscale(1) contrast(2) brightness(0.2);
+                // filter: grayscale(1) contrast(2) brightness(0.2);
             }
 
             span {
