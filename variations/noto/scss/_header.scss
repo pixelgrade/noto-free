@@ -68,16 +68,22 @@
   z-index: 200;
 
   .menu > li {
+    color: $sm-light-primary;
 
-    &:hover > a {
-      color: inherit;
-      transition: color .2s .1s ease-out;
+    &:hover {
+      color: $sm-dark-primary;
+
+      > a {
+        transition: color .2s .1s ease-out;
+      }
     }
 
     > a {
       position: relative;
       padding-left: 1.5em;
       padding-right: 1.5em;
+
+      color: inherit;
       transition: color .2s .2s ease-out;
 
       &:before {
@@ -218,7 +224,7 @@
 
     width: 70%;
 
-    background: $theme-border-color;
+    background: $sm-dark-primary;
     transition: transform $transition-duration $transition-easing;
 
     .menu-item-has-children:hover,
@@ -260,8 +266,8 @@
     right: 0;
     z-index: 310;
 
-    background: $theme-border-color;
-    color: $theme-accent-light-color;
+    background: $sm-dark-primary;
+    color: $sm-color-tertiary;
   }
 }
 

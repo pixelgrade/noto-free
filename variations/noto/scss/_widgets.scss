@@ -285,12 +285,12 @@
             justify-content: center;
 
             border-radius: 50%;
-            background-color: $theme-text-color;
+            background-color: $sm-dark-secondary;
             transition: background-color $transition-duration $transition-easing;
             cursor: pointer;
 
             &:hover {
-                background-color: $theme-accent-color;
+                background-color: $sm-color-secondary;
             }
         }
 

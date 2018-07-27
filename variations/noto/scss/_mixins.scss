@@ -1,9 +1,13 @@
 @mixin meta-style {
     position: relative;
+
     display: inline-block;
     padding: 0.5rem 0;
-    transition: opacity .3s ease-in-out;
+
+    color: $sm-color-primary;
+
     opacity: 0.4;
+    transition: opacity .3s ease-in-out;
 
     &:after {
         content: "";
@@ -35,7 +39,7 @@
         left: 0;
         z-index: -1;
 
-        background: $theme-accent-light-color;
+        background: $sm-color-primary;
         opacity: 0.4;
     }
 

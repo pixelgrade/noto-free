@@ -70,7 +70,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: $theme-accent-light-color;
+    background: $sm-color-tertiary;
     mix-blend-mode: color;
   }
 }
@@ -80,7 +80,7 @@
 }
 
 .c-card__letter {
-  color: $theme-accent-light-color;
+  color: $sm-color-tertiary;
   transform: translateY(-50%) translateX(-50%);
 
   .c-noto__item:not(.c-noto__item--no-image) & {
@@ -304,7 +304,7 @@ $button-offset: 16px;
     transition: color $transition-duration $transition-easing;
 
     .c-card:hover & {
-      color: $theme-accent-color;
+      color: $sm-color-secondary;
     }
   }
 

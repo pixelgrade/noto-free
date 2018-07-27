@@ -24,6 +24,7 @@ $fa-font-path: 'assets/fonts/fontawesome';
 $content-selector: '.content-area > :not([class*="align"]):not([class*="gallery"]):not(blockquote)';
 
 // Burger Menu
+// ----------------------------------------
 $burger-width: 19px;
 $burger-height: 14px;
 $burger-line-width: $burger-width;
@@ -32,43 +33,25 @@ $burger-line-height: 2px;
 // Style Manager
 // ----------------------------------------
 // Colors
-$sm-color-primary   : #E87474;
-$sm-color-secondary : #E79696;
-$sm-color-tertiary  : #FCD9D2;
-$sm-light-quaternary: #FFEA80; // Bright Yellow
+// ----------------------------------------
+$sm-color-primary:      #FFB1A5; // Pink (used at 40% opacity)
+$sm-color-secondary:    #E79696; // Darker Pink
+$sm-color-tertiary:     #383E5A; // Vibrant Blue
 
-$sm-dark-primary    : #34394B;  // Blueish
-$sm-dark-secondary  : #49494B; 
-$sm-dark-tertiary   : #34394B;
+$sm-dark-primary:       #34394B; // Blueish
+$sm-dark-secondary:     #49494B; // Dark Grey
+$sm-dark-tertiary:      #A2A3A2; // Light Grey
 
-$sm-light-primary    : #FFFFFF; // White
-$sm-light-secondary  : #FFF4F4; // Light Pink
-$sm-light-tertiary   : #FFF5C1; // Light Yellow
-
-
-// Variation Variables
-$theme-color-1: #E79696; // primary
-$theme-color-2: #FCD9D2; // secondary
-$theme-color-3: #FFF4F4; // light
-$theme-color-4: #34394B; // dark
-$theme-color-5: #49494B; // dark secondary
-
-$theme-accent-color: #E79696;
-$theme-accent-light-color: #FCD9D2;
-$theme-accent-lighter-color: #FFF4F4;
-
-$theme-border-lighter-color: #394059;
-
-$theme-text-color: #49494B;
-$theme-border-color: #34394B;
-$theme-background-color: #FFFFFF;
+$sm-light-primary:      #FFFFFF; // White
+$sm-light-secondary:    #FFF4F4; // Light Pink
+$sm-light-tertiary:     #FFF5C1; // Light Yellow
 
 // Typography
 // ----------------------------------------
-$theme-body-font-family: 'IBM Plex Sans', serif;
-$theme-body-font-family-alt: 'IBM Plex Sans', sans-serif;
-$theme-headings-font-family: 'IBM Plex Sans', serif;
-$theme-logo-font-family: 'Playfair Display', serif;
+$theme-body-font-family:        'IBM Plex Sans', sans-serif;
+$theme-body-font-family-alt:    'IBM Plex Sans', sans-serif;
+$theme-headings-font-family:    'IBM Plex Sans', sans-serif;
+$theme-logo-font-family:        'Bungee', sans-serif;
 
 $typography-table-cell-padding: 0.8em;
 
@@ -96,13 +79,10 @@ $header-sides-spacing: 0;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
-$header-links-color: $theme-text-color;
-$header-links-active-color: $theme-text-color;
-$header-background-color: $theme-accent-light-color;
+$header-links-color: $sm-light-primary;
+$header-links-active-color: $sm-dark-primary;
+$header-background-color: $sm-color-tertiary;
 
-$header-sticky-links-color: $theme-text-color;
-$header-sticky-links-active-color: $theme-text-color;
-$header-sticky-background-color: $theme-background-color;
 // ----------------------------------------
 // Fonts
 // ----------------------------------------
@@ -141,18 +121,19 @@ $content-border-color: transparent;
 // ----------------------------------------
 // Colors
 // ----------------------------------------
-$page-title-color: $theme-text-color;
-$body-text-color: $theme-text-color;
-$body-link-color: $theme-text-color;
-$body-link-active-color: $theme-text-color;
-$body-link-highlight-color: $theme-accent-light-color;
-$h1-color: $theme-text-color;
-$h2-color: $theme-text-color;
-$h3-color: $theme-text-color;
-$h4-color: $theme-text-color;
-$h5-color: $theme-text-color;
-$h6-color: $theme-text-color;
-$content-background-color: $theme-background-color;
+$body-text-color: $sm-dark-secondary;
+$body-link-color: $sm-dark-primary;
+$body-link-active-color: $sm-dark-primary;
+
+$page-title-color: $sm-dark-primary;
+$h1-color: $sm-dark-primary;
+$h2-color: $sm-dark-primary;
+$h3-color: $sm-dark-primary;
+$h4-color: $sm-dark-primary;
+$h5-color: $sm-dark-primary;
+$h6-color: $sm-dark-primary;
+
+$content-background-color: $sm-light-primary;
 // ----------------------------------------
 // Fonts
 // ----------------------------------------
@@ -324,7 +305,7 @@ $blog-excerpt-visibility: true;
 $blog-card-title-color: false;
 $blog-primary-meta-color: false;
 $blog-secondary-meta-color: false;
-$blog-thumbnail-background: $theme-accent-light-color;
+$blog-thumbnail-background: $sm-color-tertiary;
 $blog-thumbnail-background-opacity: 0.5;
 // ----------------------------------------
 // Fonts
@@ -388,7 +369,7 @@ $checkbox-color: $sm-dark-secondary;
 $checkbox-background-color: $sm-dark-secondary;
 $checkbox-width: 1.7rem;
 $checkbox-height: 1.7rem;
-$input-focus-border-color: $sm-color-tertiary;
+$input-focus-border-color: $sm-color-primary;
 $btn-default-background: #202423;
 $input-disabled-background-color: #E0E0E0;
 $input-disabled-border-color: #C7C7C7;
