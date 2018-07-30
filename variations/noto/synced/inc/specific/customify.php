@@ -13,6 +13,7 @@
  */
 
 add_filter( 'customify_filter_fields', 'pixelgrade_add_customify_style_manager_section', 12, 1 );
+add_filter( 'customify_filter_fields', 'variation_change_site_identity_section', 13, 1 );
 add_filter( 'pixelgrade_customify_general_section_options', 'variation_change_customify_general_section', 20, 2 );
 add_filter( 'pixelgrade_header_customify_section_options', 'variation_change_customify_header_section', 20, 2 );
 add_filter( 'pixelgrade_customify_main_content_section_options', 'variation_change_customify_main_content_section', 20, 2 );
@@ -187,8 +188,41 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 	return $options;
 }
 
+function variation_change_site_identity_section( $options ) {
+	$options['sections']['title_tagline'] = array(
+		'section_id' => 'title_tagline', // This is needed so we avoid the prefixing and use the core defined section.
+		'options' => array(
+			'profile_photo' => array(
+				'label' => esc_html__( 'Profile Photo', '__theme_txtd' ),
+				'type' => 'cropped_image',
+				'priority'      => 7, // this will make it appear above Logo (that has a priority of 8).
+				'width'         => 700, // Suggested width for cropped image.
+				'height'        => 700, // Suggested height for cropped image.
+				'flex_width'    => true, // Whether the width is flexible.
+				'flex_height'   => true, // Whether the height is flexible.
+				'button_labels' => array(
+					'select'       => esc_html__( 'Select photo', '__theme_txtd'  ),
+					'change'       => esc_html__( 'Change photo', '__theme_txtd'  ),
+					'remove'       => esc_html__( 'Remove', '__theme_txtd'  ),
+					'default'      => esc_html__( 'Default', '__theme_txtd'  ),
+					'placeholder'  => esc_html__( 'No photo selected', '__theme_txtd'  ),
+					'frame_title'  => esc_html__( 'Select photo', '__theme_txtd'  ),
+					'frame_button' => esc_html__( 'Choose photo', '__theme_txtd'  ),
+				),
+			),
+			'display_site_title' => array(
+				'label'   => esc_html__( 'Display Site Title', '__theme_txtd' ),
+				'type'    => 'checkbox',
+				'default' => false,
+			),
+		),
+	);
+
+	return $options;
+}
+
 /**
- * Footer Section
+ * General Section
  *
  * @param array $section_options The specific Customify config to be filtered
  * @param array $options The whole Customify config
@@ -353,29 +387,6 @@ function variation_change_customify_general_section( $section_options, $options 
 						),
 					),
 				),
-			),
-		),
-		'title_tagline' => array(
-			'section_id' => 'title_tagline', // This is needed so we avoid the prefixing and use the core defined section.
-			'options' => array(
-				'profile_photo' => array(
-					'label' => esc_html__( 'Profile Photo', '__theme_txtd' ),
-					'type' => 'cropped_image',
-					'priority'      => 7, // this will make it appear above Logo (that has a priority of 8).
-					'width'         => 700, // Suggested width for cropped image.
-					'height'        => 700, // Suggested height for cropped image.
-					'flex_width'    => true, // Whether the width is flexible.
-					'flex_height'   => true, // Whether the height is flexible.
-					'button_labels' => array(
-						'select'       => __( 'Select photo' ),
-						'change'       => __( 'Change photo' ),
-						'remove'       => __( 'Remove' ),
-						'default'      => __( 'Default' ),
-						'placeholder'  => __( 'No photo selected' ),
-						'frame_title'  => __( 'Select photo' ),
-						'frame_button' => __( 'Choose photo' ),
-					),
-				)
 			),
 		),
 	);
