@@ -134,7 +134,7 @@ $border-width: 2rem;
       content: "";
       grid-column: 1 / 4;
       grid-row: 1 / 2;
-      background: $theme-border-color;
+      background: $sm-dark-primary;
     }
 
     > * {
@@ -175,7 +175,7 @@ $border-width: 2rem;
       left: 0;
       width: 100%;
       height: 10px;
-      background-color: $theme-border-color;
+      background-color: $sm-dark-primary;
     }
   }
 

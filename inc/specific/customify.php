@@ -22,22 +22,22 @@ add_filter( 'pixelgrade_footer_customify_section_options', 'variation_change_cus
 add_filter( 'pixelgrade_customify_blog_grid_section_options', 'variation_change_customify_blog_grid_section', 20, 2 );
 
 // Color Palette
-define( 'SM_COLOR_PRIMARY', '#FFB1A5' ); // Problematic Pink (#FCD9D2) it's primary at 40% opacity
-define( 'SM_COLOR_SECONDARY', '#E79696' );
-define( 'SM_COLOR_TERTIARY', '#383E5A' ); // Bright Yellow (#FFEA80) replaced by a more vibrant Blueish 
+define( 'SM_COLOR_PRIMARY',     '#FFB1A5' ); // Pink (used at 40% opacity)
+define( 'SM_COLOR_SECONDARY',   '#E79696' ); // Darker Pink
+define( 'SM_COLOR_TERTIARY',    '#383E5A' ); // Vibrant Blue
 
-define( 'SM_DARK_PRIMARY', '#34394B' ); // Blueish
-define( 'SM_DARK_SECONDARY', '#49494B' );
-define( 'SM_DARK_TERTIARY', '#394059' );
+define( 'SM_DARK_PRIMARY',      '#34394B' ); // Blueish
+define( 'SM_DARK_SECONDARY',    '#49494B' ); // Dark Grey
+define( 'SM_DARK_TERTIARY',     '#A2A3A2' ); // Light Grey
 
-define( 'SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
-define( 'SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
-define( 'SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
+define( 'SM_LIGHT_PRIMARY',     '#FFFFFF' ); // White
+define( 'SM_LIGHT_SECONDARY',   '#FFF4F4' ); // Light Pink
+define( 'SM_LIGHT_TERTIARY',    '#FFF5C1' ); // Light Yellow
 
-define( 'SM_HEADINGS_FONT', 'IBM Plex Sans' );
-define( 'SM_ACCENT_FONT', 'IBM Plex Sans' );
-define( 'SM_BODY_FONT', 'IBM Plex Sans' );
-define( 'SM_LOGO_FONT', 'Bungee' );
+define( 'SM_HEADINGS_FONT',     'IBM Plex Sans' );
+define( 'SM_ACCENT_FONT',       'IBM Plex Sans' );
+define( 'SM_BODY_FONT',         'IBM Plex Sans' );
+define( 'SM_LOGO_FONT',         'Bungee' );
 
 /**
  * Add the Style Manager cross-theme Customizer section.
@@ -86,6 +86,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_color_tertiary' => array(
 				'default' => SM_COLOR_TERTIARY,
 				'connected_fields' => array(
+					'tertiary_color'
 				),
 				'css'     => array(
 					array(
@@ -107,6 +108,7 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 					'main_content_heading_4_color',
 					'main_content_heading_5_color',
 					'main_content_heading_6_color',
+					'header_links_active_color',
 					'footer_background',
 					'buttons_color',
 				),
@@ -132,7 +134,6 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 			'sm_dark_tertiary' => array(
 				'default' => SM_DARK_TERTIARY,
 				'connected_fields' => array(
-					'dark_tertiary_color'
 				),
 				'css'     => array(
 					array(
@@ -309,9 +310,33 @@ function variation_change_customify_general_section( $section_options, $options 
 								.intro[class],
 								.c-author__name[class],
 								.c-card:hover .c-card__excerpt,
-								.widget_nav_menu a,
-								.widget_pages a,
 								.slick-dots .slick-active',
+						),
+						array(
+							'property' => 'border-color',
+							'selector' => '
+								select:active, 
+								select:focus,
+								
+								input[type=date]:active, 
+								input[type=date]:focus, 
+								input[type=email]:active, 
+								input[type=email]:focus, 
+								input[type=number]:active, 
+								input[type=number]:focus, 
+								input[type=password]:active, 
+								input[type=password]:focus, 
+								input[type=search]:active, 
+								input[type=search]:focus, 
+								input[type=tel]:active, 
+								input[type=tel]:focus, 
+								input[type=text]:active, 
+								input[type=text]:focus, 
+								input[type=url]:active, 
+								input[type=url]:focus,
+								
+								textarea:active,
+								textarea:focus',
 						),
 						array(
 							'property' => 'background-color',
@@ -328,8 +353,8 @@ function variation_change_customify_general_section( $section_options, $options 
 						array(
 							'property' => 'color',
 							'selector' => '
-								.header-category a,
-								.c-meta__decoration',
+								.header-category a:after,
+								.c-meta__decoration:after',
 						),
 						array(
 							'property' => 'background-color',
@@ -363,15 +388,16 @@ function variation_change_customify_general_section( $section_options, $options 
 						),
 					),
 				),
-				'dark_tertiary_color' => array(
+				'tertiary_color' => array(
 					'type'    => 'color',
-					'label'   => esc_html__( 'Dark Tertiary Color', '__theme_txtd' ),
+					'label'   => esc_html__( 'Tertiary Color', '__theme_txtd' ),
 					'live'    => true,
-					'default' => SM_DARK_TERTIARY,
+					'default' => SM_COLOR_TERTIARY,
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-footer-layers__dark',
+							'selector' => '
+								.c-footer-layers__dark',
 						),
 					),
 				),
@@ -429,7 +455,8 @@ function variation_change_customify_main_content_section( $section_options, $opt
 						array(
 							'property' => 'color',
 							'selector' => '.c-card .wave-svg-mask,
-								.c-reading-progress',
+								.c-reading-progress,
+								.profile-photo-link--default svg',
 						),
 					),
 				),
@@ -781,7 +808,19 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone--left .menu > li > a',
+							'selector' => '.c-navbar__zone--left .menu > li',
+						),
+					),
+				),
+				'header_links_active_color'       => array(
+					'type'    => 'color',
+					'label'   => esc_html__( 'Links Active Color', '__components_txtd' ),
+					'live'    => true,
+					'default' => SM_DARK_PRIMARY,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-navbar__zone--left .menu > li:hover',
 						),
 					),
 				),

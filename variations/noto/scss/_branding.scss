@@ -11,7 +11,7 @@ $header-vertical-position-top: 25px;
     // Vertical Layout
     body:not(.page):not(.single) & {
         transform: translateY(0px) rotate(1deg);
-        transition: transform $transition--macro ease;
+        transition: all $transition--macro ease;
 
         &:hover {
             transform: translateY(-30px) rotate(-1deg);
@@ -108,7 +108,7 @@ $header-vertical-position-top: 25px;
         .header {
             margin-top: -($site-content-top-spacing - $header-vertical-position-top); // -72px
             padding: $header-vertical-spacing;
-            background: $theme-accent-lighter-color;
+            background: $sm-light-secondary;
         }
 
         * + .c-logo {
@@ -240,7 +240,7 @@ $header-vertical-position-top: 25px;
 
     &:after {
         content: "";
-        background: $sm-dark-secondary;
+        background: $sm-dark-primary;
     }
 
     span {
@@ -267,6 +267,12 @@ $header-vertical-position-top: 25px;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.profile-photo-link--default {
+    svg {
+        color: $sm-color-tertiary;
+    }
 }
 
 .profile-photo-link--admin {

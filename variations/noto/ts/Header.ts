@@ -195,6 +195,7 @@ export class NotoHeader extends BaseComponent {
         const parentWidth = $parent.outerWidth();
 
         $title.css({ fontSize: fontSize * parentWidth / titleWidth } );
+        $( '.c-navbar__zone--middle' ).css( 'opacity', 1 );
     }
 
     private onResize() {

@@ -67,17 +67,33 @@
   position: relative;
   z-index: 200;
 
-  .menu > li {
+  .sub-menu a {
+    opacity: 0.6;
+    font-size: 93.75%;
+    transition: opacity $transition--micro ease;
+  }
 
-    &:hover > a {
-      color: inherit;
-      transition: color .2s .1s ease-out;
+  .sub-menu li:hover > a {
+    opacity: 1;
+  }
+
+  .menu > li {
+    color: $sm-light-primary;
+
+    &:hover {
+      color: $sm-dark-primary;
+
+      > a {
+        transition: color .2s .1s ease-out;
+      }
     }
 
     > a {
       position: relative;
       padding-left: 1.5em;
       padding-right: 1.5em;
+
+      color: inherit;
       transition: color .2s .2s ease-out;
 
       &:before {
@@ -146,7 +162,7 @@
       opacity: 0.6;
       font-size: 93.75%;
 
-      transition: all $transition--micro ease;
+      transition: opacity $transition--micro ease;
 
       &:hover {
         opacity: initial;
@@ -218,7 +234,7 @@
 
     width: 70%;
 
-    background: $theme-border-color;
+    background: $sm-dark-primary;
     transition: transform $transition-duration $transition-easing;
 
     .menu-item-has-children:hover,
@@ -260,8 +276,8 @@
     right: 0;
     z-index: 310;
 
-    background: $theme-border-color;
-    color: $theme-accent-light-color;
+    background: $sm-dark-primary;
+    color: $sm-color-tertiary;
   }
 }
 

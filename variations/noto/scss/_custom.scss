@@ -30,7 +30,7 @@ $mobile-padding: 6.25vw;
 
 body {
   &.u-content-background {
-    background-color: $theme-border-color;
+    background-color: $sm-dark-primary;
   }
 }
 
@@ -93,7 +93,7 @@ body {
 .search-trigger[class] {
   display: flex;
   align-items: center;
-  padding: 25px 20px 16px;
+  padding: 1em;
 }
 
 .c-navbar__label-icon {
@@ -141,7 +141,7 @@ body {
 .c-footer-layers__accent:after {
   content: "";
   display: block;
-  background-color: $theme-accent-light-color;
+  background-color: $sm-color-primary;
   opacity: 0.4;
 }
 
@@ -176,7 +176,7 @@ body {
   left: 5rem;
   bottom: -2rem;
 
-  background-color: $theme-border-lighter-color;
+  background-color: $sm-dark-primary;
   transform: rotate(-0.5deg);
 
   opacity: 0;
@@ -212,4 +212,16 @@ body {
 
 .site {
   padding-left: 25px;
+}
+
+.c-noto--body > :not(.c-footer-layers) {
+  transition: opacity .3s ease-out;
+
+  html:not(.is-ready) & {
+    opacity: 0;
+  }
+}
+
+.c-navbar__zone--middle {
+  opacity: 0;
 }
