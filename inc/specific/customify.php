@@ -211,16 +211,83 @@ function variation_change_site_identity_section( $options ) {
 					'frame_button' => esc_html__( 'Choose photo', '__theme_txtd'  ),
 				),
 			),
-			'display_site_title' => array(
-				'label'   => esc_html__( 'Display Site Title', '__theme_txtd' ),
-				'type'    => 'checkbox',
-				'default' => false,
-			),
 		),
+	);
+
+	// "Instruct" Customify to remove controls and their settings.
+	if ( empty( $options['remove_controls'] ) ) {
+		$options['remove_controls'] = array();
+	}
+	if ( empty( $options['remove_settings'] ) ) {
+		$options['remove_settings'] = array();
+	}
+
+	// We want to replace the Display Site Title and Tagline control with two, one for each site title and site description.
+	$options['remove_controls'][] = 'header_text';
+	$options['remove_settings'][] = 'header_text';
+
+	// Change the priority of the blogdescription control so we can insert a control between it and the site title one.
+	if ( empty( $options['change_control_props'] ) ) {
+		$options['change_control_props'] = array();
+	}
+	$options['change_control_props']['blogdescription'] = array(
+		'priority' => 11,
+	);
+
+	$options['sections']['title_tagline']['options']['display_site_title'] = array(
+		'label'   => esc_html__( 'Display Site Title', '__theme_txtd' ),
+		'type'    => 'checkbox',
+		'priority'      => 10.5,
+		'default' => false,
+	);
+
+	$options['sections']['title_tagline']['options']['display_site_description'] = array(
+		'label'   => esc_html__( 'Display Site Tagline', '__theme_txtd' ),
+		'type'    => 'checkbox',
+		'priority'      => 11.5,
+		'default' => false,
 	);
 
 	return $options;
 }
+
+/**
+ * Adds CSS to hide header text for custom logo, based on Customizer setting.
+ *
+ * @since 4.5.0
+ * @access private
+ */
+function _noto_custom_logo_header_styles() {
+	if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-logo', 'header-text' ) ) {
+		// remove the default core hook that handles the custom inline CSS for hiding the Site Title & Description.
+		remove_action( 'wp_head', '_custom_logo_header_styles', 10 );
+
+		$classes = array();
+		if ( ! pixelgrade_option( 'display_site_title' ) ) {
+			$classes[] = 'site-title';
+		}
+		if ( ! pixelgrade_option( 'display_site_description' ) ) {
+			$classes[] = 'site-description-text';
+		}
+		if ( empty( $classes ) ) {
+			return;
+		}
+
+		$classes = array_map( 'sanitize_html_class', $classes );
+		$classes = '.' . implode( ', .', $classes );
+
+		?>
+		<!-- Custom Logo: hide header text -->
+		<style id="custom-logo-css" type="text/css">
+			<?php echo $classes; ?> {
+				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+		</style>
+		<?php
+	}
+}
+add_action( 'wp_head', '_noto_custom_logo_header_styles', 9 );
 
 /**
  * General Section
