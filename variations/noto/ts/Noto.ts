@@ -130,7 +130,7 @@ export class Noto extends BaseTheme {
             that.mouseY = e.pageY;
         });
 
-        $body.on('mouseover', '.c-noto__item', function() {
+        $body.on('mouseover', '.c-noto__item--image', function() {
             $( '.c-noto__item' ).not( this ).addClass( 'has-no-focus' );
             $( this ).addClass( 'has-focus' );
         });

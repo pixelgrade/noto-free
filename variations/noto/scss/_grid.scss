@@ -512,7 +512,8 @@ $border-width: 2rem;
   }
 }
 
-.c-noto__item {
+.c-noto__item,
+.header {
   transition: opacity .3s ease-out;
 }
 
@@ -524,7 +525,8 @@ $border-width: 2rem;
   }
 }
 
-.has-no-focus {
+.has-no-focus,
+.has-no-focus .header {
   opacity: 0.2;
 }
 
@@ -536,7 +538,7 @@ $border-width: 2rem;
       .c-card__aside {
         left: auto;
         right: percentage(13/12);
-        width: percentage(5/12);
+        width: percentage(15/12);
       }
     }
 

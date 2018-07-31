@@ -312,9 +312,11 @@ function noto_alter_archive_post_classes( $classes = array() ) {
 	if ( pixelgrade_in_location( 'index blog post portfolio jetpack', $location, false ) && ! is_single() ) {
 		$classes = array( 'c-noto__item', 'c-noto__item--post' );
 
-		if ( ! has_post_thumbnail() ) {
+		if ( has_post_thumbnail() ) {
+			$classes[] = 'c-noto__item--image';
+		} else {
 			$classes[] = 'c-noto__item--no-image';
-		}
+        }
 	}
 
 	return $classes;

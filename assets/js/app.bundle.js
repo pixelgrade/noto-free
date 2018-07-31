@@ -514,7 +514,7 @@ var Noto = function (_BaseTheme) {
                 that.mouseX = e.pageX;
                 that.mouseY = e.pageY;
             });
-            $body.on('mouseover', '.c-noto__item', function () {
+            $body.on('mouseover', '.c-noto__item--image', function () {
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not(this).addClass('has-no-focus');
                 __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).addClass('has-focus');
             });
