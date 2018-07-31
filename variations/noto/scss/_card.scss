@@ -42,6 +42,7 @@
   top: 50%;
   left: 0;
   z-index: -1;
+  overflow: visible;
 
   transform: translate3d(0,-50%,0);
 
@@ -57,27 +58,17 @@
 }
 
 .c-card__frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%,-50%,0);
   overflow: visible;
 
   img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: -50%;
+    transform: translate3d(-50%,-50%,0);
+
     width: auto;
     height: auto;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: $sm-color-tertiary;
-    mix-blend-mode: color;
   }
 }
 
