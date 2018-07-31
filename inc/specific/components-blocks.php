@@ -103,7 +103,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/sidebar',
-			'blog/post-it',
+//			'blog/post-it',
 		),
 	) );
 
@@ -117,7 +117,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/sidebar',
-			'blog/post-it',
+//			'blog/post-it',
 		),
 	) );
 
@@ -127,7 +127,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
 			'blog/sidebar',
-			'blog/post-it',
+//			'blog/post-it',
 		),
 	) );
 

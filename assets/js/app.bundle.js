@@ -509,9 +509,17 @@ var Noto = function (_BaseTheme) {
         value: function bindEvents() {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'bindEvents', this).call(this);
             var that = this;
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').on('mousemove', function (e) {
+            var $body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+            $body.on('mousemove', function (e) {
                 that.mouseX = e.pageX;
                 that.mouseY = e.pageY;
+            });
+            $body.on('mouseover', '.c-noto__item', function () {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not(this).addClass('has-no-focus');
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).addClass('has-focus');
+            });
+            $body.on('mouseleave', '.c-noto__item', function () {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').removeClass('has-focus has-no-focus');
             });
         }
     }, {

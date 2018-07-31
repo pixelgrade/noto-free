@@ -123,10 +123,20 @@ export class Noto extends BaseTheme {
         super.bindEvents();
 
         const that = this;
+        const $body = $( 'body' );
 
-        $( 'body' ).on('mousemove', (e) => {
+        $body.on('mousemove', (e) => {
             that.mouseX = e.pageX;
             that.mouseY = e.pageY;
+        });
+
+        $body.on('mouseover', '.c-noto__item', function() {
+            $( '.c-noto__item' ).not( this ).addClass( 'has-no-focus' );
+            $( this ).addClass( 'has-focus' );
+        });
+
+        $body.on('mouseleave', '.c-noto__item', () => {
+            $( '.c-noto__item' ).removeClass( 'has-focus has-no-focus');
         });
     }
 
