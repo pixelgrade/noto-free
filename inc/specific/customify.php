@@ -235,27 +235,25 @@ function variation_change_site_identity_section( $options ) {
 	);
 
 	$options['sections']['title_tagline']['options']['display_site_title'] = array(
-		'label'   => esc_html__( 'Display Site Title', '__theme_txtd' ),
-		'type'    => 'checkbox',
-		'priority'      => 10.5,
-		'default' => false,
+		'label'    => esc_html__( 'Display Site Title', '__theme_txtd' ),
+		'type'     => 'checkbox',
+		'priority' => 10.5,
+		'default'  => false,
 	);
 
 	$options['sections']['title_tagline']['options']['display_site_description'] = array(
-		'label'   => esc_html__( 'Display Site Tagline', '__theme_txtd' ),
-		'type'    => 'checkbox',
-		'priority'      => 11.5,
-		'default' => false,
+		'label'    => esc_html__( 'Display Site Tagline', '__theme_txtd' ),
+		'type'     => 'checkbox',
+		'priority' => 11.5,
+		'default'  => false,
 	);
+
 
 	return $options;
 }
 
 /**
  * Adds CSS to hide header text for custom logo, based on Customizer setting.
- *
- * @since 4.5.0
- * @access private
  */
 function _noto_custom_logo_header_styles() {
 	if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-logo', 'header-text' ) ) {
