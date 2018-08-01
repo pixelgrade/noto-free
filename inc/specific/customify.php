@@ -230,6 +230,12 @@ function variation_change_site_identity_section( $options ) {
 	if ( empty( $options['change_control_props'] ) ) {
 		$options['change_control_props'] = array();
 	}
+	$options['change_setting_props']['blogname'] = array(
+		'transport' => 'postMessage',
+	);
+	$options['change_setting_props']['blogdescription'] = array(
+		'transport' => 'postMessage',
+	);
 	$options['change_control_props']['blogdescription'] = array(
 		'priority' => 11,
 	);
@@ -238,14 +244,14 @@ function variation_change_site_identity_section( $options ) {
 		'label'    => esc_html__( 'Display Site Title', '__theme_txtd' ),
 		'type'     => 'checkbox',
 		'priority' => 10.5,
-		'default'  => false,
+		'default'  => true,
 	);
 
 	$options['sections']['title_tagline']['options']['display_site_description'] = array(
 		'label'    => esc_html__( 'Display Site Tagline', '__theme_txtd' ),
 		'type'     => 'checkbox',
 		'priority' => 11.5,
-		'default'  => false,
+		'default'  => true,
 	);
 
 
