@@ -49,7 +49,7 @@
     }
 
     .c-noto__item.is-visible.has-no-focus,
-    .is-loaded .has-no-focus .c-branding {
+    .is-loaded & .has-no-focus .c-branding {
         opacity: 0.2;
     }
 }
