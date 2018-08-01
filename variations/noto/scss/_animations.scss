@@ -31,14 +31,14 @@
 }
 
 // hover transitions
-.c-noto__item,
-.c-branding {
-    transition: opacity .3s ease-out;
-}
+.u-featured-images-animation {
 
-html.is-loaded {
+    .c-noto__item,
+    .c-branding {
+        transition: opacity .3s ease-out;
+    }
 
-    .has-focus {
+    .is-visible.has-focus {
         z-index: 10;
 
         .c-card__aside {
@@ -46,8 +46,8 @@ html.is-loaded {
         }
     }
 
-    .c-noto__item.has-no-focus,
-    .has-no-focus .c-branding {
+    .c-noto__item.is-visible.has-no-focus,
+    .is-loaded .has-no-focus .c-branding {
         opacity: 0.2;
     }
 }

@@ -473,6 +473,8 @@ var Noto = function (_BaseTheme) {
 
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.c-noto__item').not('.c-noto__item--post-it');
+            // revome previously set margins
+            $posts.css('marginTop', '');
             for (var p = 0; p < $posts.length; p++) {
                 var $post = $posts.slice(p - 1, p);
                 var $target = void 0;
@@ -638,7 +640,6 @@ var Noto = function (_BaseTheme) {
             this.appendSvgToBlockquote($container);
             this.eventHandlers($container);
             this.insertWidgetsBetweenPosts($container);
-            this.adjustPostsMargins($container);
             $container.find('.sharedaddy').each(function (i, obj) {
                 var $sharedaddy = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 if ($sharedaddy.find('.sd-social-official').length) {
@@ -649,6 +650,7 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'adjustLayout',
         value: function adjustLayout() {
+            this.adjustPostsMargins();
             cq.reevaluate(false, function () {
                 // Do something after all elements were updated
             });

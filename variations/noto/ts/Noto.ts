@@ -90,6 +90,9 @@ export class Noto extends BaseTheme {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.c-noto__item' ).not( '.c-noto__item--post-it' );
 
+        // revome previously set margins
+        $posts.css('marginTop', '' );
+
         for ( let p = 0; p < $posts.length; p++ ) {
             const $post = $posts.slice(p - 1, p);
             let $target;
@@ -267,7 +270,6 @@ export class Noto extends BaseTheme {
         this.eventHandlers($container);
 
         this.insertWidgetsBetweenPosts($container);
-        this.adjustPostsMargins($container);
 
         $container.find('.sharedaddy').each((i, obj) => {
             const $sharedaddy = $(obj);
@@ -279,6 +281,8 @@ export class Noto extends BaseTheme {
     }
 
     private adjustLayout() {
+        this.adjustPostsMargins();
+
         cq.reevaluate(false, () => {
             // Do something after all elements were updated
         });
