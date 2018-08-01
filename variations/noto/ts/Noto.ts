@@ -142,7 +142,7 @@ export class Noto extends BaseTheme {
             that.mouseY = e.pageY;
         });
 
-        $body.on('mouseover', '.c-noto__item--image', function() {
+        $body.on('mouseenter', '.c-noto__item--image', function() {
             clearTimeout( leaveFocusState );
             if ( this !== that.focusedCard ) {
                 that.focusedCard = this;
