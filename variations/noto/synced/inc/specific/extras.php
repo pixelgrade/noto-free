@@ -332,6 +332,10 @@ function noto_alter_body_classes( $classes ) {
 		$classes[] = 'u-intro-autostyle';
 	}
 
+	if ( ! pixelgrade_option( 'archive_disable_image_animations', false ) ) {
+		$classes[] = 'u-featured-images-animation';
+	}
+
 	$pattern = pixelgrade_option( 'pattern_style', 'wave' );
 	$classes[] = 'u-pattern-' . $pattern;
 

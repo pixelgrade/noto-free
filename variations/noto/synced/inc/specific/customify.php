@@ -311,6 +311,11 @@ function variation_change_customify_general_section( $section_options, $options 
 					'label'             => esc_html__( 'Disable auto-style first paragraph on articles', '__theme_txtd' ),
 					'default'           => false,
 				),
+				'archive_disable_image_animations' => array(
+					'type'              => 'checkbox',
+					'label'             => esc_html__( 'Disable image reveal effect on archives', '__theme_txtd' ),
+					'default'           => false,
+				),
 				'general_patterns_section'     => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1f3c1; ' . esc_html__( 'Patterns', '__theme_txtd' ) . '</span>',
@@ -531,7 +536,13 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_PRIMARY
+					'default' => SM_DARK_PRIMARY,
+                    'css' => array(
+                        array(
+                            'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
+                            'property' => 'color',
+                        ),
+                    ),
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
@@ -585,6 +596,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_font'          => array(
+					'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
 					'default' => array(
 						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',

@@ -536,7 +536,13 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_PRIMARY
+					'default' => SM_DARK_PRIMARY,
+                    'css' => array(
+                        array(
+                            'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
+                            'property' => 'color',
+                        ),
+                    ),
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
@@ -590,6 +596,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_font'          => array(
+					'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
 					'default' => array(
 						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
