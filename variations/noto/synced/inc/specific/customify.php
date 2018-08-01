@@ -818,7 +818,7 @@ function variation_change_customify_header_section( $section_options, $options )
 						array(
 							'media' => 'only screen and (min-width: 62.5em)',
 							'property' => 'background-color',
-							'selector' => 'body:not(.page):not(.single) .header'
+							'selector' => 'body.blog .header'
 						),
 					),
 				),

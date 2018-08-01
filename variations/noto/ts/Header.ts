@@ -126,8 +126,7 @@ export class NotoHeader extends BaseComponent {
             const progressBottom = ( this.lastScroll + this.windowHeight - this.footerOffset.top )
                 / Math.min( this.footerHeight, this.windowHeight );
 
-            let progress = 0.5 * Math.max(0, Math.min( 1, progressTop ) );
-            progress = progress + 0.5 * Math.max(0, Math.min( 1, progressBottom ) );
+            const progress = Math.max(0, Math.min( 1, progressTop, progressBottom ) );
 
             this.pinFooter( this.lastScroll );
             this.pinHeader( this.lastScroll );

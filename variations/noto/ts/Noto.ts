@@ -1,8 +1,12 @@
 import $ from 'jquery';
+
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
+
 import { Helper } from '../../../components/base/ts/services/Helper';
+
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
+
 import { NotoHeader } from './Header';
 
 const cq = require('cq-prolyfill')({ /* configuration */ });
@@ -14,12 +18,18 @@ export class Noto extends BaseTheme {
     public mouseX = 0;
     public mouseY = 0;
 
+    public focusedCard = null;
+    public newFocusedCard = false;
+
     constructor() {
         super();
+
+        const that = this;
 
         this.handleContent();
 
         function loop() {
+            that.updateFocusedCard();
             requestAnimationFrame(loop);
         }
 
@@ -125,19 +135,41 @@ export class Noto extends BaseTheme {
         const that = this;
         const $body = $( 'body' );
 
+        let leaveFocusState;
+
         $body.on('mousemove', (e) => {
             that.mouseX = e.pageX;
             that.mouseY = e.pageY;
         });
 
         $body.on('mouseover', '.c-noto__item--image', function() {
-            $( '.c-noto__item' ).not( this ).addClass( 'has-no-focus' );
-            $( this ).addClass( 'has-focus' );
+            clearTimeout( leaveFocusState );
+            if ( this !== that.focusedCard ) {
+                that.focusedCard = this;
+                that.newFocusedCard = true;
+            }
         });
 
         $body.on('mouseleave', '.c-noto__item', () => {
-            $( '.c-noto__item' ).removeClass( 'has-focus has-no-focus');
+            leaveFocusState = setTimeout(() => {
+                that.focusedCard = null;
+                that.newFocusedCard = true;
+            }, 100);
         });
+    }
+
+    public updateFocusedCard() {
+        if ( this.newFocusedCard ) {
+            $( '.c-noto__item, .c-navbar__zone--middle' ).removeClass( 'has-focus has-no-focus' );
+
+            if ( this.focusedCard ) {
+                $( '.c-noto__item' ).not( this.focusedCard ).addClass( 'has-no-focus' );
+                $( '.c-navbar__zone--middle' ).addClass( 'has-no-focus' );
+                $( this.focusedCard ).addClass( 'has-focus' );
+            }
+
+            this.newFocusedCard = false;
+        }
     }
 
     public onLoadAction() {
@@ -145,6 +177,14 @@ export class Noto extends BaseTheme {
 
         this.SearchOverlay = new SearchOverlay();
         this.Header = new NotoHeader();
+
+        $( '.c-noto__item' ).each((i, obj) => {
+            const $card = $( obj );
+
+            setTimeout(() => {
+                $card.addClass('is-visible' );
+            }, (i + 1) * 100);
+        });
 
         this.adjustLayout();
     }

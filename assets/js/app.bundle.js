@@ -408,8 +408,12 @@ var Noto = function (_BaseTheme) {
 
         _this.mouseX = 0;
         _this.mouseY = 0;
+        _this.focusedCard = null;
+        _this.newFocusedCard = false;
+        var that = _this;
         _this.handleContent();
         function loop() {
+            that.updateFocusedCard();
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
@@ -510,17 +514,37 @@ var Noto = function (_BaseTheme) {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'bindEvents', this).call(this);
             var that = this;
             var $body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+            var leaveFocusState = void 0;
             $body.on('mousemove', function (e) {
                 that.mouseX = e.pageX;
                 that.mouseY = e.pageY;
             });
             $body.on('mouseover', '.c-noto__item--image', function () {
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not(this).addClass('has-no-focus');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).addClass('has-focus');
+                clearTimeout(leaveFocusState);
+                if (this !== that.focusedCard) {
+                    that.focusedCard = this;
+                    that.newFocusedCard = true;
+                }
             });
             $body.on('mouseleave', '.c-noto__item', function () {
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').removeClass('has-focus has-no-focus');
+                leaveFocusState = setTimeout(function () {
+                    that.focusedCard = null;
+                    that.newFocusedCard = true;
+                }, 100);
             });
+        }
+    }, {
+        key: 'updateFocusedCard',
+        value: function updateFocusedCard() {
+            if (this.newFocusedCard) {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item, .c-navbar__zone--middle').removeClass('has-focus has-no-focus');
+                if (this.focusedCard) {
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not(this.focusedCard).addClass('has-no-focus');
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--middle').addClass('has-no-focus');
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this.focusedCard).addClass('has-focus');
+                }
+                this.newFocusedCard = false;
+            }
         }
     }, {
         key: 'onLoadAction',
@@ -528,6 +552,12 @@ var Noto = function (_BaseTheme) {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onLoadAction', this).call(this);
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.Header = new __WEBPACK_IMPORTED_MODULE_5__Header__["a" /* NotoHeader */]();
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').each(function (i, obj) {
+                var $card = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                setTimeout(function () {
+                    $card.addClass('is-visible');
+                }, (i + 1) * 100);
+            });
             this.adjustLayout();
         }
     }, {
@@ -1120,8 +1150,7 @@ var NotoHeader = function (_BaseComponent) {
                 this.lastScroll = this.latestScroll;
                 var progressTop = this.lastScroll / (3 * this.headerHeight);
                 var progressBottom = (this.lastScroll + this.windowHeight - this.footerOffset.top) / Math.min(this.footerHeight, this.windowHeight);
-                var progress = 0.5 * Math.max(0, Math.min(1, progressTop));
-                progress = progress + 0.5 * Math.max(0, Math.min(1, progressBottom));
+                var progress = Math.max(0, Math.min(1, progressTop, progressBottom));
                 this.pinFooter(this.lastScroll);
                 this.pinHeader(this.lastScroll);
                 this.timeline.progress(progress);

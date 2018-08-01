@@ -9,7 +9,7 @@ $header-vertical-position-top: 25px;
     
     // Grid
     // Vertical Layout
-    body:not(.page):not(.single) & {
+    body.blog & {
         transform: translateY(0px) rotate(1deg);
         transition: all $transition--macro ease;
 
@@ -20,8 +20,7 @@ $header-vertical-position-top: 25px;
 
     // Single and Pages
     // Horizontal Layout
-    .page &,
-    .single & {
+    body:not(.blog) & {
 
         .c-branding {
             transition: $transition--default;
@@ -55,6 +54,7 @@ $header-vertical-position-top: 25px;
 
 .site-title {
     display: inline-block;
+    white-space: nowrap;
 }
 
 @mixin branding-grid {
@@ -103,7 +103,7 @@ $header-vertical-position-top: 25px;
 
     // Grid
     // Vertical Layout
-    body:not(.page):not(.single) {
+    body.blog {
 
         .header {
             margin-top: -($site-content-top-spacing - $header-vertical-position-top); // -72px
@@ -133,8 +133,7 @@ $header-vertical-position-top: 25px;
 
     // Single and Pages
     // Horizontal Layout
-    .page,
-    .single {
+    body:not(.blog) {
         @include branding-grid;
 
         .header {
