@@ -339,3 +339,14 @@ function noto_alter_body_classes( $classes ) {
 }
 
 add_filter( 'body_class', 'noto_alter_body_classes', 20, 1 );
+
+if ( ! function_exists( 'noto_posts_per_page' ) ) {
+	function noto_posts_per_page( $posts_per_page ) {
+		if ( $posts_per_page < 20 ) {
+			return 20;
+		}
+
+		return $posts_per_page;
+	}
+}
+add_filter( 'option_posts_per_page', 'noto_posts_per_page', 10, 1 );
