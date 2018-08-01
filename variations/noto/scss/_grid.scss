@@ -508,6 +508,20 @@ $border-width: 2rem;
 }
 
 
+// make sure images are above widgets even after mouse out
+.c-noto__item {
+  position: relative;
+}
+
+.c-noto__item--widget {
+  z-index: 4;
+}
+
+.c-noto__item--post {
+  z-index: 5;
+}
+
+
 // featured images positioning
 @include above(lap) {
 

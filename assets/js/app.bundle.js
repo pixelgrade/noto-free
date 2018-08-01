@@ -1152,7 +1152,10 @@ var NotoHeader = function (_BaseComponent) {
                 this.lastScroll = this.latestScroll;
                 var progressTop = this.lastScroll / (3 * this.headerHeight);
                 var progressBottom = (this.lastScroll + this.windowHeight - this.footerOffset.top) / Math.min(this.footerHeight, this.windowHeight);
-                var progress = Math.max(0, Math.min(1, progressTop, progressBottom));
+                progressTop = Math.max(0, Math.min(progressTop, 1));
+                progressBottom = Math.max(0, Math.min(progressBottom, 1));
+                var progress = 0.5 * (progressTop + progressBottom);
+                progress = Math.min(progress, progressTop);
                 this.pinFooter(this.lastScroll);
                 this.pinHeader(this.lastScroll);
                 this.timeline.progress(progress);
