@@ -66,7 +66,7 @@ export class Noto extends BaseTheme {
     public insertWidgetsBetweenPosts($container: JQuery = this.$body) {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.c-noto__item--post' );
-        const $widgets = $noto.children( '.c-noto__item--widget' );
+        const $widgets = $noto.children( '.c-noto__item--widget' ).not( '.c-noto__item--post-it' );
 
         let w = 0;
 

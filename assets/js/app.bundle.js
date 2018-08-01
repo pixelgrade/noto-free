@@ -452,7 +452,7 @@ var Noto = function (_BaseTheme) {
 
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.c-noto__item--post');
-            var $widgets = $noto.children('.c-noto__item--widget');
+            var $widgets = $noto.children('.c-noto__item--widget').not('.c-noto__item--post-it');
             var w = 0;
             for (var p = 0; p < $posts.length; p++) {
                 if (!$widgets.length) {
