@@ -210,7 +210,7 @@ export class Noto extends BaseTheme {
 
         $intro.each(( i, obj ) => {
             const $obj = $(obj);
-            const $wave = $waveTemplate.clone();
+            const $wave = $waveTemplate.clone().removeClass( 'js-pattern-template' );
             const $pattern = $wave.find( 'pattern' );
             const patternID = $pattern.attr('id');
 
@@ -231,7 +231,7 @@ export class Noto extends BaseTheme {
 
         $blockquote.each((i, obj) => {
             const $obj = $(obj);
-            const $wave = $waveTemplate.clone();
+            const $wave = $waveTemplate.clone().removeClass( 'js-pattern-template' );
             const $pattern = $wave.find( 'pattern' );
             const patternID = $pattern.attr('id');
 

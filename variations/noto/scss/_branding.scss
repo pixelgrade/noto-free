@@ -9,12 +9,15 @@ $header-vertical-position-top: 25px;
     
     // Grid
     // Vertical Layout
-    body.blog & {
-        transform: translateY(0px) rotate(1deg);
-        transition: all $transition--macro ease;
+    @include above(lap) {
 
-        &:hover {
-            transform: translateY(-30px) rotate(-1deg);
+        body.blog & {
+            transform: translateY(0px) rotate(1deg);
+            transition: all $transition--macro ease;
+
+            &:hover {
+                transform: translateY(-30px) rotate(-1deg);
+            }
         }
     }
 
@@ -50,6 +53,10 @@ $header-vertical-position-top: 25px;
     a:hover img {
         opacity: 1;
     }
+}
+
+.header {
+    position: relative;
 }
 
 .site-title {
@@ -146,10 +153,9 @@ $header-vertical-position-top: 25px;
         }
 
         .header {
-            position: relative;
             padding: $header-horizontal-spacing;
             padding-bottom: 0;
-            
+
 
             // Separate the background
             // to make it "animatable" on hover
@@ -159,11 +165,11 @@ $header-vertical-position-top: 25px;
                 display: block;
                 top: 0;
                 right: 0;
-                bottom: 0; 
+                bottom: 0;
                 left: 0;
 
                 z-index: -1;
-                
+
                 background: #ffffff;
 
                 transition: $transition--default;

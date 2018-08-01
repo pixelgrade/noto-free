@@ -890,7 +890,10 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone--left .menu > li',
+							'selector' => '
+							    .c-navbar__zone--left .menu > li,
+							    .c-navbar__zone--right .menu > li
+							    ',
 						),
 					),
 				),
@@ -902,6 +905,7 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
+							'media' => 'only screen and (min-width: 62.5em)',
 							'selector' => '.c-navbar__zone--left .menu > li:hover',
 						),
 					),

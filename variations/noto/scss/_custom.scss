@@ -102,6 +102,13 @@ body {
   padding-top: 22px;
 }
 
+.search-trigger[class] {
+  @include below(lap) {
+    height: 62px;
+    padding-top: 22px;
+  }
+}
+
 .site {
   // Limit the container size until more work is done for large screens
   max-width: 1440px;

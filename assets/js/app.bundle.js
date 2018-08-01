@@ -584,7 +584,7 @@ var Noto = function (_BaseTheme) {
             var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
             $intro.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                var $wave = $waveTemplate.clone();
+                var $wave = $waveTemplate.clone().removeClass('js-pattern-template');
                 var $pattern = $wave.find('pattern');
                 var patternID = $pattern.attr('id');
                 $pattern.attr('id', patternID + i);
@@ -605,7 +605,7 @@ var Noto = function (_BaseTheme) {
             var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
             $blockquote.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                var $wave = $waveTemplate.clone();
+                var $wave = $waveTemplate.clone().removeClass('js-pattern-template');
                 var $pattern = $wave.find('pattern');
                 var patternID = $pattern.attr('id');
                 $pattern.attr('id', patternID + i);

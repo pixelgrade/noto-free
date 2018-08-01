@@ -1,11 +1,13 @@
-.c-navbar__zone--right {
+@include above(lap) {
+    .c-navbar__zone--right {
 
-    > nav {
-        transition: opacity .3s ease-in-out;
-    }
+        > nav {
+            transition: opacity .3s ease-in-out;
+        }
 
-    &.is-hidden > nav {
-        opacity: 0;
+        &.is-hidden > nav {
+            opacity: 0;
+        }
     }
 }
 
