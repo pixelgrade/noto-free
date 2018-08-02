@@ -554,7 +554,8 @@ var Noto = function (_BaseTheme) {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onLoadAction', this).call(this);
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.Header = new __WEBPACK_IMPORTED_MODULE_5__Header__["a" /* NotoHeader */]();
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').each(function (i, obj) {
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item--post-it').addClass('is-visible');
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not('.c-noto__item--post-it').each(function (i, obj) {
                 var $card = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 setTimeout(function () {
                     $card.addClass('is-visible');

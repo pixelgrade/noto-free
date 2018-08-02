@@ -181,7 +181,8 @@ export class Noto extends BaseTheme {
         this.SearchOverlay = new SearchOverlay();
         this.Header = new NotoHeader();
 
-        $( '.c-noto__item' ).each((i, obj) => {
+        $( '.c-noto__item--post-it' ).addClass( 'is-visible' );
+        $( '.c-noto__item' ).not( '.c-noto__item--post-it' ).each((i, obj) => {
             const $card = $( obj );
 
             setTimeout(() => {
