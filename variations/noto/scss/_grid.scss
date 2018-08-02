@@ -546,7 +546,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * + .c-noto__item {
+      &.has-focus + * + * + .c-noto__item--post {
         z-index: 11;
       }
     }
@@ -560,7 +560,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * + .c-noto__item {
+      &.has-focus + * + * + .c-noto__item--post {
         z-index: 11;
       }
     }
@@ -604,7 +604,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + .c-noto__item {
+      &.has-focus + * + .c-noto__item--post {
         z-index: 11;
       }
     }
@@ -619,7 +619,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * + * + .c-noto__item {
+      &.has-focus + * + * + * + .c-noto__item--post {
         z-index: 11;
       }
     }
