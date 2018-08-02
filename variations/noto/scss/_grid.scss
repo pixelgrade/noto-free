@@ -271,7 +271,7 @@ $border-width: 2rem;
   }
 
   .c-noto__item {
-    margin-top: 50px;
+    margin-top: 45px;
     align-self: flex-start;
 
     // Cards Positioning
@@ -293,7 +293,7 @@ $border-width: 2rem;
         .c-card__meta,
         .c-card__excerpt,
         .c-card__footer {
-          margin-left: percentage(5/14);
+          margin-left: percentage(3.5/14);
         }
 
         .c-card__title {
@@ -318,11 +318,14 @@ $border-width: 2rem;
     }
 
     &:nth-child(8) {
-      grid-column: 15 / span 5;
+      grid-column: 16 / span 5;
     }
 
     &:nth-child(9) {
-      grid-column: 22 / span 8;
+      grid-column: 23 / span 8;
+
+      margin-top: 2*45px;
+      margin-bottom: 45px;
 
       &.c-noto__item--post {
         @include card-medium;
@@ -371,6 +374,11 @@ $border-width: 2rem;
 
       &.c-noto__item--post {
         @include card-medium;
+      }
+
+      &.c-noto__item--widget {
+        grid-column: 12 / span 6;
+        max-width: 250px;
       }
     }
 
@@ -439,7 +447,7 @@ $border-width: 2rem;
       }
     }
 
-    &:nth-child(8),
+    // &:nth-child(8),
     &:nth-child(6n+12),
     &:nth-child(6n+14) {
       &.c-noto__item--post {

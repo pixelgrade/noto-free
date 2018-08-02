@@ -113,3 +113,13 @@
         margin-bottom: 0;
     }
 }
+
+
+
+// CUSTOM THEME STYLES
+// ========================================
+img {
+    &.branded {
+        border-radius: 35%;
+    }
+}

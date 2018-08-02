@@ -117,6 +117,10 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 						'property' => '--sm-dark-primary',
 						'selector' => ':root',
 					),
+					array(
+						'property' => 'color',
+						'selector' => '.c-noto__item--widget',
+					),
 				),
 			),
 			'sm_dark_secondary' => array(
@@ -484,7 +488,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-noto__item--widget.small',
+							'selector' => '.c-noto__item--widget.small, .c-noto__item:nth-child(12n+13).c-noto__item--widget',
 						),
 					),
 				),
