@@ -81,6 +81,7 @@ body:not(.blog) .c-noto__item--post-it {
                 width: 20px;
                 margin: 0 auto;
                 margin-top: 19px;
+                transform: translateZ(0);
 
                 rect {
                     transform: translateX(-3px);
