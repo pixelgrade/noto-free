@@ -473,33 +473,6 @@ $border-width: 2rem;
   }
 }
 
-// BREAKPOINT
-// ----------------------------------------
-
-// Others
-@include above(desk) {
-
-  // Layout
-  .c-noto {
-
-  }
-
-  // Main Menu
-  .c-navbar__zone--left {
-
-  }
-
-  // Site Identity
-  .c-navbar__zone--middle {
-
-  }
-
-  // Secondary Menu
-  .c-navbar__zone--right {
-
-  }
-}
-
 .c-noto--body {
 
   .c-navbar__zone {
@@ -516,7 +489,6 @@ $border-width: 2rem;
   }
 }
 
-
 // make sure images are above widgets even after mouse out
 .c-noto__item {
   position: relative;
@@ -529,7 +501,6 @@ $border-width: 2rem;
 .c-noto__item--post {
   z-index: 5;
 }
-
 
 // featured images positioning
 @include above(lap) {
@@ -575,7 +546,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * + * {
+      &.has-focus + * + * + .c-noto__item {
         z-index: 11;
       }
     }
@@ -587,10 +558,9 @@ $border-width: 2rem;
         width: percentage(15/13);
       }
 
-
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * + * {
+      &.has-focus + * + * + .c-noto__item {
         z-index: 11;
       }
     }
@@ -634,7 +604,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * {
+      &.has-focus + * + .c-noto__item {
         z-index: 11;
       }
     }
@@ -649,7 +619,7 @@ $border-width: 2rem;
 
       // .has-focus class has z-index: 10;
       // grid items with negative margin-top need to have a greater index to be hoverable
-      &.has-focus + * + * + * + * {
+      &.has-focus + * + * + * + .c-noto__item {
         z-index: 11;
       }
     }
