@@ -146,7 +146,8 @@ $border-width: 2rem;
     overflow: hidden;
 
     > .c-noto__item {
-      margin-top: 4rem;
+      // !important was added to overwrite inline margin top added through JS for the grid on large screens
+      margin-top: 4rem !important;
       padding-left: 2rem;
       padding-right: 2rem;
     }
