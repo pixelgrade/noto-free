@@ -576,33 +576,67 @@ var Noto = function (_BaseTheme) {
             this.adjustLayout();
         }
     }, {
-        key: 'appendSvgToIntro',
-        value: function appendSvgToIntro() {
+        key: 'getDecoration',
+        value: function getDecoration() {
+            var accent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            var className = accent ? 'js-pattern-accent-template' : 'js-pattern-template';
+            var selector = '.' + className;
+            return __WEBPACK_IMPORTED_MODULE_0_jquery___default()(selector).clone().removeClass(className);
+        }
+    }, {
+        key: 'addDecorations',
+        value: function addDecorations() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            var $intro = $container.find('.intro, .post-it, hr.decoration');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-accent-template');
-            $intro.each(function (i, obj) {
-                var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                var $wave = $waveTemplate.clone().removeClass('js-pattern-template');
-                if ($obj.is('.intro')) {
-                    $wave.prependTo($obj).show();
-                } else {
-                    $wave.appendTo($obj).show();
-                }
+            this.appendSvgToIntro($container);
+            this.appendSvgToPostIt($container);
+            this.appendSvgToSeparator($container);
+            this.appendSvgToBlockquote($container);
+        }
+    }, {
+        key: 'appendSvgToIntro',
+        value: function appendSvgToIntro() {
+            var _this2 = this;
+
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            $container.find('.intro').each(function (i, obj) {
+                _this2.getDecoration(true).prependTo(obj).show();
+            });
+        }
+    }, {
+        key: 'appendSvgToPostIt',
+        value: function appendSvgToPostIt() {
+            var _this3 = this;
+
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            $container.find('.post-it').each(function (i, obj) {
+                _this3.getDecoration().appendTo(obj).show();
+            });
+        }
+    }, {
+        key: 'appendSvgToSeparator',
+        value: function appendSvgToSeparator() {
+            var _this4 = this;
+
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            $container.find('hr.decoration').each(function (i, obj) {
+                _this4.getDecoration().insertAfter(obj).show().addClass('wave-svg--decoration');
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj).remove();
             });
         }
     }, {
         key: 'appendSvgToBlockquote',
         value: function appendSvgToBlockquote() {
+            var _this5 = this;
+
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            var $blockquote = $container.find('.content-area blockquote');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
-            $blockquote.each(function (i, obj) {
-                var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                var $wave = $waveTemplate.clone().removeClass('js-pattern-template');
-                $wave.prependTo($obj).show();
+            $container.find('.content-area blockquote').each(function (i, obj) {
+                _this5.getDecoration().prependTo(obj).show();
             });
         }
     }, {
@@ -645,8 +679,7 @@ var Noto = function (_BaseTheme) {
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
             this.autoStyleIntro();
-            this.appendSvgToIntro($container);
-            this.appendSvgToBlockquote($container);
+            this.addDecorations($container);
             this.eventHandlers($container);
             this.insertWidgetsBetweenPosts($container);
             $container.find('.sharedaddy').each(function (i, obj) {

@@ -205,31 +205,41 @@ export class Noto extends BaseTheme {
         this.adjustLayout();
     }
 
+    public getDecoration(accent: boolean = false) {
+        const className = accent ? 'js-pattern-accent-template' : 'js-pattern-template';
+        const selector = '.' + className;
+        return $( selector ).clone().removeClass( className );
+    }
+
+    public addDecorations($container: JQuery = this.$body) {
+        this.appendSvgToIntro( $container );
+        this.appendSvgToPostIt( $container );
+        this.appendSvgToSeparator( $container );
+        this.appendSvgToBlockquote( $container );
+    }
+
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find( '.intro, .post-it, hr.decoration' );
-        const $waveTemplate = $( '.js-pattern-accent-template' );
+        $container.find( '.intro' ).each(( i, obj ) => {
+            this.getDecoration( true ).prependTo( obj ).show();
+        });
+    }
 
-        $intro.each(( i, obj ) => {
-            const $obj = $(obj);
-            const $wave = $waveTemplate.clone().removeClass( 'js-pattern-template' );
+    public appendSvgToPostIt($container: JQuery = this.$body) {
+        $container.find( '.post-it' ).each(( i, obj ) => {
+            this.getDecoration().appendTo( obj ).show();
+        });
+    }
 
-            if ( $obj.is( '.intro' ) ) {
-                $wave.prependTo( $obj ).show();
-            } else {
-                $wave.appendTo( $obj ).show();
-            }
+    public appendSvgToSeparator($container: JQuery = this.$body) {
+        $container.find( 'hr.decoration' ).each(( i, obj ) => {
+            this.getDecoration().insertAfter( obj ).show().addClass( 'wave-svg--decoration' );
+            $( obj ).remove();
         });
     }
 
     public appendSvgToBlockquote($container: JQuery = this.$body) {
-        const $blockquote = $container.find('.content-area blockquote');
-        const $waveTemplate = $('.js-pattern-template');
-
-        $blockquote.each((i, obj) => {
-            const $obj = $(obj);
-            const $wave = $waveTemplate.clone().removeClass( 'js-pattern-template' );
-
-            $wave.prependTo($obj).show();
+        $container.find('.content-area blockquote').each((i, obj) => {
+            this.getDecoration().prependTo(obj).show();
         });
     }
 
@@ -275,8 +285,7 @@ export class Noto extends BaseTheme {
 
         this.autoStyleIntro();
 
-        this.appendSvgToIntro($container);
-        this.appendSvgToBlockquote($container);
+        this.addDecorations($container);
         this.eventHandlers($container);
 
         this.insertWidgetsBetweenPosts($container);

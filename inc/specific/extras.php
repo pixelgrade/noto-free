@@ -75,12 +75,8 @@ if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
 	function noto_append_svg_to_footer() {
 		$accent = pixelgrade_option( 'accent_color', '#FFB1A5' );
 		?>
-		<div class="wave-svg-mask js-pattern-template" hidden>
-			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
-		</div>
-		<div class="wave-svg-mask js-pattern-accent-template" hidden>
-			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image( $accent ); ?>'></div>
-		</div>
+        <div class="wave-svg js-pattern-template" style='background-image: <?php echo noto_get_pattern_background_image(); ?>' hidden></div>
+        <div class="wave-svg js-pattern-accent-template" style='background-image: <?php echo noto_get_pattern_background_image( $accent ); ?>' hidden></div>
 	<?php }
 endif;
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
@@ -337,7 +333,7 @@ add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
  */
 function noto_alter_body_classes( $classes ) {
 
-	if ( is_single() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
+	if ( is_singular() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
 		$classes[] = 'u-intro-autostyle';
 	}
 
