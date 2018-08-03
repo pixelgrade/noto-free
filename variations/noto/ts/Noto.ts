@@ -232,8 +232,11 @@ export class Noto extends BaseTheme {
 
     public appendSvgToSeparator($container: JQuery = this.$body) {
         $container.find( 'hr.decoration' ).each(( i, obj ) => {
-            this.getDecoration().insertAfter( obj ).show().addClass( 'wave-svg--decoration' );
-            $( obj ).remove();
+            const $target = $( obj );
+            const $decoration = this.getDecoration();
+            $target.attr( 'style', $decoration.attr( 'style' ) );
+            $target.attr( 'class', $decoration.attr( 'class' ) );
+            $decoration.remove();
         });
     }
 

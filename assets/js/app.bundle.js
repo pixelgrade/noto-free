@@ -624,8 +624,11 @@ var Noto = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             $container.find('hr.decoration').each(function (i, obj) {
-                _this4.getDecoration().insertAfter(obj).show().addClass('wave-svg--decoration');
-                __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj).remove();
+                var $target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                var $decoration = _this4.getDecoration();
+                $target.attr('style', $decoration.attr('style'));
+                $target.attr('class', $decoration.attr('class'));
+                $decoration.remove();
             });
         }
     }, {
