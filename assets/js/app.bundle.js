@@ -55,7 +55,6 @@ var Helper = function () {
                 var className = $image.attr('class');
                 var $p = $image.closest('p');
                 var $figure = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<figure />').attr('class', className);
-                console.log($figure, $p, __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length);
                 if (__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length) {
                     return;
                 }
@@ -628,11 +627,28 @@ var Noto = function (_BaseTheme) {
             }
         }
     }, {
+        key: 'unwrapImages',
+        value: function unwrapImages() {
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].$body;
+
+            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].unwrapImages($container);
+            var $paragraphs = $container.find('p');
+            $paragraphs.each(function (i, p) {
+                var $p = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(p);
+                var $image = $p.children('img');
+                if ($image.length === 1) {
+                    var className = $image.attr('class');
+                    var $figure = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<figure />').attr('class', className);
+                    $figure.append($image.removeAttr('class')).insertAfter($p);
+                }
+            });
+        }
+    }, {
         key: 'handleContent',
         value: function handleContent() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].unwrapImages($container.find('.entry-content'));
+            this.unwrapImages($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);

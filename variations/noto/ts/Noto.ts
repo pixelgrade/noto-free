@@ -257,9 +257,27 @@ export class Noto extends BaseTheme {
         }
     }
 
-    public handleContent($container: JQuery = this.$body) {
+    public unwrapImages( $container: JQuery = Helper.$body ): void {
 
-        Helper.unwrapImages($container.find('.entry-content'));
+        Helper.unwrapImages( $container );
+
+        const $paragraphs = $container.find( 'p' );
+
+        $paragraphs.each(( i, p ) => {
+            const $p = $(p);
+            const $image = $p.children( 'img' );
+
+            if ( $image.length === 1 ) {
+                const className = $image.attr( 'class' );
+                const $figure = $( '<figure />' ).attr( 'class', className );
+
+                $figure.append( $image.removeAttr( 'class' ) ).insertAfter( $p );
+            }
+        });
+    }
+
+    public handleContent($container: JQuery = this.$body) {
+        this.unwrapImages($container.find('.entry-content'));
         Helper.wrapEmbeds($container.find('.entry-content'));
         Helper.handleVideos($container);
         Helper.handleCustomCSS($container);
