@@ -7,27 +7,28 @@
     // <img>
     // <p>..</p>
     .content-area {
-      .alignleft {
-        grid-column: edge-start / cso;
-        grid-row-end: span 4;
-        margin-right: 0;
-      }
 
-      .alignright {
-        grid-column: ceo / edge-end;
-        grid-row-end: span 4;
-        margin-left: 0;
-      }
+        > .alignleft {
+            grid-column: edge-start / cso;
+            grid-row-end: span 4;
+            margin-right: 0;
+        }
 
-      .aligncenter,
-      .alignnone {
-        grid-column: ms / me;
-      }
+        > .alignright {
+            grid-column: ceo / edge-end;
+            grid-row-end: span 4;
+            margin-left: 0;
+        }
 
-      .gallery,
-      .jetpack-slideshow {
-        grid-column: ms / me;
-      } 
+        > .aligncenter,
+        > .alignnone {
+            grid-column: ms / me;
+        }
+
+        > .gallery,
+        > .jetpack-slideshow {
+            grid-column: ms / me;
+        }
 
     }
 }
@@ -66,6 +67,7 @@
 }
 
 .wp-caption {
+    width: auto !important;
     max-width: 100%;
 }
 
@@ -94,25 +96,25 @@
     margin-left: 0;
 }
 
-.content-area > p {
-
-    .alignleft {
-        display: block;
-        float: none;
-        margin-right: auto;
-    }
-
-    .alignright {
-        display: block;
-        float: none;
-        margin-left: auto;
-    }
-
-    .alignnone {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-}
+//.content-area > p {
+//
+//    .alignleft {
+//        display: block;
+//        float: none;
+//        margin-right: auto;
+//    }
+//
+//    .alignright {
+//        display: block;
+//        float: none;
+//        margin-left: auto;
+//    }
+//
+//    .alignnone {
+//        margin-top: 0;
+//        margin-bottom: 0;
+//    }
+//}
 
 
 
