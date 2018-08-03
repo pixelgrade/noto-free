@@ -32,7 +32,7 @@
     }
 
     @include below(lap) {
-        .wave-svg-mask {
+        .wave-svg {
             display: none !important;
         }
     }
@@ -75,18 +75,12 @@ body:not(.blog) .c-noto__item--post-it {
             }
         }
 
-        .wave-svg-mask {
-            .wave-svg {
-                opacity: 0.6;
-                width: 20px;
-                margin: 0 auto;
-                margin-top: 19px;
-                transform: translateZ(0);
-
-                rect {
-                    transform: translateX(-3px);
-                }
-            }
+        .wave-svg {
+            opacity: 0.6;
+            width: 20px;
+            margin: 0 auto;
+            margin-top: 19px;
+            transform: translateZ(0);
         }
     }
 }

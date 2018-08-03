@@ -145,13 +145,9 @@ if ( ! function_exists( 'noto_get_pattern_svg' ) ) {
 				</svg>
 		    <?php break;
 		    case "lines": ?>
-			    <svg width="50px" height="8px" viewBox="0 0 50 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			    <svg width="10px" height="8px" viewBox="0 0 10 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				    <g id="lines" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 		                <path d="M7.3887012,1.3612988 L2.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M17.3887012,1.3612988 L12.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M27.3887012,1.3612988 L22.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M37.3887012,1.3612988 L32.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M47.3887012,1.3612988 L42.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
 				    </g>
 				</svg>
 		    <?php break;
