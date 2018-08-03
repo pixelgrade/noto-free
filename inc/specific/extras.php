@@ -28,6 +28,10 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 			$fonts[] = 'Bungee';
 		}
 
+		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Sans font: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'IBM Plex Sans';
+		}
+
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
 		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', '__theme_txtd' );
 
@@ -68,9 +72,14 @@ if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
 	/**
 	 *  Output the wave quote svg code in the footer.
 	 */
-	function noto_append_svg_to_footer() { ?>
+	function noto_append_svg_to_footer() {
+		$accent = pixelgrade_option( 'accent_color', '#FFB1A5' );
+		?>
 		<div class="wave-svg-mask js-pattern-template" hidden>
 			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+		</div>
+		<div class="wave-svg-mask js-pattern-accent-template" hidden>
+			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image( $accent ); ?>'></div>
 		</div>
 	<?php }
 endif;

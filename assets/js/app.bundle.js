@@ -581,14 +581,10 @@ var Noto = function (_BaseTheme) {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
             var $intro = $container.find('.intro, .post-it, hr.decoration');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
+            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-accent-template');
             $intro.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 var $wave = $waveTemplate.clone().removeClass('js-pattern-template');
-                var $pattern = $wave.find('pattern');
-                var patternID = $pattern.attr('id');
-                $pattern.attr('id', patternID + i);
-                $wave.find('rect').css('fill', 'url(#wavePattern-intro' + i + ')');
                 if ($obj.is('.intro')) {
                     $wave.prependTo($obj).show();
                 } else {
@@ -606,10 +602,6 @@ var Noto = function (_BaseTheme) {
             $blockquote.each(function (i, obj) {
                 var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 var $wave = $waveTemplate.clone().removeClass('js-pattern-template');
-                var $pattern = $wave.find('pattern');
-                var patternID = $pattern.attr('id');
-                $pattern.attr('id', patternID + i);
-                $wave.find('rect').css('fill', 'url(#wavePattern-quote' + i + ')');
                 $wave.prependTo($obj).show();
             });
         }

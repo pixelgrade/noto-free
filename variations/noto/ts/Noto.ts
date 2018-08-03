@@ -207,16 +207,11 @@ export class Noto extends BaseTheme {
 
     public appendSvgToIntro($container: JQuery = this.$body) {
         const $intro = $container.find( '.intro, .post-it, hr.decoration' );
-        const $waveTemplate = $( '.js-pattern-template' );
+        const $waveTemplate = $( '.js-pattern-accent-template' );
 
         $intro.each(( i, obj ) => {
             const $obj = $(obj);
             const $wave = $waveTemplate.clone().removeClass( 'js-pattern-template' );
-            const $pattern = $wave.find( 'pattern' );
-            const patternID = $pattern.attr('id');
-
-            $pattern.attr( 'id', patternID + i );
-            $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
 
             if ( $obj.is( '.intro' ) ) {
                 $wave.prependTo( $obj ).show();
@@ -233,11 +228,7 @@ export class Noto extends BaseTheme {
         $blockquote.each((i, obj) => {
             const $obj = $(obj);
             const $wave = $waveTemplate.clone().removeClass( 'js-pattern-template' );
-            const $pattern = $wave.find( 'pattern' );
-            const patternID = $pattern.attr('id');
 
-            $pattern.attr( 'id', patternID + i );
-            $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-quote' + i + ')');
             $wave.prependTo($obj).show();
         });
     }

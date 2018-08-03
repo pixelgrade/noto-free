@@ -79,18 +79,18 @@
     line-height: 1.5;
 }
 
-.wp-caption.alignleft,
-.wp-caption.alignright {
+.alignleft[class],
+.alignright[class] {
     margin-top: 0;
     grid-row-end: span 3;
 }
 
-.wp-caption.alignleft {
+.alignleft[class] {
     grid-column: edge-start / cso;
     max-width: 100%;
 }
 
-.wp-caption.alignright {
+.alignright[class] {
     grid-column: ceo/edge-end;
     max-width: 100%;
     margin-left: 0;
