@@ -146,7 +146,8 @@ $border-width: 2rem;
     overflow: hidden;
 
     > .c-noto__item {
-      margin-top: 4rem;
+      // !important was added to overwrite inline margin top added through JS for the grid on large screens
+      margin-top: 4rem !important;
       padding-left: 2rem;
       padding-right: 2rem;
     }
@@ -185,13 +186,6 @@ $border-width: 2rem;
   }
 }
 
-$offset: 2;
-@mixin nth-card( $index ) {
-  &:nth-child( #{$index + $offset} ) {
-    @content;
-  }
-}
-
 // BREAKPOINT
 // > 1125px
 // ----------------------------------------
@@ -212,19 +206,16 @@ $offset: 2;
   }
 
   .c-noto--body {
-    grid-template-rows: minmax(4rem, auto);
-    grid-auto-rows: minmax(50px, auto);
 
-    counter-reset: count;
-
-    > * {
+    > *,
+    .entry-header[class] {
       grid-column: start / 32;
     }
 
     // End Cards Positioning
     // ----------------------------------------
 
-    body:not(.page):not(.single) & {
+    body.blog & {
       padding-bottom: 8rem;
     }
   }
@@ -243,18 +234,16 @@ $offset: 2;
 
   // Site Identity
   .c-navbar__zone--middle {
+    grid-row: 1 / 3;
 
     // Front Page
-    body:not(.single):not(.page) & {
+    body.blog & {
       grid-column: start / 12;
-      grid-row: 1 / 3;
     }
 
     // Inner Pages
-    body.single &,
-    body.page & {
+    body:not(.blog) & {
       grid-column: start / 14;
-      grid-row: 1 / 3;
     }
   }
 
@@ -283,7 +272,7 @@ $offset: 2;
   }
 
   .c-noto__item {
-    margin-top: 50px;
+    margin-top: 45px;
     align-self: flex-start;
 
     // Cards Positioning
@@ -305,7 +294,7 @@ $offset: 2;
         .c-card__meta,
         .c-card__excerpt,
         .c-card__footer {
-          margin-left: percentage(5/14);
+          margin-left: percentage(3.5/14);
         }
 
         .c-card__title {
@@ -330,11 +319,14 @@ $offset: 2;
     }
 
     &:nth-child(8) {
-      grid-column: 15 / span 5;
+      grid-column: 16 / span 5;
     }
 
     &:nth-child(9) {
-      grid-column: 22 / span 8;
+      grid-column: 23 / span 8;
+
+      margin-top: 2*45px;
+      margin-bottom: 45px;
 
       &.c-noto__item--post {
         @include card-medium;
@@ -383,6 +375,11 @@ $offset: 2;
 
       &.c-noto__item--post {
         @include card-medium;
+      }
+
+      &.c-noto__item--widget {
+        grid-column: 12 / span 6;
+        max-width: 250px;
       }
     }
 
@@ -451,7 +448,7 @@ $offset: 2;
       }
     }
 
-    &:nth-child(8),
+    // &:nth-child(8),
     &:nth-child(6n+12),
     &:nth-child(6n+14) {
       &.c-noto__item--post {
@@ -476,33 +473,6 @@ $offset: 2;
   }
 }
 
-// BREAKPOINT
-// ----------------------------------------
-
-// Others
-@include above(desk) {
-
-  // Layout
-  .c-noto {
-
-  }
-
-  // Main Menu
-  .c-navbar__zone--left {
-
-  }
-
-  // Site Identity
-  .c-navbar__zone--middle {
-
-  }
-
-  // Secondary Menu
-  .c-navbar__zone--right {
-
-  }
-}
-
 .c-noto--body {
 
   .c-navbar__zone {
@@ -515,6 +485,173 @@ $offset: 2;
     @include above(lap) {
       grid-column: 13 / span 4;
       align-self: flex-end;
+    }
+  }
+}
+
+// make sure images are above widgets even after mouse out
+.c-noto__item {
+  position: relative;
+}
+
+.c-noto__item--widget {
+  z-index: 4;
+}
+
+.c-noto__item--post {
+  z-index: 5;
+}
+
+// featured images positioning
+@include above(lap) {
+
+  .c-noto__item:not(.c-noto__item--no-image) {
+
+    &:nth-child(6) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(13/12);
+        width: percentage(15/12);
+      }
+    }
+
+    &:nth-child(7) {
+      .c-card__aside {
+        left: percentage(12/11);
+        width: percentage(17/11);
+      }
+    }
+
+    &:nth-child(8) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(6/5);
+        width: percentage(11/5);
+      }
+    }
+
+    &:nth-child(9) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(9/8);
+        width: percentage(18/8);
+      }
+    }
+
+    &:nth-child(12n+10) {
+      .c-card__aside {
+        left: percentage(14/13);
+        width: percentage(15/13);
+      }
+
+      // .has-focus class has z-index: 10;
+      // grid items with negative margin-top need to have a greater index to be hoverable
+      &.has-focus + * + * + .c-noto__item--post {
+        z-index: 11;
+      }
+    }
+
+    &:nth-child(12n+11) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(14/13);
+        width: percentage(15/13);
+      }
+
+      // .has-focus class has z-index: 10;
+      // grid items with negative margin-top need to have a greater index to be hoverable
+      &.has-focus + * + * + .c-noto__item--post {
+        z-index: 11;
+      }
+    }
+
+    &:nth-child(12n+12) {
+      .c-card__aside {
+        left: percentage(8/7);
+        width: percentage(21/7);
+      }
+    }
+
+    &:nth-child(12n+13) {
+      .c-card__aside {
+        left: percentage(6/5);
+        width: percentage(14/5);
+      }
+    }
+
+    &:nth-child(12n+14) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(6/5);
+        width: percentage(15/5);
+      }
+    }
+
+    &:nth-child(12n+15) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(8/7);
+        width: percentage(21/7);
+      }
+    }
+
+    &:nth-child(12n+16) {
+      .c-card__aside {
+        left: percentage(14/13);
+        width: percentage(15/13);
+      }
+
+
+      // .has-focus class has z-index: 10;
+      // grid items with negative margin-top need to have a greater index to be hoverable
+      &.has-focus + * + .c-noto__item--post {
+        z-index: 11;
+      }
+    }
+
+    &:nth-child(12n+17) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(14/13);
+        width: percentage(15/13);
+      }
+
+
+      // .has-focus class has z-index: 10;
+      // grid items with negative margin-top need to have a greater index to be hoverable
+      &.has-focus + * + * + * + .c-noto__item--post {
+        z-index: 11;
+      }
+    }
+
+    &:nth-child(12n+18) {
+      .c-card__aside {
+        left: percentage(6/5);
+        width: percentage(23/5);
+      }
+    }
+
+    &:nth-child(12n+19) {
+      .c-card__aside {
+        left: percentage(8/7);
+        width: percentage(15/7);
+      }
+    }
+
+    &:nth-child(12n+20) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(8/7);
+        width: percentage(15/7);
+      }
+    }
+
+    &:nth-child(12n+21) {
+      .c-card__aside {
+        left: auto;
+        right: percentage(6/5);
+        width: percentage(23/5);
+      }
     }
   }
 }

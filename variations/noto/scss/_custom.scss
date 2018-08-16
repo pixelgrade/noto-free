@@ -18,6 +18,7 @@ $mobile-padding: 6.25vw;
 @import 'pull';
 @import 'widgets';
 @import 'btn';
+@import 'animations';
 
 @import '../../../components/header/scss/elements/burger';
 @import '../../../components/blog/scss/elements/search-overlay';
@@ -99,6 +100,13 @@ body {
 .c-navbar__label-icon {
   height: 62px;
   padding-top: 22px;
+}
+
+.search-trigger[class] {
+  @include below(lap) {
+    height: 62px;
+    padding-top: 22px;
+  }
 }
 
 .site {
@@ -195,17 +203,6 @@ body {
   }
 }
 
-.c-navbar__zone--right {
-
-  > nav {
-    transition: opacity .3s ease-in-out;
-  }
-
-  &.is-hidden > nav {
-    opacity: 0;
-  }
-}
-
 .c-search-overlay .search-field {
   color: inherit;
 }
@@ -214,14 +211,6 @@ body {
   padding-left: 25px;
 }
 
-.c-noto--body > :not(.c-footer-layers) {
-  transition: opacity .3s ease-out;
-
-  html:not(.is-ready) & {
-    opacity: 0;
-  }
-}
-
-.c-navbar__zone--middle {
-  opacity: 0;
+html {
+  overflow-x: hidden;
 }

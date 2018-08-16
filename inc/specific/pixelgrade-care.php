@@ -17,5 +17,7 @@ function noto_setup_pixelgrade_care() {
 			'changelog_url' => 'https://wupdates.com/noto-changelog',
 		)
 	);
+
+	add_theme_support( 'pixelgrade_care_lonely' ); 
 }
 add_action( 'after_setup_theme', 'noto_setup_pixelgrade_care', 10 );

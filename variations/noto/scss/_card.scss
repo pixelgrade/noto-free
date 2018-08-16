@@ -40,38 +40,35 @@
 .c-card__aside {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0;
   z-index: -1;
+  overflow: visible;
 
-  transform: translate3d(-50%,-50%,0);
+  transform: translate3d(0,-50%,0);
 
   opacity: 0;
   pointer-events: none;
   transition: opacity .3s ease-in-out;
+
+  .c-noto__item--no-image & {
+    left: 50%;
+    opacity: 1;
+    transform: translate3d(-50%,-50%,0);
+  }
 }
 
 .c-card__frame {
-  position: relative;
   overflow: visible;
 
   img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: -50%;
+    transform: translate3d(-50%,-50%,0);
+
     width: auto;
     height: auto;
-
-    max-width: 400px;
-    max-height: 400px;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: $sm-color-tertiary;
-    mix-blend-mode: color;
   }
 }
 
@@ -306,10 +303,6 @@ $button-offset: 16px;
     .c-card:hover & {
       color: $sm-color-secondary;
     }
-  }
-
-  .c-card:hover .c-card__aside {
-    display: none;
   }
 
   .has-post-thumbnail .c-card__letter {

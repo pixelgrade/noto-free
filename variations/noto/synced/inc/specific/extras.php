@@ -28,6 +28,10 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 			$fonts[] = 'Bungee';
 		}
 
+		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Sans font: on or off', '__theme_txtd' ) ) {
+			$fonts[] = 'IBM Plex Sans';
+		}
+
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
 		$subset = esc_html_x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', '__theme_txtd' );
 
@@ -68,10 +72,11 @@ if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
 	/**
 	 *  Output the wave quote svg code in the footer.
 	 */
-	function noto_append_svg_to_footer() { ?>
-		<div class="wave-svg-mask js-pattern-template" hidden>
-			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
-		</div>
+	function noto_append_svg_to_footer() {
+		$accent = pixelgrade_option( 'accent_color', '#FFB1A5' );
+		?>
+        <div class="wave-svg js-pattern-template" style='background-image: <?php echo noto_get_pattern_background_image(); ?>' hidden></div>
+        <div class="wave-svg js-pattern-accent-template" style='background-image: <?php echo noto_get_pattern_background_image( $accent ); ?>' hidden></div>
 	<?php }
 endif;
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
@@ -312,9 +317,11 @@ function noto_alter_archive_post_classes( $classes = array() ) {
 	if ( pixelgrade_in_location( 'index blog post portfolio jetpack', $location, false ) && ! is_single() ) {
 		$classes = array( 'c-noto__item', 'c-noto__item--post' );
 
-		if ( ! has_post_thumbnail() ) {
+		if ( has_post_thumbnail() ) {
+			$classes[] = 'c-noto__item--image';
+		} else {
 			$classes[] = 'c-noto__item--no-image';
-		}
+        }
 	}
 
 	return $classes;
@@ -326,8 +333,12 @@ add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
  */
 function noto_alter_body_classes( $classes ) {
 
-	if ( is_single() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
+	if ( is_singular() && ! pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
 		$classes[] = 'u-intro-autostyle';
+	}
+
+	if ( ! pixelgrade_option( 'archive_disable_image_animations', false ) ) {
+		$classes[] = 'u-featured-images-animation';
 	}
 
 	$pattern = pixelgrade_option( 'pattern_style', 'wave' );

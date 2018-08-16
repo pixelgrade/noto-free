@@ -63,59 +63,62 @@
   }
 }
 
-.c-navbar__zone--left {
-  position: relative;
-  z-index: 200;
+@include above(lap) {
 
-  .sub-menu a {
-    opacity: 0.6;
-    font-size: 93.75%;
-    transition: opacity $transition--micro ease;
-  }
+  .c-navbar__zone--left {
+    position: relative;
+    z-index: 200;
 
-  .sub-menu li:hover > a {
-    opacity: 1;
-  }
+    .sub-menu a {
+      opacity: 0.6;
+      font-size: 93.75%;
+      transition: opacity $transition--micro ease;
+    }
 
-  .menu > li {
-    color: $sm-light-primary;
+    .sub-menu li:hover > a {
+      opacity: 1;
+    }
 
-    &:hover {
-      color: $sm-dark-primary;
+    .menu > li {
+      color: $sm-light-primary;
+
+      &:hover {
+        color: $sm-dark-primary;
+
+        > a {
+          transition: color .2s .1s ease-out;
+        }
+      }
 
       > a {
-        transition: color .2s .1s ease-out;
+        position: relative;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+
+        color: inherit;
+        transition: color .2s .2s ease-out;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: -.5rem;
+          left: 0;
+          z-index: -1;
+          background-color: #fff;
+          transition: transform 0.4s $easeInBack;
+          transform-origin: 50% 100%;
+          transform: scale(1, 0) rotate(0);
+        }
       }
-    }
 
-    > a {
-      position: relative;
-      padding-left: 1.5em;
-      padding-right: 1.5em;
-
-      color: inherit;
-      transition: color .2s .2s ease-out;
-
-      &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: -.5rem;
-        left: 0;
-        z-index: -1;
-        background-color: #fff;
-        transition: transform 0.4s $easeInBack;
-        transform-origin: 50% 100%;
-        transform: scale(1, 0) rotate(0);
-      }
-    }
-
-    @for $i from 1 through 20 {
-      &:nth-child(#{$i}):hover > a:before {
-        $rotation: (random(6) - 3) * 1deg;
-        transform: scale(1, 1) rotate($rotation);
-        transition: transform .3s $easeOutBack;
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}):hover > a:before {
+          $rotation: (random(6) - 3) * 1deg;
+          transform: scale(1, 1) rotate($rotation);
+          transition: transform .3s $easeOutBack;
+        }
       }
     }
   }
@@ -131,8 +134,7 @@
 .custom-logo-link img {
   width: auto;
 
-  .blog &,
-  .archive & {
+  .blog & {
     max-height: none;
 
     @include below(lap) {
@@ -147,16 +149,14 @@
   }
 }
 
-.c-navbar__zone--left {
-  .menu li a {
-    color: inherit;
-  }
-}
-
 .c-navbar__zone--right {
 
   @include above(lap) {
     background: none;
+
+    .menu[class] > li {
+      color: inherit;
+    }
 
     a {
       opacity: 0.6;
@@ -167,13 +167,6 @@
       &:hover {
         opacity: initial;
       }
-    }
-  }
-
-  @include below(lap) {
-
-    .menu li a {
-      color: inherit;
     }
   }
 }
@@ -240,10 +233,6 @@
     .menu-item-has-children:hover,
     .c-navbar__zone--left .sub-menu {
       background: none;
-    }
-
-    .menu-item-has-children:hover {
-      color: inherit;
     }
 
     .menu-item-has-children {

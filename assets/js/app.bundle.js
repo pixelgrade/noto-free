@@ -55,7 +55,6 @@ var Helper = function () {
                 var className = $image.attr('class');
                 var $p = $image.closest('p');
                 var $figure = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<figure />').attr('class', className);
-                console.log($figure, $p, __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length);
                 if (__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.trim($p.text()).length) {
                     return;
                 }
@@ -408,8 +407,12 @@ var Noto = function (_BaseTheme) {
 
         _this.mouseX = 0;
         _this.mouseY = 0;
+        _this.focusedCard = null;
+        _this.newFocusedCard = false;
+        var that = _this;
         _this.handleContent();
         function loop() {
+            that.updateFocusedCard();
             requestAnimationFrame(loop);
         }
         requestAnimationFrame(loop);
@@ -448,7 +451,7 @@ var Noto = function (_BaseTheme) {
 
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.c-noto__item--post');
-            var $widgets = $noto.children('.c-noto__item--widget');
+            var $widgets = $noto.children('.c-noto__item--widget').not('.c-noto__item--post-it');
             var w = 0;
             for (var p = 0; p < $posts.length; p++) {
                 if (!$widgets.length) {
@@ -469,6 +472,8 @@ var Noto = function (_BaseTheme) {
 
             var $noto = $container.find('.c-noto--body');
             var $posts = $noto.children('.c-noto__item').not('.c-noto__item--post-it');
+            // revome previously set margins
+            $posts.css('marginTop', '');
             for (var p = 0; p < $posts.length; p++) {
                 var $post = $posts.slice(p - 1, p);
                 var $target = void 0;
@@ -509,10 +514,38 @@ var Noto = function (_BaseTheme) {
         value: function bindEvents() {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'bindEvents', this).call(this);
             var that = this;
-            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body').on('mousemove', function (e) {
+            var $body = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('body');
+            var leaveFocusState = void 0;
+            $body.on('mousemove', function (e) {
                 that.mouseX = e.pageX;
                 that.mouseY = e.pageY;
             });
+            $body.on('mouseenter', '.c-noto__item--image', function () {
+                clearTimeout(leaveFocusState);
+                if (this !== that.focusedCard) {
+                    that.focusedCard = this;
+                    that.newFocusedCard = true;
+                }
+            });
+            $body.on('mouseleave', '.c-noto__item', function () {
+                leaveFocusState = setTimeout(function () {
+                    that.focusedCard = null;
+                    that.newFocusedCard = true;
+                }, 100);
+            });
+        }
+    }, {
+        key: 'updateFocusedCard',
+        value: function updateFocusedCard() {
+            if (this.newFocusedCard) {
+                __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item, .c-navbar__zone--middle').removeClass('has-focus has-no-focus');
+                if (this.focusedCard) {
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not(this.focusedCard).addClass('has-no-focus');
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-navbar__zone--middle').addClass('has-no-focus');
+                    __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this.focusedCard).addClass('has-focus');
+                }
+                this.newFocusedCard = false;
+            }
         }
     }, {
         key: 'onLoadAction',
@@ -520,6 +553,13 @@ var Noto = function (_BaseTheme) {
             _get(Noto.prototype.__proto__ || Object.getPrototypeOf(Noto.prototype), 'onLoadAction', this).call(this);
             this.SearchOverlay = new __WEBPACK_IMPORTED_MODULE_3__components_base_ts_components_SearchOverlay__["a" /* SearchOverlay */]();
             this.Header = new __WEBPACK_IMPORTED_MODULE_5__Header__["a" /* NotoHeader */]();
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item--post-it').addClass('is-visible');
+            __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto__item').not('.c-noto__item--post-it').each(function (i, obj) {
+                var $card = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                setTimeout(function () {
+                    $card.addClass('is-visible');
+                }, (i + 1) * 100);
+            });
             this.adjustLayout();
         }
     }, {
@@ -536,41 +576,70 @@ var Noto = function (_BaseTheme) {
             this.adjustLayout();
         }
     }, {
-        key: 'appendSvgToIntro',
-        value: function appendSvgToIntro() {
+        key: 'getDecoration',
+        value: function getDecoration() {
+            var accent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            var className = accent ? 'js-pattern-accent-template' : 'js-pattern-template';
+            var selector = '.' + className;
+            return __WEBPACK_IMPORTED_MODULE_0_jquery___default()(selector).clone().removeClass(className);
+        }
+    }, {
+        key: 'addDecorations',
+        value: function addDecorations() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            var $intro = $container.find('.intro, .post-it, hr.decoration');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
-            $intro.each(function (i, obj) {
-                var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                var $wave = $waveTemplate.clone();
-                var $pattern = $wave.find('pattern');
-                var patternID = $pattern.attr('id');
-                $pattern.attr('id', patternID + i);
-                $wave.find('rect').css('fill', 'url(#wavePattern-intro' + i + ')');
-                if ($obj.is('.intro')) {
-                    $wave.prependTo($obj).show();
-                } else {
-                    $wave.appendTo($obj).show();
-                }
+            this.appendSvgToIntro($container);
+            this.appendSvgToPostIt($container);
+            this.appendSvgToSeparator($container);
+            this.appendSvgToBlockquote($container);
+        }
+    }, {
+        key: 'appendSvgToIntro',
+        value: function appendSvgToIntro() {
+            var _this2 = this;
+
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            $container.find('.intro').each(function (i, obj) {
+                _this2.getDecoration(true).prependTo(obj).show();
+            });
+        }
+    }, {
+        key: 'appendSvgToPostIt',
+        value: function appendSvgToPostIt() {
+            var _this3 = this;
+
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            $container.find('.post-it').each(function (i, obj) {
+                _this3.getDecoration().appendTo(obj).show();
+            });
+        }
+    }, {
+        key: 'appendSvgToSeparator',
+        value: function appendSvgToSeparator() {
+            var _this4 = this;
+
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
+
+            $container.find('hr.decoration').each(function (i, obj) {
+                var $target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
+                var $decoration = _this4.getDecoration();
+                $target.attr('style', $decoration.attr('style'));
+                $target.attr('class', $decoration.attr('class'));
+                $decoration.remove();
             });
         }
     }, {
         key: 'appendSvgToBlockquote',
         value: function appendSvgToBlockquote() {
+            var _this5 = this;
+
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            var $blockquote = $container.find('.content-area blockquote');
-            var $waveTemplate = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.js-pattern-template');
-            $blockquote.each(function (i, obj) {
-                var $obj = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
-                var $wave = $waveTemplate.clone();
-                var $pattern = $wave.find('pattern');
-                var patternID = $pattern.attr('id');
-                $pattern.attr('id', patternID + i);
-                $wave.find('rect').css('fill', 'url(#wavePattern-quote' + i + ')');
-                $wave.prependTo($obj).show();
+            $container.find('.content-area blockquote').each(function (i, obj) {
+                _this5.getDecoration().prependTo(obj).show();
             });
         }
     }, {
@@ -587,20 +656,35 @@ var Noto = function (_BaseTheme) {
             }
         }
     }, {
+        key: 'unwrapImages',
+        value: function unwrapImages() {
+            var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].$body;
+
+            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].unwrapImages($container);
+            var $paragraphs = $container.find('p');
+            $paragraphs.each(function (i, p) {
+                var $p = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(p);
+                var $image = $p.children('img');
+                if ($image.length === 1) {
+                    var className = $image.attr('class');
+                    var $figure = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('<figure />').attr('class', className);
+                    $figure.append($image.removeAttr('class')).insertAfter($p);
+                }
+            });
+        }
+    }, {
         key: 'handleContent',
         value: function handleContent() {
             var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$body;
 
-            __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].unwrapImages($container.find('.entry-content'));
+            this.unwrapImages($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].wrapEmbeds($container.find('.entry-content'));
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleVideos($container);
             __WEBPACK_IMPORTED_MODULE_2__components_base_ts_services_Helper__["a" /* Helper */].handleCustomCSS($container);
             this.autoStyleIntro();
-            this.appendSvgToIntro($container);
-            this.appendSvgToBlockquote($container);
+            this.addDecorations($container);
             this.eventHandlers($container);
             this.insertWidgetsBetweenPosts($container);
-            this.adjustPostsMargins($container);
             $container.find('.sharedaddy').each(function (i, obj) {
                 var $sharedaddy = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(obj);
                 if ($sharedaddy.find('.sd-social-official').length) {
@@ -611,6 +695,7 @@ var Noto = function (_BaseTheme) {
     }, {
         key: 'adjustLayout',
         value: function adjustLayout() {
+            this.adjustPostsMargins();
             cq.reevaluate(false, function () {
                 // Do something after all elements were updated
             });
@@ -1112,8 +1197,10 @@ var NotoHeader = function (_BaseComponent) {
                 this.lastScroll = this.latestScroll;
                 var progressTop = this.lastScroll / (3 * this.headerHeight);
                 var progressBottom = (this.lastScroll + this.windowHeight - this.footerOffset.top) / Math.min(this.footerHeight, this.windowHeight);
-                var progress = 0.5 * Math.max(0, Math.min(1, progressTop));
-                progress = progress + 0.5 * Math.max(0, Math.min(1, progressBottom));
+                progressTop = Math.max(0, Math.min(progressTop, 1));
+                progressBottom = Math.max(0, Math.min(progressBottom, 1));
+                var progress = 0.5 * (progressTop + progressBottom);
+                progress = Math.min(progress, progressTop);
                 this.pinFooter(this.lastScroll);
                 this.pinHeader(this.lastScroll);
                 this.timeline.progress(progress);

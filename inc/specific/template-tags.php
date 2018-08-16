@@ -145,13 +145,9 @@ if ( ! function_exists( 'noto_get_pattern_svg' ) ) {
 				</svg>
 		    <?php break;
 		    case "lines": ?>
-			    <svg width="50px" height="8px" viewBox="0 0 50 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			    <svg width="10px" height="8px" viewBox="0 0 10 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				    <g id="lines" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 		                <path d="M7.3887012,1.3612988 L2.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M17.3887012,1.3612988 L12.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M27.3887012,1.3612988 L22.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M37.3887012,1.3612988 L32.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
-		                <path d="M47.3887012,1.3612988 L42.25,6.5" id="Line" stroke="<?php echo $color; ?>" stroke-width="2" stroke-linecap="square"></path>
 				    </g>
 				</svg>
 		    <?php break;
@@ -163,12 +159,9 @@ if ( ! function_exists( 'noto_get_pattern_svg' ) ) {
 				</svg>
 		    <?php break;
 		    default: ?>
-			    <svg width="18px" height="8px" viewBox="0 0 18 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			        <g id="wave" transform="translate(-12, 1)" fill="none" stroke="<?php echo $color; ?>" stroke-width="2">
-			            <path d="M8,3 C8.66808837,5 10.0010521,6 11.9988911,6 C13.9967301,6 15.3304331,5 16,3"></path>
-			            <path d="M16,0 C16.6680884,2 18.0010521,3 19.9988911,3 C21.9967301,3 23.3304331,2 24,0" transform="translate(20, 1.5) rotate(-180) translate(-20, -1.5) "></path>
-			            <path d="M24,3 C24.6680884,5 26.0010521,6 27.9988911,6 C29.9967301,6 31.3304331,5 32,3"></path>
-			            <path d="M0,0 C0.668088373,2 2.00105206,3 3.99889107,3 C5.99673007,3 7.33043305,2 8,0" transform="translate(4, 1.5) rotate(-180) translate(-4, -1.5) "></path>
+			    <svg width="16px" height="8px" viewBox="0 0 16 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			        <g id="wave" fill="none" stroke="<?php echo $color; ?>" stroke-width="2">
+			            <path d="M0,1 C1.99876282,1 3.33271475,2 4.00185576,4 C4.66852243,6.00073701 6.00185576,7.00110551 8.00185576,7.00110551 C10.0018558,7.00110551 11.3351891,6.00073701 12.0018558,4 C12.6685224,2 14.0018558,1 16.0018558,1"></path>
 			        </g>
 				</svg>
 		<?php }
@@ -185,9 +178,6 @@ if ( ! function_exists( 'noto_get_pattern_background_image' ) ) {
 
 		if ( empty( $color ) ) {
 			$color = pixelgrade_option( 'main_content_body_text_color', '#49494B' );
-			if ( is_single() || is_admin() ) {
-			    $color = pixelgrade_option( 'accent_color', '#FFB1A5' );
-			}
 		}
 
 		$svg = noto_get_pattern_svg( $color, $pattern );

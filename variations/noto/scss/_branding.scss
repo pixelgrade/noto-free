@@ -9,19 +9,21 @@ $header-vertical-position-top: 25px;
     
     // Grid
     // Vertical Layout
-    body:not(.page):not(.single) & {
-        transform: translateY(0px) rotate(1deg);
-        transition: all $transition--macro ease;
+    @include above(lap) {
 
-        &:hover {
-            transform: translateY(-30px) rotate(-1deg);
+        body.blog & {
+            transform: translateY(0px) rotate(1deg);
+            transition: all $transition--macro ease;
+
+            &:hover {
+                transform: translateY(-30px) rotate(-1deg);
+            }
         }
     }
 
     // Single and Pages
     // Horizontal Layout
-    .page &,
-    .single & {
+    body:not(.blog) & {
 
         .c-branding {
             transition: $transition--default;
@@ -53,8 +55,13 @@ $header-vertical-position-top: 25px;
     }
 }
 
+.header {
+    position: relative;
+}
+
 .site-title {
     display: inline-block;
+    white-space: nowrap;
 }
 
 @mixin branding-grid {
@@ -103,7 +110,7 @@ $header-vertical-position-top: 25px;
 
     // Grid
     // Vertical Layout
-    body:not(.page):not(.single) {
+    body.blog {
 
         .header {
             margin-top: -($site-content-top-spacing - $header-vertical-position-top); // -72px
@@ -133,8 +140,7 @@ $header-vertical-position-top: 25px;
 
     // Single and Pages
     // Horizontal Layout
-    .page,
-    .single {
+    body:not(.blog) {
         @include branding-grid;
 
         .header {
@@ -147,10 +153,9 @@ $header-vertical-position-top: 25px;
         }
 
         .header {
-            position: relative;
             padding: $header-horizontal-spacing;
             padding-bottom: 0;
-            
+
 
             // Separate the background
             // to make it "animatable" on hover
@@ -160,11 +165,11 @@ $header-vertical-position-top: 25px;
                 display: block;
                 top: 0;
                 right: 0;
-                bottom: 0; 
+                bottom: 0;
                 left: 0;
 
                 z-index: -1;
-                
+
                 background: #ffffff;
 
                 transition: $transition--default;

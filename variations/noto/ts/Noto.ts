@@ -1,8 +1,12 @@
 import $ from 'jquery';
+
 import { BaseTheme, JQueryExtended } from '../../../components/base/ts/BaseTheme';
+
 import { Helper } from '../../../components/base/ts/services/Helper';
+
 import { SearchOverlay } from '../../../components/base/ts/components/SearchOverlay';
 import { ProgressBar } from '../../../components/base/ts/components/ProgressBar';
+
 import { NotoHeader } from './Header';
 
 const cq = require('cq-prolyfill')({ /* configuration */ });
@@ -14,12 +18,18 @@ export class Noto extends BaseTheme {
     public mouseX = 0;
     public mouseY = 0;
 
+    public focusedCard = null;
+    public newFocusedCard = false;
+
     constructor() {
         super();
+
+        const that = this;
 
         this.handleContent();
 
         function loop() {
+            that.updateFocusedCard();
             requestAnimationFrame(loop);
         }
 
@@ -56,7 +66,7 @@ export class Noto extends BaseTheme {
     public insertWidgetsBetweenPosts($container: JQuery = this.$body) {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.c-noto__item--post' );
-        const $widgets = $noto.children( '.c-noto__item--widget' );
+        const $widgets = $noto.children( '.c-noto__item--widget' ).not( '.c-noto__item--post-it' );
 
         let w = 0;
 
@@ -79,6 +89,9 @@ export class Noto extends BaseTheme {
     public adjustPostsMargins($container: JQuery = this.$body) {
         const $noto = $container.find( '.c-noto--body' );
         const $posts = $noto.children( '.c-noto__item' ).not( '.c-noto__item--post-it' );
+
+        // revome previously set margins
+        $posts.css('marginTop', '' );
 
         for ( let p = 0; p < $posts.length; p++ ) {
             const $post = $posts.slice(p - 1, p);
@@ -123,11 +136,43 @@ export class Noto extends BaseTheme {
         super.bindEvents();
 
         const that = this;
+        const $body = $( 'body' );
 
-        $( 'body' ).on('mousemove', (e) => {
+        let leaveFocusState;
+
+        $body.on('mousemove', (e) => {
             that.mouseX = e.pageX;
             that.mouseY = e.pageY;
         });
+
+        $body.on('mouseenter', '.c-noto__item--image', function() {
+            clearTimeout( leaveFocusState );
+            if ( this !== that.focusedCard ) {
+                that.focusedCard = this;
+                that.newFocusedCard = true;
+            }
+        });
+
+        $body.on('mouseleave', '.c-noto__item', () => {
+            leaveFocusState = setTimeout(() => {
+                that.focusedCard = null;
+                that.newFocusedCard = true;
+            }, 100);
+        });
+    }
+
+    public updateFocusedCard() {
+        if ( this.newFocusedCard ) {
+            $( '.c-noto__item, .c-navbar__zone--middle' ).removeClass( 'has-focus has-no-focus' );
+
+            if ( this.focusedCard ) {
+                $( '.c-noto__item' ).not( this.focusedCard ).addClass( 'has-no-focus' );
+                $( '.c-navbar__zone--middle' ).addClass( 'has-no-focus' );
+                $( this.focusedCard ).addClass( 'has-focus' );
+            }
+
+            this.newFocusedCard = false;
+        }
     }
 
     public onLoadAction() {
@@ -135,6 +180,15 @@ export class Noto extends BaseTheme {
 
         this.SearchOverlay = new SearchOverlay();
         this.Header = new NotoHeader();
+
+        $( '.c-noto__item--post-it' ).addClass( 'is-visible' );
+        $( '.c-noto__item' ).not( '.c-noto__item--post-it' ).each((i, obj) => {
+            const $card = $( obj );
+
+            setTimeout(() => {
+                $card.addClass('is-visible' );
+            }, (i + 1) * 100);
+        });
 
         this.adjustLayout();
     }
@@ -151,40 +205,44 @@ export class Noto extends BaseTheme {
         this.adjustLayout();
     }
 
+    public getDecoration(accent: boolean = false) {
+        const className = accent ? 'js-pattern-accent-template' : 'js-pattern-template';
+        const selector = '.' + className;
+        return $( selector ).clone().removeClass( className );
+    }
+
+    public addDecorations($container: JQuery = this.$body) {
+        this.appendSvgToIntro( $container );
+        this.appendSvgToPostIt( $container );
+        this.appendSvgToSeparator( $container );
+        this.appendSvgToBlockquote( $container );
+    }
+
     public appendSvgToIntro($container: JQuery = this.$body) {
-        const $intro = $container.find( '.intro, .post-it, hr.decoration' );
-        const $waveTemplate = $( '.js-pattern-template' );
+        $container.find( '.intro' ).each(( i, obj ) => {
+            this.getDecoration( true ).prependTo( obj ).show();
+        });
+    }
 
-        $intro.each(( i, obj ) => {
-            const $obj = $(obj);
-            const $wave = $waveTemplate.clone();
-            const $pattern = $wave.find( 'pattern' );
-            const patternID = $pattern.attr('id');
+    public appendSvgToPostIt($container: JQuery = this.$body) {
+        $container.find( '.post-it' ).each(( i, obj ) => {
+            this.getDecoration().appendTo( obj ).show();
+        });
+    }
 
-            $pattern.attr( 'id', patternID + i );
-            $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-intro' + i + ')');
-
-            if ( $obj.is( '.intro' ) ) {
-                $wave.prependTo( $obj ).show();
-            } else {
-                $wave.appendTo( $obj ).show();
-            }
+    public appendSvgToSeparator($container: JQuery = this.$body) {
+        $container.find( 'hr.decoration' ).each(( i, obj ) => {
+            const $target = $( obj );
+            const $decoration = this.getDecoration();
+            $target.attr( 'style', $decoration.attr( 'style' ) );
+            $target.attr( 'class', $decoration.attr( 'class' ) );
+            $decoration.remove();
         });
     }
 
     public appendSvgToBlockquote($container: JQuery = this.$body) {
-        const $blockquote = $container.find('.content-area blockquote');
-        const $waveTemplate = $('.js-pattern-template');
-
-        $blockquote.each((i, obj) => {
-            const $obj = $(obj);
-            const $wave = $waveTemplate.clone();
-            const $pattern = $wave.find( 'pattern' );
-            const patternID = $pattern.attr('id');
-
-            $pattern.attr( 'id', patternID + i );
-            $wave.find( 'rect' ).css( 'fill', 'url(#wavePattern-quote' + i + ')');
-            $wave.prependTo($obj).show();
+        $container.find('.content-area blockquote').each((i, obj) => {
+            this.getDecoration().prependTo(obj).show();
         });
     }
 
@@ -203,21 +261,37 @@ export class Noto extends BaseTheme {
         }
     }
 
-    public handleContent($container: JQuery = this.$body) {
+    public unwrapImages( $container: JQuery = Helper.$body ): void {
 
-        Helper.unwrapImages($container.find('.entry-content'));
+        Helper.unwrapImages( $container );
+
+        const $paragraphs = $container.find( 'p' );
+
+        $paragraphs.each(( i, p ) => {
+            const $p = $(p);
+            const $image = $p.children( 'img' );
+
+            if ( $image.length === 1 ) {
+                const className = $image.attr( 'class' );
+                const $figure = $( '<figure />' ).attr( 'class', className );
+
+                $figure.append( $image.removeAttr( 'class' ) ).insertAfter( $p );
+            }
+        });
+    }
+
+    public handleContent($container: JQuery = this.$body) {
+        this.unwrapImages($container.find('.entry-content'));
         Helper.wrapEmbeds($container.find('.entry-content'));
         Helper.handleVideos($container);
         Helper.handleCustomCSS($container);
 
         this.autoStyleIntro();
 
-        this.appendSvgToIntro($container);
-        this.appendSvgToBlockquote($container);
+        this.addDecorations($container);
         this.eventHandlers($container);
 
         this.insertWidgetsBetweenPosts($container);
-        this.adjustPostsMargins($container);
 
         $container.find('.sharedaddy').each((i, obj) => {
             const $sharedaddy = $(obj);
@@ -229,6 +303,8 @@ export class Noto extends BaseTheme {
     }
 
     private adjustLayout() {
+        this.adjustPostsMargins();
+
         cq.reevaluate(false, () => {
             // Do something after all elements were updated
         });

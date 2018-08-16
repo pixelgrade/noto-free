@@ -20,7 +20,7 @@
 
     @include above(lap) {
         margin-right: -3.5em;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
 
         grid-column: 13 / span 4;
         align-self: flex-end;
@@ -32,10 +32,14 @@
     }
 
     @include below(lap) {
-        .wave-svg-mask {
+        .wave-svg {
             display: none !important;
         }
     }
+}
+
+body:not(.blog) .c-noto__item--post-it {
+    display: none;
 }
 
 @mixin widget-content-elements-spacing {
@@ -71,17 +75,12 @@
             }
         }
 
-        .wave-svg-mask {
-            .wave-svg {
-                opacity: 0.6;
-                width: 20px;
-                margin: 0 auto;
-                margin-top: 19px;
-
-                rect {
-                    transform: translateX(-3px);
-                }
-            }
+        .wave-svg {
+            opacity: 0.6;
+            width: 20px;
+            margin: 0 auto;
+            margin-top: 19px;
+            transform: translateZ(0);
         }
     }
 }
@@ -103,6 +102,22 @@
             height: 12px;
         }
 
+        img {
+            margin: 0;
+        }
+
+        .button {
+            font-size: 95%;
+            padding: 10px 2em;
+        }
+
+        .textwidget {
+            h4, h5, h6 {
+                &:first-child {
+                    margin-top: -10px;
+                }
+            }
+        }
 
     }
 }
@@ -315,6 +330,7 @@
      @include spacing(margin-bottom, $typography-spacing/3*2);
     }
 
+    #subscribe-email input,
     input {
         width: 100%;
     }

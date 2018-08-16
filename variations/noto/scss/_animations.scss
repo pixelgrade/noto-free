@@ -1,0 +1,77 @@
+@include above(lap) {
+    .c-navbar__zone--right {
+
+        > nav {
+            transition: opacity .3s ease-in-out;
+        }
+
+        &.is-hidden > nav {
+            opacity: 0;
+        }
+    }
+}
+
+.c-navbar__zone--left {
+    transition: opacity .3s ease-out;
+
+    html:not(.is-ready) & {
+        opacity: 0;
+    }
+}
+
+.c-noto__item {
+    transition: opacity .3s ease-out;
+    opacity: 0;
+
+    &.is-visible {
+        opacity: 1;
+    }
+}
+
+.c-navbar__zone--middle {
+    opacity: 0;
+}
+
+// hover transitions
+.u-featured-images-animation {
+
+    .c-noto__item,
+    .c-branding {
+        transition: opacity .3s ease-out;
+    }
+
+    .is-visible.has-focus {
+        z-index: 10;
+
+        .c-card__aside {
+            opacity: 1;
+        }
+    }
+
+    .c-noto__item.is-visible.has-no-focus,
+    .is-loaded & .has-no-focus .c-branding {
+        opacity: 0.2;
+    }
+}
+
+.c-noto__item {
+
+    .c-card__frame {
+        transition: all .3s ease-out;
+    }
+
+    @for $i from 1 through 20 {
+        &:nth-child(20n + #{$i}).has-focus .c-card__frame {
+            $angle: random(4);
+            @if $angle > 2 {
+                $angle: $angle - 2;
+            } @else {
+                $angle: $angle - 3;
+            }
+            $angle: $angle * 1deg;
+            $moveX: (random(5) - 3) * 10px;
+            $moveY: (random(5) - 3) * 10px;
+            transform: rotate(#{$angle}) translateX(#{$moveX}) translateY(#{$moveY});
+        }
+    }
+}

@@ -117,6 +117,10 @@ function pixelgrade_add_customify_style_manager_section( $options ) {
 						'property' => '--sm-dark-primary',
 						'selector' => ':root',
 					),
+					array(
+						'property' => 'color',
+						'selector' => '.c-noto__item--widget',
+					),
 				),
 			),
 			'sm_dark_secondary' => array(
@@ -311,6 +315,11 @@ function variation_change_customify_general_section( $section_options, $options 
 					'label'             => esc_html__( 'Disable auto-style first paragraph on articles', '__theme_txtd' ),
 					'default'           => false,
 				),
+				'archive_disable_image_animations' => array(
+					'type'              => 'checkbox',
+					'label'             => esc_html__( 'Disable image reveal effect on archives', '__theme_txtd' ),
+					'default'           => false,
+				),
 				'general_patterns_section'     => array(
 					'type' => 'html',
 					'html' => '<span id="section-title-general-post-it" class="separator sub-section label">&#x1f3c1; ' . esc_html__( 'Patterns', '__theme_txtd' ) . '</span>',
@@ -453,7 +462,6 @@ function variation_change_customify_general_section( $section_options, $options 
 						array(
 							'property' => 'background-color',
 							'selector' => '
-								.c-card__frame:after,
 								.c-noto__item--widget,
 								.entry-footer .c-author',
 						),
@@ -480,7 +488,7 @@ function variation_change_customify_general_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'background-color',
-							'selector' => '.c-noto__item--widget.small',
+							'selector' => '.c-noto__item--widget.small, .c-noto__item:nth-child(12n+13).c-noto__item--widget',
 						),
 					),
 				),
@@ -532,7 +540,13 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_color'         => array(
-					'default' => SM_DARK_PRIMARY
+					'default' => SM_DARK_PRIMARY,
+                    'css' => array(
+                        array(
+                            'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
+                            'property' => 'color',
+                        ),
+                    ),
 				),
 				'main_content_body_text_color'          => array(
 					'default' => SM_DARK_SECONDARY
@@ -586,6 +600,7 @@ function variation_change_customify_main_content_section( $section_options, $opt
 					),
 				),
 				'main_content_page_title_font'          => array(
+					'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
 					'default' => array(
 						'font-family'    => SM_HEADINGS_FONT,
 						'font-weight'    => '700',
@@ -879,7 +894,10 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => '.c-navbar__zone--left .menu > li',
+							'selector' => '
+							    .c-navbar__zone--left .menu > li,
+							    .c-navbar__zone--right .menu > li
+							    ',
 						),
 					),
 				),
@@ -891,6 +909,7 @@ function variation_change_customify_header_section( $section_options, $options )
 					'css'     => array(
 						array(
 							'property' => 'color',
+							'media' => 'only screen and (min-width: 62.5em)',
 							'selector' => '.c-navbar__zone--left .menu > li:hover',
 						),
 					),
@@ -901,7 +920,7 @@ function variation_change_customify_header_section( $section_options, $options )
 						array(
 							'media' => 'only screen and (min-width: 62.5em)',
 							'property' => 'background-color',
-							'selector' => 'body:not(.page):not(.single) .header'
+							'selector' => 'body.blog .header'
 						),
 					),
 				),
