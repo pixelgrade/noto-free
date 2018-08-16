@@ -154,7 +154,22 @@ gulp.task( 'build', 'Remove unneeded files and folders from the build folder', [
 		'.jshintignore',
 
 		'assets/scss',
-		'assets/js-old'
+        'assets/js-old',
+		
+        'docs',
+        'components/docs',
+        'components/.bin',
+        'components/.github',
+        'components/tests',
+        'components/.*',
+        'components/composer*',
+        'components/*.md',
+        'components/functions.php',
+        'components/phpcs*',
+        'components/phpdoc*',
+        'components/phpunit*',
+        'components/style.css',
+        'variations'
 
     ];
 
