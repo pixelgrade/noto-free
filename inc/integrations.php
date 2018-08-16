@@ -19,6 +19,12 @@ require pixelgrade_get_parent_theme_file_path( '/inc/integrations/customify.php'
 require pixelgrade_get_parent_theme_file_path( '/inc/integrations/pixelgrade-care.php' );
 
 /**
+ * Load Pixelgrade Care Starter Content compatibility file.
+ * http://pixelgrade.com/
+ */
+require pixelgrade_get_parent_theme_file_path( '/inc/integrations/pixcare_starter_content.php' );
+
+/**
  * Load Jetpack compatibility file.
  * https://jetpack.me/
  */

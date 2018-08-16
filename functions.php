@@ -269,8 +269,11 @@ function add_css_for_autostyled_intro_in_editor() {
 	        (function ($) {
 		        $( window ).load( function() {
 			        var ifrm = window.frames['content_ifr'];
+                    if ( typeof ifrm === "undefined" ) {
+                        return;
+                    }
 			        ifrm = (
-				        ifrm.contentDocument || ifrm.contentDocument || ifrm.document
+				        ifrm.contentDocument || ifrm.document
 			        );
 			        var head = ifrm.getElementsByTagName( 'head' )[0];
 			        var style = document.createElement( 'style' );
