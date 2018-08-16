@@ -18,6 +18,6 @@ function noto_setup_pixelgrade_care() {
 		)
 	);
 
-	add_theme_support( 'pixelgrade_care_lonely' ); 
+	add_theme_support( 'pixelgrade_care_lonely' );
 }
 add_action( 'after_setup_theme', 'noto_setup_pixelgrade_care', 10 );
