@@ -95,7 +95,7 @@ function wupdates_add_id_JDKZB( $ids = array() ) {
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Noto', 'slug' => 'noto', 'id' => 'JDKZB', 'type' => 'theme', 'digest' => 'faf61dfa9d9b80e40d34712432915545', );
+	$ids[ $slug ] = array( 'name' => 'Noto', 'slug' => 'noto', 'id' => 'JDKZB', 'type' => 'theme', 'digest' => 'e81186e33d3a8331b6398d41c6f794cf', );
 
 	return $ids;
 }
