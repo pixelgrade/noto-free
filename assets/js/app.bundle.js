@@ -1188,6 +1188,21 @@ var NotoHeader = function (_BaseComponent) {
             }).debounce(200).subscribe(function () {
                 _this2.onResize();
             });
+            this.bindObserver();
+        }
+    }, {
+        key: 'bindObserver',
+        value: function bindObserver() {
+            if ('MutationObserver' in window) {
+                var target = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-title')[0];
+                var config = { attributes: false, childList: true, subtree: false };
+                var that = this;
+                var callback = function callback(mutationsList) {
+                    that.updateSiteTitleSize();
+                };
+                var observer = new MutationObserver(callback);
+                observer.observe(target, config);
+            }
         }
     }, {
         key: 'updateLoop',

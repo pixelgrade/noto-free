@@ -114,6 +114,24 @@ export class NotoHeader extends BaseComponent {
             .subscribe( () => {
                 this.onResize();
             } );
+
+        this.bindObserver();
+    }
+
+    public bindObserver() {
+        if ( 'MutationObserver' in window ) {
+            const target = $( '.site-title' )[0];
+            const config = {attributes: false, childList: true, subtree: false};
+            const that = this;
+
+            const callback = ( mutationsList ) => {
+                that.updateSiteTitleSize();
+            };
+
+            const observer = new MutationObserver( callback );
+
+            observer.observe(target, config);
+        }
     }
 
     public updateLoop() {
