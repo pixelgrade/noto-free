@@ -1,11 +1,6 @@
 
 .sharedaddy:not(.sharedaddy--official) {
 
-
-    .sd-content ul li a.sd-button {
-
-    }
-
     .sd-title {
         display: none;
     }
@@ -44,14 +39,6 @@
         }
     }
 
-    .sd-content ul li {
-        margin: 10px 0 0 0;
-
-        &:first-child {
-            margin-top: 0;
-        }
-    }
-
     #content &[class] .sd-content li {
         display: block;
 
@@ -71,6 +58,34 @@
 
             span {
                 display: none;
+            }
+        }
+    }
+
+
+    @include above(desk) {
+
+        .sd-content ul li {
+            margin: 10px 0 0 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    @include below(desk) {
+
+        .sd-content {
+            margin-top: 2rem;
+
+            ul {
+                display: flex;
+                margin-bottom: 0 !important;
+
+                > li + li {
+                    margin-left: 1rem;
+                }
             }
         }
     }

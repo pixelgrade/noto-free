@@ -127,7 +127,6 @@
 
     .header-meta {
       grid-column-start: cso;
-      margin-bottom: 3rem;
     }
   }
 
@@ -173,6 +172,7 @@
 .entry-image--none,
 .entry-image--landscape {
 
+  .header-meta,
   .c-header__author,
   .header-stuff,
   .entry-thumbnail {
@@ -192,11 +192,15 @@
 
 .header-meta {
 
-  #primary & {
-    margin-left: -1rem;
+  @include above(desk) {
 
-    > * {
-      margin-left: 1rem;
+    // purposefully used id selector to increase specificity
+    #primary & {
+      margin-left: -1rem;
+
+      > * {
+        margin-left: 1rem;
+      }
     }
   }
 
