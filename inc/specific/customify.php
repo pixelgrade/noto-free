@@ -532,6 +532,14 @@ function variation_change_customify_main_content_section( $section_options, $opt
 								.profile-photo-link__label:after',
 						),
 						array(
+							'property' => 'background-color',
+							'media' => 'not screen and (min-width: 62.5em)',
+							'selector' => '
+							    .search-trigger[class],
+							    .c-navbar__label,
+							    .c-noto:before',
+						),
+						array(
 							'property' => 'color',
 							'selector' => '.c-card .wave-svg-mask,
 								.c-reading-progress,
@@ -589,9 +597,17 @@ function variation_change_customify_main_content_section( $section_options, $opt
 								.c-navbar__zone--left .menu > li > a:before,
 								.c-search-overlay,
 								.c-reading-progress,
-								.page .header:after,
-								.single .header:after,
 								.profile-photo-link--admin svg'
+						),
+						array(
+							'property' => 'background-color',
+							'media' => 'not screen and (min-width: 62.5em)',
+							'selector' => '.header'
+						),
+						array(
+							'property' => 'background-color',
+							'media' => 'only screen and (min-width: 62.5em)',
+							'selector' => 'body:not(.blog) .header:after'
 						),
 						array(
 							'property' => 'color',
