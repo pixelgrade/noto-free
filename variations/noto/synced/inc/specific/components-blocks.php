@@ -98,7 +98,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 		),
 	) );
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/index', array(
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/home', array(
 		'blocks'   => array(
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
@@ -107,8 +107,12 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 		),
 	) );
 
-	Pixelgrade_BlocksManager()->registerBlock( 'blog/home', array(
-		'extend' => 'blog/index'
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/index', array(
+		'blocks'   => array(
+			'blog/loop', // These two are mutually exclusive
+			'blog/loop-none',
+			'blog/post-it',
+		),
 	) );
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/archive', array(
@@ -116,7 +120,6 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/entry-header-archive',
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
-			'blog/sidebar',
 			'blog/post-it',
 		),
 	) );
@@ -126,7 +129,6 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/entry-header-search',
 			'blog/loop', // These two are mutually exclusive
 			'blog/loop-none',
-			'blog/sidebar',
 			'blog/post-it',
 		),
 	) );
