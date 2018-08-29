@@ -103,6 +103,13 @@ body {
 }
 
 .search-trigger[class] {
+  margin-right: auto;
+  cursor: pointer;
+
+  .js-search-trigger {
+    cursor: inherit;
+  }
+
   @include below(lap) {
     height: 62px;
     padding-top: 22px;
