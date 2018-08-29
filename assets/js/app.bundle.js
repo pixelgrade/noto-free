@@ -1227,15 +1227,17 @@ var NotoHeader = function (_BaseComponent) {
     }, {
         key: 'pinFooter',
         value: function pinFooter(scroll) {
-            if (scroll >= this.footerOffset.top - this.windowHeight / 2) {
+            var that = this;
+            var space = Math.min(this.windowHeight / 2, this.footerHeight);
+            if (scroll >= this.footerOffset.top - space) {
                 if (!this.footerPinned) {
-                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: 0 });
-                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'static' });
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(that.$bodyGrid, { marginBottom: 0 });
+                    __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(that.$footer, { position: 'static' });
                     this.footerPinned = true;
                 }
             } else if (this.footerPinned) {
-                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.c-noto--body'), { marginBottom: this.footerHeight });
-                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.site-footer'), { position: 'fixed' });
+                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(that.$bodyGrid, { marginBottom: this.footerHeight });
+                __WEBPACK_IMPORTED_MODULE_6_gsap__["TweenLite"].set(that.$footer, { position: 'fixed' });
                 this.footerPinned = false;
             }
         }
@@ -1330,7 +1332,7 @@ var NotoHeader = function (_BaseComponent) {
                 width: this.headerWidth
             });
             this.$footer.css({
-                bottom: this.windowHeight / 2 - this.footerHeight,
+                bottom: Math.min(this.windowHeight / 2 - this.footerHeight, 0),
                 height: this.footerHeight,
                 left: this.footerOffset.left,
                 position: 'fixed',

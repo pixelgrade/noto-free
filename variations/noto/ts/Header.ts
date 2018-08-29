@@ -163,15 +163,18 @@ export class NotoHeader extends BaseComponent {
     }
 
     public pinFooter( scroll ) {
-        if ( scroll >= this.footerOffset.top - this.windowHeight / 2 ) {
+        const that = this;
+        const space = Math.min( this.windowHeight / 2, this.footerHeight );
+
+        if ( scroll >= this.footerOffset.top - space ) {
             if ( ! this.footerPinned ) {
-                TweenLite.set( $( '.c-noto--body' ), { marginBottom: 0 } );
-                TweenLite.set( $( '.site-footer' ), { position: 'static' } );
+                TweenLite.set( that.$bodyGrid, { marginBottom: 0 } );
+                TweenLite.set( that.$footer, { position: 'static' } );
                 this.footerPinned = true;
             }
         } else if ( this.footerPinned ) {
-            TweenLite.set( $( '.c-noto--body' ), { marginBottom: this.footerHeight } );
-            TweenLite.set( $( '.site-footer' ), { position: 'fixed' } );
+            TweenLite.set( that.$bodyGrid, { marginBottom: this.footerHeight } );
+            TweenLite.set( that.$footer, { position: 'fixed' } );
             this.footerPinned = false;
         }
     }
@@ -273,7 +276,7 @@ export class NotoHeader extends BaseComponent {
         });
 
         this.$footer.css({
-            bottom: this.windowHeight / 2 - this.footerHeight,
+            bottom: Math.min( this.windowHeight / 2 - this.footerHeight, 0 ),
             height: this.footerHeight,
             left: this.footerOffset.left,
             position: 'fixed',

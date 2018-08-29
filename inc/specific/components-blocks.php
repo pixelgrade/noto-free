@@ -62,33 +62,36 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 	));
 
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/loop', array(
-		'blocks' => array(
-			'loop-posts' => array(
-				'type'     => 'loop',
-				'blocks'   => array(
-					'grid-item' => array(
-						'type'      => 'template_part',
-						'templates' => array(
-							array(
-								'component_slug' => $component_slug,
-								'slug'           => 'content'
-							),
-						),
+		'type'     => 'loop',
+		'blocks'   => array(
+			'grid-item' => array(
+				'type'      => 'template_part',
+				'templates' => array(
+					array(
+						'component_slug' => $component_slug,
+						'slug'           => 'content'
 					),
 				),
 			),
-			'loop-pagination' => array(
-				'type' => 'callback',
-				'callback' => 'pixelgrade_the_posts_pagination',
-				'args' =>array(
-					'end_size'           => 1,
-					'mid_size'           => 2,
-					'type'               => 'list',
-					'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__components_txtd' ),
-					'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__components_txtd' ),
-					'screen_reader_text' => esc_html__( 'Posts navigation', '__components_txtd' ),
-				),
+		),
+		'checks' => array(
+			array(
+				'callback' => 'have_posts',
+				'args'     => array(),
 			),
+		),
+	) );
+
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/loop-pagination', array(
+		'type' => 'callback',
+		'callback' => 'pixelgrade_the_posts_pagination',
+		'args' =>array(
+			'end_size'           => 1,
+			'mid_size'           => 2,
+			'type'               => 'list',
+			'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__components_txtd' ),
+			'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__components_txtd' ),
+			'screen_reader_text' => esc_html__( 'Posts navigation', '__components_txtd' ),
 		),
 		'checks' => array(
 			array(
@@ -104,6 +107,7 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'blog/loop-none',
 			'blog/sidebar',
 			'blog/post-it',
+			'blog/loop-pagination',
 		),
 	) );
 
