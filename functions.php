@@ -200,6 +200,7 @@ add_action( 'admin_enqueue_scripts', 'noto_load_wp_admin_style' );
 
 function noto_gutenberg_styles() {
 	wp_enqueue_style( 'noto-gutenberg', get_theme_file_uri( '/editor.css' ), false );
+	wp_enqueue_style( 'noto-google-fonts', noto_google_fonts_url() );
 
 	$style = '
 	    .edit-post-visual-editor[class] blockquote:before {
@@ -207,9 +208,7 @@ function noto_gutenberg_styles() {
         }';
 
 	wp_add_inline_style( 'noto-gutenberg', $style );
-
 }
-
 add_action( 'enqueue_block_editor_assets', 'noto_gutenberg_styles' );
 
 function noto_get_blog_grid_class( $classes ) {
