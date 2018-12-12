@@ -38,6 +38,7 @@ module.exports = function (env, argv) {
 		entry: {
 			app: variationOptions.entry,
 			'editor-style': variationOptions.editorStyle,
+			editor: variationOptions.editor,
 			admin: variationOptions.admin,
 			style: variationOptions.style
 		},

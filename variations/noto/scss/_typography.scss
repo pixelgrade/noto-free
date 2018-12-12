@@ -67,9 +67,14 @@ tbody {
 
 .content-area {
 
-  blockquote {
+  blockquote,
+  .wp-block-quote,
+  .wp-block-pullquote {
     position: relative;
     padding-left: 5rem;
+  }
+
+  blockquote {
 
     .wave-svg {
       margin-left: -5rem;
@@ -106,7 +111,6 @@ tbody {
 
 hr {
   margin-top: 1.5rem;
-  border: 0;
 
   &:not(:last-child) {
     margin-bottom: 3.5rem;
@@ -114,6 +118,7 @@ hr {
 
   // Default <hr/> style
   &:not([class]) {
+    border: 0;
     height: 1em;
     background-image: url("template-parts/svg/separator.svg");
     background-size: 1em 1em;
