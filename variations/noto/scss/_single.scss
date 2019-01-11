@@ -226,6 +226,8 @@
   }
 }
 
+$button-offset: 16px;
+
 .cats a {
   @include btn;
   @include btn-overwrite;
@@ -235,7 +237,24 @@
   margin-right: 1rem;
 
   &:before {
-    left: -10px;
+    //left: -10px;
+  }
+  &:hover {
+
+    transform: translateX($button-offset);
+
+    .u-buttons-solid & {
+      background: transparent;
+      color: $sm-dark-primary;
+    }
+
+    &:after {
+      border: 2px solid currentColor;
+    }
+
+    &:before {
+      left: -10px;
+    }
   }
 }
 

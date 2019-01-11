@@ -443,6 +443,7 @@ function variation_change_customify_general_section( $section_options, $options 
 								.c-card__action:before,
 								.cats a:before,
 								.c-comments-toggle__label:before',
+                                '.comment-respond .submit:after'
 						),
 					),
 				),
@@ -1058,6 +1059,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 		'.c-btn',
 		'.c-card__action',
 		'.c-comments-toggle__label',
+		'.comment-respond .submit',
 		'.cats a',
 		'.button:not(.default)',
 		'button[type=button]',
@@ -1072,13 +1074,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 	$buttons_solid   = implode( ',', array_map( 'noto_prefix_solid_buttons', $buttons ) );
 	$buttons_outline = implode( ',', array_map( 'noto_prefix_outline_buttons', $buttons ) );
 
-	$buttons_active = implode( ',', array(
-			implode( ',', $buttons ),
-			implode( ',', array_map( 'noto_suffix_hover_buttons', $buttons ) ),
-			implode( ',', array_map( 'noto_suffix_active_buttons', $buttons ) ),
-			implode( ',', array_map( 'noto_suffix_focus_buttons', $buttons ) ),
-		)
-	);
+	$buttons_solid_hover   = implode( ',', array_map( 'noto_suffix_hover_buttons', $buttons ) );
 
 	$new_section_options = array(
 
@@ -1100,7 +1096,17 @@ function variation_change_customify_buttons_section( $section_options, $options 
 						),
 						array(
 							'property' => 'color',
-							'selector' => $buttons_outline,
+							'selector' => implode( ',',
+                                array(
+                                    $buttons_outline,
+                                    $buttons_solid_hover,
+                                )
+                            ),
+						),
+						array(
+							'property' => 'color',
+							'media' => 'only screen and (min-width: 62.5em)',
+							'selector' => '.u-buttons-solid .c-card:hover .c-card__action',
 						),
 					),
 				),
@@ -1109,7 +1115,7 @@ function variation_change_customify_buttons_section( $section_options, $options 
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => $buttons_active
+							'selector' => implode( ',', $buttons )
 						),
 					),
 				),

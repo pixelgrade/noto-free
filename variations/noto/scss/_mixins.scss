@@ -30,6 +30,8 @@
     position: relative;
     color: inherit;
 
+    transition: transform $transition-duration $transition-easing, background-color $transition--micro ease-out;
+
     &:before {
         content: "";
         position: absolute;
@@ -41,6 +43,14 @@
 
         background: $sm-color-primary;
         opacity: 0.4;
+
+        .u-buttons-rounded & {
+            border-radius: .3em;
+        }
+
+        .u-buttons-pill & {
+            border-radius: 999em;
+        }
     }
 
     &:after {
@@ -51,6 +61,18 @@
         bottom: 0;
         left: 0;
         border: 2px solid currentColor;
+
+        .u-buttons-solid & {
+            border: 0;
+        }
+
+        .u-buttons-rounded & {
+            border-radius: .3em;
+        }
+
+        .u-buttons-pill & {
+            border-radius: 999em;
+        }
     }
 
     .u-buttons-outline & {
@@ -60,8 +82,9 @@
 
 @mixin btn-overwrite-hover() {
     &:before {
-        left: -16px;
-        transition: transform $transition-duration $transition-easing;
+        //left: -16px;
+        transition: all $transition-duration $transition-easing;
+        transition-property: transform, left;
         transform-origin: 0 50%;
         transform: scale(0,1) translateZ(0);
     }
