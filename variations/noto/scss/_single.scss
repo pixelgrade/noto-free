@@ -236,9 +236,6 @@ $button-offset: 16px;
   margin-top: 1rem;
   margin-right: 1rem;
 
-  &:before {
-    //left: -10px;
-  }
   &:hover {
 
     transform: translateX($button-offset);

@@ -10,8 +10,6 @@ $button-offset: 16px;
     @include btn-overwrite-hover;
     display: block;
 
-    //transition: transform $transition-duration $transition-easing;
-
     &:hover {
 
         transform: translateX($button-offset);

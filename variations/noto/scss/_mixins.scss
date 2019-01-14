@@ -30,7 +30,8 @@
     position: relative;
     color: inherit;
 
-    transition: transform $transition-duration $transition-easing, background-color $transition--micro ease-out;
+    transition: transform $transition-duration $transition-easing,
+                background-color $transition--micro ease-out;
 
     &:before {
         content: "";
@@ -82,7 +83,6 @@
 
 @mixin btn-overwrite-hover() {
     &:before {
-        //left: -16px;
         transition: all $transition-duration $transition-easing;
         transition-property: transform, left;
         transform-origin: 0 50%;
