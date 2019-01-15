@@ -203,10 +203,18 @@ $button-offset: 16px;
     @include btn-overwrite;
 
     text-decoration: none;
-    transition: transform $transition-duration $transition-easing;
+    transition: transform $transition-duration $transition-easing,
+                background-color $transition--micro ease-out;
 
     .c-card:hover & {
       transform: translateX($button-offset);
+      .u-buttons-solid & {
+        background-color: transparent;
+        color: $sm-dark-primary;
+        &:after {
+          border: 2px solid;
+        }
+      }
     }
 
     &:before {

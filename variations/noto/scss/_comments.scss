@@ -2,14 +2,55 @@
     width: 100%;
 }
 
+$button-offset: 16px;
+
 .c-comments-toggle__label {
     @include btn;
     @include btn-overwrite;
     @include btn-overwrite-hover;
     display: block;
+
+    &:hover {
+
+        transform: translateX($button-offset);
+
+        .u-buttons-solid & {
+            background-color: transparent;
+            color: $sm-dark-primary;
+        }
+
+        &:after {
+            border: 2px solid;
+        }
+
+        &:before {
+            left: -16px;
+        }
+    }
 }
 
 .comment-respond .submit {
     @include btn-overwrite;
     @include btn-overwrite-hover;
+
+    &:hover {
+
+        transform: translateX($button-offset);
+
+        .u-buttons-solid & {
+            background: transparent;
+            color: $sm-dark-primary;
+        }
+
+        &:after {
+            border: 2px solid currentColor;
+        }
+
+        &:before {
+            left: -16px;
+        }
+    }
+    .u-buttons-solid & {
+        color: #fff;
+    }
 }
