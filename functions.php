@@ -242,3 +242,4 @@ add_action('customize_controls_print_scripts', 'noto_bind_profile_picture_script
  * ==================================================
  */
 pixelgrade_autoload_dir( 'inc' );
+add_filter( 'pixelgrade_enable_pro_features', '__return_false', 999 );
