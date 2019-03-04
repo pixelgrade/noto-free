@@ -3,7 +3,7 @@
  * Custom functions that act independently of the theme templates.
  *
  * @package Noto
- * @since 1.0.3
+ * @since 1.1.0
  */
 
 /**
