@@ -424,3 +424,13 @@ function noto_add_css_for_autostyled_intro_in_editor() {
 	}
 }
 add_action( 'admin_head', 'noto_add_css_for_autostyled_intro_in_editor' );
+
+function noto_maybe_load_pro_features() {
+	if ( true === pixelgrade_user_has_access( 'pro-features' ) ) {
+		pixelgrade_autoload_dir( 'inc/pro' );
+	} else {
+		pixelgrade_autoload_dir( 'inc/lite' );
+	}
+}
+// We want to do this as early as possible. So the zero priority is as intended.
+add_action( 'after_setup_theme', 'noto_maybe_load_pro_features', 0 );
