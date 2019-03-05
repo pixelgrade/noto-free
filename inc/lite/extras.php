@@ -130,6 +130,8 @@ add_filter( 'pixelgrade_footer_credits_url', 'noto_lite_footer_credits_url' );
 function noto_lite_body_classes( $classes ) {
 
 	$classes[] = 'lite-version';
+	$classes[] = 'u-buttons-square';
+	$classes[] = 'u-buttons-outline';
 
 	return $classes;
 }
