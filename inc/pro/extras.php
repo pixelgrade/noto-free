@@ -22,4 +22,15 @@ function noto_pro_setup() {
 }
 add_action( 'after_setup_theme', 'noto_pro_setup' );
 
+if ( ! function_exists( 'noto_output_wave_svg' ) ) :
+	/**
+	 * Output the wave card SVG code.
+	 */
+	function noto_output_wave_svg() { ?>
+		<div class="wave-svg-mask">
+			<div class="wave-svg" style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+		</div>
+	<?php }
+endif;
 
+add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
