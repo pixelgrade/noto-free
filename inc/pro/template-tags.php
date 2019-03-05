@@ -5,5 +5,5 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Noto
- * @since 1.0.3
+ * @since 1.1.0
  */

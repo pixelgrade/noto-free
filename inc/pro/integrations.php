@@ -5,8 +5,8 @@
  * @codingStandardsIgnoreFile
  * phpcs:ignoreFile
  *
- * @package Vasco
- * @since 1.3.4
+ * @package Noto
+ * @since 1.1.0
  */
 
 /**
