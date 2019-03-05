@@ -171,7 +171,7 @@ function noto_scripts() {
 
 	/* The main theme stylesheet */
 	if ( ! is_rtl() ) {
-		wp_enqueue_style( 'noto-style', get_stylesheet_uri(), $main_style_deps, $theme->get( 'Version' ) );
+		wp_enqueue_style( 'noto-style', get_template_directory_uri() . '/style.css', $main_style_deps, $theme->get( 'Version' ) );
 	}
 
 	/* Scripts */
