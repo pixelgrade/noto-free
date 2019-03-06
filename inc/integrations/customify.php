@@ -545,7 +545,7 @@ function noto_customify_footer_section( $section_options, $options ) {
 					'default' => 56,
 				),
 				'footer_hide_back_to_top_link' => array(
-					'default' => false,
+					'default' => true,
 				),
 				'footer_hide_credits'          => array(
 					'default' => false,
