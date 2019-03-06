@@ -6,6 +6,8 @@ import { Helper } from '../../../components/base/ts/services/Helper';
 import { WindowService } from '../../../components/base/ts/services/window.service';
 import { TweenLite, TimelineMax } from 'gsap';
 
+import { takeWhile, debounceTime } from 'rxjs/operators';
+
 interface JQueryExtended extends JQuery {
     hoverIntent?( params: any ): void;
     imagesLoaded?( params: any );
@@ -102,15 +104,15 @@ export class NotoHeader extends BaseComponent {
 
         WindowService
             .onScroll()
-            .takeWhile( () => this.subscriptionActive )
+            .pipe( takeWhile( () => this.subscriptionActive ) )
             .subscribe( () => {
                 this.latestScroll = window.scrollY;
             } );
 
         WindowService
             .onResize()
-            .takeWhile( () => this.subscriptionActive )
-            .debounce( 200 )
+            .pipe( takeWhile( () => this.subscriptionActive ) )
+            .pipe( debounceTime( 200 ) )
             .subscribe( () => {
                 this.onResize();
             } );

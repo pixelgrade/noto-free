@@ -33,6 +33,7 @@ if ( ! function_exists( 'noto_output_wave_svg' ) ) :
 		</div>
 	<?php }
 endif;
+
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
 
