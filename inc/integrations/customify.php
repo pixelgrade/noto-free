@@ -462,6 +462,21 @@ function noto_customify_header_section( $section_options, $options ) {
 				),
 				'header_navigation_links_spacing' => array(
 					'default' => 56,
+					'css'         => array(
+						array(
+							'property'        => 'margin-left',
+							'selector'        => '.c-noto--header ul',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_negative_spacing_cb',
+							'negative_value'  => true,
+						),
+						array(
+							'property'        => 'margin-left',
+							'selector'        => '.c-noto--header li',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_spacing_cb',
+						),
+					),
 				),
 				'header_position'                 => array(
 					'default' => 'sticky',
