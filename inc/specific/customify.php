@@ -904,7 +904,7 @@ function variation_change_customify_header_section( $section_options, $options )
 				),
 				'header_links_active_color'       => array(
 					'type'    => 'color',
-					'label'   => esc_html__( 'Links Active Color', '__components_txtd' ),
+					'label'   => esc_html__( 'Links Hover Color', '__components_txtd' ),
 					'live'    => true,
 					'default' => SM_DARK_PRIMARY,
 					'css'     => array(
