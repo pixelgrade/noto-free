@@ -221,3 +221,24 @@ body {
 html {
   overflow-x: hidden;
 }
+
+.c-noto--header {
+
+  a, a:hover, a:active {
+    color: inherit;
+  }
+
+  &,
+  li {
+    color: $header-links-color;
+  }
+
+  li:hover,
+  [class*='current-menu'] {
+    color: $header-links-active-color;
+
+    .u-underlined-header-links & {
+      text-decoration: underline;
+    }
+  }
+}
