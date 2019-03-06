@@ -243,3 +243,15 @@ html {
     }
   }
 }
+
+.c-noto__item {
+  &.no-results {
+    @include above(lap) {
+      grid-column: start / span 32;
+    }
+  }
+}
+
+.search-no-results {
+  text-align: center;
+}
