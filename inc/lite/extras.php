@@ -12,40 +12,6 @@
 require get_template_directory() . '/inc/lite/admin/about-page.php'; // @codingStandardsIgnoreLines
 
 /**
- * Check if the widget is only available for the Pro version.
- *
- * @param array $args The widget arguments.
- *
- * @return bool
- */
-function noto_lite_widgets_message( $html_message, $args, $instance ) {
-
-	$disallowed_widgets = array(
-        'pixelgrade-callout_box',
-        'pixelgrade-feature-card',
-        'pixelgrade-categories',
-        'pixelgrade-location',
-		'pixelgrade-stamp',
-    );
-
-	foreach ( $disallowed_widgets as $widget ) {
-		if ( 0 === strpos( $args['widget_id'], $widget ) ) {
-
-			$html_message = '<div class="c-alert  c-alert--danger">
-                    <h4 class="c-alert__title">' . esc_html__( '🤦 Widget Type Not Available In Free Version', '__theme_txtd' ) . '</h4>
-                    <div class="c-alert__body">
-                        <p>' . /* translators: %s: the widget name */
-			                sprintf( esc_html__( 'The %s is not available in the Free version, but hey, the Pro version is just around the corner!', '__theme_txtd' ), '<em>' . $args['widget_name'] . '</em>' ) . '</p>
-                    </div>
-                </div>';
-		}
-	}
-
-	return $html_message;
-}
-add_filter( 'pixelgrade_sidebar_not_supported_message', 'noto_lite_widgets_message', 10, 3 );
-
-/**
  * Assets that will be loaded for the customizer sidebar
  */
 function noto_lite_customizer_assets() {
