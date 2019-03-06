@@ -48,4 +48,7 @@
 
 .back-to-top {
     display: none;
+    &.is-visible {
+        display: block;
+    }
 }
