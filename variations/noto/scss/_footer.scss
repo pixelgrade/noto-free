@@ -8,7 +8,9 @@
 }
 
 .c-footer {
+    color: $sm-light-primary;
     a {
+        color: $sm-light-secondary;
         text-decoration: none;
     }
 
@@ -51,4 +53,8 @@
     &.is-visible {
         display: block;
     }
+}
+
+.u-footer-background {
+    background-color: $sm-dark-secondary;
 }

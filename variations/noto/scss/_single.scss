@@ -62,7 +62,16 @@
   }
 }
 
+.entry-title {
+  @include leading-map($page-title-font);
+}
+
 .header-category {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0em;
+
   transform: translateZ(0);
 
   a {
@@ -81,6 +90,8 @@
     &:after {
       left: -2rem;
       right: -1rem;
+
+      color: $sm-color-secondary;
     }
   }
 }
@@ -278,6 +289,10 @@ $button-offset: 16px;
 
   .nav-links > * {
     flex-basis: 15em;
+  }
+
+  .nav-links__label {
+    font-weight: 500;
   }
 }
 

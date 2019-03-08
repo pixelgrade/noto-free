@@ -76,8 +76,20 @@
   transform: translateZ(0);
 }
 
+.c-card__excerpt {
+  font-size: 15px;
+}
+
 .c-card__letter {
-  color: $sm-color-tertiary;
+  height: auto;
+
+  font-family: IBM Plex Serif;
+  font-size: 300px;
+  font-weight: 300;
+  font-style: italic;
+  text-transform: uppercase;
+
+  color: $sm-light-secondary;
   transform: translateY(-50%) translateX(-50%);
 
   .c-noto__item:not(.c-noto__item--no-image) & {
@@ -112,6 +124,7 @@
 
 .c-card__meta {
   width: auto;
+  font-weight: 500;
 
   // Show only the first category
   li:not(:first-child) {

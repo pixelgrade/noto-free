@@ -29,7 +29,7 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 		}
 
 		if ( 'off' !== esc_html_x( 'on', 'IBM Plex Sans font: on or off', '__theme_txtd' ) ) {
-			$fonts[] = 'IBM Plex Sans';
+			$fonts[] = 'IBM Plex Sans:300,400,500,700';
 		}
 
 		/* translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language. */
