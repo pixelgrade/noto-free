@@ -62,6 +62,8 @@ $header-vertical-position-top: 25px;
 .site-title {
     display: inline-block;
     white-space: nowrap;
+
+    @include leading-map($logo-font);
 }
 
 @mixin branding-grid {
