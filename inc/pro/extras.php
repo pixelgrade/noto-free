@@ -114,7 +114,7 @@ add_action( 'wp_head', '_noto_custom_logo_header_styles', 9 );
 
 if ( ! function_exists( 'noto_profile_photo' ) ) {
 	/**
-	 * Add the markup for the Noto profile photo.
+	 * Add the markup for the Noto Profile Photo.
 	 */
 	function noto_profile_photo() { ?>
         <div class="c-profile-photo">
@@ -126,4 +126,23 @@ if ( ! function_exists( 'noto_profile_photo' ) ) {
 }
 
 add_action( 'noto_profile_photo', 'noto_profile_photo', 10 );
+
+
+if ( ! function_exists( 'noto_search_icon' ) ) {
+	/**
+	 * Add the markup for the Noto Search Icon.
+	 */
+	function noto_search_icon() { ?>
+
+        <div class="search-trigger">
+            <button class="js-search-trigger">
+				<?php get_template_part( 'template-parts/svg/icon-search-svg' ); ?>
+                <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
+            </button>
+        </div>
+	<?php
+	}
+}
+
+add_action( 'noto_search_icon', 'noto_search_icon', 10 );
 
