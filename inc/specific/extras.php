@@ -186,7 +186,7 @@ if ( ! function_exists( 'noto_alter_header_component_config' ) ) {
 	function noto_alter_header_component_config( $config ) {
 
 		$config['menu_locations']['primary-left' ] = array(
-			'title'         => esc_html__( 'Header Top', '__components_txtd' ),
+			'title'         => esc_html__( 'Header Top', '__theme_txtd' ),
 			'default_zone'  => 'left',
 			// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
 			'zone_callback' => false,

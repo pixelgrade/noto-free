@@ -26,11 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="c-branding">
 
-        <div class="c-profile-photo">
-            <div class="c-profile-photo__default">
-                <?php pixelgrade_the_profile_photo(); ?>
-            </div>
-        </div>
+        <?php do_action('noto_profile_photo'); ?>
 
         <?php if ( has_custom_logo() || pixelgrade_has_custom_logo_transparent() ) { ?>
             <div class="c-logo">
