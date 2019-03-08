@@ -263,41 +263,6 @@ function variation_change_site_identity_section( $options ) {
 }
 
 /**
- * Adds CSS to hide header text for custom logo, based on Customizer setting.
- */
-function _noto_custom_logo_header_styles() {
-	if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-logo', 'header-text' ) ) {
-		// remove the default core hook that handles the custom inline CSS for hiding the Site Title & Description.
-		remove_action( 'wp_head', '_custom_logo_header_styles', 10 );
-
-		$classes = array();
-		if ( ! pixelgrade_option( 'display_site_title' ) ) {
-			$classes[] = 'site-title';
-		}
-		if ( ! pixelgrade_option( 'display_site_description' ) ) {
-			$classes[] = 'site-description-text';
-		}
-		if ( empty( $classes ) ) {
-			return;
-		}
-
-		$classes = array_map( 'sanitize_html_class', $classes );
-		$classes = '.' . implode( ', .', $classes );
-
-		?>
-		<!-- Custom Logo: hide header text -->
-		<style id="custom-logo-css" type="text/css">
-			<?php echo $classes; ?> {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-			}
-		</style>
-		<?php
-	}
-}
-add_action( 'wp_head', '_noto_custom_logo_header_styles', 9 );
-
-/**
  * General Section
  *
  * @param array $section_options The specific Customify config to be filtered
