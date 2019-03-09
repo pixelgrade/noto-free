@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for the reading progress indicator.
+ * The template for logo icon.
  *
  * This template can be overridden by copying it to a child theme in the template-parts directory.
  *
@@ -13,20 +13,8 @@
  * @version 1.0.0
  */
 
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( is_single() && ! is_attachment() ) { ?>
-
-	<div class="c-reading-progress">
-		<progress value="0" max="100" class="js-reading-progress"></progress>
-		<div class="c-reading-progress__label">
-			<?php $minutes = noto_get_the_reading_time_in_minutes(); ?>
-			<span><?php echo $minutes; ?></span>
-			<p><?php printf( _n( 'min %s read', 'mins %s read', $minutes, '__theme_txtd' ), '<br>' ); ?></p>
-		</div>
-	</div>
-
-<?php }
+?><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><g stroke="#34394B" stroke-width="18"><path d="M109 109h82v82h-82z"/><circle cx="100" cy="100" r="91"/></g></svg>

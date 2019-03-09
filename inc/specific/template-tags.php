@@ -90,7 +90,7 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			}
 
 			ob_start();
-			get_template_part( 'assets/images/profile-photo' );
+			get_template_part( 'template-parts/svg/profile-photo' );
 			$image = ob_get_contents();
 			ob_end_clean();
 

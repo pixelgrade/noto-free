@@ -138,41 +138,18 @@ if ( ! function_exists( 'noto_setup' ) ) {
 add_action( 'after_setup_theme', 'noto_setup', 10 );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function noto_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'noto_content_width', 720 );
-}
-add_action( 'after_setup_theme', 'noto_content_width', 0 );
-
-function noto_custom_tiled_gallery_width() {
-	$width = pixelgrade_option( 'main_content_container_width', 1300 );
-
-	if ( is_active_sidebar( 'sidebar-1' ) ) {
-		$width = pixelgrade_option( 'main_content_container_width', 1300 ) - 300 - 56;
-	}
-
-	return $width;
-}
-add_filter( 'tiled_gallery_content_width', 'noto_custom_tiled_gallery_width' );
-
-/**
  * Enqueue scripts and styles.
  */
 function noto_scripts() {
-	$theme           = wp_get_theme();
+	$theme           = wp_get_theme( get_template() );
 	$main_style_deps = array();
 
 	wp_enqueue_style( 'noto-google-fonts', noto_google_fonts_url() );
 
 	/* The main theme stylesheet */
-	if ( ! is_rtl() ) {
-		wp_enqueue_style( 'noto-style', get_template_directory_uri() . '/style.css', $main_style_deps, $theme->get( 'Version' ) );
-	}
+	wp_enqueue_style( 'noto-style', get_template_directory_uri() . '/style.css', $main_style_deps, $theme->get( 'Version' ) );
+
+	wp_style_add_data( 'noto-style', 'rtl', 'replace' );
 
 	/* Scripts */
 
@@ -211,7 +188,31 @@ function noto_gutenberg_styles() {
 }
 add_action( 'enqueue_block_editor_assets', 'noto_gutenberg_styles' );
 
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function noto_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'noto_content_width', 720 );
+}
+add_action( 'after_setup_theme', 'noto_content_width', 0 );
+
+function noto_custom_tiled_gallery_width() {
+	$width = pixelgrade_option( 'main_content_container_width', 1300 );
+
+	if ( is_active_sidebar( 'sidebar-1' ) ) {
+		$width = pixelgrade_option( 'main_content_container_width', 1300 ) - 300 - 56;
+	}
+
+	return $width;
+}
+add_filter( 'tiled_gallery_content_width', 'noto_custom_tiled_gallery_width' );
+
 function noto_get_blog_grid_class( $classes ) {
+	// @todo This is weird!!!
 	$classes = array();
 	return $classes;
 }
