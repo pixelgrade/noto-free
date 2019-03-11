@@ -18,8 +18,3 @@ require pixelgrade_get_parent_theme_file_path( '/inc/integrations/customify.php'
  */
 require pixelgrade_get_parent_theme_file_path( '/inc/integrations/pixcare_starter_content.php' );
 
-/**
- * Load Jetpack compatibility file.
- * https://jetpack.me/
- */
-require pixelgrade_get_parent_theme_file_path( '/inc/integrations/jetpack.php' );

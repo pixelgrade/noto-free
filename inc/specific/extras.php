@@ -197,12 +197,14 @@ if ( ! function_exists( 'noto_alter_header_component_config' ) ) {
 				'container'       => 'nav',
 				'container_class' => '',
 				'fallback_cb'     => false,
+				'depth'           => 0,
 			),
 		);
 
 		if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
 
 			unset( $config['menu_locations']['primary-right'] );
+			$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
 
 		}else {
 			$config = Pixelgrade_Config::merge( $config, array(

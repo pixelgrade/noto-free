@@ -140,9 +140,24 @@ if ( ! function_exists( 'noto_search_icon' ) ) {
                 <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
             </button>
         </div>
-	<?php
+		<?php
 	}
 }
 
 add_action( 'noto_search_icon', 'noto_search_icon', 10 );
+
+
+if ( ! function_exists( 'noto_post_navigation' ) ) {
+	/**
+	 * Add the markup for the posts navigation.
+	 */
+	function noto_post_navigation() {
+
+		pixelgrade_the_post_navigation();
+
+	}
+}
+
+add_action( 'noto_post_navigation', 'noto_post_navigation', 10 );
+
 
