@@ -59,6 +59,10 @@
     > a:after {
       content: "+";
       padding-left: 0.5em;
+
+      .lite-version & {
+        content: "";
+      }
     }
   }
 }
