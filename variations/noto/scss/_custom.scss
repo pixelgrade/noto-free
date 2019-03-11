@@ -229,11 +229,6 @@ html {
     color: inherit;
   }
 
-  &,
-  li {
-    color: $header-links-color;
-  }
-
   li:hover,
   [class*='current-menu'] {
     color: $header-links-active-color;
@@ -254,4 +249,12 @@ html {
 
 .search-no-results {
   text-align: center;
+}
+
+.search-trigger[class] {
+  color: #fff;
+  svg {
+    width: auto;
+    height: auto;
+  }
 }
