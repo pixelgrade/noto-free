@@ -80,17 +80,17 @@
   font-size: 15px;
 }
 
-.c-card__letter {
+.c-card__letter[class] {
   height: auto;
+  width: auto;
 
-  font-family: IBM Plex Serif;
-  font-size: 300px;
-  font-weight: 300;
+  font-family: $theme-headings-font-family;
   font-style: italic;
-  text-transform: uppercase;
 
   color: $sm-light-secondary;
   transform: translateY(-50%) translateX(-50%);
+
+  @include leading-map($card-letter-font);
 
   .c-noto__item:not(.c-noto__item--no-image) & {
     display: none;
