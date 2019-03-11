@@ -229,11 +229,6 @@ html {
     color: inherit;
   }
 
-  &,
-  li {
-    color: $header-links-color;
-  }
-
   li:hover,
   [class*='current-menu'] {
     color: $header-links-active-color;
