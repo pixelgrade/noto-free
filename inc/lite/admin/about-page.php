@@ -24,7 +24,7 @@ function noto_lite_admin_setup() {
 		/* translators: Main welcome title */
 		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Noto' ),
 		// Main welcome content
-		'welcome_content'       => esc_html__( ' Noto is a free travel blog theme to help you increase your revenue streams and see more of the world. With big and beautiful imagery and a smart widget system for next-level customizations, you have all the right tools to express your personality and nurture a loyal audience around your fascinating stories.', '__theme_txtd' ),
+		'welcome_content'       => esc_html__( 'Noto is a free notebook inspired blogging theme, designed for your creative ambitions. From the variety of colors, the use of subtle motion effects and visual cues, this is the perfect solution to explore the rhythm and dynamics of your text‐based content.', '__theme_txtd' ),
 		/**
 		 * Tabs array.
 		 *
@@ -95,79 +95,73 @@ function noto_lite_admin_setup() {
 		'free_pro'                => array(
 			'free_theme_name'     => 'Noto Free',
 			'pro_theme_name'      => 'Noto PRO',
-			'pro_theme_link'      => 'https://pixelgrade.com/themes/blogging/vasco-pro/?utm_source=vasco-lite-clients&utm_medium=about-page&utm_campaign=vasco-lite',
+			'pro_theme_link'      => 'https://pixelgrade.com/themes/blogging/noto-pro/?utm_source=noto-lite-clients&utm_medium=about-page&utm_campaign=noto-lite',
 			/* translators: View link */
 			'get_pro_theme_label' => sprintf( esc_html__( 'Get %s', '__theme_txtd' ), 'Noto Pro' ),
 			'features'            => array(
 				array(
-					'title'       => esc_html__( 'Daring Design for Devoted Readers', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto\'s design focused on big and beautiful imagery helps you raise awareness and grab attention around your traveling stories. With a flexible home page, you have the chance to easily showcase your ideas.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Notebook Design to Impress Your Readers', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto breaks the classic grid construction and offers an engaging dynamic for readers. The inspiration from the notebooks\' world creates momentum and provides a unique look-and-feel so that your stories receive the best showcase experience.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Mobile-Ready For All Devices', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look amazing to your audience.', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look stunning to your audience without harming the overall feeling of your content. This way, people have the chance to connect in-depth with your stories.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Widgetized Homepage To Keep Attention', '__theme_txtd' ),
-					'description' => esc_html__( 'The widget-based flexible system allows you to add your favorite widgets all over the Front Page.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Featured Images on Hover', '__theme_txtd' ),
+					'description' => esc_html__( 'With the use of a subtle fade-in and some motion effects, this is the perfect solution to let your audience explore the feeling around your text‐based content and immerse them to stay longer on your website.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Location Widget to Connect with Your Local Community', '__theme_txtd' ),
-					'description' => esc_html__( 'Share your whereabouts and connect with readers nearby with the help of our custom Location Widget.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Widgetized Footer', '__theme_txtd' ),
+					'description' => esc_html__( 'Keep your audience engaged by adding widgets in the footer that will follow them around the website. Push a newsletter subscribe box, your Instagram feed, contact info or anything else that supports your ambitions. The sky’s the limit.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'New Widgets for Extra Flexibility', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto PRO gives you extra ways to showcase your articles in great style. Besides the Grid Posts and Profile widgets, the PRO version comes with much more: Feature Card, Callout Box, Categories, and many others.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Social Sharing Features To Boost Traffic', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto PRO comes with a subtle approach to increasing engagement by displaying social sharing buttons on the left side of your content and just below it. This way, you give people a handy option to spread the word about your content, without having to rely on third-party options that don’t keep the same design approach.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Advanced Widgets Options', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto\'s PRO version comes with more widget options to lay out and filter posts. For instance, you can have more control on setting the source of the posts (filtering by category, tags, etc.) or how they are displayed (e.g. Show Excerpt, Show Read More).', '__theme_txtd' ),
+					'title'       => esc_html__( 'Extra Flexibility for the Below Post Area', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto PRO unlocks a new widget area, allowing you to place your favorite widgets right below your posts for extra exposure. At the same time, you can add related posts, an author info box, and a previous/next article section to allow people to easily browse your content.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Sidebar, Footer & Below Post Widget Areas', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto\'s PRO version unlocks more Widget Areas to be able to place your favorite widgets on the right side or below your posts and in the footer.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Post-it Note Area to Welcome Visitors', '__theme_txtd' ),
+					'description' => esc_html__( 'We went a step further into the note-taking feel of Noto PRO by creating a post-it note style area on your homepage. You can use it to introduce yourself and invite your visitors to learn more about who you are or what kind of creative work you are providing.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Reliable Support for All Kind of Ads', '__theme_txtd' ),
-					'description' => esc_html__( 'Make money out of your website in various ways with the Promo Box widget. Use it to deliver quality ads to your audience, promote a special offer or anything else that helps you achieve your goals.', '__theme_txtd' ),
+					'title'       => esc_html__( 'Front-Page Widget Area', '__theme_txtd' ),
+					'description' => esc_html__( 'Go a step further and add custom widgets on your Home Page that will be sprinkled between your blog articles. This will help you maintain interest and provide extra exposure to what’s important.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Customizable Stamp for a Unique Style', '__theme_txtd' ),
-					'description' => esc_html__( 'Inspired by travelers lifestyle, you can level up your visual identity by auto-generating a stamp with custom text and a set of colorful shapes.', '__theme_txtd' ),
+					'title'       => esc_html__( 'More Customization Options', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto PRO allows you to personalize your website even further. You can add a pattern style design below your blog titles, change the shape and color of the buttons, and transform the first paragraphs into a beautifully designed intro.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Sticky Menu, Announcement & Reading Progress Bar', '__theme_txtd' ),
-					'description' => esc_html__( 'Keep the menu at the top of your page while you scroll, making it more accessible on whatever page you are navigating. On article pages, you will have a Progress Bar that switches to a link to the next article. The header area gets a boost with an Announcement Bar through which you can promote any link','__theme_txtd' ),
-					'is_in_lite'  => 'false',
-					'is_in_pro'   => 'true',
-				),
-				array(
-					'title'       => esc_html__( 'Blobs for a Compelling Visual Brand Identity', '__theme_txtd' ),
-					'description' => esc_html__( 'Our unique Blobs creating system allows you to give your website an one of a kind visual identity that your readers will recognize in a heartbeat.','__theme_txtd' ),
+					'title'       => esc_html__( 'Additional Menu Options and Locations', '__theme_txtd' ),
+					'description' => esc_html__( 'Using Noto PRO means that you can use submenus and benefit from two additional menu locations: below your main menu and in the footer. Let people know where to follow you on social media by adding a social menu with custom icons for each network.','__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Flexible Color Scheme with Style Manager', '__theme_txtd' ),
-					'description' => esc_html__( 'Showcase your unique style in an easy and smart way by using an intuitive interface that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs.', '__theme_txtd' ),
+					'description' => esc_html__( 'Showcase your unique style in an easy and smart way by using an intuitive interface that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs.','__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -179,19 +173,19 @@ function noto_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Premium Support and Assistance', '__theme_txtd' ),
-					'description' => esc_html__( 'We offer ongoing customer support to help you get things done fast. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds.', '__theme_txtd' ),
+					'description' => esc_html__( 'Behind every single support ticket stands a real person who gives the best to help you in due time. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
-					'title'       => esc_html__( 'Friendly Self-Service', '__theme_txtd' ),
+					'title'       => esc_html__( 'Friendly Self-Help', '__theme_txtd' ),
 					'description' => esc_html__( 'We give you full access to an in-depth documentation to get the job done as quickly as possible. We don\'t stay in your way by offering you full access to our self-help tool directly from your Dashboard.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'No Credit Footer Link', '__theme_txtd' ),
-					'description' => esc_html__( 'You can easily remove the "Theme: Noto by Pixelgrade" copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
+					'description' => esc_html__( 'You can easily remove the “Theme: Noto by Pixelgrade” copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				)
