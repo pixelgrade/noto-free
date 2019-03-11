@@ -40,6 +40,18 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 		),
 	));
 
+	Pixelgrade_BlocksManager()->registerBlock( 'blog/entry-content', array(
+		'type'      => 'template_part',
+		'templates' => array(
+			array(
+				'component_slug' => 'blog',
+				'slug'           => 'entry-content',
+				'name'           => 'single',
+			),
+		),
+		'wrappers'  => null
+	));
+
 	Pixelgrade_BlocksManager()->registerBlock( 'blog/single', array(
 		'blocks' => array(
 			'blog/entry-header-single',
