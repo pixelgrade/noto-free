@@ -132,6 +132,8 @@
 .c-navbar__zone--right {
   display: flex;
   justify-content: flex-end;
+
+  @include leading-map($header-font);
 }
 
 .site-logo img,
@@ -270,7 +272,13 @@
     z-index: 310;
 
     background: $sm-dark-primary;
-    color: $sm-color-tertiary;
+    color: $sm-light-primary;
+  }
+
+  .c-navbar__zone--left {
+    .menu > li {
+      color: $sm-light-primary;
+    }
   }
 }
 
