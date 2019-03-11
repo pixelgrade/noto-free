@@ -46,7 +46,7 @@ function noto_lite_admin_setup() {
 				'icon' => 'dashicons dashicons-sos',
 				'text' => wp_kses( __( 'We want to make sure you have the best experience using Noto. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums.', '__theme_txtd' ), wp_kses_allowed_html() ),
 				'button_label' => esc_html__( 'Contact Support','__theme_txtd' ),
-				'button_link' => esc_url( 'https://wordpress.org/support/theme/vasco' ),
+				'button_link' => esc_url( 'https://wordpress.org/support/theme/noto' ),
 				'is_button' => true,
 				'is_new_tab' => true
 			),
@@ -55,7 +55,7 @@ function noto_lite_admin_setup() {
 				'icon' => 'dashicons dashicons-book-alt',
 				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Noto.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Read The Documentation','__theme_txtd' ),
-				'button_link' => 'https://pixelgrade.com/vasco-documentation/',
+				'button_link' => 'https://pixelgrade.com/noto-documentation/',
 				'is_button' => false,
 				'is_new_tab' => true
 			)
@@ -75,7 +75,7 @@ function noto_lite_admin_setup() {
 				'title' => esc_html__( 'Recommended actions','__theme_txtd' ),
 				'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Recommended actions','__theme_txtd' ),
-				'button_link' => esc_url( admin_url( 'themes.php?page=vasco-welcome&tab=recommended_actions' ) ),
+				'button_link' => esc_url( admin_url( 'themes.php?page=noto-welcome&tab=recommended_actions' ) ),
 				'button_ok_label' => esc_html__( 'You are good to go!','__theme_txtd' ),
 				'is_button' => false,
 				'recommended_actions' => true,
@@ -85,7 +85,7 @@ function noto_lite_admin_setup() {
 				'title' => esc_html__( 'Read the documentation','__theme_txtd' ),
 				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Noto.','__theme_txtd' ),
 				'button_label' => esc_html__( 'Documentation','__theme_txtd' ),
-				'button_link' => 'https://pixelgrade.com/vasco-documentation/',
+				'button_link' => 'https://pixelgrade.com/noto-documentation/',
 				'is_button' => false,
 				'recommended_actions' => false,
 				'is_new_tab' => true
