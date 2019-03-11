@@ -250,3 +250,11 @@ html {
 .search-no-results {
   text-align: center;
 }
+
+.search-trigger[class] {
+  color: #fff;
+  svg {
+    width: auto;
+    height: auto;
+  }
+}
