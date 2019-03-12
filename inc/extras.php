@@ -1,7 +1,8 @@
 <?php
 /**
- * Custom functionality.
+ * Custom functions that act independently of the theme templates.
  *
+ * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Noto
  * @since 1.0.0

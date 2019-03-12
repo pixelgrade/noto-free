@@ -30,7 +30,6 @@ add_action( 'after_setup_theme', 'noto_pro_setup' );
  * @package Noto
  * @since 1.0.0
  */
-
 function noto_setup_pixelgrade_care() {
 	/*
 	 * Declare support for Pixelgrade Care
@@ -59,6 +58,15 @@ function noto_output_wave_svg() {
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
 
+/**
+ * Initialize custom widgets.
+ *
+ * @since 1.1.0
+ *
+ * @param array $config
+ *
+ * @return array
+ */
 function noto_alter_blog_component_config( $config ) {
 
 	$config = Pixelgrade_Config::merge( $config, array(
@@ -88,43 +96,40 @@ function noto_alter_blog_component_config( $config ) {
 add_filter( 'pixelgrade_blog_initial_config', 'noto_alter_blog_component_config', 10 );
 
 
-if ( ! function_exists( '_noto_custom_logo_header_styles' ) ) {
+/**
+ * Adds CSS to hide header text for custom logo, based on Customizer setting.
+ */
+function _noto_custom_logo_header_styles() {
+	if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-logo', 'header-text' ) ) {
+		// remove the default core hook that handles the custom inline CSS for hiding the Site Title & Description.
+		remove_action( 'wp_head', '_custom_logo_header_styles', 10 );
 
-	/**
-	 * Adds CSS to hide header text for custom logo, based on Customizer setting.
-	 */
-	function _noto_custom_logo_header_styles() {
-		if ( ! current_theme_supports( 'custom-header', 'header-text' ) && get_theme_support( 'custom-logo', 'header-text' ) ) {
-			// remove the default core hook that handles the custom inline CSS for hiding the Site Title & Description.
-			remove_action( 'wp_head', '_custom_logo_header_styles', 10 );
-
-			$classes = array();
-			if ( ! pixelgrade_option( 'display_site_title' ) ) {
-				$classes[] = 'site-title';
-			}
-			if ( ! pixelgrade_option( 'display_site_description' ) ) {
-				$classes[] = 'site-description-text';
-			}
-			if ( empty( $classes ) ) {
-				return;
-			}
-
-			$classes = array_map( 'sanitize_html_class', $classes );
-			$classes = '.' . implode( ', .', $classes );
-
-			?>
-            <!-- Custom Logo: hide header text -->
-            <style id="custom-logo-css" type="text/css">
-                <?php echo $classes; ?>
-                {
-                    position: absolute
-                ;
-                    clip: rect(1px, 1px, 1px, 1px)
-                ;
-                }
-            </style>
-			<?php
+		$classes = array();
+		if ( ! pixelgrade_option( 'display_site_title' ) ) {
+			$classes[] = 'site-title';
 		}
+		if ( ! pixelgrade_option( 'display_site_description' ) ) {
+			$classes[] = 'site-description-text';
+		}
+		if ( empty( $classes ) ) {
+			return;
+		}
+
+		$classes = array_map( 'sanitize_html_class', $classes );
+		$classes = '.' . implode( ', .', $classes );
+
+		?>
+        <!-- Custom Logo: hide header text -->
+        <style id="custom-logo-css" type="text/css">
+            <?php echo $classes; ?>
+            {
+                position: absolute
+            ;
+                clip: rect(1px, 1px, 1px, 1px)
+            ;
+            }
+        </style>
+		<?php
 	}
 }
 
@@ -157,8 +162,7 @@ function noto_search_icon() { ?>
             <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
         </button>
     </div>
-	<?php
-}
+	<?php }
 
 add_action( 'noto_search_icon', 'noto_search_icon', 10 );
 
