@@ -1,12 +1,11 @@
 <?php
 /**
- * Custom functions related to Customify specific for this variation.
+ * Custom functions related to Customify.
  *
  * Some of the Customify controls come straight from components.
  * If you need to customize the settings for those controls you can use the appropriate filter.
  * For details search for the add_customify_options() function in the main component class (usually in class-componentname.php).
  *
- * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
  * @package Noto
  * @since 1.0.0

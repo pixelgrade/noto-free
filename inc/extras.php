@@ -1,8 +1,7 @@
 <?php
 /**
- * Custom functionality specific to this variation.
+ * Custom functionality.
  *
- * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
  *
  * @package Noto
  * @since 1.0.0
