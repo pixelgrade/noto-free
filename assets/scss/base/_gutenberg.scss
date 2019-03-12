@@ -88,6 +88,12 @@ figure.wp-block-pullquote {
   font: inherit;
 }
 
+.wp-block-pullquote {
+  &.is-style-solid-color {
+    @include spacing(padding, 2rem);
+  }
+}
+
 .wp-block-quote__citation[class],
 .wp-block-quote[class] cite,
 .wp-block-quote[class] footer {
@@ -110,6 +116,12 @@ figure.wp-block-pullquote {
 
 .wp-block-gallery[class] {
   display: flex;
+}
+
+.wp-block-table {
+  td {
+    white-space: pre-wrap;
+  }
 }
 
 .wp-block-categories-list {

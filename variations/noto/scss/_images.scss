@@ -9,15 +9,19 @@
     .content-area {
 
         > .alignleft {
-            grid-column: edge-start / cso;
-            grid-row-end: span 4;
             margin-right: 0;
+            &:not(figure) {
+                grid-column: edge-start / cso;
+                grid-row-end: span 4;
+            }
         }
 
         > .alignright {
-            grid-column: ceo / edge-end;
-            grid-row-end: span 4;
             margin-left: 0;
+            &:not(figure) {
+                grid-column: ceo / edge-end;
+                grid-row-end: span 4;
+            }
         }
 
         > .aligncenter,
@@ -85,12 +89,12 @@
     grid-row-end: span 3;
 }
 
-.alignleft[class] {
+.alignleft[class]:not(figure) {
     grid-column: edge-start / cso;
     max-width: 100%;
 }
 
-.alignright[class] {
+.alignright[class]:not(figure) {
     grid-column: ceo/edge-end;
     max-width: 100%;
     margin-left: 0;
