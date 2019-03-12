@@ -9,8 +9,6 @@ import { ProgressBar } from '../../../components/base/ts/components/ProgressBar'
 
 import { NotoHeader } from './Header';
 
-const cq = require('cq-prolyfill')({ /* configuration */ });
-
 export class Noto extends BaseTheme {
     public ProgressBar: ProgressBar;
     public SearchOverlay: SearchOverlay;
@@ -304,10 +302,6 @@ export class Noto extends BaseTheme {
 
     private adjustLayout() {
         this.adjustPostsMargins();
-
-        cq.reevaluate(false, () => {
-            // Do something after all elements were updated
-        });
     }
 
 }

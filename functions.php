@@ -143,6 +143,7 @@ add_action( 'after_setup_theme', 'noto_setup', 10 );
 function noto_scripts() {
 	$theme           = wp_get_theme( get_template() );
 	$main_style_deps = array();
+	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_enqueue_style( 'noto-google-fonts', noto_google_fonts_url() );
 
@@ -154,8 +155,8 @@ function noto_scripts() {
 	/* Scripts */
 
 	//The main script
-	wp_enqueue_script( 'noto-commons-scripts', get_theme_file_uri( '/assets/js/commons.js' ), array( 'jquery' ), $theme->get( 'Version' ), true );
-	wp_enqueue_script( 'noto-scripts', get_theme_file_uri( '/assets/js/app.bundle.js' ), array( 'noto-commons-scripts' ), $theme->get( 'Version' ), true );
+	wp_register_script( 'tweenmax',get_theme_file_uri( '/assets/js/TweenMax' . $suffix . '.js' ), array(), '2.0.2', true );
+	wp_enqueue_script( 'noto-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'jquery','imagesloaded', 'tweenmax', 'hoverIntent' ), $theme->get( 'Version' ), true );
 
 	if ( is_customize_preview() ) {
 		wp_enqueue_script( 'noto-customizer-scripts', get_theme_file_uri( '/assets/js/customizer.js' ), array(), $theme->get( 'Version' ), true );

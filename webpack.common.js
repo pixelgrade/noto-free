@@ -13,14 +13,8 @@ module.exports = {
 	externals: {
 		jquery: 'jQuery',
 		imagesloaded: 'imagesLoaded',
-		'masonry-layout': 'Masonry',
 		'jquery-hoverintent': 'jQuery',
 		gsap: '_gsScope',
-		select2: 'jQuery',
-		'slick-carousel': 'jQuery',
-		animejs: 'anime',
-		'js-cookie': 'Cookies',
-		circletype: 'CircleType',
 	},
 	optimization: {
 		minimize: true,
