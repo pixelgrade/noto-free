@@ -314,7 +314,7 @@ function variation_change_customify_general_section( $section_options, $options 
 				'archive_post_it_title' => array(
 					'type'              => 'text',
 					'label'             => esc_html__( 'Note Title', '__theme_txtd' ),
-					'desc'              => esc_html__( '', '__theme_txtd' ),
+					'desc'              => '',
 					'default'           => 'Hello!',
 					'live'              => array( '.c-post-it__title' ),
 					'show_if' => array(
@@ -325,7 +325,7 @@ function variation_change_customify_general_section( $section_options, $options 
 				'archive_post_it_content' => array(
 					'type'              => 'textarea',
 					'label'             => esc_html__( 'Note Content', '__theme_txtd' ),
-					'desc'              => esc_html__( '', '__theme_txtd' ),
+					'desc'              => '',
 					'default'           => '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="#contact">reach me</a> to say Hi!</p>',
 					'sanitize_callback' => 'wp_kses_post',
 					'live'              => array( '.c-post-it__content' ),
@@ -869,7 +869,7 @@ function variation_change_customify_header_section( $section_options, $options )
 				),
 				'header_links_active_color'       => array(
 					'type'    => 'color',
-					'label'   => esc_html__( 'Links Hover Color', '__components_txtd' ),
+					'label'   => esc_html__( 'Links Hover Color', '__theme_txtd' ),
 					'live'    => true,
 					'default' => SM_DARK_PRIMARY,
 					'css'     => array(

@@ -101,9 +101,9 @@ function noto_register_blog_blocks( $component_slug, $component_config ) {
 			'end_size'           => 1,
 			'mid_size'           => 2,
 			'type'               => 'list',
-			'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__components_txtd' ),
-			'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__components_txtd' ),
-			'screen_reader_text' => esc_html__( 'Posts navigation', '__components_txtd' ),
+			'prev_text'          => esc_html_x( '&laquo; Previous', 'previous set of posts', '__theme_txtd' ),
+			'next_text'          => esc_html_x( 'Next &raquo;', 'next set of posts', '__theme_txtd' ),
+			'screen_reader_text' => esc_html__( 'Posts navigation', '__theme_txtd' ),
 		),
 		'checks' => array(
 			array(

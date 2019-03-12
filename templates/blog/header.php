@@ -57,7 +57,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 ?>
 
 <div id="barba-wrapper" class="site u-wrap-text u-header-height-padding-top u-border-width">
-    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__components_txtd' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '__theme_txtd' ); ?></a>
 
     <div id="content" class="site-content barba-container">
 
@@ -94,7 +94,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
             <input class="c-navbar__checkbox" id="menu-toggle" type="checkbox">
             <label class="c-navbar__label u-header-sides-spacing" for="menu-toggle">
                 <span class="c-navbar__label-icon"><?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'burger' ); ?></span>
-                <span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', '__components_txtd' ); ?></span>
+                <span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', '__theme_txtd' ); ?></span>
             </label><!-- .c-navbar__label -->
 
             <div class="search-trigger">
