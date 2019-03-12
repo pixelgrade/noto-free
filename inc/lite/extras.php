@@ -102,3 +102,5 @@ function noto_lite_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'noto_lite_body_classes' );
+
+
