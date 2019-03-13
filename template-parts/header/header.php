@@ -25,7 +25,7 @@ pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'cont
 
 <div class="search-trigger">
 	<button class="js-search-trigger">
-		<?php get_template_part( 'template-parts/svg/icon-search-svg' );?>
+		<?php get_template_part( 'template-parts/svg/icon-search' );?>
 		<span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
 	</button>
 </div>
