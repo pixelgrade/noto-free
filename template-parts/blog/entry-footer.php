@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     pixelgrade_entry_footer(); ?>
 </footer><!-- .entry-footer -->
 
-<?php      do_action('noto_reading_progress'); ?>
+<?php do_action('noto_reading_progress'); ?>
 
 <?php
 // If comments are open or we have at least one comment, load up the comment template.

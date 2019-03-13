@@ -106,27 +106,25 @@ function _noto_custom_logo_header_styles() {
 
 		$classes = array();
 		if ( ! pixelgrade_option( 'display_site_title' ) ) {
-			$classes[] = 'site-title';
+			$classes[] = '.site-title';
 		}
 		if ( ! pixelgrade_option( 'display_site_description' ) ) {
-			$classes[] = 'site-description-text';
+			$classes[] = '.site-description-text';
 		}
 		if ( empty( $classes ) ) {
 			return;
 		}
 
 		$classes = array_map( 'sanitize_html_class', $classes );
-		$classes = '.' . implode( ', .', $classes );
+		$classes = implode( ', ', $classes );
 
 		?>
         <!-- Custom Logo: hide header text -->
         <style id="custom-logo-css" type="text/css">
             <?php echo $classes; ?>
             {
-                position: absolute
-            ;
-                clip: rect(1px, 1px, 1px, 1px)
-            ;
+                position: absolute;
+                clip: rect(1px, 1px, 1px, 1px);
             }
         </style>
 		<?php
