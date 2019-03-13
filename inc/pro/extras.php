@@ -179,3 +179,15 @@ function noto_post_navigation() {
 add_action( 'noto_post_navigation', 'noto_post_navigation', 10 );
 
 
+/**
+ * Add the markup for the Noto reading progress bar.
+ */
+function noto_reading_progress() {
+
+    get_template_part( 'template-parts/reading-progress' );
+
+}
+
+add_action( 'noto_reading_progress', 'noto_reading_progress', 10 );
+
+
