@@ -20,7 +20,6 @@ function noto_pro_setup() {
 	 */
 	add_theme_support( 'customizer_style_manager' );
 }
-
 add_action( 'after_setup_theme', 'noto_pro_setup' );
 
 
@@ -54,7 +53,6 @@ function noto_output_wave_svg() {
         </div>
 	<?php }
 }
-
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
 
@@ -92,7 +90,6 @@ function noto_alter_blog_component_config( $config ) {
 
 	return $config;
 }
-
 add_filter( 'pixelgrade_blog_initial_config', 'noto_alter_blog_component_config', 10 );
 
 
@@ -106,33 +103,30 @@ function _noto_custom_logo_header_styles() {
 
 		$classes = array();
 		if ( ! pixelgrade_option( 'display_site_title' ) ) {
-			$classes[] = 'site-title';
+			$classes[] = '.site-title';
 		}
 		if ( ! pixelgrade_option( 'display_site_description' ) ) {
-			$classes[] = 'site-description-text';
+			$classes[] = '.site-description-text';
 		}
 		if ( empty( $classes ) ) {
 			return;
 		}
 
 		$classes = array_map( 'sanitize_html_class', $classes );
-		$classes = '.' . implode( ', .', $classes );
+		$classes = implode( ', ', $classes );
 
 		?>
         <!-- Custom Logo: hide header text -->
         <style id="custom-logo-css" type="text/css">
             <?php echo $classes; ?>
             {
-                position: absolute
-            ;
-                clip: rect(1px, 1px, 1px, 1px)
-            ;
+                position: absolute;
+                clip: rect(1px, 1px, 1px, 1px);
             }
         </style>
 		<?php
 	}
 }
-
 add_action( 'wp_head', '_noto_custom_logo_header_styles', 9 );
 
 
@@ -145,39 +139,9 @@ function noto_profile_photo() { ?>
 			<?php pixelgrade_the_profile_photo(); ?>
         </div>
     </div>
-<?php }
-
-
-add_action( 'noto_profile_photo', 'noto_profile_photo', 10 );
-
-
-/**
- * Add the markup for the Noto Search Icon.
- */
-function noto_search_icon() { ?>
-
-    <div class="search-trigger">
-        <button class="js-search-trigger">
-			<?php get_template_part( 'template-parts/svg/icon-search' ); ?>
-            <span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
-        </button>
-    </div>
-	<?php }
-
-add_action( 'noto_search_icon', 'noto_search_icon', 10 );
-
-
-/**
- * Add the markup for the posts navigation.
- */
-function noto_post_navigation() {
-
-	pixelgrade_the_post_navigation();
-
+<?php
 }
-
-add_action( 'noto_post_navigation', 'noto_post_navigation', 10 );
-
+add_action( 'noto_profile_photo', 'noto_profile_photo', 10 );
 
 /**
  * Add the markup for the Noto reading progress bar.
@@ -187,7 +151,6 @@ function noto_reading_progress() {
     get_template_part( 'template-parts/reading-progress' );
 
 }
-
-add_action( 'noto_reading_progress', 'noto_reading_progress', 10 );
+add_action('get_footer', 'noto_reading_progress', 10);
 
 
