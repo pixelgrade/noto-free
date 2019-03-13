@@ -118,6 +118,12 @@ function noto_lite_admin_setup() {
 					'is_in_pro'   => 'true',
 				),
 				array(
+					'title'       => esc_html__( 'Post-it Note Area to Welcome Visitors', '__theme_txtd' ),
+					'description' => esc_html__( 'We went a step further into the note-taking feel of Noto by creating a post-it note style area on your homepage. You can use it to introduce yourself and invite your visitors to learn more about who you are or what kind of creative work you are providing', '__theme_txtd' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
 					'title'       => esc_html__( 'Widgetized Footer', '__theme_txtd' ),
 					'description' => esc_html__( 'Keep your audience engaged by adding widgets in the footer that will follow them around the website. Push a newsletter subscribe box, your Instagram feed, contact info or anything else that supports your ambitions. The sky’s the limit.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
@@ -132,12 +138,6 @@ function noto_lite_admin_setup() {
 				array(
 					'title'       => esc_html__( 'Extra Flexibility for the Below Post Area', '__theme_txtd' ),
 					'description' => esc_html__( 'Noto PRO unlocks a new widget area, allowing you to place your favorite widgets right below your posts for extra exposure. At the same time, you can add related posts, an author info box, and a previous/next article section to allow people to easily browse your content.', '__theme_txtd' ),
-					'is_in_lite'  => 'false',
-					'is_in_pro'   => 'true',
-				),
-				array(
-					'title'       => esc_html__( 'Post-it Note Area to Welcome Visitors', '__theme_txtd' ),
-					'description' => esc_html__( 'We went a step further into the note-taking feel of Noto PRO by creating a post-it note style area on your homepage. You can use it to introduce yourself and invite your visitors to learn more about who you are or what kind of creative work you are providing.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),

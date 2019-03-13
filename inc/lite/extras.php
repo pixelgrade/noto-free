@@ -44,12 +44,12 @@ function noto_lite_customize_register( $wp_customize ) {
 
                         <li>
                             <h4>More Widget Areas for Extra Flexibility</h4>
-                            <div class="description">Besides the Footer widgets area, the PRO version comes with two additional widget-friendly sections: Below Posts and on your Home Page. Use these areas to get new email subscribers, social media followers or anything else that gets you closer to your goals. </div>
+                            <div class="description">The PRO version comes with three widget-friendly sections: on your Home Page, Below Posts, and in the Footer. Use these areas to get new email subscribers, social media followers or anything else that gets you closer to your goals.</div>
                         </li>
 
                         <li>
                             <h4>Advanced Features for a Unique Look</h4>
-                            <div class="description">Noto PRO takes everything to the next level, unlocking features like Post-it Note area to welcome visitors, more menu locations, an Author Info Box and Related Posts to display below your articles along with social media sharing buttons, access to 600+ fonts & other styling options for buttons, text intro and article titles.</div>
+                            <div class="description">Noto PRO takes everything to the next level, unlocking features like Post-it Note area to welcome visitors, more menu locations, and an Author Info Box to display below your articles along with social media sharing buttons, access to 600+ fonts & other styling options for buttons, text intro and article titles.</div>
                         </li>
 
                         <li>
