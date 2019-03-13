@@ -92,6 +92,29 @@ function noto_alter_blog_component_config( $config ) {
 }
 add_filter( 'pixelgrade_blog_initial_config', 'noto_alter_blog_component_config', 10 );
 
+/**
+ * Modify the Footer widget area settings.
+ *
+ * @param array $config
+ *
+ * @return array
+ */
+function noto_alter_footer_component_config( $config ) {
+	$config = Pixelgrade_Config::merge( $config, array(
+		'sidebars' => array(
+			'sidebar-footer' => array(
+				'sidebar_args' => array(
+					'before_title' => '<h2 class="widget__title h4"><span>',
+					'after_title'  => '</span></h2>',
+				),
+			)
+		)
+	) );
+
+	return $config;
+}
+add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_config', 10 );
+
 
 /**
  * Adds CSS to hide header text for custom logo, based on Customizer setting.
@@ -152,5 +175,7 @@ function noto_reading_progress() {
 
 }
 add_action('get_footer', 'noto_reading_progress', 10);
+
+
 
 

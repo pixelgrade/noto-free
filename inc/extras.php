@@ -237,32 +237,7 @@ function noto_alter_header_component_config( $config ) {
 
 	return $config;
 }
-
 add_filter( 'pixelgrade_header_config', 'noto_alter_header_component_config', 10 );
-
-/**
- * Add the Footer widget area.
- *
- * @param array $config The array containing all the active features of the theme.
- *
- * @return array
- */
-function noto_alter_footer_component_config( $config ) {
-	$config = Pixelgrade_Config::merge( $config, array(
-		'sidebars' => array(
-			'sidebar-footer' => array(
-				'sidebar_args' => array(
-					'before_title' => '<h2 class="widget__title h4"><span>',
-					'after_title'  => '</span></h2>',
-				),
-			)
-		)
-	) );
-
-	return $config;
-}
-
-add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_config', 10 );
 
 /**
  * Change the Tag Cloud's Font Sizes.
@@ -278,7 +253,6 @@ function noto_change_tag_cloud_font_sizes( array $args ) {
 
 	return $args;
 }
-
 add_filter( 'widget_tag_cloud_args', 'noto_change_tag_cloud_font_sizes' );
 
 /**
@@ -315,7 +289,6 @@ add_filter( 'the_content', 'noto_add_tags_list', 18 );
 function noto_add_card_meta_decoration( $location ) { ?>
     <div class="c-meta__decoration"></div>
 <?php }
-
 add_action( 'pixelgrade_after_card_meta', 'noto_add_card_meta_decoration', 10, 1 );
 
 /**
@@ -337,7 +310,6 @@ function noto_alter_archive_post_classes( $classes = array() ) {
 
 	return $classes;
 }
-
 add_filter( 'post_class', 'noto_alter_archive_post_classes', 20, 1 );
 
 /**
@@ -378,7 +350,6 @@ function noto_posts_per_page( $posts_per_page ) {
 
 	return $posts_per_page;
 }
-
 add_filter( 'option_posts_per_page', 'noto_posts_per_page', 10, 1 );
 
 /**
@@ -444,7 +415,6 @@ function noto_add_css_for_autostyled_intro_in_editor() {
 		<?php get_template_part( 'template-parts/svg/wave-accent-svg' );
 	}
 }
-
 add_action( 'admin_head', 'noto_add_css_for_autostyled_intro_in_editor' );
 
 /**
@@ -458,6 +428,5 @@ function noto_maybe_load_pro_features() {
 		pixelgrade_autoload_dir( 'inc/lite' );
 	}
 }
-
 // We want to do this as early as possible. So the zero priority is as intended.
 add_action( 'after_setup_theme', 'noto_maybe_load_pro_features', 0 );
