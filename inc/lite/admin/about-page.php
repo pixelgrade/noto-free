@@ -137,7 +137,7 @@ function noto_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Extra Flexibility for the Below Post Area', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto PRO unlocks a new widget area, allowing you to place your favorite widgets right below your posts for extra exposure. At the same time, you can add related posts, an author info box, and a previous/next article section to allow people to easily browse your content.', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto PRO unlocks a new widget area, allowing you to place your favorite widgets right below your posts for extra exposure. At the same time, you can add an author info box, and a previous/next article section to allow people to easily browse your content.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
