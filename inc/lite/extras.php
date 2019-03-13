@@ -104,5 +104,9 @@ function noto_lite_body_classes( $classes ) {
 add_filter( 'body_class', 'noto_lite_body_classes' );
 
 
+add_filter( 'pixelgrade_prevent_post_navigation', '__return_true', 10 );
+
+
+
 
 
