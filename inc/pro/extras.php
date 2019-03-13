@@ -151,8 +151,6 @@ function noto_reading_progress() {
     get_template_part( 'template-parts/reading-progress' );
 
 }
-
-//Add PRO features
-
+add_action('get_footer', 'noto_reading_progress', 10);
 
 
