@@ -1173,7 +1173,7 @@ function noto_customify_footer_section( $section_options, $options ) {
 					'default' => SM_LIGHT_SECONDARY
 				),
 				'footer_background'      => array(
-					'default' => SM_DARK_SECONDARY
+					'default' => SM_DARK_PRIMARY
 				),
 			),
 		),
