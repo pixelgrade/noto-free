@@ -221,6 +221,13 @@ body {
   }
 }
 
+.post-password-form {
+  input[type="submit"] {
+    color: $btn-border-color;
+    margin-top: 8px;
+  }
+}
+
 html {
   overflow-x: hidden;
 }
