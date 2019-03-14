@@ -215,6 +215,12 @@ body {
   color: inherit;
 }
 
+.site {
+  @include above(lap) {
+    padding-left: 25px;
+  }
+}
+
 html {
   overflow-x: hidden;
 }

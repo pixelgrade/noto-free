@@ -1,5 +1,5 @@
 /*Label for Viw Pro Customizer Section*/
-[id*="vasco_lite_style_view_pro"] .accordion-section-title:before {
+[id*="noto_lite_style_view_pro"] .accordion-section-title:before {
     content: "pro";
     font-size: 10px;
     background: #e0004d;
