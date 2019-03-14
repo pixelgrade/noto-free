@@ -64,9 +64,9 @@ if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
 		$accent = pixelgrade_option( 'accent_color', '#FFB1A5' );
 		?>
         <div class="wave-svg js-pattern-template"
-             style='background-image: <?php echo noto_get_pattern_background_image(); ?>' hidden></div>
+             style='background-image: <?php echo esc_attr( noto_get_pattern_background_image() ); ?>' hidden></div>
         <div class="wave-svg js-pattern-accent-template"
-             style='background-image: <?php echo noto_get_pattern_background_image( $accent ); ?>' hidden></div>
+             style='background-image: <?php echo esc_attr( noto_get_pattern_background_image( $accent ) ); ?>' hidden></div>
 	<?php }
 endif;
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
