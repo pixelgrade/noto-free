@@ -24,7 +24,7 @@ function noto_lite_admin_setup() {
 		/* translators: Main welcome title */
 		'welcome_title'         => sprintf( esc_html__( 'Welcome to %s! - Version ', '__theme_txtd' ), 'Noto' ),
 		// Main welcome content
-		'welcome_content'       => esc_html__( 'Noto is a free notebook inspired blogging theme, designed for your creative ambitions. From the variety of colors, the use of subtle motion effects and visual cues, this is the perfect solution to explore the rhythm and dynamics of your text‐based content.', '__theme_txtd' ),
+		'welcome_content'       => esc_html__( 'Noto is a free notebook inspired blogging theme, designed for your creative ambitions. From the variety of colors, the use of subtle motion effects and visual cues, this is the perfect solution to explore the rhythm and dynamics of your text-based content.', '__theme_txtd' ),
 		/**
 		 * Tabs array.
 		 *
@@ -113,7 +113,7 @@ function noto_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Featured Images on Hover', '__theme_txtd' ),
-					'description' => esc_html__( 'With the use of a subtle fade-in and some motion effects, this is the perfect solution to let your audience explore the feeling around your text‐based content and immerse them to stay longer on your website.', '__theme_txtd' ),
+					'description' => esc_html__( 'With the use of a subtle fade-in and some motion effects, this is the perfect solution to let your audience explore the feeling around your text-based content and immerse them to stay longer on your website.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
@@ -125,13 +125,13 @@ function noto_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Widgetized Footer', '__theme_txtd' ),
-					'description' => esc_html__( 'Keep your audience engaged by adding widgets in the footer that will follow them around the website. Push a newsletter subscribe box, your Instagram feed, contact info or anything else that supports your ambitions. The sky’s the limit.', '__theme_txtd' ),
+					'description' => esc_html__( 'Keep your audience engaged by adding widgets in the footer that will follow them around the website. Push a newsletter subscribe box, your Instagram feed, contact info or anything else that supports your ambitions. The sky\'s the limit.', '__theme_txtd' ),
 					'is_in_lite'  => 'true',
 					'is_in_pro'   => 'true',
 				),
 				array(
 					'title'       => esc_html__( 'Social Sharing Features To Boost Traffic', '__theme_txtd' ),
-					'description' => esc_html__( 'Noto PRO comes with a subtle approach to increasing engagement by displaying social sharing buttons on the left side of your content and just below it. This way, you give people a handy option to spread the word about your content, without having to rely on third-party options that don’t keep the same design approach.', '__theme_txtd' ),
+					'description' => esc_html__( 'Noto PRO comes with a subtle approach to increasing engagement by displaying social sharing buttons on the left side of your content and just below it. This way, you give people a handy option to spread the word about your content, without having to rely on third-party options that don\'t keep the same design approach.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -143,7 +143,7 @@ function noto_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'Front-Page Widget Area', '__theme_txtd' ),
-					'description' => esc_html__( 'Go a step further and add custom widgets on your Home Page that will be sprinkled between your blog articles. This will help you maintain interest and provide extra exposure to what’s important.', '__theme_txtd' ),
+					'description' => esc_html__( 'Go a step further and add custom widgets on your Home Page that will be sprinkled between your blog articles. This will help you maintain interest and provide extra exposure to what\'s important.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -185,7 +185,7 @@ function noto_lite_admin_setup() {
 				),
 				array(
 					'title'       => esc_html__( 'No Credit Footer Link', '__theme_txtd' ),
-					'description' => esc_html__( 'You can easily remove the “Theme: Noto by Pixelgrade” copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
+					'description' => esc_html__( 'You can easily remove the "Theme: Noto by Pixelgrade" copyright from the footer area and make the theme yours from start to finish.', '__theme_txtd' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				)
