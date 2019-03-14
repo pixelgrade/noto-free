@@ -56,21 +56,6 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 	} #function
 endif;
 
-if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
-	/**
-	 *  Output the wave quote svg code in the footer.
-	 */
-	function noto_append_svg_to_footer() {
-		$accent = pixelgrade_option( 'accent_color', '#FFB1A5' );
-		?>
-        <div class="wave-svg js-pattern-template"
-             style='background-image: <?php echo esc_attr( noto_get_pattern_background_image() ); ?>' hidden></div>
-        <div class="wave-svg js-pattern-accent-template"
-             style='background-image: <?php echo esc_attr( noto_get_pattern_background_image( $accent ) ); ?>' hidden></div>
-	<?php }
-endif;
-add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );
-
 if ( ! function_exists( 'noto_hide_comments_by_default' ) ) {
 	/**
 	 * Prevent the comments from being shown by default.
