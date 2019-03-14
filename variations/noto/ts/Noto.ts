@@ -264,6 +264,7 @@ export class Noto extends BaseTheme {
         Helper.unwrapImages( $container );
 
         const $paragraphs = $container.find( 'p' );
+        const $imagesBlock = $container.find('.wp-block-image');
 
         $paragraphs.each(( i, p ) => {
             const $p = $(p);
@@ -276,6 +277,14 @@ export class Noto extends BaseTheme {
                 $figure.append( $image.removeAttr( 'class' ) ).insertAfter( $p );
             }
         });
+
+        $imagesBlock.each(( i, block ) => {
+            const $block = $(block);
+            const $figure = $block.children('figure');
+
+            $figure.unwrap();
+        });
+
     }
 
     public handleContent($container: JQuery = this.$body) {

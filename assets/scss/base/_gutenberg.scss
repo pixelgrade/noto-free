@@ -133,3 +133,21 @@ figure.wp-block-pullquote {
     }
   }
 }
+
+[data-align=right] {
+  .editor-block-list__block-edit {
+    clear: right;
+    .wp-block-image {
+      max-width: 260px;
+    }
+  }
+}
+
+[data-align=left] {
+  .editor-block-list__block-edit {
+    clear: left;
+    .wp-block-image {
+      max-width: 260px;
+    }
+  }
+}

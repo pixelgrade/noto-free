@@ -14319,6 +14319,7 @@ function (_BaseTheme) {
       var $container = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _components_base_ts_services_Helper__WEBPACK_IMPORTED_MODULE_2__["Helper"].$body;
       _components_base_ts_services_Helper__WEBPACK_IMPORTED_MODULE_2__["Helper"].unwrapImages($container);
       var $paragraphs = $container.find('p');
+      var $imagesBlock = $container.find('.wp-block-image');
       $paragraphs.each(function (i, p) {
         var $p = jquery__WEBPACK_IMPORTED_MODULE_0___default()(p);
         var $image = $p.children('img');
@@ -14328,6 +14329,11 @@ function (_BaseTheme) {
           var $figure = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<figure />').attr('class', className);
           $figure.append($image.removeAttr('class')).insertAfter($p);
         }
+      });
+      $imagesBlock.each(function (i, block) {
+        var $block = jquery__WEBPACK_IMPORTED_MODULE_0___default()(block);
+        var $figure = $block.children('figure');
+        $figure.unwrap();
       });
     }
   }, {

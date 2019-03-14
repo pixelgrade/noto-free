@@ -10,18 +10,10 @@
 
         > .alignleft {
             margin-right: 0;
-            &:not(figure) {
-                grid-column: edge-start / cso;
-                grid-row-end: span 4;
-            }
         }
 
         > .alignright {
             margin-left: 0;
-            &:not(figure) {
-                grid-column: ceo / edge-end;
-                grid-row-end: span 4;
-            }
         }
 
         > .aligncenter,
@@ -78,9 +70,18 @@
 .wp-caption-text {
     border-left: 2px solid currentColor;
     padding-left: 1.25rem;
+}
 
+.wp-caption-text,
+figcaption {
     font-size: 0.7225em;
     line-height: 1.5;
+}
+
+figcaption {
+    .aligncenter & {
+        text-align: center;
+    }
 }
 
 .alignleft[class],
@@ -89,12 +90,12 @@
     grid-row-end: span 3;
 }
 
-.alignleft[class]:not(figure) {
+.alignleft[class] {
     grid-column: edge-start / cso;
     max-width: 100%;
 }
 
-.alignright[class]:not(figure) {
+.alignright[class] {
     grid-column: ceo/edge-end;
     max-width: 100%;
     margin-left: 0;
