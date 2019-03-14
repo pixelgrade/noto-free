@@ -67,7 +67,7 @@ function noto_lite_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'noto_lite_style_view_pro_desc', array(
 			'default'           => '',
-			'sanitize_callback' => 'noto_sanitize_checkbox',
+			'sanitize_callback' => 'sanitize_checkbox',
 //			@todo check this sanitize
 		)
 	);
@@ -78,6 +78,73 @@ function noto_lite_customize_register( $wp_customize ) {
 			'type'    => 'hidden',
 		)
 	);
+
+	//General
+	$wp_customize->add_panel( 'general', array(
+		'priority'       => 30,
+		'theme_supports' => '',
+		'title'          => __( 'General', '__theme_txtd' ),
+		'description'    => __( '', '__theme_txtd' ),
+	) );
+
+	$wp_customize->add_section( 'post_it_note' , array(
+		'title'    => __('Post-it Note','__theme_txtd'),
+		'panel'    => 'general',
+		'priority' => 10
+	) );
+
+
+	// Post-it Note title
+	$wp_customize->add_setting( 'archive_post_it_title', array(
+		'default'           => __( 'Hello', '__theme_txtd' ),
+		'sanitize_callback' => 'sanitize_checkbox'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'post_it_note_title',
+			array(
+				'label'    => __( 'Note Title', '__theme_txtd' ),
+				'section'  => 'post_it_note',
+				'settings' => 'archive_post_it_title',
+				'type'     => 'text'
+			)
+		)
+	);
+
+	// Post-it Note content
+	$wp_customize->add_setting( 'archive_post_it_content', array(
+		'default'           => __( '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="/contact/">reach me</a> to say Hi!</p>', '__theme_txtd' ),
+		'sanitize_callback' => 'sanitize_checkbox'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'post_it_note_content',
+			array(
+				'label'    => __( 'Note Content', '__theme_txtd' ),
+				'section'  => 'post_it_note',
+				'settings' => 'archive_post_it_content',
+				'type'     => 'textarea'
+			)
+		)
+	);
+
+	// Post-it Note checkbox
+	$wp_customize->add_setting( 'archive_post_it_disable', array(
+		'default'           => 0,
+		'sanitize_callback' => 'sanitize_checkbox'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'post_it_note_checkbox',
+			array(
+				'label'    => __( 'Hide Post-it Note', '__theme_txtd' ),
+				'section'  => 'post_it_note',
+				'settings' => 'archive_post_it_disable',
+				'type'     => 'checkbox',
+			)
+		)
+	);
+
 }
 add_action( 'customize_register', 'noto_lite_customize_register' );
 
