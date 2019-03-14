@@ -84,7 +84,7 @@ function noto_lite_customize_register( $wp_customize ) {
 		'priority'       => 30,
 		'theme_supports' => '',
 		'title'          => __( 'General', '__theme_txtd' ),
-		'description'    => __( '', '__theme_txtd' ),
+		'description'    => '',
 	) );
 
 	$wp_customize->add_section( 'post_it_note' , array(
