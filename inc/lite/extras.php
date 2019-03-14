@@ -78,6 +78,100 @@ function noto_lite_customize_register( $wp_customize ) {
 			'type'    => 'hidden',
 		)
 	);
+
+	//General
+	$wp_customize->add_panel( 'general', array(
+		'priority'       => 30,
+		'theme_supports' => '',
+		'title'          => __( 'General', '__theme_txtd' ),
+		'description'    => __( '', '__theme_txtd' ),
+	) );
+
+	$wp_customize->add_section( 'post_it_note' , array(
+		'title'    => __('Post-it Note','__theme_txtd'),
+		'panel'    => 'general',
+		'priority' => 10
+	) );
+
+
+	// Post-it Note title
+	$wp_customize->add_setting( 'archive_post_it_title', array(
+		'default'           => __( 'Hello', '__theme_txtd' ),
+		'sanitize_callback' => 'noto_sanitize_text'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'post_it_note_title',
+			array(
+				'label'    => __( 'Note Title', '__theme_txtd' ),
+				'section'  => 'post_it_note',
+				'settings' => 'archive_post_it_title',
+				'type'     => 'text'
+			)
+		)
+	);
+
+	// Post-it Note content
+	$wp_customize->add_setting( 'archive_post_it_content', array(
+		'default'           => __( '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="/contact/">reach me</a> to say Hi!</p>', '__theme_txtd' ),
+		'sanitize_callback' => 'noto_sanitize_text'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'post_it_note_content',
+			array(
+				'label'    => __( 'Note Content', '__theme_txtd' ),
+				'section'  => 'post_it_note',
+				'settings' => 'archive_post_it_content',
+				'type'     => 'textarea'
+			)
+		)
+	);
+
+	// Post-it Note checkbox
+	$wp_customize->add_setting( 'archive_post_it_disable', array(
+		'default'           => 0,
+		'sanitize_callback' => 'noto_sanitize_checkbox'
+	) );
+	$wp_customize->add_control( new WP_Customize_Control(
+			$wp_customize,
+			'post_it_note_checkbox',
+			array(
+				'label'    => __( 'Hide Post-it Note', '__theme_txtd' ),
+				'section'  => 'post_it_note',
+				'settings' => 'archive_post_it_disable',
+				'type'     => 'checkbox',
+			)
+		)
+	);
+
+
+	// Site Identity
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'title_tagline', // This is needed so we avoid the prefixing and use the core defined section.
+		 array(
+			'profile_photo' => array(
+				'label' => esc_html__( 'Profile Photo', '__theme_txtd' ),
+				'type' => 'cropped_image',
+				'priority'      => 7, // this will make it appear above Logo (that has a priority of 8).
+				'width'         => 700, // Suggested width for cropped image.
+				'height'        => 700, // Suggested height for cropped image.
+				'flex_width'    => true, // Whether the width is flexible.
+				'flex_height'   => true, // Whether the height is flexible.
+				'button_labels' => array(
+					'select'       => esc_html__( 'Select photo', '__theme_txtd'  ),
+					'change'       => esc_html__( 'Change photo', '__theme_txtd'  ),
+					'remove'       => esc_html__( 'Remove', '__theme_txtd'  ),
+					'default'      => esc_html__( 'Default', '__theme_txtd'  ),
+					'placeholder'  => esc_html__( 'No photo selected', '__theme_txtd'  ),
+					'frame_title'  => esc_html__( 'Select photo', '__theme_txtd'  ),
+					'frame_button' => esc_html__( 'Choose photo', '__theme_txtd'  ),
+				),
+			),
+		)
+	)
+	);
 }
 add_action( 'customize_register', 'noto_lite_customize_register' );
 
