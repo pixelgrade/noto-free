@@ -21,7 +21,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'content-navbar' );
+/**
+ * pixelgrade_before_header hook.
+ *
+ * @hooked nothing() - 10 (outputs nothing)
+ */
+do_action( 'pixelgrade_before_header', 'main' );
+?>
 
-do_action('noto_search_icon');
+<?php
+/**
+ * pixelgrade_header_before_navbar_content hook.
+ */
+do_action( 'pixelgrade_header_before_navbar_content', 'header' );
+?>
 
+<?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'content-navbar' ); ?>
+
+<?php
+/**
+ * pixelgrade_header_after_navbar_content hook.
+ */
+do_action( 'pixelgrade_header_after_navbar_content', 'header' );
+?>
+
+<?php
+/**
+ * pixelgrade_after_header hook.
+ *
+ * @hooked nothing() - 10 (outputs nothing)
+ */
+do_action( 'pixelgrade_after_header', 'main' );

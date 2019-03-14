@@ -103,4 +103,19 @@ function noto_lite_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'noto_lite_body_classes' );
 
+function noto_alter_footer_component_config( $config ) {
+
+	unset($config['sidebars']['sidebar-footer']);
+
+	return $config;
+}
+add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_config', 10 );
+
+
+add_filter( 'pixelgrade_prevent_post_navigation', '__return_true', 10 );
+
+
+
+
+
 
