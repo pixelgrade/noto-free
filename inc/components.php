@@ -30,8 +30,8 @@ add_action( 'after_setup_theme', 'noto_setup_components', 10 );
  * @return array
  */
 function noto_customize_header_config( $config ) {
-	// Don't output empty markup in the header
-	$config['zones']['left']['display_blank'] = false;
+	// Output markup in the header, even if empty (aka no menu assigned).
+	$config['zones']['left']['display_blank'] = true;
 
 	return $config;
 }
