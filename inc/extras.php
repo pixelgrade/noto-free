@@ -272,7 +272,7 @@ function noto_add_tags_list( $content ) {
 		$tags_list = get_the_tag_list();
 
 		if ( ! empty( $tags_list ) ) {
-			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', '__theme_txtd' ) . sprintf( '</div>' . esc_html__( '%1$s', '__theme_txtd' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', '__theme_txtd' ) . '</div>' . $tags_list . '</div>'; // WPCS: XSS OK.
 		}
 	}
 
