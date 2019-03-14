@@ -49,7 +49,7 @@ function noto_lite_customize_register( $wp_customize ) {
 
                         <li>
                             <h4>Advanced Features for a Unique Look</h4>
-                            <div class="description">Noto PRO takes everything to the next level, unlocking features like Post-it Note area to welcome visitors, more menu locations, and an Author Info Box to display below your articles along with social media sharing buttons, access to 600+ fonts & other styling options for buttons, text intro and article titles.</div>
+                            <div class="description">Noto PRO takes everything to the next level, unlocking features like more menu locations, a search option, and an Author Info Box along with social media sharing buttons. You also get access to 600+ fonts & other styling options for buttons, text intro and article titles.</div>
                         </li>
 
                         <li>
