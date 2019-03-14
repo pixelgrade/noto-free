@@ -418,7 +418,19 @@ function noto_add_css_for_autostyled_intro_in_editor() {
 add_action( 'admin_head', 'noto_add_css_for_autostyled_intro_in_editor' );
 
 /**
- * Check the user
+ * Add the markup for the Noto Profile Photo.
+ */
+function noto_profile_photo() { ?>
+    <div class="c-profile-photo">
+        <div class="c-profile-photo__default">
+			<?php pixelgrade_the_profile_photo(); ?>
+        </div>
+    </div>
+	<?php
+}
+
+/**
+ * Check the users' access level.
  *
  */
 function noto_maybe_load_pro_features() {
