@@ -22,20 +22,53 @@ function noto_setup_components() {
 }
 add_action( 'after_setup_theme', 'noto_setup_components', 10 );
 
+
 /**
- * Customize the Header component config.
+ * Add the required features regarding the header component, mainly options regarding menus.
  *
- * @param array $config
+ * @param array $config The array containing all the active features of the theme.
  *
  * @return array
  */
-function noto_customize_header_config( $config ) {
+function noto_alter_header_component_config( $config ) {
 	// Output markup in the header, even if empty (aka no menu assigned).
 	$config['zones']['left']['display_blank'] = true;
 
+	$config['menu_locations']['primary-left'] = array(
+		'title'         => esc_html__( 'Header Top', '__theme_txtd' ),
+		'default_zone'  => 'left',
+		// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
+		'zone_callback' => false,
+		'order'         => 10,
+		// We will use this to establish the display order of nav menu locations, inside a certain zone
+		'nav_menu_args' => array( // skip 'theme_location' and 'echo' args as we will force those
+			'menu_id'         => 'menu-1',
+			'container'       => 'nav',
+			'container_class' => '',
+			'fallback_cb'     => false,
+			'depth'           => 0,
+		),
+	);
+
+	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
+
+		unset( $config['menu_locations']['primary-right'] );
+		$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
+
+	} else {
+		$config = Pixelgrade_Config::merge( $config, array(
+			'menu_locations' => array(
+				'primary-right' => array(
+					'title'         => esc_html__( 'Header Bottom', '__theme_txtd' ),
+					'nav_menu_args' => array()
+				)
+			)
+		) );
+	}
+
 	return $config;
 }
-add_filter( 'pixelgrade_header_initial_config', 'noto_customize_header_config', 10, 1 );
+add_filter( 'pixelgrade_header_config', 'noto_alter_header_component_config', 10, 1 );
 
 /**
  * Add markup needed for paper stack effect in footer

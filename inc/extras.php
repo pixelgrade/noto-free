@@ -193,52 +193,6 @@ if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
 }
 add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10 );
 
-
-/**
- * Add the required features regarding the header component, mainly options regarding menus.
- *
- * @param array $config The array containing all the active features of the theme.
- *
- * @return array
- */
-function noto_alter_header_component_config( $config ) {
-
-	$config['menu_locations']['primary-left'] = array(
-		'title'         => esc_html__( 'Header Top', '__theme_txtd' ),
-		'default_zone'  => 'left',
-		// This callback should always accept 3 parameters as documented in pixelgrade_header_get_zones()
-		'zone_callback' => false,
-		'order'         => 10,
-		// We will use this to establish the display order of nav menu locations, inside a certain zone
-		'nav_menu_args' => array( // skip 'theme_location' and 'echo' args as we will force those
-			'menu_id'         => 'menu-1',
-			'container'       => 'nav',
-			'container_class' => '',
-			'fallback_cb'     => false,
-			'depth'           => 0,
-		),
-	);
-
-	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
-
-		unset( $config['menu_locations']['primary-right'] );
-		$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
-
-	} else {
-		$config = Pixelgrade_Config::merge( $config, array(
-			'menu_locations' => array(
-				'primary-right' => array(
-					'title'         => esc_html__( 'Header Bottom', '__theme_txtd' ),
-					'nav_menu_args' => array()
-				)
-			)
-		) );
-	}
-
-	return $config;
-}
-add_filter( 'pixelgrade_header_config', 'noto_alter_header_component_config', 10 );
-
 /**
  * Change the Tag Cloud's Font Sizes.
  *
