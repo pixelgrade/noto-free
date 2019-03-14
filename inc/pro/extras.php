@@ -49,7 +49,7 @@ function noto_output_wave_svg() {
 	if ( pixelgrade_option( 'pattern_style' ) != 'none' ) { ?>
         <div class="wave-svg-mask">
             <div class="wave-svg"
-                 style='background-image: <?php echo noto_get_pattern_background_image(); ?>'></div>
+                 style='background-image: <?php echo esc_attr( noto_get_pattern_background_image() ); ?>'></div>
         </div>
 	<?php }
 }
