@@ -154,19 +154,6 @@ add_action( 'wp_head', '_noto_custom_logo_header_styles', 9 );
 
 
 /**
- * Add the markup for the Noto Profile Photo.
- */
-function noto_profile_photo() { ?>
-    <div class="c-profile-photo">
-        <div class="c-profile-photo__default">
-			<?php pixelgrade_the_profile_photo(); ?>
-        </div>
-    </div>
-<?php
-}
-add_action( 'noto_profile_photo', 'noto_profile_photo', 10 );
-
-/**
  * Add the markup for the Noto reading progress bar.
  */
 function noto_reading_progress() {
@@ -174,8 +161,20 @@ function noto_reading_progress() {
     get_template_part( 'template-parts/reading-progress' );
 
 }
-add_action('get_footer', 'noto_reading_progress', 10);
+add_action('pixelgrade_after_render_block_blog/entry-footer/single_content', 'noto_reading_progress');
 
 
+/**
+ * Add the markup for the Noto Search Icon.
+ */
+function noto_search_icon() { ?>
 
-
+<div class="search-trigger">
+	<button class="js-search-trigger">
+		<?php get_template_part( 'template-parts/svg/icon-search' );?>
+		<span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
+	</button>
+</div>
+    <?php
+}
+add_action('pixelgrade_header_after_navbar_content', 'noto_search_icon', 20);
