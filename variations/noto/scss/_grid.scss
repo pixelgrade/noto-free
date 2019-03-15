@@ -484,6 +484,7 @@ $border-width: 2rem;
 
     @include above(lap) {
       grid-column: 13 / span 4;
+      grid-row-end: span 1;
       align-self: flex-end;
     }
   }
