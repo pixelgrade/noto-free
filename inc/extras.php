@@ -237,7 +237,7 @@ add_filter( 'body_class', 'noto_alter_body_classes', 20, 1 );
  */
 function noto_posts_per_page( $posts_per_page ) {
 	if ( $posts_per_page < 20 ) {
-		return 1;
+		return 20;
 	}
 
 	return $posts_per_page;
