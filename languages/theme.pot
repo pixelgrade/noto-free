@@ -1,1789 +1,124 @@
-# Copyright (C) 2017 Pixelgrade
+# Copyright (C) 2019 Pixelgrade
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Boileplate 1.0.0\n"
+"Project-Id-Version: Noto 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/noto\n"
-"POT-Creation-Date: 2017-11-30 09:33:22+00:00\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2019-03-15T08:40:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: noto\n"
 
-#: components/base/abstracts/class-Component.php:617
-#: components/base/abstracts/class-Component.php:624
-#: components/base/abstracts/class-Singleton.php:59
-#: components/base/abstracts/class-Singleton.php:66
-#: components/blog/inc/class-Blog-Customizer.php:1793
-#: components/blog/inc/class-Blog-Customizer.php:1802
-#: components/blog/inc/class-Blog-Metaboxes.php:237
-#: components/blog/inc/class-Blog-Metaboxes.php:246
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:231
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:240
-#: components/footer/inc/class-Footer-Customizer.php:315
-#: components/footer/inc/class-Footer-Customizer.php:324
-#: components/header/inc/class-Header-Customizer.php:490
-#: components/header/inc/class-Header-Customizer.php:499
-#: components/hero/inc/class-Hero-Metaboxes.php:698
-#: components/hero/inc/class-Hero-Metaboxes.php:707
-#: components/portfolio/inc/class-Portfolio-Customizer.php:622
-#: components/portfolio/inc/class-Portfolio-Customizer.php:631
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:343
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:352
-msgid "Cheatin&#8217; huh?"
+#. Theme Name of the theme
+msgid "Noto"
 msgstr ""
 
-#: components/base/abstracts/widget-fields/class-WidgetFields.php:102
-msgid "Select an Image"
+#. Theme URI of the theme
+msgid "https://demos.pixelgrade.com/noto/"
 msgstr ""
 
-#: components/base/abstracts/widget-fields/class-WidgetFields.php:103
-msgid "Insert Into Widget"
+#. Description of the theme
+msgid "A awesome theme a la Pixelgrade."
 msgstr ""
 
-#. translators: Used for screen readers on widget sections.
-
-#: components/base/abstracts/widget-fields/class-WidgetFields.php:200
-msgid "Press return or enter to open this section."
-msgstr ""
-
-#: components/base/abstracts/widget-fields/class-WidgetFields.php:807
-msgid "Select Image"
-msgstr ""
-
-#: components/base/abstracts/widget-fields/class-WidgetFields.php:812
-msgid "Clear"
-msgstr ""
-
-#: components/base/inc/class-CustomLoopsForPages.php:385
-msgid "You haven't provided a slug for the loop template part for the %s page template custom loop."
-msgstr ""
-
-#: components/base/inc/class-CustomLoopsForPages.php:399
-msgid "%s does not exist. Check out the config of the %s custom page template."
-msgstr ""
-
-#: components/base/inc/class-CustomLoopsForPages.php:405
-#: components/base/inc/class-CustomLoopsForPages.php:462
-msgid "You haven't provided a slug for the post template part for the %s page template custom loop."
-msgstr ""
-
-#: components/base/inc/class-Templater.php:171
-#: components/base/inc/extras.php:804 components/blog/inc/extras.php:168
-msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
-msgstr ""
-
-#: components/base/inc/extras.php:435
-msgid "Please provide only paths in the theme for autoloading."
-msgstr ""
-
-#: components/base/inc/extras.php:440
-msgid "We support only require, require_once, include, and include_once."
-msgstr ""
-
-#: components/base/inc/template-tags.php:332
-msgid "Everything"
-msgstr ""
-
-#: components/blog/class-Blog.php:176 inc/template-tags.php:100
-msgctxt "previous set of posts"
-msgid "&laquo; Previous"
-msgstr ""
-
-#: components/blog/class-Blog.php:177 inc/template-tags.php:101
-msgctxt "next set of posts"
-msgid "Next &raquo;"
-msgstr ""
-
-#: components/blog/class-Blog.php:178 inc/template-tags.php:102
-msgid "Posts navigation"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:126
-msgid "General"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:130
-msgid "Enable dynamic page content loading using AJAX."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:198
-msgid "Main Content"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:203
-#: components/blog/inc/class-Blog-Customizer.php:211
-#: components/blog/inc/class-Blog-Customizer.php:970
-#: components/blog/inc/class-Blog-Customizer.php:977
-#: components/blog/inc/class-Blog-Customizer.php:1165
-#: components/blog/inc/class-Blog-Customizer.php:1174
-#: components/footer/inc/class-Footer-Customizer.php:122
-#: components/footer/inc/class-Footer-Customizer.php:130
-#: components/header/inc/class-Header-Customizer.php:143
-#: components/header/inc/class-Header-Customizer.php:152
-#: components/portfolio/inc/class-Portfolio-Customizer.php:137
-#: components/portfolio/inc/class-Portfolio-Customizer.php:146
-#: inc/widgets/class-PromoBoxWidget.php:50
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:61
-msgid "Layout"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:204
-#: components/blog/inc/class-Blog-Customizer.php:402
-#: components/blog/inc/class-Blog-Customizer.php:971
-#: components/blog/inc/class-Blog-Customizer.php:1001
-#: components/blog/inc/class-Blog-Customizer.php:1166
-#: components/blog/inc/class-Blog-Customizer.php:1443
-#: components/footer/inc/class-Footer-Customizer.php:123
-#: components/footer/inc/class-Footer-Customizer.php:208
-#: components/header/inc/class-Header-Customizer.php:144
-#: components/header/inc/class-Header-Customizer.php:272
-#: components/portfolio/inc/class-Portfolio-Customizer.php:138
-#: components/portfolio/inc/class-Portfolio-Customizer.php:415
-msgid "Colors"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:205
-#: components/blog/inc/class-Blog-Customizer.php:556
-#: components/blog/inc/class-Blog-Customizer.php:972
-#: components/blog/inc/class-Blog-Customizer.php:1051
-#: components/blog/inc/class-Blog-Customizer.php:1167
-#: components/blog/inc/class-Blog-Customizer.php:1523
-#: components/header/inc/class-Header-Customizer.php:145
-#: components/header/inc/class-Header-Customizer.php:330
-#: components/portfolio/inc/class-Portfolio-Customizer.php:139
-#: components/portfolio/inc/class-Portfolio-Customizer.php:495
-msgid "Fonts"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:215
-msgid "Site Container Max Width"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:216
-msgid "Adjust the max width of your site content area."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:235
-msgid "Site Container Sides Spacing"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:236
-#: components/blog/inc/class-Blog-Customizer.php:1199
-#: components/portfolio/inc/class-Portfolio-Customizer.php:171
-msgid "Adjust the space separating the site content and the sides of the browser."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:274
-msgid "Site Container Padding"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:275
-msgid "Adjust the top and bottom distance between the page content and header/footer."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:301
-msgid "Content Width"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:302
-msgid "Decrease the width of your content to create an inset area for your text. The inset size will be the space between Site Container and Content."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:323
-msgid "Site Border Width"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:388
-msgid "Site Border Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:406
-msgid "Page Title Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:418
-#: components/footer/inc/class-Footer-Customizer.php:212
-msgid "Body Text Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:430
-msgid "Body Link Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:442
-msgid "Body Link Active Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:454
-msgid "Underlined Body Links"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:460
-msgid "Headings Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:464
-#: components/blog/inc/class-Blog-Customizer.php:688
-msgid "Heading 1"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:476
-#: components/blog/inc/class-Blog-Customizer.php:727
-msgid "Heading 2"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:488
-#: components/blog/inc/class-Blog-Customizer.php:767
-msgid "Heading 3"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:500
-#: components/blog/inc/class-Blog-Customizer.php:808
-msgid "Heading 4"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:512
-#: components/blog/inc/class-Blog-Customizer.php:848
-msgid "Heading 5"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:524
-#: components/blog/inc/class-Blog-Customizer.php:888
-msgid "Heading 6"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:538
-msgid "Backgrounds"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:542
-msgid "Content Background Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:561
-msgid "Page Title Font"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:602
-msgid "Body Text Font"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:642
-msgid "Quote Block Font"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:683
-msgid "Headings Fonts"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:965
-msgid "Buttons"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:981
-msgid "Buttons Style"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:982
-msgid "Choose the default button style."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:985
-msgid "Solid"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:986
-msgid "Outline"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:991
-msgid "Buttons Shape"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:994
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:206
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:96
-msgid "Square"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:995
-msgid "Rounded"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:996
-msgid "Pill"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1005
-msgid "Button Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1033
-msgid "Button Text Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1055
-msgid "Button Font"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1160
-msgid "Blog Grid Items"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1178
-msgid "Blog Grid Max Width"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1179
-msgid "Adjust the max width of the blog area."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1198
-#: components/portfolio/inc/class-Portfolio-Customizer.php:170
-msgid "Container Sides Spacing"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1227
-#: components/portfolio/inc/class-Portfolio-Customizer.php:199
-msgid "Items Grid"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1231
-#: components/portfolio/inc/class-Portfolio-Customizer.php:203
-msgid "Grid Layout"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1232
-#: components/portfolio/inc/class-Portfolio-Customizer.php:204
-msgid "Choose whether the items display in a fixed height regular grid, or in a packed style layout."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1235
-#: components/portfolio/inc/class-Portfolio-Customizer.php:207
-msgid "Regular Grid"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1236
-#: components/gallery-settings/class-GallerySettings.php:178
-#: components/portfolio/inc/class-Portfolio-Customizer.php:208
-msgid "Masonry"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1237
-#: components/portfolio/inc/class-Portfolio-Customizer.php:209
-msgid "Mosaic"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1238
-#: components/portfolio/inc/class-Portfolio-Customizer.php:210
-msgid "Packed"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1243
-#: components/portfolio/inc/class-Portfolio-Customizer.php:215
-msgid "Items Aspect Ratio"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1244
-msgid "Change the images ratio from landscape to portrait."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1265
-#: components/portfolio/inc/class-Portfolio-Customizer.php:237
-msgid "Items per Row"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1266
-#: components/portfolio/inc/class-Portfolio-Customizer.php:238
-msgid "Set the desktop-based number of columns you want and we automatically make it right for other screen sizes."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1284
-#: components/portfolio/inc/class-Portfolio-Customizer.php:256
-msgid "Items Vertical Spacing"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1285
-#: components/blog/inc/class-Blog-Customizer.php:1306
-#: components/portfolio/inc/class-Portfolio-Customizer.php:257
-#: components/portfolio/inc/class-Portfolio-Customizer.php:278
-msgid "Adjust the spacing between individual items in your grid."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1305
-#: components/portfolio/inc/class-Portfolio-Customizer.php:277
-msgid "Items Horizontal Spacing"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1328
-#: components/portfolio/inc/class-Portfolio-Customizer.php:300
-msgid "Items Title"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1332
-#: components/portfolio/inc/class-Portfolio-Customizer.php:304
-msgid "Title Position"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1333
-#: components/portfolio/inc/class-Portfolio-Customizer.php:305
-msgid "Choose whether the items titles are placed nearby the thumbnail or show as an overlay cover on  mouse over."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1336
-#: components/portfolio/inc/class-Portfolio-Customizer.php:308
-#: inc/integrations/customify.php:66
-msgid "Above"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1337
-#: components/portfolio/inc/class-Portfolio-Customizer.php:309
-msgid "Below"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1338
-#: components/portfolio/inc/class-Portfolio-Customizer.php:310
-msgid "Overlay"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1343
-#: components/portfolio/inc/class-Portfolio-Customizer.php:315
-msgid "Title Alignment (Above/Below)"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1344
-#: components/portfolio/inc/class-Portfolio-Customizer.php:316
-msgid "Adjust the alignment of your title."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1347
-#: components/portfolio/inc/class-Portfolio-Customizer.php:319
-msgid "← Left"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1348
-#: components/portfolio/inc/class-Portfolio-Customizer.php:320
-msgid "↔ Center"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1349
-#: components/portfolio/inc/class-Portfolio-Customizer.php:321
-msgid "→ Right"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1355
-#: components/portfolio/inc/class-Portfolio-Customizer.php:327
-msgid "Title Alignment (Overlay)"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1356
-#: components/portfolio/inc/class-Portfolio-Customizer.php:328
-msgid "Adjust the alignment of your hover title."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1359
-#: components/portfolio/inc/class-Portfolio-Customizer.php:331
-msgid "↑ Top     ← Left"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1360
-#: components/portfolio/inc/class-Portfolio-Customizer.php:332
-msgid "↑ Top     ↔ Center"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1361
-#: components/portfolio/inc/class-Portfolio-Customizer.php:333
-msgid "↑ Top     → Right"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1363
-#: components/portfolio/inc/class-Portfolio-Customizer.php:335
-msgid "↕ Middle     ← Left"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1364
-#: components/portfolio/inc/class-Portfolio-Customizer.php:336
-msgid "↕ Middle     ↔ Center"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1365
-#: components/portfolio/inc/class-Portfolio-Customizer.php:337
-msgid "↕ Middle     → Right"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1367
-#: components/portfolio/inc/class-Portfolio-Customizer.php:339
-msgid "↓ bottom     ← Left"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1368
-#: components/portfolio/inc/class-Portfolio-Customizer.php:340
-msgid "↓ bottom     ↔ Center"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1369
-#: components/portfolio/inc/class-Portfolio-Customizer.php:341
-msgid "↓ bottom     → Right"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1378
-#: components/portfolio/inc/class-Portfolio-Customizer.php:350
-msgid "Title Visibility"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1378
-#: components/blog/inc/class-Blog-Customizer.php:1396
-#: components/portfolio/inc/class-Portfolio-Customizer.php:350
-#: components/portfolio/inc/class-Portfolio-Customizer.php:368
-msgid "Select whether to show or hide the summary."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1382
-#: components/portfolio/inc/class-Portfolio-Customizer.php:354
-msgid "Show Title"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1389
-#: components/portfolio/inc/class-Portfolio-Customizer.php:361
-msgid "Items Excerpt"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1396
-#: components/portfolio/inc/class-Portfolio-Customizer.php:368
-msgid "Excerpt Visibility"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1400
-#: components/portfolio/inc/class-Portfolio-Customizer.php:372
-msgid "Show Excerpt Text"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1407
-#: components/portfolio/inc/class-Portfolio-Customizer.php:379
-msgid "Items Meta"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1412
-#: components/portfolio/inc/class-Portfolio-Customizer.php:384
-msgid "Primary Meta Section"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1413
-#: components/portfolio/inc/class-Portfolio-Customizer.php:385
-msgid "Set the meta info that display around the title. "
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1416
-#: components/blog/inc/class-Blog-Customizer.php:1431
-#: components/gallery-settings/class-GallerySettings.php:58
-#: components/hero/inc/class-Hero-Metaboxes.php:563
-#: components/portfolio/inc/class-Portfolio-Customizer.php:388
-#: components/portfolio/inc/class-Portfolio-Customizer.php:403
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:233
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:248
-msgid "None"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1417
-#: components/blog/inc/class-Blog-Customizer.php:1432
-#: components/portfolio/inc/class-Portfolio-Customizer.php:389
-#: components/portfolio/inc/class-Portfolio-Customizer.php:404
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:90
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:235
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:250
-msgid "Category"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1418
-#: components/blog/inc/class-Blog-Customizer.php:1433
-#: components/portfolio/inc/class-Portfolio-Customizer.php:390
-#: components/portfolio/inc/class-Portfolio-Customizer.php:405
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:237
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:252
-msgid "Author"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1419
-#: components/blog/inc/class-Blog-Customizer.php:1434
-#: components/portfolio/inc/class-Portfolio-Customizer.php:391
-#: components/portfolio/inc/class-Portfolio-Customizer.php:406
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:149
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:234
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:249
-msgid "Date"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1420
-#: components/blog/inc/class-Blog-Customizer.php:1435
-#: components/blog/inc/extras.php:63 components/blog/inc/template-tags.php:172
-#: components/portfolio/inc/class-Portfolio-Customizer.php:392
-#: components/portfolio/inc/class-Portfolio-Customizer.php:407
-#: components/portfolio/inc/template-tags.php:67
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:236
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:251
-msgid "Tags"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1421
-#: components/blog/inc/class-Blog-Customizer.php:1436
-#: components/portfolio/inc/class-Portfolio-Customizer.php:393
-#: components/portfolio/inc/class-Portfolio-Customizer.php:408
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:238
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:253
-msgid "Comments"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1427
-#: components/portfolio/inc/class-Portfolio-Customizer.php:399
-msgid "Secondary Meta Section"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1447
-#: components/portfolio/inc/class-Portfolio-Customizer.php:419
-msgid "Item Title Color"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1459
-#: components/portfolio/inc/class-Portfolio-Customizer.php:431
-msgid "Meta Primary"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1471
-#: components/portfolio/inc/class-Portfolio-Customizer.php:443
-msgid "Meta Secondary"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1483
-#: components/portfolio/inc/class-Portfolio-Customizer.php:455
-msgid "Thumbnail Background"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1497
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:89
-#: components/portfolio/inc/class-Portfolio-Customizer.php:469
-msgid "Thumbnail Hover"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1497
-#: components/portfolio/inc/class-Portfolio-Customizer.php:469
-msgid "Customize the mouse over effect for your thumbnails."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1501
-#: components/portfolio/inc/class-Portfolio-Customizer.php:473
-msgid "Thumbnail Background Opacity"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1528
-#: components/portfolio/inc/class-Portfolio-Customizer.php:500
-msgid "Item Title Font"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1568
-#: components/portfolio/inc/class-Portfolio-Customizer.php:538
-msgid "Item Meta Font"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1644
-msgid "Demo Data"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1645
-msgid "If you would like to have a \"ready to go\" website as the theme's demo site, here is THE button."
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1649
-msgid "Import"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1655
-msgid "Note: We cannot serve you the original images due the "
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1657
-msgid "Import demo data"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1663
-msgid "Please wait a few minutes (between 1 and 3 minutes usually, but depending on your hosting it can take longer) and "
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1664
-msgid "don't reload the page"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Customizer.php:1665
-msgid "You will be notified as soon as the import has finished!"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Metaboxes.php:79
-msgid "Custom CSS Styles"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Metaboxes.php:87
-msgid "CSS Style"
-msgstr ""
-
-#: components/blog/inc/class-Blog-Metaboxes.php:88
-msgid "Add CSS that will only be applied to this post."
-msgstr ""
-
-#: components/blog/inc/extras.php:36 components/blog/inc/template-tags.php:159
-#: inc/widgets/class-CategoriesImageGridWidget.php:43
-#: inc/widgets/class-CategoriesImageGridWidget.php:160
-msgid "Categories"
-msgstr ""
-
-#: components/blog/inc/extras.php:36 components/blog/inc/extras.php:63
-msgid "%1$s"
-msgstr ""
-
-#: components/blog/inc/extras.php:128
-msgid "Search for:"
-msgstr ""
-
-#: components/blog/inc/extras.php:129
-msgid "Search here"
-msgstr ""
-
-#: components/blog/inc/extras.php:130 inc/extras.php:468
-msgid "Search"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:151
-msgid "Main Category"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:190
-#: components/portfolio/inc/template-tags.php:82
-msgid "No Comments"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:192
-#: components/portfolio/inc/template-tags.php:84
-msgid "%d Comment"
-msgid_plural "%d Comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: components/blog/inc/template-tags.php:250
-msgid "Post navigation"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:256
-msgid "Previous article"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:264
-msgid "Next article"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:400
-msgid "View all posts by %s"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:400
-msgid "All posts"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:411 inc/extras.php:385
-msgid "Website"
-msgstr ""
-
-#. translators: %s: post title
-
-#: components/blog/inc/template-tags.php:580
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: Name of current post
-
-#: components/blog/inc/template-tags.php:587
-#: template-parts/entry-footer-page.php:7
-msgid "Edit %s"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:615
-msgid "Pingback:"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:615
-msgid "(Edit)"
-msgstr ""
-
-#. translators: %s: comment author link
-
-#: components/blog/inc/template-tags.php:629
-msgid "%s <span class=\"says\">says:</span>"
-msgstr ""
-
-#. translators: 1: comment date, 2: comment time
-
-#: components/blog/inc/template-tags.php:640
-msgid "%1$s at %2$s"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:644
-msgid "Edit"
-msgstr ""
-
-#: components/blog/inc/template-tags.php:648
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: components/blog/template-parts/content-none.php:33
-#: template-parts/content-none.php:15
-msgid "Nothing Found"
-msgstr ""
-
-#: components/blog/template-parts/content-none.php:38
-#: template-parts/content-none.php:17
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#: components/blog/template-parts/content-none.php:42
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
-
-#: components/blog/template-parts/content-none.php:48
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr ""
-
-#: components/blog/template-parts/content-page.php:128
-#: components/blog/template-parts/content-single.php:130
-#: template-parts/entry-content.php:10
-msgid "Pages:"
-msgstr ""
-
-#. translators: %s: Name of current post.
-
-#: components/blog/template-parts/content-single.php:118
-#: template-parts/entry-content.php:5
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: components/blog/template-parts/content.php:101
-#: template-parts/slides/slide-content-featured-post.php:44
-msgid "Read More"
-msgstr ""
-
-#: components/blog/templates/404.php:44
-msgid "Oops! This page can&rsquo;t be found anywhere."
-msgstr ""
-
-#: components/blog/templates/404.php:45
-msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
-msgstr ""
-
-#: components/blog/templates/comments.php:48
-msgctxt "comments title"
-msgid "%2$s comment"
-msgid_plural "%1$s comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: components/blog/templates/comments.php:61
-#: components/blog/templates/comments.php:84
-msgid "Comment navigation"
-msgstr ""
-
-#: components/blog/templates/comments.php:64
-#: components/blog/templates/comments.php:87
-msgid "Older Comments"
-msgstr ""
-
-#: components/blog/templates/comments.php:65
-#: components/blog/templates/comments.php:88
-msgid "Newer Comments"
-msgstr ""
-
-#: components/blog/templates/comments.php:101
-msgid "Comments are closed."
-msgstr ""
-
-#: components/blog/templates/comments.php:107
-msgctxt "noun"
-msgid "Comment"
-msgstr ""
-
-#: components/blog/templates/comments.php:109
-msgid "Your comment..."
-msgstr ""
-
-#: components/blog/templates/header.php:60
-msgid "Skip to content"
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:83
-msgid "Thumbnail"
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:85
-msgid "Thumbnail (Featured Image)"
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:87
-msgid "The  image will be displayed on the Portfolio Grid as a thumbnail for the current project."
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:91
-msgid "Set an alternative background image when the mouse hovers the thumbnail. It will fill the thumbnail area and it will be vertical and horizontal centered."
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:99
-msgid "Thumbnail Image"
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:102
-msgid "Add Thumbnail Image"
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:107
-msgid "Thumbnail Hover Image"
-msgstr ""
-
-#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:110
-msgid "Add Thumbnail Hover"
-msgstr ""
-
-#: components/footer/class-Footer.php:66 components/footer/class-Footer.php:85
-#: components/footer/inc/class-Footer-Customizer.php:117
-msgid "Footer"
-msgstr ""
-
-#: components/footer/class-Footer.php:67
-msgid "Widgets displayed in the Footer Area of the website."
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:134
-msgid "Copyright Text"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:135
-msgid "Set the text that will appear in the footer area. Use %year% to display the current year."
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:144
-msgid "Top Spacing"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:165
-msgid "Bottom Spacing"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:186
-msgid "Hide \"Back To Top\" Link"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:191
-msgid "Hide Pixelgrade Credits"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:196
-msgid "\"Footer Area\" Widgets Layout"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:197
-msgid "Choose if you want the footer widgets stack into one column or spread to a row."
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:200
-msgid "Stacked"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:201
-msgid "Row"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:224
-msgid "Links Color"
-msgstr ""
-
-#: components/footer/inc/class-Footer-Customizer.php:236
-msgid "Footer Background"
-msgstr ""
-
-#: components/footer/inc/template-tags.php:160
-msgid "Back to Top"
-msgstr ""
-
-#: components/footer/inc/template-tags.php:178
-msgid "Made with love by %s."
-msgstr ""
-
-#: components/footer/inc/template-tags.php:193
-#: inc/integrations/customify.php:642
-msgid "&copy; %year% %site-title%."
-msgstr ""
-
-#: components/gallery-settings/class-GallerySettings.php:59
-msgid "Small"
-msgstr ""
-
-#: components/gallery-settings/class-GallerySettings.php:60
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:78
-msgid "Medium"
-msgstr ""
-
-#: components/gallery-settings/class-GallerySettings.php:61
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:79
-msgid "Large"
-msgstr ""
-
-#: components/gallery-settings/class-GallerySettings.php:62
-msgid "X-Large"
-msgstr ""
-
-#: components/gallery-settings/class-GallerySettings.php:205
-msgid "Slideshow"
-msgstr ""
-
-#: components/gallery-settings/class-GallerySettings.php:291
-msgid "Spacing"
-msgstr ""
-
-#: components/gallery-settings/jetpack-fallback/functions.gallery.php:39
-msgid "Thumbnail Grid"
-msgstr ""
-
-#: components/gallery-settings/jetpack-fallback/functions.gallery.php:82
-#: inc/required-plugins/class-tgm-plugin-activation.php:2549
-msgid "Type"
-msgstr ""
-
-#: components/header/class-Header.php:58
-msgid "Header Left"
-msgstr ""
-
-#: components/header/class-Header.php:78
-msgid "Header Right"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:138
-msgid "Header"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:156
-msgid "Logo Height"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:157
-msgid "Adjust the max height of your logo container."
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:176
-msgid "Header Height"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:177
-msgid "Adjust the header and navigation bar height."
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:196
-msgid "Navigation Link Spacing"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:197
-msgid "Adjust the spacing between individual items in your navigation."
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:223
-msgid "Header Position"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:224
-msgid "Choose if you want a static menu or a fixed (sticky) one that stays visible no matter how much you scroll the page."
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:227 inc/customizer.php:85
-msgid "Static"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:228 inc/customizer.php:86
-msgid "Sticky (fixed)"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:233
-msgid "Header Width"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:234
-msgid "Choose if you want the header span to the full-browser or stay aligned with the site container width."
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:237
-msgid "Full Browser Width"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:238
-msgid "Container Width"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:243
-msgid "Header Sides Spacing"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:244
-msgid "Adjust the space separating the header and the sides of the browser."
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:276
-msgid "Navigation Links Color"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:288
-msgid "Links Active Color"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:306
-msgid "Links Active Style"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:310
-#: inc/required-plugins/class-tgm-plugin-activation.php:2321
-msgid "Active"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:311
-msgid "Underline"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:316
-msgid "Header Background"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:335
-msgid "Site Title Font"
-msgstr ""
-
-#: components/header/inc/class-Header-Customizer.php:372
-msgid "Navigation Text"
-msgstr ""
-
-#: components/header/template-parts/header.php:40 inc/extras.php:473
-#: template-parts/site-header-sticky.php:18
-msgid "Menu"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:94
-msgid "Here are the IDs of the selected featured projects to use elsewhere, if the need arises: "
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:112
-msgid "Hero Area &#187; Background"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:125
-msgid "Gallery Image"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:130
-msgid "Playlist"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:135
-#: components/hero/inc/class-Hero-Metaboxes.php:136
-msgid "Image Opacity"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:146
-#: components/hero/inc/class-Hero-Metaboxes.php:147
-msgid "Background Color"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:147
-msgid "Used as a background color during page transitions."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:147
-msgid "Tip: It helps if the color matches the background color of the Hero image."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:158
-#: components/hero/inc/class-Hero-Metaboxes.php:160
-msgid "Hero Area &#187; Content"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:162
-msgid "Use this section to add a <strong>Title</strong> or a summary for this page. Get creative and add different elements like buttons, logos or other headings."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:164
-msgid "You can insert a title using a <strong>Heading 1</strong> element, either on the Hero Area or using a <b>Text Block</b> within the above content area."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:166
-msgid "* Note that the <strong>Page Title</strong> written above will <u>not</u> be included automatically on the page, so you have complete freedom in choosing where you place or how it looks."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:168
-msgid "Learn more about Managing the Hero Area"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:182
-msgid "Description"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:190
-msgid "Visible Hero Area"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:191
-msgid "Hidden Hero Area"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:193
-msgid "To hide the Hero Area section, remove the content above and any item from the Hero Area &#187; Background."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:194
-msgid "Add some content above or an image to the Hero Area &#187; Background to make the Hero Area visible."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:207
-msgid "Hero Area Height"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:208
-msgid "Set the height of the Hero Area relative to the browser window."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:213
-#: components/hero/inc/class-Hero-Metaboxes.php:347
-msgid "Full Height"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:217
-#: components/hero/inc/class-Hero-Metaboxes.php:351
-msgid "Two Thirds"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:221
-#: components/hero/inc/class-Hero-Metaboxes.php:355
-msgid "&nbsp;Half"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:228
-msgid "Hero Content Alignment"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:229
-msgid ""
-"<p>Considering the background image focal point, you can align the content to make them both more visible.</p>\n"
-"\t\t\t\t\t\t\t<ul>\n"
-"\t\t\t\t\t\t\t\t<li>Mix it with a background color overlay to make it pop</li>\n"
-"\t\t\t\t\t\t\t\t<li>Individual text alignments will override this option</li>\n"
-"\t\t\t\t\t\t\t\t<li>You can align the content to make them both more visible.</li>\n"
-"\t\t\t\t\t\t\t</ul>"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:286
-msgid "Slideshow Options"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:288
-msgid "Add more than one image to the <strong>Hero Area &#187; Background</strong> to enable this section. "
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:292
-msgid "Auto Play"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:293
-msgid "The slideshow will automatically move to the next slide, after a period of time."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:298
-msgid "Enabled"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:302
-msgid "Disabled"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:309
-msgid "Auto Play Delay (s)"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:310
-msgid "Set the number of seconds to wait before moving to the next slide."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:328
-msgid "Map Coordinates & Display Options"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:341
-msgid "Map Height"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:342
-msgid "Select the height of the Google Map area in relation to the browser window."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:362
-msgid "Google Maps URL"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:363
-msgid "Paste here the <strong>Share Link</strong>URL you have copied from <a href=\"https://www.google.com/maps\" target=\"_blank\">Google Maps</a>. Do not use the embed code or a short URL."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:369
-msgid "Custom Colors"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:370
-msgid "Allow us to change the map colors to better match your website."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:376
-msgid "Pin Content"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:377
-msgid "Insert here the content of the location marker - leave empty for no custom marker."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:564
-msgid "Media File"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:565
-#: components/hero/inc/class-Hero-Metaboxes.php:603
-msgid "Custom Image URL"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:566
-#: components/hero/inc/class-Hero-Metaboxes.php:594
-msgid "Custom Video URL"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:567
-#: components/hero/inc/class-Hero-Metaboxes.php:629
-msgid "External URL"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:586
-msgid "Linked To"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:597
-msgid "Attach a video to this image <span class=\"small\">(YouTube or Vimeo)</span>."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:606
-msgid "Link this image to a custom url."
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:621
-msgid "Video Autoplay"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:623
-msgid "Enable Video Autoplay?"
-msgstr ""
-
-#: components/hero/inc/class-Hero-Metaboxes.php:632
-msgid "Set this image to link to an external website."
-msgstr ""
-
-#: components/portfolio/class-Portfolio.php:512
-msgid "&mdash; Select &mdash;"
-msgstr ""
-
-#: components/portfolio/class-Portfolio.php:513
-msgid "Choose what page should act as the portfolio archive page."
-msgstr ""
-
-#: components/portfolio/class-Portfolio.php:532
-msgid "You are currently editing the page that shows your latest projects."
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Customizer.php:132
-msgid "Portfolio Grid Items"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Customizer.php:150
-msgid "Portfolio Grid Max Width"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Customizer.php:151
-msgid "Adjust the max width of the portfolio area."
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Customizer.php:216
-msgid "Leave the images to their original ratio or crop them to get a more defined grid layout."
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:176
-msgid "Featured Projects Options"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:181
-msgid "Selected Projects"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:183
-msgid "Choose the projects to be part of the Hero Slider."
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:194
-msgid "\"View Project\" Button Label"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:196
-msgid "Adjust the label for the single project button, displayed on each slide. Empty it if you want to hide the button."
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:198
-msgid "View project"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:233
-msgid "Portfolio Grid"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:245
-msgid "Projects List Visibility"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:247
-msgid "Select which projects to be shown in the Portfolio Grid section."
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:251
-msgid "Show All Projects"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:255
-msgid "Show Only Projects That Are Not Featured"
-msgstr ""
-
-#: components/portfolio/inc/class-Portfolio-Metaboxes.php:259
-msgid "Hide All Projects"
-msgstr ""
-
-#: components/portfolio/inc/template-tags.php:45
-msgid "Main Type"
-msgstr ""
-
-#: components/portfolio/inc/template-tags.php:53
-msgid "Types"
-msgstr ""
-
-#: components/portfolio/inc/template-tags.php:107
-#: components/portfolio/template-parts/posts-navigation.php:31
-msgid "Projects navigation"
-msgstr ""
-
-#: components/portfolio/inc/template-tags.php:110
-#: components/portfolio/template-parts/posts-navigation.php:29
-msgid "Older projects"
-msgstr ""
-
-#: components/portfolio/template-parts/loop-custom.php:59
-#: components/portfolio/template-parts/loop-shortcode.php:56
-msgid "Your Portfolio currently has no entries. You can start creating them on your dashboard."
-msgstr ""
-
-#: components/portfolio/template-parts/posts-navigation.php:30
-msgid "Newer projects"
-msgstr ""
-
-#: components/portfolio/templates/archive-jetpack-portfolio.php:78
-msgid "Projects"
-msgstr ""
-
-#: inc/components.php:34
-msgid "Top Menu"
-msgstr ""
-
-#: inc/components.php:45
-msgid "Main Menu"
-msgstr ""
-
-#: inc/customizer.php:41
-msgid "Logo while on Transparent Header"
-msgstr ""
-
-#: inc/customizer.php:43 inc/customizer.php:48
-msgid "Select logo"
-msgstr ""
-
-#: inc/customizer.php:44
-msgid "Change logo"
-msgstr ""
-
-#: inc/customizer.php:45
-msgid "Default"
-msgstr ""
-
-#: inc/customizer.php:46
-msgid "Remove"
-msgstr ""
-
-#: inc/customizer.php:47
-msgid "No logo selected"
-msgstr ""
-
-#: inc/customizer.php:49
-msgid "Choose logo"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not supported
-#. by Playfair Display, translate this to 'off'. Do not translate into your own
-#. language.
-
-#: inc/extras.php:214
-msgctxt "Playfair Display font: on or off"
-msgid "on"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not supported
-#. by Lora, translate this to 'off'. Do not translate into your own language.
-
-#: inc/extras.php:222
-msgctxt "Lora font: on or off"
-msgid "on"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not supported
-#. by PT Serif, translate this to 'off'. Do not translate into your own
-#. language.
-
-#: inc/extras.php:230
-msgctxt "PT Serif font: on or off"
-msgid "on"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not supported
-#. by Montserrat, translate this to 'off'. Do not translate into your own
-#. language.
-
-#: inc/extras.php:238
-msgctxt "Montserrat font: on or off"
-msgid "on"
-msgstr ""
-
-#. translators: To add an additional character subset specific to your
-#. language, translate this to 'greek', 'cyrillic', 'devanagari' or
-#. 'vietnamese'. Do not translate into your own language.
-
-#: inc/extras.php:243
-msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
-msgid "no-subset"
-msgstr ""
-
-#: inc/extras.php:375 inc/widgets/class-CategoriesImageGridWidget.php:64
-msgid "Name"
-msgstr ""
-
-#: inc/extras.php:376
-msgid "Your name"
-msgstr ""
-
-#: inc/extras.php:380
-msgid "Email"
-msgstr ""
-
-#: inc/extras.php:381
-msgid "your@email.com"
-msgstr ""
-
-#: inc/extras.php:416 inc/widgets/class-PromoBoxWidget.php:54
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:65
-msgid "Display"
-msgstr ""
-
-#: inc/extras.php:417
-msgid "Intro Text"
-msgstr ""
-
-#: inc/extras.php:418
-msgid "Dropcap"
-msgstr ""
-
-#: inc/extras.php:419
-msgid "Button Directional &#8594;"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not supported
-#. by Charter, translate this to 'off'. Do not translate into your own
-#. language.
-
-#: inc/extras.php:492
-msgctxt "Charter font: on or off"
-msgid "on"
-msgstr ""
-
-#. Translators: If there are characters in your language that are not supported
-#. by HK Grotesk, translate this to 'off'. Do not translate into your own
-#. language.
-
-#: inc/extras.php:511
-msgctxt "HK Grotesk font: on or off"
-msgid "on"
-msgstr ""
-
-#: inc/integrations/customify.php:62
-msgid "Widgets Titles Position"
-msgstr ""
-
-#: inc/integrations/customify.php:63
-msgid "Choose if you want to display the titles above the widgets or rotate them 90-degrees and align along the left of widgets content rather than at the top."
-msgstr ""
-
-#: inc/integrations/customify.php:67
-msgid "Sideways"
-msgstr ""
-
-#: inc/integrations/customify.php:453
-msgid "Item Excerpt Font"
-msgstr ""
-
-#: inc/integrations/customify.php:578
-msgid "Sticky Header"
-msgstr ""
-
-#: inc/integrations/customify.php:578
-msgid "Customize the sticky header (fixed) colors."
-msgstr ""
-
-#: inc/integrations/customify.php:582
-msgid "(S) Navigation Links Color"
-msgstr ""
-
-#: inc/integrations/customify.php:597
-msgid "(S) Links Active Color"
-msgstr ""
-
-#: inc/integrations/customify.php:617
-msgid "(S) Header Background"
-msgstr ""
-
-#: inc/integrations/gridable.php:20
-msgid "Row Style"
-msgstr ""
-
-#: inc/integrations/gridable.php:23 inc/integrations/gridable.php:119
-msgid "Simple"
-msgstr ""
-
-#: inc/integrations/gridable.php:24
-msgid "Strip"
-msgstr ""
-
-#: inc/integrations/gridable.php:31
-msgid "Is stretched?"
-msgstr ""
-
-#: inc/integrations/gridable.php:116
-msgid "Column Style"
-msgstr ""
-
-#: inc/integrations/gridable.php:120
-msgid "Highlighted"
-msgstr ""
-
-#: inc/integrations/gridable.php:121
-msgid "Feature Box"
-msgstr ""
-
-#: inc/integrations/pixcare.php:92
-msgid "One more lap to go.."
-msgstr ""
-
-#: inc/integrations/pixcare.php:97
-msgid "Start your digital journey with our"
-msgstr ""
-
-#: inc/integrations/pixcare.php:98 inc/integrations/pixcare.php:105
-msgid "Pixelgrade Care&#174;"
-msgstr ""
-
-#: inc/integrations/pixcare.php:99
-msgid "on board. It's the core of your experience with our WordPress theme, and we bet you are going to love it from day one. You're in great hands, no doubt about that!"
-msgstr ""
-
-#: inc/integrations/pixcare.php:106
-msgid "Installing ..."
-msgstr ""
-
-#: inc/integrations/pixcare.php:113
-msgid "Return to the WordPress Dashboard"
-msgstr ""
-
-#: inc/integrations/pixcare.php:131
-msgid "Plugin installed successfully."
-msgstr ""
-
-#: inc/integrations/pixcare.php:132
-msgid "Plugin destination folder already exists."
-msgstr ""
-
-#: inc/integrations/pixcare.php:153
-msgid "Bummer! Something went wrong. I'm sorry but you will need to install the plugin manually. Redirecting you to the appropriate page..."
+#. Author of the theme
+msgid "Pixelgrade"
 msgstr ""
 
-#: inc/integrations/pixcare.php:183
-msgid "Pixelgrade Care &rsaquo; Installer"
+#. Author URI of the theme
+msgid "https://pixelgrade.com"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:327
-#: inc/required-plugins.php:60
+#: inc/pro/required-plugins.php:55
 msgid "Install Required Plugins"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:328
-#: inc/required-plugins.php:61
+#: inc/pro/required-plugins.php:56
 msgid "Install Plugins"
 msgstr ""
 
 #. translators: %s: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:330
-#: inc/required-plugins.php:62
+#: inc/pro/required-plugins.php:57
 msgid "Installing Plugin: %s"
 msgstr ""
 
 #. translators: %s: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:332
 msgid "Updating Plugin: %s"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:333
-#: inc/required-plugins.php:64
+#: inc/pro/required-plugins.php:59
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
 #. translators: 1: plugin name(s).
+#: inc/required-plugins/class-tgm-plugin-activation.php:334
+#: inc/pro/required-plugins.php:60
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+
+#. translators: 1: plugin name(s).
+#: inc/required-plugins/class-tgm-plugin-activation.php:340
+#: inc/pro/required-plugins.php:62
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+
+#. translators: 1: plugin name(s).
+#: inc/required-plugins/class-tgm-plugin-activation.php:346
+#: inc/pro/required-plugins.php:72
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+
+#. translators: 1: plugin name(s).
+#: inc/required-plugins/class-tgm-plugin-activation.php:352
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+
+#. translators: 1: plugin name(s).
+#: inc/required-plugins/class-tgm-plugin-activation.php:358
+#: inc/pro/required-plugins.php:66
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#. translators: 1: plugin name(s).
+#: inc/required-plugins/class-tgm-plugin-activation.php:364
+#: inc/pro/required-plugins.php:68
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:370
-#: inc/required-plugins.php:81
+#: inc/pro/required-plugins.php:76
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:375
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:380
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:385
-#: inc/required-plugins.php:83
+#: inc/pro/required-plugins.php:78
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
@@ -1796,29 +131,27 @@ msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:387
 #: inc/required-plugins/class-tgm-plugin-activation.php:3159
-#: inc/required-plugins.php:84
+#: inc/pro/required-plugins.php:79
 msgid "Plugin activated successfully."
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:388
 #: inc/required-plugins/class-tgm-plugin-activation.php:2952
 msgid "The following plugin was activated successfully:"
-msgstr ""
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
 
 #. translators: 1: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:390
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
 #. translators: 1: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:392
 msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
 msgstr ""
 
 #. translators: 1: dashboard link.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:394
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
@@ -1863,7 +196,6 @@ msgid "and"
 msgstr ""
 
 #. translators: %s: version number
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:1982
 msgid "TGMPA v%s"
 msgstr ""
@@ -1896,6 +228,11 @@ msgstr ""
 msgid "Installed But Not Activated"
 msgstr ""
 
+#: inc/required-plugins/class-tgm-plugin-activation.php:2321
+#: components/header/inc/class-Header-Customizer.php:319
+msgid "Active"
+msgstr ""
+
 #: inc/required-plugins/class-tgm-plugin-activation.php:2327
 msgid "Required Update not Available"
 msgstr ""
@@ -1909,44 +246,35 @@ msgid "Update recommended"
 msgstr ""
 
 #. translators: 1: install status, 2: update status
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2342
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: 1: number of plugins.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2388
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
-msgstr[1] ""
 
 #. translators: 1: number of plugins.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2392
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
 msgstr[0] ""
-msgstr[1] ""
 
 #. translators: 1: number of plugins.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2396
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
 msgstr[0] ""
-msgstr[1] ""
 
 #. translators: 1: number of plugins.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2400
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
-msgstr[1] ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:2482
 msgctxt "as in: \"version nr unknown\""
@@ -1977,6 +305,11 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
+#: inc/required-plugins/class-tgm-plugin-activation.php:2549
+#: components/gallery-settings/jetpack-fallback/functions.gallery.php:80
+msgid "Type"
+msgstr ""
+
 #: inc/required-plugins/class-tgm-plugin-activation.php:2553
 msgid "Version"
 msgstr ""
@@ -1986,19 +319,16 @@ msgid "Status"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2603
 msgid "Install %2$s"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2608
 msgid "Update %2$s"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:2614
 msgid "Activate %2$s"
 msgstr ""
@@ -2016,6 +346,8 @@ msgid "Update"
 msgstr ""
 
 #: inc/required-plugins/class-tgm-plugin-activation.php:2726
+#: inc/lite/admin/about-page.php:199
+#: inc/lite/admin/about-page.php:213
 msgid "Activate"
 msgstr ""
 
@@ -2048,19 +380,16 @@ msgid "Plugin activation failed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3498
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #. translators: 1: plugin name, 2: error message.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3501
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
 #. translators: 1: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3503
 msgid "The installation of %1$s failed."
 msgstr ""
@@ -2070,16 +399,17 @@ msgid "The installation and activation process is starting. This process may tak
 msgstr ""
 
 #. translators: 1: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3509
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
+#. translators: 1: plugin name.
 #: inc/required-plugins/class-tgm-plugin-activation.php:3509
 #: inc/required-plugins/class-tgm-plugin-activation.php:3517
 msgid "Show Details"
 msgstr ""
 
+#. translators: 1: plugin name.
 #: inc/required-plugins/class-tgm-plugin-activation.php:3509
 #: inc/required-plugins/class-tgm-plugin-activation.php:3517
 msgid "Hide Details"
@@ -2090,7 +420,6 @@ msgid "All installations and activations have been completed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3512
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
@@ -2100,7 +429,6 @@ msgid "The installation process is starting. This process may take a while on so
 msgstr ""
 
 #. translators: 1: plugin name.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3517
 msgid "%1$s installed successfully."
 msgstr ""
@@ -2110,534 +438,2309 @@ msgid "All installations have been completed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-
 #: inc/required-plugins/class-tgm-plugin-activation.php:3520
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/required-plugins.php:65
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+#: inc/pro/extras.php:74
+msgid "Posts Grid Widgets"
+msgstr ""
 
-#: inc/required-plugins.php:67
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+#: inc/pro/extras.php:75
+msgid "Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid."
+msgstr ""
 
-#: inc/required-plugins.php:69
+#: inc/pro/extras.php:175
+#: components/blog/inc/extras.php:128
+#: templates/blog/header.php:103
+msgid "Search"
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:92
+msgid "One more lap to go.."
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:97
+msgid "Start your digital journey with our"
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:98
+#: inc/pro/integrations/pixelgrade-care.php:105
+msgid "Pixelgrade Care&#174;"
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:99
+msgid "on board. It's the core of your experience with our WordPress theme, and we bet you are going to love it from day one. You're in great hands, no doubt about that!"
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:106
+msgid "Installing ..."
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:113
+msgid "Return to the WordPress Dashboard"
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:131
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:132
+msgid "Plugin destination folder already exists."
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:153
+msgid "Bummer! Something went wrong. I'm sorry but you will need to install the plugin manually. Redirecting you to the appropriate page..."
+msgstr ""
+
+#: inc/pro/integrations/pixelgrade-care.php:183
+msgid "Pixelgrade Care &rsaquo; Installer"
+msgstr ""
+
+#: inc/pro/required-plugins.php:64
 msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
 msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
 msgstr[0] ""
-msgstr[1] ""
 
-#: inc/required-plugins.php:71
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/required-plugins.php:73
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/required-plugins.php:75
+#: inc/pro/required-plugins.php:70
 msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
 msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
 msgstr[0] ""
-msgstr[1] ""
 
-#: inc/required-plugins.php:77
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/required-plugins.php:79
+#: inc/pro/required-plugins.php:74
 msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
 msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
 msgstr[0] ""
-msgstr[1] ""
 
-#: inc/required-plugins.php:82
+#: inc/pro/required-plugins.php:77
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
 msgstr[0] ""
-msgstr[1] ""
 
-#: inc/required-plugins.php:85
+#: inc/pro/required-plugins.php:80
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#. translators: %s: The current post's posted date, in the post header
+#: inc/lite/admin/ti-about-page/class-ti-about-page.php:905
+msgid "Activating"
+msgstr ""
 
-#: inc/template-tags.php:30
+#: inc/lite/admin/about-page.php:21
+#: inc/lite/admin/about-page.php:23
+msgid "About Noto"
+msgstr ""
+
+#. translators: Main welcome title
+#: inc/lite/admin/about-page.php:25
+msgid "Welcome to %s! - Version "
+msgstr ""
+
+#: inc/lite/admin/about-page.php:27
+msgid "Noto is a free notebook inspired blogging theme, designed for your creative ambitions. From the variety of colors, the use of subtle motion effects and visual cues, this is the perfect solution to explore the rhythm and dynamics of your text-based content."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:35
+msgid "Getting Started"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:36
+msgid "Recommended Actions"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:37
+msgid "Useful Plugins"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:38
+msgid "Support"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:39
+msgid "Changelog"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:40
+msgid "Free VS PRO"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:45
+#: inc/lite/admin/about-page.php:48
+msgid "Contact Support"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:47
+msgid "We want to make sure you have the best experience using Noto. If you <strong>do not have a paid upgrade</strong>, please post your question in our community forums."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:54
+#: inc/lite/admin/about-page.php:87
+msgid "Documentation"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:56
+#: inc/lite/admin/about-page.php:86
+msgid "Need more details? Please check our full documentation for detailed information on how to use Noto."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:57
+msgid "Read The Documentation"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:66
+#: inc/lite/admin/about-page.php:68
+msgid "Go to Customizer"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:67
+msgid "Using the WordPress Customizer you can easily customize every aspect of the theme."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:75
+#: inc/lite/admin/about-page.php:77
+msgid "Recommended actions"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:76
+msgid "We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:79
+msgid "You are good to go!"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:85
+msgid "Read the documentation"
+msgstr ""
+
+#. translators: View link
+#: inc/lite/admin/about-page.php:100
+msgid "Get %s"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:103
+msgid "Notebook Design to Impress Your Readers"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:104
+msgid "Noto breaks the classic grid construction and offers an engaging dynamic for readers. The inspiration from the notebooks' world creates momentum and provides a unique look-and-feel so that your stories receive the best showcase experience."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:109
+msgid "Mobile-Ready For All Devices"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:110
+msgid "Noto makes room for your readers to enjoy your articles on the go, no matter the device they are using. We shaped everything to look stunning to your audience without harming the overall feeling of your content. This way, people have the chance to connect in-depth with your stories."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:115
+msgid "Featured Images on Hover"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:116
+msgid "With the use of a subtle fade-in and some motion effects, this is the perfect solution to let your audience explore the feeling around your text-based content and immerse them to stay longer on your website."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:121
+msgid "Post-it Note Area to Welcome Visitors"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:122
+msgid "We went a step further into the note-taking feel of Noto by creating a post-it note style area on your homepage. You can use it to introduce yourself and invite your visitors to learn more about who you are or what kind of creative work you are providing"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:127
+msgid "Widgetized Footer"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:128
+msgid "Keep your audience engaged by adding widgets in the footer that will follow them around the website. Push a newsletter subscribe box, your Instagram feed, contact info or anything else that supports your ambitions. The sky's the limit."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:133
+msgid "Social Sharing Features To Boost Traffic"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:134
+msgid "Noto PRO comes with a subtle approach to increasing engagement by displaying social sharing buttons on the left side of your content and just below it. This way, you give people a handy option to spread the word about your content, without having to rely on third-party options that don't keep the same design approach."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:139
+msgid "Extra Flexibility for the Below Post Area"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:140
+msgid "Noto PRO unlocks a new widget area, allowing you to place your favorite widgets right below your posts for extra exposure. At the same time, you can add an author info box and a previous/next article section to allow people to easily browse your content."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:145
+msgid "Front-Page Widget Area"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:146
+msgid "Go a step further and add custom widgets on your Home Page that will be sprinkled between your blog articles. This will help you maintain interest and provide extra exposure to what's important."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:151
+msgid "More Customization Options"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:152
+msgid "Noto PRO allows you to personalize your website even further. You can add a pattern style design below your blog titles, change the shape and color of the buttons, and transform the first paragraphs into a beautifully designed intro."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:157
+msgid "Additional Menu Options and Locations"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:158
+msgid "Using Noto PRO means that you can use submenus and benefit from two additional menu locations: below your main menu and in the footer. Let people know where to follow you on social media by adding a social menu with custom icons for each network."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:163
+msgid "Flexible Color Scheme with Style Manager"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:164
+msgid "Showcase your unique style in an easy and smart way by using an intuitive interface that allows you to change color palettes and fonts with a few clicks until they fully represent you and match your particular needs."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:169
+msgid "Advanced Typography Settings"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:170
+msgid "Adjust your fonts by taking advantage of a playground with 600+ fonts variety you can wisely choose from at any moment."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:175
+msgid "Premium Support and Assistance"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:176
+msgid "Behind every single support ticket stands a real person who gives the best to help you in due time. This way, you save energy and time and focus on what brings you happiness. We know our products inside-out and we can lend a hand to help you save resources of all kinds."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:181
+msgid "Friendly Self-Help"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:182
+msgid "We give you full access to an in-depth documentation to get the job done as quickly as possible. We don't stay in your way by offering you full access to our self-help tool directly from your Dashboard."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:187
+msgid "No Credit Footer Link"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:188
+msgid "You can easily remove the \"Theme: Noto by Pixelgrade\" copyright from the footer area and make the theme yours from start to finish."
+msgstr ""
+
+#: inc/lite/admin/about-page.php:196
+msgid "Already activated"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:197
+msgid "Version: "
+msgstr ""
+
+#: inc/lite/admin/about-page.php:198
+#: inc/lite/admin/about-page.php:212
+msgid "Install and Activate"
+msgstr ""
+
+#: inc/lite/admin/about-page.php:200
+#: inc/lite/admin/about-page.php:214
+msgid "Deactivate"
+msgstr ""
+
+#: inc/lite/extras.php:31
+msgid "View PRO Version"
+msgstr ""
+
+#. translators: %s: The upsell link.
+#: inc/lite/extras.php:35
+msgid ""
+"<div class=\"upsell-container\">\n"
+"\t\t\t\t<h2>Need More? Go PRO</h2>\n"
+"\t\t\t\t<p>Take it to the next level and stand out. See the hotspots of Noto PRO:</p>\n"
+"\t\t\t\t<ul class=\"upsell-features\">\n"
+"                        <li>\n"
+"                            <h4>Personalize to Match Your Style</h4>\n"
+"                            <div class=\"description\">Having different tastes and preferences might be tricky for users, but not with Noto PRO onboard. It has Style Manager, an intuitive and catchy interface that allows you to change color palettes and fonts with a few clicks.</div>\n"
+"                        </li>\n"
+"\n"
+"                        <li>\n"
+"                            <h4>More Widget Areas for Extra Flexibility</h4>\n"
+"                            <div class=\"description\">The PRO version comes with three widget-friendly sections: on your Home Page, Below Posts, and in the Footer. Use these areas to get new email subscribers, social media followers or anything else that gets you closer to your goals.</div>\n"
+"                        </li>\n"
+"\n"
+"                        <li>\n"
+"                            <h4>Advanced Features for a Unique Look</h4>\n"
+"                            <div class=\"description\">Noto PRO takes everything to the next level, unlocking features like more menu locations, a search option, and an Author Info Box along with social media sharing buttons. You also get access to 600+ fonts & other styling options for buttons, text intro and article titles.</div>\n"
+"                        </li>\n"
+"\n"
+"                        <li>\n"
+"                            <h4>Premium Customer Support</h4>\n"
+"                            <div class=\"description\">You will benefit from priority support from a caring and devoted team, eager to help and to spread happiness. We work hard to provide a flawless experience for those who vote us with trust and choose to be our special clients.</div>\n"
+"                        </li>\n"
+"                        \n"
+"                </ul> %s </div>"
+msgstr ""
+
+#: inc/lite/extras.php:62
+msgid "Get Noto PRO"
+msgstr ""
+
+#: inc/lite/extras.php:86
+#: components/blog/inc/class-Blog-Customizer.php:127
+msgid "General"
+msgstr ""
+
+#: inc/lite/extras.php:91
+#: inc/integrations/customify.php:333
+msgid "Post-it Note"
+msgstr ""
+
+#: inc/lite/extras.php:99
+msgid "Hello"
+msgstr ""
+
+#: inc/lite/extras.php:106
+#: inc/integrations/customify.php:341
+msgid "Note Title"
+msgstr ""
+
+#: inc/lite/extras.php:116
+msgid "<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href=\"/contact/\">reach me</a> to say Hi!</p>"
+msgstr ""
+
+#: inc/lite/extras.php:123
+#: inc/integrations/customify.php:352
+msgid "Note Content"
+msgstr ""
+
+#: inc/lite/extras.php:140
+#: inc/integrations/customify.php:364
+msgid "Hide Post-it Note"
+msgstr ""
+
+#. Translators: If there are characters in your language that are not * supported by Bungee, translate this to 'off'. Do not translate * into your own language.
+#: inc/extras.php:27
+msgctxt "Bungee font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/extras.php:31
+msgctxt "IBM Plex Sans font: on or off"
+msgid "on"
+msgstr ""
+
+#. translators: To add an additional character subset specific to your language, translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
+#: inc/extras.php:36
+msgctxt "Add new subset (greek, cyrillic, devanagari, vietnamese)"
+msgid "no-subset"
+msgstr ""
+
+#: inc/extras.php:110
+msgid "Intro Text"
+msgstr ""
+
+#: inc/extras.php:111
+msgid "Highlight"
+msgstr ""
+
+#: inc/extras.php:112
+msgid "Dropcap"
+msgstr ""
+
+#: inc/extras.php:114
+msgid "Pull Left"
+msgstr ""
+
+#: inc/extras.php:120
+msgid "Pull Right"
+msgstr ""
+
+#: inc/extras.php:164
+#: components/blog/inc/extras.php:35
+#: components/blog/inc/template-tags.php:211
+msgid "Categories"
+msgstr ""
+
+#: inc/extras.php:214
+#: components/blog/inc/class-Blog-Customizer.php:1433
+#: components/blog/inc/class-Blog-Customizer.php:1448
+#: components/blog/inc/extras.php:62
+#: components/blog/inc/template-tags.php:224
+#: components/portfolio/inc/class-Portfolio-Customizer.php:395
+#: components/portfolio/inc/class-Portfolio-Customizer.php:410
+#: components/portfolio/inc/template-tags.php:66
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:326
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:336
+msgid "Tags"
+msgstr ""
+
+#: inc/integrations/customify.php:216
+msgid "Profile Photo"
+msgstr ""
+
+#: inc/integrations/customify.php:224
+#: inc/integrations/customify.php:229
+msgid "Select photo"
+msgstr ""
+
+#: inc/integrations/customify.php:225
+msgid "Change photo"
+msgstr ""
+
+#: inc/integrations/customify.php:226
+msgid "Remove"
+msgstr ""
+
+#: inc/integrations/customify.php:227
+msgid "Default"
+msgstr ""
+
+#: inc/integrations/customify.php:228
+msgid "No photo selected"
+msgstr ""
+
+#: inc/integrations/customify.php:230
+msgid "Choose photo"
+msgstr ""
+
+#: inc/integrations/customify.php:263
+msgid "Display Site Title"
+msgstr ""
+
+#: inc/integrations/customify.php:270
+msgid "Display Site Tagline"
+msgstr ""
+
+#: inc/integrations/customify.php:305
+msgid "Disable auto-style first paragraph on articles"
+msgstr ""
+
+#: inc/integrations/customify.php:310
+msgid "Disable image reveal effect on archives"
+msgstr ""
+
+#: inc/integrations/customify.php:315
+msgid "Patterns"
+msgstr ""
+
+#: inc/integrations/customify.php:319
+msgid "Pattern Style"
+msgstr ""
+
+#: inc/integrations/customify.php:323
+#: components/gallery-settings/class-GallerySettings.php:57
+#: components/blog/inc/class-Blog-Customizer.php:1429
+#: components/blog/inc/class-Blog-Customizer.php:1444
+#: components/portfolio/inc/class-Portfolio-Customizer.php:391
+#: components/portfolio/inc/class-Portfolio-Customizer.php:406
+#: components/hero/inc/class-Hero-Metaboxes.php:568
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:254
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:267
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:323
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:333
+msgid "None"
+msgstr ""
+
+#: inc/integrations/customify.php:324
+msgid "Waves"
+msgstr ""
+
+#: inc/integrations/customify.php:325
+msgid "Bubbles"
+msgstr ""
+
+#: inc/integrations/customify.php:326
+msgid "Triangles"
+msgstr ""
+
+#: inc/integrations/customify.php:327
+msgid "Lines"
+msgstr ""
+
+#: inc/integrations/customify.php:328
+msgid "Zig Zag"
+msgstr ""
+
+#: inc/integrations/customify.php:369
+#: components/footer/inc/class-Footer-Customizer.php:126
+#: components/footer/inc/class-Footer-Customizer.php:211
+#: components/woocommerce/inc/class-Woocommerce-Customizer.php:219
+#: components/blog/inc/class-Blog-Customizer.php:212
+#: components/blog/inc/class-Blog-Customizer.php:359
+#: components/blog/inc/class-Blog-Customizer.php:975
+#: components/blog/inc/class-Blog-Customizer.php:1005
+#: components/blog/inc/class-Blog-Customizer.php:1179
+#: components/blog/inc/class-Blog-Customizer.php:1456
+#: components/portfolio/inc/class-Portfolio-Customizer.php:141
+#: components/portfolio/inc/class-Portfolio-Customizer.php:418
+#: components/header/inc/class-Header-Customizer.php:147
+#: components/header/inc/class-Header-Customizer.php:281
+msgid "Colors"
+msgstr ""
+
+#: inc/integrations/customify.php:373
+msgid "Accent Color"
+msgstr ""
+
+#: inc/integrations/customify.php:419
+msgid "Accent Light Color"
+msgstr ""
+
+#: inc/integrations/customify.php:442
+msgid "Accent Lighter Color"
+msgstr ""
+
+#: inc/integrations/customify.php:463
+msgid "Tertiary Color"
+msgstr ""
+
+#: inc/integrations/customify.php:476
+msgid "Light Tertiary Color"
+msgstr ""
+
+#: inc/integrations/customify.php:976
+msgid "Item Dropcap Font"
+msgstr ""
+
+#: inc/integrations/customify.php:1063
+msgid "Links Hover Color"
+msgstr ""
+
+#. translators: %year%: current year  %site-title%: the site title
+#: inc/integrations/customify.php:1150
+#: components/footer/inc/template-tags.php:229
+#: components/footer/inc/template-tags.php:250
+msgid "&copy; %year% %site-title%."
+msgstr ""
+
+#: inc/integrations/customify.php:1189
+msgid "Footer Font"
+msgstr ""
+
+#: inc/integrations/customify.php:1298
+msgid "Theme Default"
+msgstr ""
+
+#: inc/components-blocks.php:104
+#: components/woocommerce/inc/class-Woocommerce-Layout.php:145
+#: components/blog/inc/template-tags.php:831
+#: components/blog/class-Blog.php:181
+msgctxt "previous set of posts"
+msgid "&laquo; Previous"
+msgstr ""
+
+#: inc/components-blocks.php:105
+#: components/woocommerce/inc/class-Woocommerce-Layout.php:146
+#: components/blog/inc/template-tags.php:832
+#: components/blog/class-Blog.php:182
+msgctxt "next set of posts"
+msgid "Next &raquo;"
+msgstr ""
+
+#: inc/components-blocks.php:106
+#: components/blog/inc/template-tags.php:833
+#: components/blog/class-Blog.php:183
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/components.php:38
+msgid "Header Top"
+msgstr ""
+
+#: inc/components.php:62
+msgid "Header Bottom"
+msgstr ""
+
+#: inc/template-tags.php:88
+msgid "Add Profile Photo"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:120
+#: components/footer/class-Footer.php:76
+#: components/footer/class-Footer.php:112
+msgid "Footer"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:125
+#: components/footer/inc/class-Footer-Customizer.php:133
+#: components/woocommerce/inc/class-Woocommerce-Customizer.php:218
+#: components/blog/inc/class-Blog-Customizer.php:211
+#: components/blog/inc/class-Blog-Customizer.php:219
+#: components/blog/inc/class-Blog-Customizer.php:974
+#: components/blog/inc/class-Blog-Customizer.php:981
+#: components/blog/inc/class-Blog-Customizer.php:1178
+#: components/blog/inc/class-Blog-Customizer.php:1187
+#: components/portfolio/inc/class-Portfolio-Customizer.php:140
+#: components/portfolio/inc/class-Portfolio-Customizer.php:149
+#: components/header/inc/class-Header-Customizer.php:146
+#: components/header/inc/class-Header-Customizer.php:155
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:75
+msgid "Layout"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:137
+msgid "Copyright Text"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:138
+msgid "Set the text that will appear in the footer area. Use %year% to display the current year."
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:147
+msgid "Top Spacing"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:168
+msgid "Bottom Spacing"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:189
+msgid "Hide \"Back To Top\" Link"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:194
+msgid "Hide Pixelgrade Credits"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:199
+msgid "\"Footer Area\" Widgets Layout"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:200
+msgid "Choose if you want the footer widgets stack into one column or spread to a row."
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:203
+msgid "Stacked"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:204
+msgid "Row"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:215
+#: components/blog/inc/class-Blog-Customizer.php:375
+msgid "Body Text Color"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:227
+msgid "Links Color"
+msgstr ""
+
+#: components/footer/inc/class-Footer-Customizer.php:239
+msgid "Footer Background"
+msgstr ""
+
+#: components/footer/inc/template-tags.php:198
+msgid "Back to Top"
+msgstr ""
+
+#. translators: 1: the original theme name 2: Pixelgrade site link
+#: components/footer/inc/template-tags.php:263
+msgid "Theme: %1$s by %2$s."
+msgstr ""
+
+#: components/footer/class-Footer.php:77
+msgid "Widgets displayed in the Footer Area of the website."
+msgstr ""
+
+#: components/woocommerce/inc/class-Woocommerce-Customizer.php:213
+msgid "Woocommerce Grid Items"
+msgstr ""
+
+#: components/woocommerce/inc/class-Woocommerce-Customizer.php:220
+#: components/blog/inc/class-Blog-Customizer.php:213
+#: components/blog/inc/class-Blog-Customizer.php:513
+#: components/blog/inc/class-Blog-Customizer.php:976
+#: components/blog/inc/class-Blog-Customizer.php:1057
+#: components/blog/inc/class-Blog-Customizer.php:1180
+#: components/blog/inc/class-Blog-Customizer.php:1548
+#: components/portfolio/inc/class-Portfolio-Customizer.php:142
+#: components/portfolio/inc/class-Portfolio-Customizer.php:498
+#: components/header/inc/class-Header-Customizer.php:148
+#: components/header/inc/class-Header-Customizer.php:339
+msgid "Fonts"
+msgstr ""
+
+#: components/woocommerce/inc/class-Woocommerce-Layout.php:151
+msgid "Sale!"
+msgstr ""
+
+#: components/woocommerce/inc/class-Woocommerce-Layout.php:213
+msgid "Your cart"
+msgstr ""
+
+#: components/woocommerce/inc/class-Woocommerce-Layout.php:249
+msgid "My Cart"
+msgstr ""
+
+#: components/woocommerce/inc/template-tags.php:46
+msgid "All Products"
+msgstr ""
+
+#: components/woocommerce/class-Woocommerce.php:187
+msgid "Adding..."
+msgstr ""
+
+#: components/woocommerce/class-Woocommerce.php:188
+msgid "Added!"
+msgstr ""
+
+#: components/woocommerce/template-parts/checkout/form-coupon.php:32
+msgid "Have a coupon?"
+msgstr ""
+
+#: components/woocommerce/template-parts/checkout/form-coupon.php:32
+msgid "Click here to enter your code"
+msgstr ""
+
+#: components/woocommerce/template-parts/checkout/form-coupon.php:37
+msgid "If you have a coupon code, please apply it below."
+msgstr ""
+
+#: components/woocommerce/template-parts/checkout/form-coupon.php:40
+msgid "Coupon code"
+msgstr ""
+
+#: components/woocommerce/template-parts/checkout/form-coupon.php:44
+msgid "Apply coupon"
+msgstr ""
+
+#: components/woocommerce/template-parts/single-product/review-meta.php:33
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: components/woocommerce/template-parts/single-product/review-meta.php:43
+msgid "verified owner"
+msgstr ""
+
+#: components/woocommerce/template-parts/single-product/review-meta.php:47
+msgid "on"
+msgstr ""
+
+#: components/gallery-settings/jetpack-fallback/functions.gallery.php:38
+msgid "Thumbnail Grid"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:58
+msgid "Small"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:59
+msgid "Medium"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:60
+msgid "Large"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:61
+msgid "X-Large"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:179
+#: components/blog/inc/class-Blog-Customizer.php:1249
+#: components/portfolio/inc/class-Portfolio-Customizer.php:211
+msgid "Masonry"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:206
+msgid "Slideshow"
+msgstr ""
+
+#: components/gallery-settings/class-GallerySettings.php:295
+msgid "Spacing"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:83
+msgid "Thumbnail"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:85
+msgid "Thumbnail (Featured Image)"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:87
+msgid "The  image will be displayed on the Portfolio Grid as a thumbnail for the current project."
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:89
+#: components/blog/inc/class-Blog-Customizer.php:1522
+#: components/portfolio/inc/class-Portfolio-Customizer.php:472
+msgid "Thumbnail Hover"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:91
+msgid "Set an alternative background image when the mouse hovers the thumbnail. It will fill the thumbnail area and it will be vertical and horizontal centered."
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:99
+msgid "Thumbnail Image"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:102
+msgid "Add Thumbnail Image"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:107
+msgid "Thumbnail Hover Image"
+msgstr ""
+
+#: components/featured-image/inc/class-FeaturedImage-Metaboxes.php:110
+msgid "Add Thumbnail Hover"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:131
+msgid "Enable dynamic page content loading using AJAX."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:206
+msgid "Main Content"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:223
+msgid "Site Container Max Width"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:224
+msgid "Adjust the max width of your site content area."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:243
+msgid "Site Container Sides Spacing"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:244
+#: components/blog/inc/class-Blog-Customizer.php:1212
+#: components/portfolio/inc/class-Portfolio-Customizer.php:174
+msgid "Adjust the space separating the site content and the sides of the browser."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:276
+msgid "Site Container Padding"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:277
+msgid "Adjust the top and bottom distance between the page content and header/footer."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:303
+msgid "Content Width"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:304
+msgid "Decrease the width of your content to create an inset area for your text. The inset size will be the space between Site Container and Content."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:325
+msgid "Site Border Width"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:345
+msgid "Site Border Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:363
+msgid "Page Title Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:387
+msgid "Body Link Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:399
+msgid "Body Link Active Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:411
+msgid "Underlined Body Links"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:417
+msgid "Headings Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:421
+#: components/blog/inc/class-Blog-Customizer.php:684
+msgid "Heading 1"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:433
+#: components/blog/inc/class-Blog-Customizer.php:723
+msgid "Heading 2"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:445
+#: components/blog/inc/class-Blog-Customizer.php:763
+msgid "Heading 3"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:457
+#: components/blog/inc/class-Blog-Customizer.php:804
+msgid "Heading 4"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:469
+#: components/blog/inc/class-Blog-Customizer.php:844
+msgid "Heading 5"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:481
+#: components/blog/inc/class-Blog-Customizer.php:884
+msgid "Heading 6"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:495
+msgid "Backgrounds"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:499
+msgid "Content Background Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:518
+msgid "Page Title Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:558
+msgid "Body Text Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:598
+msgid "Content Text Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:638
+msgid "Quote Block Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:679
+msgid "Headings Fonts"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:969
+msgid "Buttons"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:985
+msgid "Buttons Style"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:986
+msgid "Choose the default button style."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:989
+msgid "Solid"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:990
+msgid "Outline"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:995
+msgid "Buttons Shape"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:998
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:224
+msgid "Square"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:999
+msgid "Rounded"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1000
+msgid "Pill"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1009
+msgid "Button Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1037
+msgid "Button Text Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1061
+msgid "Button Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1173
+msgid "Blog Grid Items"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1191
+msgid "Blog Grid Max Width"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1192
+msgid "Adjust the max width of the blog area."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1211
+#: components/portfolio/inc/class-Portfolio-Customizer.php:173
+msgid "Container Sides Spacing"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1240
+#: components/portfolio/inc/class-Portfolio-Customizer.php:202
+msgid "Items Grid"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1244
+#: components/portfolio/inc/class-Portfolio-Customizer.php:206
+msgid "Grid Layout"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1245
+#: components/portfolio/inc/class-Portfolio-Customizer.php:207
+msgid "Choose whether the items display in a fixed height regular grid, or in a packed style layout."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1248
+#: components/portfolio/inc/class-Portfolio-Customizer.php:210
+msgid "Regular Grid"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1250
+#: components/portfolio/inc/class-Portfolio-Customizer.php:212
+msgid "Mosaic"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1251
+#: components/portfolio/inc/class-Portfolio-Customizer.php:213
+msgid "Packed"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1256
+#: components/portfolio/inc/class-Portfolio-Customizer.php:218
+msgid "Items Aspect Ratio"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1257
+msgid "Change the images ratio from landscape to portrait."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1278
+#: components/portfolio/inc/class-Portfolio-Customizer.php:240
+msgid "Items per Row"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1279
+#: components/portfolio/inc/class-Portfolio-Customizer.php:241
+msgid "Set the desktop-based number of columns you want and we automatically make it right for other screen sizes."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1297
+#: components/portfolio/inc/class-Portfolio-Customizer.php:259
+msgid "Items Vertical Spacing"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1298
+#: components/blog/inc/class-Blog-Customizer.php:1319
+#: components/portfolio/inc/class-Portfolio-Customizer.php:260
+#: components/portfolio/inc/class-Portfolio-Customizer.php:281
+msgid "Adjust the spacing between individual items in your grid."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1318
+#: components/portfolio/inc/class-Portfolio-Customizer.php:280
+msgid "Items Horizontal Spacing"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1341
+#: components/portfolio/inc/class-Portfolio-Customizer.php:303
+msgid "Items Title"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1345
+#: components/portfolio/inc/class-Portfolio-Customizer.php:307
+msgid "Title Position"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1346
+#: components/portfolio/inc/class-Portfolio-Customizer.php:308
+msgid "Choose whether the items titles are placed nearby the thumbnail or show as an overlay cover on  mouse over."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1349
+#: components/portfolio/inc/class-Portfolio-Customizer.php:311
+msgid "Above"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1350
+#: components/portfolio/inc/class-Portfolio-Customizer.php:312
+msgid "Below"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1351
+#: components/portfolio/inc/class-Portfolio-Customizer.php:313
+msgid "Overlay"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1356
+#: components/portfolio/inc/class-Portfolio-Customizer.php:318
+msgid "Title Alignment (Above/Below)"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1357
+#: components/portfolio/inc/class-Portfolio-Customizer.php:319
+msgid "Adjust the alignment of your title."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1360
+#: components/portfolio/inc/class-Portfolio-Customizer.php:322
+msgid "← Left"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1361
+#: components/portfolio/inc/class-Portfolio-Customizer.php:323
+msgid "↔ Center"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1362
+#: components/portfolio/inc/class-Portfolio-Customizer.php:324
+msgid "→ Right"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1368
+#: components/portfolio/inc/class-Portfolio-Customizer.php:330
+msgid "Title Alignment (Overlay)"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1369
+#: components/portfolio/inc/class-Portfolio-Customizer.php:331
+msgid "Adjust the alignment of your hover title."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1372
+#: components/portfolio/inc/class-Portfolio-Customizer.php:334
+msgid "↑ Top     ← Left"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1373
+#: components/portfolio/inc/class-Portfolio-Customizer.php:335
+msgid "↑ Top     ↔ Center"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1374
+#: components/portfolio/inc/class-Portfolio-Customizer.php:336
+msgid "↑ Top     → Right"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1376
+#: components/portfolio/inc/class-Portfolio-Customizer.php:338
+msgid "↕ Middle     ← Left"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1377
+#: components/portfolio/inc/class-Portfolio-Customizer.php:339
+msgid "↕ Middle     ↔ Center"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1378
+#: components/portfolio/inc/class-Portfolio-Customizer.php:340
+msgid "↕ Middle     → Right"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1380
+#: components/portfolio/inc/class-Portfolio-Customizer.php:342
+msgid "↓ bottom     ← Left"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1381
+#: components/portfolio/inc/class-Portfolio-Customizer.php:343
+msgid "↓ bottom     ↔ Center"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1382
+#: components/portfolio/inc/class-Portfolio-Customizer.php:344
+msgid "↓ bottom     → Right"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1391
+#: components/portfolio/inc/class-Portfolio-Customizer.php:353
+msgid "Title Visibility"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1391
+#: components/blog/inc/class-Blog-Customizer.php:1409
+#: components/portfolio/inc/class-Portfolio-Customizer.php:353
+#: components/portfolio/inc/class-Portfolio-Customizer.php:371
+msgid "Select whether to show or hide the summary."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1395
+#: components/portfolio/inc/class-Portfolio-Customizer.php:357
+msgid "Show Title"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1402
+#: components/portfolio/inc/class-Portfolio-Customizer.php:364
+msgid "Items Excerpt"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1409
+#: components/portfolio/inc/class-Portfolio-Customizer.php:371
+msgid "Excerpt Visibility"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1413
+#: components/portfolio/inc/class-Portfolio-Customizer.php:375
+msgid "Show Excerpt Text"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1420
+#: components/portfolio/inc/class-Portfolio-Customizer.php:382
+msgid "Items Meta"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1425
+#: components/portfolio/inc/class-Portfolio-Customizer.php:387
+msgid "Primary Meta Section"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1426
+#: components/portfolio/inc/class-Portfolio-Customizer.php:388
+msgid "Set the meta info that display around the title. "
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1430
+#: components/blog/inc/class-Blog-Customizer.php:1445
+#: components/portfolio/inc/class-Portfolio-Customizer.php:392
+#: components/portfolio/inc/class-Portfolio-Customizer.php:407
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:255
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:324
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:334
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:346
+msgid "Category"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1431
+#: components/blog/inc/class-Blog-Customizer.php:1446
+#: components/portfolio/inc/class-Portfolio-Customizer.php:393
+#: components/portfolio/inc/class-Portfolio-Customizer.php:408
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:327
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:337
+msgid "Author"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1432
+#: components/blog/inc/class-Blog-Customizer.php:1447
+#: components/portfolio/inc/class-Portfolio-Customizer.php:394
+#: components/portfolio/inc/class-Portfolio-Customizer.php:409
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:167
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:268
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:325
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:335
+msgid "Date"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1434
+#: components/blog/inc/class-Blog-Customizer.php:1449
+#: components/portfolio/inc/class-Portfolio-Customizer.php:396
+#: components/portfolio/inc/class-Portfolio-Customizer.php:411
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:328
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:338
+msgid "Comments"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1440
+#: components/portfolio/inc/class-Portfolio-Customizer.php:402
+msgid "Secondary Meta Section"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1460
+#: components/portfolio/inc/class-Portfolio-Customizer.php:422
+msgid "Item Title Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1472
+#: components/portfolio/inc/class-Portfolio-Customizer.php:434
+msgid "Meta Primary Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1484
+#: components/portfolio/inc/class-Portfolio-Customizer.php:446
+msgid "Meta Secondary Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1496
+msgid "Item Excerpt Color"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1508
+#: components/portfolio/inc/class-Portfolio-Customizer.php:458
+msgid "Thumbnail Background"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1522
+#: components/portfolio/inc/class-Portfolio-Customizer.php:472
+msgid "Customize the mouse over effect for your thumbnails."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1526
+#: components/portfolio/inc/class-Portfolio-Customizer.php:476
+msgid "Thumbnail Background Opacity"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1553
+#: components/portfolio/inc/class-Portfolio-Customizer.php:503
+msgid "Item Title Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1593
+#: components/portfolio/inc/class-Portfolio-Customizer.php:541
+msgid "Item Meta Font"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Customizer.php:1633
+msgid "Item Excerpt Font"
+msgstr ""
+
+#: components/blog/inc/extras.php:126
+msgid "Search for:"
+msgstr ""
+
+#: components/blog/inc/extras.php:127
+msgid "Search here"
+msgstr ""
+
+#: components/blog/inc/extras.php:168
+#: components/base/inc/class-Templater.php:176
+#: components/base/inc/extras.php:822
+msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
+msgstr ""
+
+#: components/blog/inc/class-Blog-Metaboxes.php:79
+msgid "Custom CSS Styles"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Metaboxes.php:87
+msgid "CSS Style"
+msgstr ""
+
+#: components/blog/inc/class-Blog-Metaboxes.php:88
+msgid "Add CSS that will only be applied to this post."
+msgstr ""
+
+#: components/blog/inc/template-tags.php:203
+msgid "Main Category"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:242
+#: components/portfolio/inc/template-tags.php:81
+msgid "No Comments"
+msgstr ""
+
+#. translators: %d: the number of comments
+#: components/blog/inc/template-tags.php:245
+#: components/portfolio/inc/template-tags.php:84
+msgid "%d Comment"
+msgid_plural "%d Comments"
+msgstr[0] ""
+
+#: components/blog/inc/template-tags.php:309
+msgid "Post navigation"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:316
+msgid "Previous article"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:324
+msgid "Next article"
+msgstr ""
+
+#. translators: %s: the author name
+#: components/blog/inc/template-tags.php:463
+msgid "View all posts by %s"
+msgstr ""
+
+#. translators: %s: the author name
+#: components/blog/inc/template-tags.php:463
+msgid "All posts"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:474
+msgid "Website"
+msgstr ""
+
+#. translators: %s: post title
+#: components/blog/inc/template-tags.php:645
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: components/blog/inc/template-tags.php:652
+#: components/blog/template-parts/entry-footer-page.php:34
+msgid "Edit %s"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:679
+msgid "Pingback:"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:679
+msgid "(Edit)"
+msgstr ""
+
+#. translators: %s: comment author link
+#: components/blog/inc/template-tags.php:694
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#. translators: 1: comment date, 2: comment time
+#: components/blog/inc/template-tags.php:703
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:707
+msgid "Edit"
+msgstr ""
+
+#: components/blog/inc/template-tags.php:711
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. translators: %s: The current post's posted date, in the post header
+#: components/blog/inc/template-tags.php:862
 msgctxt "post date"
 msgid "%s"
 msgstr ""
 
-#: inc/template-tags.php:35
+#: components/blog/inc/template-tags.php:867
 msgctxt "post author"
 msgid "by"
 msgstr ""
 
-#: inc/widgets/class-CategoriesImageGridWidget.php:42
-msgid "Title:"
+#. Template Name of the theme
+msgid "Full Width"
 msgstr ""
 
-#: inc/widgets/class-CategoriesImageGridWidget.php:50
-msgid "Display:"
+#. Template Name of the theme
+msgid "Default Template (No title)"
 msgstr ""
 
-#: inc/widgets/class-CategoriesImageGridWidget.php:52
-msgid "All Categories"
+#. Template Name of the theme
+msgid "Full Width (No Title)"
 msgstr ""
 
-#: inc/widgets/class-CategoriesImageGridWidget.php:53
-msgid "Selected Categories"
+#: components/blog/template-parts/search-overlay.php:19
+msgid "Begin typing your search above and press return to search."
 msgstr ""
 
-#: inc/widgets/class-CategoriesImageGridWidget.php:61
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:147
-msgid "Order by:"
+#: components/blog/template-parts/search-overlay.php:20
+msgid "Press Esc to cancel."
 msgstr ""
 
-#: inc/widgets/class-CategoriesImageGridWidget.php:63
-msgid "Posts Count"
-msgstr ""
-
-#: inc/widgets/class-CategoriesImageGridWidget.php:79
-msgid "Number of items:"
-msgstr ""
-
-#: inc/widgets/class-CategoriesImageGridWidget.php:96
-msgid "Show Sub-categories"
-msgstr ""
-
-#: inc/widgets/class-CategoriesImageGridWidget.php:111
-msgid "Categories:"
-msgstr ""
-
-#: inc/widgets/class-CategoriesImageGridWidget.php:112
-msgid "Choose what categories should be shown and in what order."
-msgstr ""
-
-#: inc/widgets/class-CategoriesImageGridWidget.php:131
-msgid "Displays your categories within an images grid."
-msgstr ""
-
-#: inc/widgets/class-CategoriesImageGridWidget.php:136
-msgid "&#32; Pixelgrade: Categories Images"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:45
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:56
-msgid "Content"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:58
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:69
-msgid "Others"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:67
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:78
-msgid "Section Title:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:68
-msgid "My Promo Box"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:76
-msgid "Featured Image:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:83
-msgid "Headline:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:90
-msgid "Description:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:97
-msgid "Button Text:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:98
-msgid "Get started now"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:104
-msgid "Button Link URL:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:105
-msgid "#"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:114
-msgid "Box Style:"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:116
-msgid "Light"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:117
-msgid "Dark"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:125
-msgid "Switch Content Order"
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:149
-msgid "Do you promo, in style."
-msgstr ""
-
-#: inc/widgets/class-PromoBoxWidget.php:155
-msgid "&#32; Pixelgrade: Promo Box"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:79
-msgid "My Featured Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:87
-msgid "Posts Source:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:89
-msgid "Recent Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:91
-msgid "Tag"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:92
-msgid "Selected Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:100
-msgid "Category:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:116
-msgid "Tag:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:132
-msgid "Post IDs:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:133
-msgid "Use Posts IDs, separated by commas, to show only a set of specific posts."
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:150
-msgid "Most Popular"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:165
-msgid "Number of posts:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:180
-msgid "Prevent Duplicate Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:181
-msgid "The posts displayed by this widget won't show up in the next widgets."
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:190
-msgid "Number of columns:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:192
-msgid "1 Column"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:193
-msgid "2 Columns"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:194
-msgid "3 Columns"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:195
-msgid "4 Columns"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:203
-msgid "Image Aspect Ratio:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:205
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:95
-msgid "Portrait"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:207
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:97
-msgid "Landscape"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:217
-msgid "Show Excerpt"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:224
-msgid "Show \"Read More\" Link"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:231
-msgid "Primary Meta:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:246
-msgid "Secondary Meta:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:261
-msgid "Show View More Button"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:275
-msgid "Label:"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:276
-msgid "View More"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:315
-msgid "Your featured posts."
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:321
-msgid "Featured Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:677
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:779
-msgid "All"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:701
-msgid "Please define some categories first."
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:800
-msgid "Please define some tags first."
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:904
-msgid "🤦 Widget Not Supported Here"
-msgstr ""
-
-#: inc/widgets/featured-posts/abstracts/class-FeaturedPosts-BaseWidget.php:906
-msgid "Oops! The %s is not supported in this area, but don't panic. You can try to move it to another section or just replace it."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-5CardsWidget.php:35
-msgid "Displays 5 of your posts in a different style, highlighting the most recent one."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-5CardsWidget.php:74
-msgid "&#10; Pixelgrade: Featured Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-6CardsWidget.php:35
-msgid "Displays 6 of your posts in a different style, highlighting the most recent one."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-6CardsWidget.php:74
-msgid "&#10; Pixelgrade: Featured Posts Alt"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:35
-msgid "Displays posts in a carousel."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:47
-msgid "Items Layout:"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:49
-msgid "Fixed Width"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:50
-msgid "Variable Width"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:58
-msgid "Number of Items per Row:"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:59
-msgid "Set how many items should be visible at a time."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:76
-msgid "Image Size:"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:94
-msgid "Original"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:117
-#: inc/widgets/featured-posts/class-FeaturedPosts-SlideshowWidget.php:68
-msgid "Show Pagination"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-CarouselWidget.php:134
-msgid "&#10; Pixelgrade: Carousel Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-GridWidget.php:35
-msgid "Displays posts in a multi-columns layout grid."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-GridWidget.php:49
-msgid "&#10; Pixelgrade: Grid Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-ListWidget.php:35
-msgid "Displays your posts in a single column with thumbnail images on the left side and text on the right."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-ListWidget.php:58
-msgid "&#10; Pixelgrade: List Posts"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-SlideshowWidget.php:35
-msgid "Displays posts in a slideshow."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-SlideshowWidget.php:51
-msgid "Blend with the Header"
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-SlideshowWidget.php:52
-msgid "Create an immersive experience by mixing the slideshow with the header."
-msgstr ""
-
-#: inc/widgets/featured-posts/class-FeaturedPosts-SlideshowWidget.php:93
-msgid "&#09; Pixelgrade: Slideshow Posts"
-msgstr ""
-
-#: inc/widgets.php:19
-msgid "Sidebar"
-msgstr ""
-
-#: inc/widgets.php:21 inc/widgets.php:34 inc/widgets.php:49 inc/widgets.php:73
-#: inc/widgets.php:84 inc/widgets.php:96 inc/widgets.php:107
-#: inc/widgets.php:118 inc/widgets.php:129 inc/widgets.php:140
-msgid "Add widgets here."
-msgstr ""
-
-#: inc/widgets.php:32
-msgid "Below Post"
-msgstr ""
-
-#: inc/widgets.php:47
-msgid "Archive Index"
-msgstr ""
-
-#: inc/widgets.php:71
-msgid "Front Page - Full Width Top"
-msgstr ""
-
-#: inc/widgets.php:82
-msgid "Front Page - &#9484;  Content 1"
-msgstr ""
-
-#: inc/widgets.php:94
-msgid "Front Page - &#9492; Sidebar 1"
-msgstr ""
-
-#: inc/widgets.php:105
-msgid "Front Page - Full Width Center"
-msgstr ""
-
-#: inc/widgets.php:116
-msgid "Front Page - &#9484; Content 2"
-msgstr ""
-
-#: inc/widgets.php:127
-msgid "Front Page - &#9492; Sidebar 2"
-msgstr ""
-
-#: inc/widgets.php:138
-msgid "Front Page - Full Width Bottom"
-msgstr ""
-
-#: inc/widgets.php:149
-msgid "Footer - Featured Area"
-msgstr ""
-
-#: inc/widgets.php:151
-msgid "Site-wide widgets displayed above the Footer Area of your website."
-msgstr ""
-
-#: template-parts/content-relatedposts.php:56
-msgid "Related Posts"
-msgstr ""
-
-#: template-parts/search-overlay.php:13
-msgid "Begin typing your search above and press return to search. Press Esc to cancel."
-msgstr ""
-
-#: template-parts/search-overlay.php:16
+#: components/blog/template-parts/search-overlay.php:24
 msgid "Close overlay search"
 msgstr ""
 
-#: template-parts/site-header-sticky.php:23
-msgid "Next:"
+#. translators: %s: Name of current post.
+#: components/blog/template-parts/content-single.php:121
+#: components/blog/template-parts/entry-content.php:29
+#: template-parts/blog/entry-content.php:29
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: template-parts/site-header-sticky.php:30
-msgid "Reading:"
+#: components/blog/template-parts/content-single.php:135
+#: components/blog/template-parts/entry-content.php:36
+#: components/blog/template-parts/content-page.php:131
+#: template-parts/blog/entry-content.php:36
+msgid "Pages:"
 msgstr ""
 
-#: template-parts/site-header-sticky.php:35
-msgid "Share:"
-msgstr ""
-#. Theme Name of the plugin/theme
-msgid "Noto"
-msgstr ""
-
-#. Theme URI of the plugin/theme
-msgid "https://demos.pixelgrade.com/noto/"
+#. translators: %s: the search query
+#: components/blog/template-parts/entry-header-search.php:33
+#: template-parts/blog/entry-header-search.php:30
+msgid "Search Results for: %s"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid "A awesome theme."
+#: components/blog/template-parts/content-none.php:33
+#: template-parts/blog/content-none.php:34
+msgid "Nothing Found"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "Pixelgrade"
+#. translators: 1: the new post link
+#: components/blog/template-parts/content-none.php:40
+#: template-parts/blog/content-none.php:36
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#. Author URI of the plugin/theme
-msgid "https://pixelgrade.com"
+#: components/blog/template-parts/content-none.php:44
+#: template-parts/blog/content-none.php:38
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#. Template Name of the plugin/theme
-msgid "Archive Index"
+#: components/blog/template-parts/content-none.php:49
+#: template-parts/blog/content-none.php:40
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#. Template Name of the plugin/theme
-msgid "Front Page"
+#: components/blog/template-parts/content-relatedposts.php:69
+#: template-parts/blog/content-relatedposts.php:67
+msgid "Related Posts"
 msgstr ""
+
+#: components/blog/template-parts/content.php:117
+msgid "Read More"
+msgstr ""
+
+#: components/blog/class-Blog.php:733
+msgid "Sidebar"
+msgstr ""
+
+#: components/blog/class-Blog.php:738
+#: components/blog/class-Blog.php:750
+msgid "Add widgets here."
+msgstr ""
+
+#: components/blog/class-Blog.php:748
+msgid "Below Post"
+msgstr ""
+
+#: components/blog/templates/404.php:44
+msgid "Oops! This page can&rsquo;t be found anywhere."
+msgstr ""
+
+#: components/blog/templates/404.php:45
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr ""
+
+#. translators: 1: the number of comments
+#: components/blog/templates/comments.php:49
+msgctxt "comments title"
+msgid "%1$s comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+
+#: components/blog/templates/comments.php:61
+#: components/blog/templates/comments.php:86
+msgid "Comment navigation"
+msgstr ""
+
+#: components/blog/templates/comments.php:64
+#: components/blog/templates/comments.php:89
+msgid "Older Comments"
+msgstr ""
+
+#: components/blog/templates/comments.php:65
+#: components/blog/templates/comments.php:90
+msgid "Newer Comments"
+msgstr ""
+
+#: components/blog/templates/comments.php:104
+msgid "Comments are closed."
+msgstr ""
+
+#: components/blog/templates/comments.php:110
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: components/blog/templates/comments.php:112
+msgid "Your comment..."
+msgstr ""
+
+#: components/blog/templates/header.php:59
+#: templates/blog/header.php:60
+msgid "Skip to content"
+msgstr ""
+
+#: components/blog/templates/sidebar-below-post.php:33
+msgid "Below Post Widget Area"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:170
+msgid "Featured Projects Options"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:175
+msgid "Selected Projects"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:177
+msgid "Choose the projects to be part of the Hero Slider."
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:188
+msgid "\"View Project\" Button Label"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:190
+msgid "Adjust the label for the single project button, displayed on each slide. Empty it if you want to hide the button."
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:192
+msgid "View project"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:227
+msgid "Portfolio Grid"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:239
+msgid "Projects List Visibility"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:241
+msgid "Select which projects to be shown in the Portfolio Grid section."
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:245
+msgid "Show All Projects"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:249
+msgid "Show Only Projects That Are Not Featured"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Metaboxes.php:253
+msgid "Hide All Projects"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Customizer.php:135
+msgid "Portfolio Grid Items"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Customizer.php:153
+msgid "Portfolio Grid Max Width"
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Customizer.php:154
+msgid "Adjust the max width of the portfolio area."
+msgstr ""
+
+#: components/portfolio/inc/class-Portfolio-Customizer.php:219
+msgid "Leave the images to their original ratio or crop them to get a more defined grid layout."
+msgstr ""
+
+#: components/portfolio/inc/template-tags.php:44
+msgid "Main Type"
+msgstr ""
+
+#: components/portfolio/inc/template-tags.php:52
+msgid "Types"
+msgstr ""
+
+#: components/portfolio/inc/template-tags.php:107
+#: components/portfolio/template-parts/posts-navigation.php:34
+msgid "Projects navigation"
+msgstr ""
+
+#: components/portfolio/inc/template-tags.php:110
+#: components/portfolio/template-parts/posts-navigation.php:32
+msgid "Older projects"
+msgstr ""
+
+#: components/portfolio/class-Portfolio.php:509
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: components/portfolio/class-Portfolio.php:514
+msgid "Choose what page should act as the portfolio archive page."
+msgstr ""
+
+#: components/portfolio/class-Portfolio.php:533
+msgid "You are currently editing the page that shows your latest projects."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Portfolio Template"
+msgstr ""
+
+#: components/portfolio/template-parts/loop-shortcode.php:59
+#: components/portfolio/template-parts/loop-custom.php:62
+msgid "Your Portfolio currently has no entries. You can start creating them on your dashboard."
+msgstr ""
+
+#: components/portfolio/template-parts/posts-navigation.php:33
+msgid "Newer projects"
+msgstr ""
+
+#: components/portfolio/templates/archive-jetpack-portfolio.php:78
+msgid "Projects"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:94
+msgid "Here are the IDs of the selected featured projects to use elsewhere, if the need arises: "
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:113
+msgid "Hero Area &#187; Background"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:126
+msgid "Gallery Image"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:131
+msgid "Playlist"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:136
+#: components/hero/inc/class-Hero-Metaboxes.php:137
+msgid "Image Opacity"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:147
+#: components/hero/inc/class-Hero-Metaboxes.php:148
+msgid "Background Color"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:148
+msgid "Used as a background color during page transitions."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:148
+msgid "Tip: It helps if the color matches the background color of the Hero image."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:159
+#: components/hero/inc/class-Hero-Metaboxes.php:161
+msgid "Hero Area &#187; Content"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:163
+msgid "Use this section to add a <strong>Title</strong> or a summary for this page. Get creative and add different elements like buttons, logos or other headings."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:165
+msgid "You can insert a title using a <strong>Heading 1</strong> element, either on the Hero Area or using a <b>Text Block</b> within the above content area."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:167
+msgid "* Note that the <strong>Page Title</strong> written above will <u>not</u> be included automatically on the page, so you have complete freedom in choosing where you place or how it looks."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:169
+msgid "Learn more about Managing the Hero Area"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:183
+msgid "Description"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:191
+msgid "Visible Hero Area"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:192
+msgid "Hidden Hero Area"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:194
+msgid "To hide the Hero Area section, remove the content above and any item from the Hero Area &#187; Background."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:195
+msgid "Add some content above or an image to the Hero Area &#187; Background to make the Hero Area visible."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:208
+msgid "Hero Area Height"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:209
+msgid "Set the height of the Hero Area relative to the browser window."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:214
+#: components/hero/inc/class-Hero-Metaboxes.php:352
+msgid "Full Height"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:218
+#: components/hero/inc/class-Hero-Metaboxes.php:356
+msgid "Two Thirds"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:222
+#: components/hero/inc/class-Hero-Metaboxes.php:360
+msgid "&nbsp;Half"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:229
+msgid "Hero Content Alignment"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:231
+msgid ""
+"<p>Considering the background image focal point, you can align the content to make them both more visible.</p>\n"
+"\t\t\t\t\t\t\t<ul>\n"
+"\t\t\t\t\t\t\t\t<li>Mix it with a background color overlay to make it pop</li>\n"
+"\t\t\t\t\t\t\t\t<li>Individual text alignments will override this option</li>\n"
+"\t\t\t\t\t\t\t\t<li>You can align the content to make them both more visible.</li>\n"
+"\t\t\t\t\t\t\t</ul>"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:291
+msgid "Slideshow Options"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:293
+msgid "Add more than one image to the <strong>Hero Area &#187; Background</strong> to enable this section. "
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:297
+msgid "Auto Play"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:298
+msgid "The slideshow will automatically move to the next slide, after a period of time."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:303
+msgid "Enabled"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:307
+msgid "Disabled"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:314
+msgid "Auto Play Delay (s)"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:315
+msgid "Set the number of seconds to wait before moving to the next slide."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:333
+msgid "Map Coordinates & Display Options"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:346
+msgid "Map Height"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:347
+msgid "Select the height of the Google Map area in relation to the browser window."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:367
+msgid "Google Maps URL"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:368
+msgid "Paste here the <strong>Share Link</strong>URL you have copied from <a href=\"https://www.google.com/maps\" target=\"_blank\">Google Maps</a>. Do not use the embed code or a short URL."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:374
+msgid "Custom Colors"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:375
+msgid "Allow us to change the map colors to better match your website."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:381
+msgid "Pin Content"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:382
+msgid "Insert here the content of the location marker - leave empty for no custom marker."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:569
+msgid "Media File"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:570
+#: components/hero/inc/class-Hero-Metaboxes.php:608
+msgid "Custom Image URL"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:571
+#: components/hero/inc/class-Hero-Metaboxes.php:599
+msgid "Custom Video URL"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:572
+#: components/hero/inc/class-Hero-Metaboxes.php:634
+msgid "External URL"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:591
+msgid "Linked To"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:602
+msgid "Attach a video to this image <span class=\"small\">(YouTube or Vimeo)</span>."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:611
+msgid "Link this image to a custom url."
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:626
+msgid "Video Autoplay"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:628
+msgid "Enable Video Autoplay?"
+msgstr ""
+
+#: components/hero/inc/class-Hero-Metaboxes.php:637
+msgid "Set this image to link to an external website."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:141
+msgid "Header"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:159
+msgid "Logo Height"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:160
+msgid "Adjust the max height of your logo container."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:179
+msgid "Header Height"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:180
+msgid "Adjust the header and navigation bar height."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:204
+msgid "Navigation Link Spacing"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:205
+msgid "Adjust the spacing between individual items in your navigation."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:232
+msgid "Header Position"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:233
+msgid "Choose if you want a static menu or a fixed (sticky) one that stays visible no matter how much you scroll the page."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:236
+msgid "Static"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:237
+msgid "Sticky (fixed)"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:242
+msgid "Header Width"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:243
+msgid "Choose if you want the header span to the full-browser or stay aligned with the site container width."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:246
+msgid "Full Browser Width"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:247
+msgid "Container Width"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:252
+msgid "Header Sides Spacing"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:253
+msgid "Adjust the space separating the header and the sides of the browser."
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:285
+msgid "Navigation Links Color"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:297
+msgid "Links Active Color"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:315
+msgid "Links Active Style"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:320
+msgid "Underline"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:325
+msgid "Header Background"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:344
+msgid "Site Title Font"
+msgstr ""
+
+#: components/header/inc/class-Header-Customizer.php:381
+msgid "Navigation Text"
+msgstr ""
+
+#: components/header/class-Header.php:66
+msgid "Header Right"
+msgstr ""
+
+#: components/header/class-Header.php:84
+msgid "Header Left"
+msgstr ""
+
+#: components/header/template-parts/header.php:47
+#: templates/blog/header.php:97
+msgid "Menu"
+msgstr ""
+
+#. translators: %s: the page slug
+#: components/base/inc/class-CustomLoopsForPages.php:390
+msgid "You haven't provided a slug for the loop template part for the %s page template custom loop."
+msgstr ""
+
+#. translators: 1: the template part, 2: the page slug
+#: components/base/inc/class-CustomLoopsForPages.php:405
+msgid "%1$s does not exist. Check out the config of the %2$s custom page template."
+msgstr ""
+
+#. translators: %s: the page slug
+#: components/base/inc/class-CustomLoopsForPages.php:413
+#: components/base/inc/class-CustomLoopsForPages.php:470
+msgid "You haven't provided a slug for the post template part for the %s page template custom loop."
+msgstr ""
+
+#: components/base/inc/extras.php:433
+msgid "Please provide only paths in the theme for autoloading."
+msgstr ""
+
+#: components/base/inc/extras.php:438
+msgid "We support only require, require_once, include, and include_once."
+msgstr ""
+
+#: components/base/inc/template-tags.php:429
+msgid "Everything"
+msgstr ""
+
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:142
+msgid "Select an Image"
+msgstr ""
+
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:143
+msgid "Insert Into Widget"
+msgstr ""
+
+#. translators: Used for screen readers on widget sections.
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:244
+msgid "Press return or enter to open this section."
+msgstr ""
+
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:867
+msgid "Select Image"
+msgstr ""
+
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:872
+msgid "Clear"
+msgstr ""
+
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:1479
+msgid "🤦 Widget Type Not Supported Here"
+msgstr ""
+
+#. translators: %s: the widget name
+#: components/base/abstracts/widget-fields/class-WidgetFields.php:1483
+msgid "Oops! The %s is not supported in this area, but don't panic . You can try to move it to another section or just replace it . "
+msgstr ""
+
+#: components/base/abstracts/class-Component.php:775
+#: components/base/abstracts/class-Component.php:782
+#: components/base/abstracts/class-Singleton.php:73
+#: components/base/abstracts/class-Singleton.php:80
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:70
+msgid "Content"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:79
+msgid "Display"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:83
+msgid "Others"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:92
+msgid "Section Title:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:93
+msgid "My Featured Posts"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:101
+msgid "Posts Source:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:103
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:345
+msgid "Recent Posts"
+msgstr ""
+
+#. translators: %s: the theme name
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:106
+msgid "👉 More Posts Source options (e.g. Category, Tag, Selected Posts) are available in the Pro version of %s. C'mon, aim for more, mate!"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:113
+msgid "Category:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:131
+msgid "Tag:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:149
+msgid "Post IDs:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:150
+msgid "Use Posts IDs, separated by commas, to show only a set of specific posts."
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:165
+msgid "Order by:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:168
+msgid "Most Popular"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:183
+msgid "Number of posts:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:198
+msgid "Prevent Duplicate Posts"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:199
+msgid "The posts displayed by this widget won't show up in the next widgets."
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:208
+msgid "Number of columns:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:210
+msgid "1 Column"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:211
+msgid "2 Columns"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:212
+msgid "3 Columns"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:213
+msgid "4 Columns"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:221
+msgid "Image Aspect Ratio:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:223
+msgid "Portrait"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:225
+msgid "Landscape"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:236
+msgid "Show Excerpt"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:245
+msgid "Show \"Read More\" Link"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:252
+msgid "Primary Meta:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:263
+msgid "Secondary Meta:"
+msgstr ""
+
+#. translators: %s: the theme name
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:265
+msgid "👉 More display options (e.g. Show Excerpt, Show Read More) are available in the Pro version of %s. Don't let us stop you!"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:277
+msgid "Show View More Button"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:291
+msgid "Label:"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:292
+msgid "View More"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:347
+msgid "Tag"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:348
+msgid "Selected Posts"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:368
+msgid "Your featured posts."
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:375
+msgid "Featured Posts"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:776
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:880
+msgid "All"
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:800
+msgid "Please define some categories first."
+msgstr ""
+
+#: components/base/abstracts/class-FeaturedPosts-BaseWidget.php:901
+msgid "Please define some tags first."
+msgstr ""
+
+#. translators: %s: the template part located path
+#: components/base/_core-functions.php:572
+msgid "%s does not exist."
+msgstr ""
+
+#: template-parts/reading-progress.php:28
+msgid "min %s read"
+msgid_plural "mins %s read"
+msgstr[0] ""
