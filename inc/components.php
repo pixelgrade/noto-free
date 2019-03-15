@@ -49,19 +49,10 @@ function noto_alter_header_component_config( $config ) {
 	);
 
 	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
-
 		unset( $config['menu_locations']['primary-right'] );
 		$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
-
 	} else {
-		$config = Pixelgrade_Config::merge( $config, array(
-			'menu_locations' => array(
-				'primary-right' => array(
-					'title'         => esc_html__( 'Header Bottom', '__theme_txtd' ),
-					'nav_menu_args' => array()
-				)
-			)
-		) );
+		$config['menu_locations']['primary-right']['title'] = esc_html__( 'Header Bottom', '__theme_txtd' );
 	}
 
 	return $config;
