@@ -54,6 +54,15 @@ define( 'THEME_HEADINGS_FONT', 'IBM Plex Sans' );
 define( 'THEME_HEADINGS_FONT_ALT', 'IBM Plex Sans' );
 define( 'THEME_SITE_TITLE_FONT', 'Bungee' );
 
+function noto_add_customify_options( $options ) {
+	$options['opt-name'] = 'noto_options';
+
+	//start with a clean slate - no Customify default sections.
+	$options['sections'] = array();
+
+	return $options;
+}
+
 /**
  * Add the Style Manager cross-theme Customizer section.
  *
@@ -273,15 +282,6 @@ function noto_change_site_identity_section( $options ) {
 		'default'  => true,
 	);
 
-
-	return $options;
-}
-
-function noto_add_customify_options( $options ) {
-	$options['opt-name'] = 'noto_options';
-
-	//start with a clean slate - no Customify default sections.
-	$options['sections'] = array();
 
 	return $options;
 }

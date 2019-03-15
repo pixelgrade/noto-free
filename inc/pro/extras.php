@@ -22,6 +22,16 @@ function noto_pro_setup() {
 }
 add_action( 'after_setup_theme', 'noto_pro_setup' );
 
+function noto_pro_gutenberg_styles() {
+
+	$style = '
+	    .edit-post-visual-editor[class] blockquote:before {
+            background-image: ' . noto_get_pattern_background_image() .'
+        }';
+
+	wp_add_inline_style( 'noto-gutenberg', $style );
+}
+add_action( 'enqueue_block_editor_assets', 'noto_pro_gutenberg_styles' );
 
 /**
  * Handle the specific Pixelgrade Care integration.
@@ -39,7 +49,6 @@ function noto_setup_pixelgrade_care() {
 		)
 	);
 }
-
 add_action( 'after_setup_theme', 'noto_setup_pixelgrade_care', 10 );
 
 /**
@@ -55,66 +64,70 @@ function noto_output_wave_svg() {
 }
 add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
 
-
 /**
- * Initialize custom widgets.
- *
- * @since 1.1.0
- *
- * @param array $config
- *
- * @return array
+ * Add our customizer styling edits into the wp_editor.
  */
-function noto_alter_blog_component_config( $config ) {
+function noto_add_css_for_autostyled_intro_in_editor() {
+	$disable_intro_autostyle = pixelgrade_option( 'single_disable_intro_autostyle', true );
+	$color                   = pixelgrade_option( 'secondary_color', '#E79696' );
 
-	$config = Pixelgrade_Config::merge( $config, array(
-		'sidebars' => array(
-			'sidebar-1' => array(
-				'sidebar_args' => array(
-					'name'          => esc_html__( 'Posts Grid Widgets', '__theme_txtd' ),
-					'description'   => esc_html__( 'Insert your favorite widgets here, and we will place them throughout the Frontpage posts grid.', '__theme_txtd' ),
-					'before_widget' => '<div class="c-noto__item c-noto__item--widget %2$s"><section id="%1$s" class="widget">',
-					'after_widget'  => '</section></div>',
-					'before_title'  => '<h2 class="widget__title h6"><span>',
-					'after_title'   => '</span></h2>',
-				),
-			),
-			'sidebar-2' => array(
-				'sidebar_args' => array(
-					'before_title' => '<h2 class="widget__title h4"><span>',
-					'after_title'  => '</span></h2>',
-				),
-			)
-		)
-	) );
+	if ( ! $disable_intro_autostyle ) {
+		$selectors = array(
+			".intro[class], .mce-content-body > p:first-child",
+			".intro[class]:before, .mce-content-body > p:first-child:before",
+		);
+	} else {
+		$selectors = array(
+			".intro[class]",
+			".intro[class]:before",
+		);
+	}
 
-	return $config;
+	$css =
+		$selectors[0] . ' { ' .
+		'font-size: 1.555em;' .
+		'line-height: 1.25em;' .
+		'font-style: italic;' .
+		'color: ' . $color . ';' .
+		' } ' .
+		$selectors[1] . ' { ' .
+		'content: "";' .
+		'display: block;' .
+		'height: 8px;' .
+		'margin-bottom: 21px;' .
+		'background: ' . noto_get_pattern_background_image( $color ) . ';' .
+		' } ';
+
+	if ( ! $disable_intro_autostyle ) { ?>
+		<script>
+			(function ($) {
+				$(window).load(function () {
+					var ifrm = window.frames['content_ifr'];
+					if (typeof ifrm === "undefined") {
+						return;
+					}
+					ifrm = (
+						ifrm.contentDocument || ifrm.document
+					);
+					var head = ifrm.getElementsByTagName('head')[0];
+					var style = document.createElement('style');
+					var css = '<?php echo $css; ?>';
+					style.type = 'text/css';
+					if (style.styleSheet) {
+						// This is required for IE8 and below.
+						style.styleSheet.cssText = css;
+					} else {
+						style.appendChild(document.createTextNode(css));
+					}
+
+					head.appendChild(style);
+				});
+			})(jQuery);
+		</script>
+		<?php get_template_part( 'template-parts/svg/wave-accent-svg' );
+	}
 }
-add_filter( 'pixelgrade_blog_initial_config', 'noto_alter_blog_component_config', 10 );
-
-/**
- * Modify the Footer widget area settings.
- *
- * @param array $config
- *
- * @return array
- */
-function noto_alter_footer_component_config( $config ) {
-	$config = Pixelgrade_Config::merge( $config, array(
-		'sidebars' => array(
-			'sidebar-footer' => array(
-				'sidebar_args' => array(
-					'before_title' => '<h2 class="widget__title h4"><span>',
-					'after_title'  => '</span></h2>',
-				),
-			)
-		)
-	) );
-
-	return $config;
-}
-add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_config', 10 );
-
+add_action( 'admin_head', 'noto_add_css_for_autostyled_intro_in_editor' );
 
 /**
  * Adds CSS to hide header text for custom logo, based on Customizer setting.
@@ -159,38 +172,35 @@ add_action( 'wp_head', '_noto_custom_logo_header_styles', 9 );
 function noto_reading_progress() {
 
     get_template_part( 'template-parts/reading-progress' );
-
 }
 add_action('pixelgrade_after_render_block_blog/entry-footer/single_content', 'noto_reading_progress');
-
 
 /**
  * Add the markup for the Noto Search Icon.
  */
 function noto_search_icon() { ?>
-
-<div class="search-trigger">
-	<button class="js-search-trigger">
-		<?php get_template_part( 'template-parts/svg/icon-search' );?>
-		<span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
-	</button>
-</div>
+	<div class="search-trigger">
+		<button class="js-search-trigger">
+			<?php get_template_part( 'template-parts/svg/icon-search' );?>
+			<span class="screen-reader-text"><?php esc_html_e( 'Search', '__theme_txtd' ); ?></span>
+		</button>
+	</div>
     <?php
 }
-add_action('pixelgrade_header_after_navbar_content', 'noto_search_icon', 20);
+add_action( 'pixelgrade_header_after_navbar_content', 'noto_search_icon', 20 );
 
-
-if ( ! function_exists( 'noto_append_svg_to_footer' ) ) :
+if ( ! function_exists( 'noto_append_svg_to_footer' ) ) {
 	/**
 	 *  Output the wave quote svg code in the footer.
 	 */
 	function noto_append_svg_to_footer() {
 		$accent = pixelgrade_option( 'accent_color', '#FFB1A5' );
 		?>
-        <div class="wave-svg js-pattern-template"
-             style='background-image: <?php echo esc_attr( noto_get_pattern_background_image() ); ?>' hidden></div>
-        <div class="wave-svg js-pattern-accent-template"
-             style='background-image: <?php echo esc_attr( noto_get_pattern_background_image( $accent ) ); ?>' hidden></div>
+		<div class="wave-svg js-pattern-template"
+		     style='background-image: <?php echo esc_attr( noto_get_pattern_background_image() ); ?>' hidden></div>
+		<div class="wave-svg js-pattern-accent-template"
+		     style='background-image: <?php echo esc_attr( noto_get_pattern_background_image( $accent ) ); ?>'
+		     hidden></div>
 	<?php }
-endif;
+}
 add_action( 'pixelgrade_after_footer', 'noto_append_svg_to_footer' );

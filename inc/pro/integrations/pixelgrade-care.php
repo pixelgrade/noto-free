@@ -67,9 +67,7 @@ function noto_pixcare_install_page() {
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'wp-util' );
-	global $title, $hook_suffix, $current_screen, $wp_locale, $pagenow,
-	       $update_title, $total_update_count, $parent_file; ?>
-	<!DOCTYPE html>
+	?><!DOCTYPE html>
 	<html <?php language_attributes(); ?>>
 	<head>
 		<meta name="viewport" content="width=device-width"/>

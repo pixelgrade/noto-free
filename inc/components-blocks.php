@@ -2,8 +2,6 @@
 /**
  * Custom functions related to the Components Blocks system.
  *
- * Development notice: This file is synced from the variations directory! Do not edit in the `inc` directory!
- *
  * @package Noto
  * @since 1.0.0
  */

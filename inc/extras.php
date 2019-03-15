@@ -8,7 +8,7 @@
  * @since 1.1.0
  */
 
-if ( ! function_exists( 'noto_google_fonts_url' ) ) :
+if ( ! function_exists( 'noto_google_fonts_url' ) ) {
 	/**
 	 * Register Google fonts for Noto.
 	 *
@@ -54,23 +54,13 @@ if ( ! function_exists( 'noto_google_fonts_url' ) ) :
 
 		return $fonts_url;
 	} #function
-endif;
-
-if ( ! function_exists( 'noto_hide_comments_by_default' ) ) {
-	/**
-	 * Prevent the comments from being shown by default.
-	 *
-	 * It will force the comments display control to be unchecked.
-	 *
-	 * @param string $string
-	 *
-	 * @return string
-	 */
-	function noto_hide_comments_by_default( $string ) {
-		return '';
-	}
 }
-add_filter( 'pixelgrade_get_comments_toggle_checked_attribute', 'noto_hide_comments_by_default' );
+
+
+/**
+ * Prevent the comments from being shown by default.
+ */
+add_filter( 'pixelgrade_get_comments_toggle_checked_attribute', '__return_empty_string' );
 
 /**
  * Dequeue various scripts.
@@ -79,7 +69,6 @@ function noto_dequeue_scripts() {
 	// Dequeue the Jetpack Social Menu Javascript as we don't need it.
 	wp_dequeue_style( 'jetpack-social-menu' );
 }
-
 add_action( 'wp_enqueue_scripts', 'noto_dequeue_scripts', 20 );
 
 /**
@@ -92,7 +81,6 @@ function noto_mce_editor_buttons( $buttons ) {
 
 	return $buttons;
 }
-
 add_filter( 'mce_buttons_2', 'noto_mce_editor_buttons' );
 
 /**
@@ -128,53 +116,46 @@ function noto_mce_before_init( $settings ) {
 
 	return $settings;
 }
-
 add_filter( 'tiny_mce_before_init', 'noto_mce_before_init' );
 
-
-if ( ! function_exists( 'noto_get_the_reading_time_in_minutes' ) ) {
-	/**
-	 * Calculate the reading time in minutes for the current post's content.
-	 *
-	 * @return float
-	 */
-	function noto_get_the_reading_time_in_minutes() {
-		$words_per_minute = 200;
-		$words_per_second = $words_per_minute / 60;
-		$content           = get_the_content();
-		$word_count        = str_word_count( strip_tags( $content ) );
-		$seconds           = floor( $word_count / $words_per_second );
-		$minutes           = floor( $word_count / $words_per_minute );
-		$seconds_remainder = $seconds % 60;
-		if ( $minutes < 1 || $seconds_remainder > 40 ) {
-			$minutes ++;
-		}
-		return $minutes;
+/**
+ * Calculate the reading time in minutes for the current post's content.
+ *
+ * @return float
+ */
+function noto_get_the_reading_time_in_minutes() {
+	$words_per_minute = 200;
+	$words_per_second = $words_per_minute / 60;
+	$content           = get_the_content();
+	$word_count        = str_word_count( strip_tags( $content ) );
+	$seconds           = floor( $word_count / $words_per_second );
+	$minutes           = floor( $word_count / $words_per_minute );
+	$seconds_remainder = $seconds % 60;
+	if ( $minutes < 1 || $seconds_remainder > 40 ) {
+		$minutes ++;
 	}
+	return $minutes;
 }
 
-if ( ! function_exists( 'noto_add_decoration_to_card_meta' ) ) {
-
-	function noto_add_decoration_to_card_meta( $meta ) {
-		if ( ! empty( $meta['category'] ) ) {
-			$category = '';
-			// On archives we want to show all the categories, not just the main one
-			$categories = get_the_terms( get_the_ID(), 'category' );
-			if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
-				$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
-				foreach ( $categories as $this_category ) {
-					$category .= '<li>' . PHP_EOL;
-					$category .= '<a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a>' . PHP_EOL;
-					// $category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
-					$category .= '</li>' . PHP_EOL;
-				};
-				$category .= '</ul>' . PHP_EOL;
-			}
-			$meta['category'] = $category;
+function noto_add_decoration_to_card_meta( $meta ) {
+	if ( ! empty( $meta['category'] ) ) {
+		$category = '';
+		// On archives we want to show all the categories, not just the main one
+		$categories = get_the_terms( get_the_ID(), 'category' );
+		if ( ! is_wp_error( $categories ) && ! empty( $categories ) ) {
+			$category .= '<span class="screen-reader-text">' . esc_html__( 'Categories', '__theme_txtd' ) . '</span><ul>' . PHP_EOL;
+			foreach ( $categories as $this_category ) {
+				$category .= '<li>' . PHP_EOL;
+				$category .= '<a href="' . esc_url( get_category_link( $this_category ) ) . '" rel="category">' . $this_category->name . '</a>' . PHP_EOL;
+				// $category .= '<div class="c-meta__decoration"></div>' . PHP_EOL;
+				$category .= '</li>' . PHP_EOL;
+			};
+			$category .= '</ul>' . PHP_EOL;
 		}
-
-		return $meta;
+		$meta['category'] = $category;
 	}
+
+	return $meta;
 }
 add_filter( 'pixelgrade_get_post_meta', 'noto_add_decoration_to_card_meta', 10 );
 
@@ -193,34 +174,6 @@ function noto_change_tag_cloud_font_sizes( array $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'noto_change_tag_cloud_font_sizes' );
-
-/**
- * Add the list of tags the post.
- *
- * @param string $content Content of a post.
- *
- * @return string
- */
-function noto_add_tags_list( $content ) {
-
-	$tags_content = '';
-
-	// Hide tag text for pages.
-	$add = ( 'post' === get_post_type() && is_singular( 'post' ) && is_main_query() );
-	if ( apply_filters( 'pixelgrade_add_tags_to_content', $add ) ) {
-		$tags_list = get_the_tag_list();
-
-		if ( ! empty( $tags_list ) ) {
-			$tags_content .= '<div class="tags"><div class="tags__title">' . esc_html__( 'Tags', '__theme_txtd' ) . '</div>' . $tags_list . '</div>'; // WPCS: XSS OK.
-		}
-	}
-
-	return $content . $tags_content;
-}
-
-// add this filter with a priority smaller than sharedaddy - it has 19
-remove_filter( 'the_content', 'pixelgrade_add_tags_list', 18 );
-add_filter( 'the_content', 'noto_add_tags_list', 18 );
 
 /**
  * Add card meta decoration.
@@ -292,86 +245,10 @@ function noto_posts_per_page( $posts_per_page ) {
 add_filter( 'option_posts_per_page', 'noto_posts_per_page', 10, 1 );
 
 /**
- * Add our customizer styling edits into the wp_editor.
+ * Output the profile photo before the rest of the branding.
  */
-function noto_add_css_for_autostyled_intro_in_editor() {
-	$disable_intro_autostyle = pixelgrade_option( 'single_disable_intro_autostyle', true );
-	$color                   = pixelgrade_option( 'secondary_color', '#E79696' );
+add_action( 'pixelgrade_header_before_brading_content', 'noto_the_profile_photo' );
 
-	if ( ! $disable_intro_autostyle ) {
-		$selectors = array(
-			".intro[class], .mce-content-body > p:first-child",
-			".intro[class]:before, .mce-content-body > p:first-child:before",
-		);
-	} else {
-		$selectors = array(
-			".intro[class]",
-			".intro[class]:before",
-		);
-	}
-
-	$css =
-		$selectors[0] . ' { ' .
-		'font-size: 1.555em;' .
-		'line-height: 1.25em;' .
-		'font-style: italic;' .
-		'color: ' . $color . ';' .
-		' } ' .
-		$selectors[1] . ' { ' .
-		'content: "";' .
-		'display: block;' .
-		'height: 8px;' .
-		'margin-bottom: 21px;' .
-		'background: ' . noto_get_pattern_background_image( $color ) . ';' .
-		' } ';
-
-	if ( ! $disable_intro_autostyle ) { ?>
-        <script>
-            (function ($) {
-                $(window).load(function () {
-                    var ifrm = window.frames['content_ifr'];
-                    if (typeof ifrm === "undefined") {
-                        return;
-                    }
-                    ifrm = (
-                        ifrm.contentDocument || ifrm.document
-                    );
-                    var head = ifrm.getElementsByTagName('head')[0];
-                    var style = document.createElement('style');
-                    var css = '<?php echo $css; ?>';
-                    style.type = 'text/css';
-                    if (style.styleSheet) {
-                        // This is required for IE8 and below.
-                        style.styleSheet.cssText = css;
-                    } else {
-                        style.appendChild(document.createTextNode(css));
-                    }
-
-                    head.appendChild(style);
-                });
-            })(jQuery);
-        </script>
-		<?php get_template_part( 'template-parts/svg/wave-accent-svg' );
-	}
-}
-add_action( 'admin_head', 'noto_add_css_for_autostyled_intro_in_editor' );
-
-/**
- * Add the markup for the Noto Profile Photo.
- */
-function noto_profile_photo() { ?>
-    <div class="c-profile-photo">
-        <div class="c-profile-photo__default">
-			<?php pixelgrade_the_profile_photo(); ?>
-        </div>
-    </div>
-	<?php
-}
-
-/**
- * Check the users' access level.
- *
- */
 function noto_maybe_load_pro_features() {
 	if ( true === pixelgrade_user_has_access( 'pro-features' ) ) {
 		pixelgrade_autoload_dir( 'inc/pro' );

@@ -61,7 +61,7 @@ if ( ! function_exists( 'noto_get_pattern_svg' ) ) {
 
 if ( ! function_exists( 'noto_get_pattern_background_image' ) ) {
 
-	function noto_get_pattern_background_image( $color = '', $pattern = 'wave' ) {
+	function noto_get_pattern_background_image( $color = '' ) {
 		$pattern = pixelgrade_option( 'pattern_style', 'wave' );
 
 		if ( empty( $color ) ) {
@@ -70,6 +70,6 @@ if ( ! function_exists( 'noto_get_pattern_background_image' ) ) {
 
 		$svg = noto_get_pattern_svg( $color, $pattern );
 
-		return 'url("data:image/svg+xml;utf8,' . rawurlencode(trim($svg)) . '");';
+		return 'url("data:image/svg+xml;utf8,' . rawurlencode( trim( $svg ) ) . '");';
 	}
 }

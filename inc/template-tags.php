@@ -121,3 +121,17 @@ if ( ! function_exists( 'pixelgrade_the_profile_photo' ) ) {
 		echo pixelgrade_get_profile_photo( $blog_id );
 	}
 }
+
+if ( ! function_exists( 'noto_the_profile_photo') ) {
+	/**
+	 * Display the Profile Photo.
+	 */
+	function noto_the_profile_photo() { ?>
+		<div class="c-profile-photo">
+			<div class="c-profile-photo__default">
+				<?php pixelgrade_the_profile_photo(); ?>
+			</div>
+		</div>
+		<?php
+	}
+}

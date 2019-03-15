@@ -179,13 +179,6 @@ add_action( 'admin_enqueue_scripts', 'noto_load_wp_admin_style' );
 function noto_gutenberg_styles() {
 	wp_enqueue_style( 'noto-gutenberg', get_theme_file_uri( '/editor.css' ), false );
 	wp_enqueue_style( 'noto-google-fonts', noto_google_fonts_url() );
-
-	$style = '
-	    .edit-post-visual-editor[class] blockquote:before {
-            background-image: ' . noto_get_pattern_background_image() .'
-        }';
-
-	wp_add_inline_style( 'noto-gutenberg', $style );
 }
 add_action( 'enqueue_block_editor_assets', 'noto_gutenberg_styles' );
 
@@ -212,12 +205,10 @@ function noto_custom_tiled_gallery_width() {
 }
 add_filter( 'tiled_gallery_content_width', 'noto_custom_tiled_gallery_width' );
 
-function noto_get_blog_grid_class( $classes ) {
-	// @todo This is weird!!!
-	$classes = array();
-	return $classes;
-}
-add_filter( 'pixelgrade_blog_grid_class', 'noto_get_blog_grid_class' );
+/**
+ * We don't want any classes on the blog grid.
+ */
+add_filter( 'pixelgrade_blog_grid_class', '__return_empty_array' );
 
 function noto_bind_profile_picture_script() {
 	?>
@@ -235,7 +226,6 @@ function noto_bind_profile_picture_script() {
 	</script>
 	<?php
 }
-
 add_action('customize_controls_print_scripts', 'noto_bind_profile_picture_script');
 
 /*
