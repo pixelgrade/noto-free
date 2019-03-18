@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $post_it_title = pixelgrade_option( 'archive_post_it_title', 'Hello' );
 $post_it_content = pixelgrade_option( 'archive_post_it_content', wp_kses_post( __( '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="/contact/">reach me</a> to say Hi!</p>', '__theme_txtd' ) ) );
-$post_it_hide = pixelgrade_option( 'archive_post_it_disable');
+$post_it_hide = pixelgrade_option( 'archive_post_it_disable', false);
 
 if ($post_it_hide === false) {
 
