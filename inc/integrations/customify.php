@@ -446,7 +446,7 @@ function noto_customify_general_section( $section_options, $options ) {
 						array(
 							'property' => 'color',
 							'selector' => '
-								.c-card__letter,
+								.c-card__letter[class],
 								.c-navbar__label,
 								.search-trigger[class]',
 						),
@@ -454,7 +454,9 @@ function noto_customify_general_section( $section_options, $options ) {
 							'property' => 'background-color',
 							'selector' => '
 								.c-noto__item--widget,
-								.entry-footer .c-author',
+								.entry-footer .c-author,
+								.u-buttons-solid .c-footer button[type=submit],
+								ul.page-numbers > li > .current',
 						),
 					),
 				),
@@ -586,7 +588,8 @@ function noto_customify_main_content_section( $section_options, $options ) {
 						),
 						array(
 							'property' => 'color',
-							'selector' => '.profile-photo-link__label'
+							'selector' => '.profile-photo-link__label,
+										   .u-buttons-solid  .search-submit[class]:hover'
 						),
 					),
 				),
@@ -1037,7 +1040,8 @@ function noto_customify_header_section( $section_options, $options ) {
 						),
 						array(
 							'property'        => 'margin-left',
-							'selector'        => '.c-noto--header li',
+							'selector'        => '.c-noto--header li,
+												  .c-navbar__zone--right li',
 							'unit'            => 'px',
 							'callback_filter' => 'typeline_spacing_cb',
 						),
@@ -1167,13 +1171,30 @@ function noto_customify_footer_section( $section_options, $options ) {
 
 				// [Section] COLORS
 				'footer_body_text_color' => array(
-					'default' => SM_LIGHT_PRIMARY
+					'default' => SM_LIGHT_PRIMARY,
+					'css'     => array(
+						array(
+							'property' => 'color',
+							'selector' => '.c-footer,
+											.u-buttons-outline .c-footer button[type=submit]',
+						),
+					),
 				),
 				'footer_links_color'     => array(
 					'default' => SM_LIGHT_SECONDARY
 				),
 				'footer_background'      => array(
-					'default' => SM_DARK_PRIMARY
+					'default' => SM_DARK_PRIMARY,
+					'css'     => array(
+						array(
+							'property' => 'background',
+							'selector' => '.u-footer-background',
+						),
+						array(
+							'property' => 'color',
+							'selector' => '.u-buttons-solid .c-footer button[type=submit]',
+						),
+					),
 				),
 			),
 		),

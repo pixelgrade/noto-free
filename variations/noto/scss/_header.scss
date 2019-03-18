@@ -34,7 +34,7 @@
     a {
       display: flex;
       align-items: center;
-      height: 100%;
+      height: auto;
       padding: 1em;
 
       &,
@@ -176,6 +176,15 @@
 
       &:hover {
         opacity: initial;
+      }
+    }
+  }
+
+  .menu-item-has-children {
+    > a {
+      &:after {
+        content: "";
+        padding-left: 0;
       }
     }
   }

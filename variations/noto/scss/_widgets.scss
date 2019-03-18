@@ -339,3 +339,11 @@ body:not(.blog) .c-noto__item--post-it {
         @extend .button.solid;
     }
 }
+
+// Search Form
+.search-form {
+    .search-submit {
+        width: 100%;
+        @include spacing(margin-top,0.5rem);
+    }
+}
