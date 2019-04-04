@@ -73,6 +73,7 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			 * If the alt attribute is not empty, there's no need to explicitly pass
 			 * it because wp_get_attachment_image() already adds the alt attribute.
 			 */
+			/* translators: %1$s: profile photo url  %2$s: attachment image */
 			$html = sprintf( '<a href="%1$s" class="profile-photo-link" rel="home" itemprop="url">%2$s</a>',
 				esc_url( home_url( '/' ) ),
 				wp_get_attachment_image( $profile_photo_id, 'full', false, $profile_photo_attr )
@@ -93,7 +94,7 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			get_template_part( 'template-parts/svg/profile-photo' );
 			$image = ob_get_contents();
 			ob_end_clean();
-
+			/* translators: %1$s: profile photo url  */
 			$html = sprintf( '<a href="%1$s" class="profile-photo-link  '. $classname .'">' . $image . $label . '</a>', $url);
 		}
 
