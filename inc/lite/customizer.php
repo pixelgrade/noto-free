@@ -173,7 +173,7 @@ function noto_lite_add_profile_image_option( $wp_customize ) {
 		'default'    => '',
 		'capability' => 'edit_theme_options',
 		'transport'  => 'refresh',
-		'sanitize_callback' => '__return_true'
+		'sanitize_callback' => 'noto_lite_sanitize_profile_photo',
 	) );
 
 	$control = new WP_Customize_Cropped_Image_Control(
@@ -218,4 +218,30 @@ function noto_lite_sanitize_checkbox( $input ) {
 	} else {
 		return false;
 	}
+}
+
+/**
+ * Sanitize profile photo.
+ *
+ * @param boolean $input .
+ *
+ * @return mixed
+ */
+function noto_lite_sanitize_profile_photo( $input ) {
+
+	$mimes_allowed = array(
+		'jpg|jpeg|jpe' => 'image/jpeg',
+		'gif'          => 'image/gif',
+		'png'          => 'image/png'
+	);
+	$extension     = get_post_mime_type( $input );
+
+	//if file has a valid mime type return input, otherwise return FALSE
+	foreach ( $mimes_allowed as $mime ) {
+		if ( $extension == $mime ) {
+			return $input;
+		}
+	}
+
+	return false;
 }
