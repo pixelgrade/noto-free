@@ -25,7 +25,8 @@ if ( is_single() && ! is_attachment() ) { ?>
 		<div class="c-reading-progress__label">
 			<?php $minutes = noto_get_the_reading_time_in_minutes(); ?>
 			<span><?php echo $minutes; ?></span>
-			<p><?php printf( _n( 'min %s read', 'mins %s read', $minutes, '__theme_txtd' ), '<br>' ); ?></p>
+			<p><?php /* translators: %s: number of minutes necessary for reading the post */
+                printf( _n( 'min %s read', 'mins %s read', $minutes, '__theme_txtd' ), '<br>' ); ?></p>
 		</div>
 	</div>
 

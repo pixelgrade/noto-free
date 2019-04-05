@@ -63,6 +63,7 @@ function noto_lite_customizer_add_pro_controls( $wp_customize ) {
 	$wp_customize->add_setting(
 		'noto_lite_style_view_pro_desc', array(
 			'default'           => '',
+			'sanitize_callback' => '__return_true',
 		)
 	);
 	$wp_customize->add_control(
@@ -168,12 +169,12 @@ function noto_lite_add_profile_image_option( $wp_customize ) {
 
 	$setting_id = 'noto_options[profile_photo]';
 
-	$setting_args = array(
+	$wp_customize->add_setting( $setting_id, array(
 		'default'    => '',
 		'capability' => 'edit_theme_options',
 		'transport'  => 'refresh',
-	);
-	$wp_customize->add_setting( $setting_id, $setting_args );
+		'sanitize_callback' => '__return_true'
+	) );
 
 	$control = new WP_Customize_Cropped_Image_Control(
 		$wp_customize,
