@@ -252,13 +252,12 @@ add_filter( 'option_posts_per_page', 'noto_posts_per_page', 10, 1 );
  * @return array
  */
 function noto_wupdates_add_id_wporg( $ids = array() ) {
-
 	// First get the theme directory name (unique)
 	$slug = basename( get_template_directory() );
 
 	// Now add the predefined details about this product
 	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Noto', 'slug' => 'noto', 'id' => 'JDKZB', 'type' => 'theme_wporg', 'digest' => '315a30c0a1ab97ffb5118d4d17d09f61', );
+	$ids[ $slug ] = array( 'name' => 'Noto', 'slug' => 'noto', 'id' => 'JDKZB', 'type' => 'theme_modular_wporg', 'digest' => '0352ff8297cd42ec6f7c03ee9287559e', );
 
 	return $ids;
 }

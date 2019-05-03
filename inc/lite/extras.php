@@ -7,9 +7,9 @@
  */
 
 /**
- * Theme About page logic.
+ * Admin Dashboard logic.
  */
-require get_template_directory() . '/inc/lite/admin/about-page.php'; // @codingStandardsIgnoreLines
+require pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'admin/admin.php' ); // phpcs:ignore
 
 /**
  * Generate a link to the Noto (Free) info page.

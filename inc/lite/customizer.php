@@ -19,10 +19,10 @@ add_action( 'customize_controls_enqueue_scripts', 'noto_lite_customizer_assets' 
  *
  * @param WP_Customize_Manager $wp_customize
  */
-function noto_lite_customizer_add_pro_controls( $wp_customize ) {
+function noto_lite_customize_register( $wp_customize ) {
 	// View Pro
 	$wp_customize->add_section(
-		'noto_lite_style_view_pro', array(
+		'pro__section', array(
 			'title'       => esc_html__( 'View PRO Version', '__theme_txtd' ),
 			'priority'    => 2,
 			'description' => sprintf(
@@ -68,12 +68,12 @@ function noto_lite_customizer_add_pro_controls( $wp_customize ) {
 	);
 	$wp_customize->add_control(
 		'noto_lite_style_view_pro_desc', array(
-			'section' => 'noto_lite_style_view_pro',
+			'section' => 'pro__section',
 			'type'    => 'hidden',
 		)
 	);
 }
-add_action( 'customize_register', 'noto_lite_customizer_add_pro_controls', 10, 1 );
+add_action( 'customize_register', 'noto_lite_customize_register' );
 
 /**
  * Add the Theme Options controls.

@@ -1,11 +1,11 @@
 <?php
 /**
- * Felt Theme admin dashboard logic.
+ * Noto Theme admin dashboard logic.
  *
- * @package Felt
+ * @package Noto
  */
 
-function felt_lite_admin_setup() {
+function noto_lite_admin_setup() {
 
 	/**
 	 * Load and initialize Pixelgrade Care notice logic.
@@ -13,9 +13,9 @@ function felt_lite_admin_setup() {
 	require_once 'pixcare-notice/class-notice.php';
 	PixelgradeCare_Install_Notice::init();
 }
-add_action( 'after_setup_theme', 'felt_lite_admin_setup' );
+add_action( 'after_setup_theme', 'noto_lite_admin_setup' );
 
-function felt_lite_admin_assets() {
-	wp_enqueue_style( 'felt_lite_admin_style', get_template_directory_uri() . '/inc/lite/admin/css/admin.css', array(), '2.4.0.2', false );
+function noto_lite_admin_assets() {
+	wp_enqueue_style( 'noto_lite_admin_style', get_template_directory_uri() . '/inc/lite/admin/css/admin.css', array(), '1.1.0', false );
 }
-add_action( 'admin_enqueue_scripts', 'felt_lite_admin_assets' );
+add_action( 'admin_enqueue_scripts', 'noto_lite_admin_assets' );
