@@ -91,7 +91,7 @@ body:not(.blog) .c-noto__item--post-it {
 
     .widget {
 
-        h1, h2, h3, h4, h5, h6, 
+        h1, h2, h3, h4, h5, h6,
         p, ul, ol, hr {
           &:not(:last-child) {
             @include widget-content-elements-spacing;
@@ -311,7 +311,7 @@ body:not(.blog) .c-noto__item--post-it {
 
         a {
             @include fontsize(24px);
-            color: $theme-background-color;
+            color: $sm-light-primary;
             display: inline-block;
 
             &.genericon {

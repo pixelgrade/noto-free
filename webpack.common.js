@@ -78,7 +78,11 @@ module.exports = {
 						presets: ['@babel/preset-env']
 					}
 				}, {
-					loader: "ts-loader"
+					loader: "ts-loader",
+					options: {
+						// this will disable any type checking
+						transpileOnly: true
+					}
 				}]
 			},
 		]
