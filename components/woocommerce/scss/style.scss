@@ -5,6 +5,7 @@ $woocommerce-mobile-breakpoint: 768px;
 
 @import "archive";
 @import "card";
+@import "customify";
 @import "pagination";
 
 @import "single-product";
@@ -27,14 +28,17 @@ $woocommerce-mobile-breakpoint: 768px;
 }
 
 .cart-count {
-    display: inline-block;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    display: block;
     width: 2em;
     height: 2em;
     border-radius: 50%;
-    transform: scale(0.7);
-    margin-left: 0.2em;
-    margin-right: -0.5em;
+
+    transform-origin: 100% 50%;
+    transform: translate(0, -50%) scale(0.7);
 
     span {
         display: block;
@@ -48,4 +52,66 @@ $woocommerce-mobile-breakpoint: 768px;
 
 .woocommerce-message {
     @include spacing(margin-bottom, 40px);
+}
+
+.woocommerce-store-notice[class][class] {
+    position: relative;
+    top: 0;
+
+    padding: 0.75em 0;
+    margin-bottom: 0;
+
+    font-size: 16px;
+    line-height: 1.5;
+    box-shadow: none;
+
+    &:not(.woocommerce-store-notice--visible) {
+        display: none !important;
+    }
+}
+
+.woocommerce-store-notice__dismiss-link {
+    text-indent: -9999em;
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translate(0, -50%);
+
+    width: 1em;
+    height: 1em;
+
+    overflow: hidden;
+
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 1px;
+        height: 1em;
+        background: currentColor;
+    }
+
+    &:before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+.c-product-main {
+
+    .product_title span {
+        font-size: 1.33em;
+    }
+
+    .woocommerce-product-category,
+    .product_title {
+        margin-bottom: 0;
+    }
 }
