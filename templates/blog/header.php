@@ -160,7 +160,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 		        ?>
 
                 <div <?php pixelgrade_css_class( $zone['classes'], array( 'header', 'navbar', 'zone', $zone_id ) ); ?>>
-			        <?php echo $output; ?>
+			        <?php echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 </div><!-- .c-navbar__zone -->
 
 	        <?php } ?>

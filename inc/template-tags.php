@@ -80,13 +80,13 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			);
 		} else {
 			// If no profile picture is set, leave a placeholder (needed for the live preview).
-			$url = esc_url( home_url( '/' ) );
+			$url = home_url( '/' );
 			$classname = 'profile-photo-link--default';
 			$label = '';
 
 			if ( is_user_logged_in() ) {
-				$url = esc_url( admin_url( '/customize.php?autofocus[section]=noto_options[general]' ) );
-				$label = '<div class="profile-photo-link__label"><span>' . __( 'Add Profile Photo', '__theme_txtd' ) . '</span></div>';
+				$url = admin_url( '/customize.php?autofocus[section]=noto_options[general]' );
+				$label = '<div class="profile-photo-link__label"><span>' . esc_html__( 'Add Profile Photo', '__theme_txtd' ) . '</span></div>';
 				$classname .= '  profile-photo-link--admin';
 			}
 
@@ -95,7 +95,7 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			$image = ob_get_contents();
 			ob_end_clean();
 			/* translators: %1$s: profile photo url  */
-			$html = sprintf( '<a href="%1$s" class="profile-photo-link  '. $classname .'">' . $image . $label . '</a>', $url);
+			$html = sprintf( '<a href="%1$s" class="profile-photo-link  '. esc_attr( $classname ) .'">' . $image . $label . '</a>', esc_url( $url ) );
 		}
 
 		if ( $switched_blog ) {
@@ -119,7 +119,7 @@ if ( ! function_exists( 'pixelgrade_the_profile_photo' ) ) {
 	 * @param int $blog_id Optional. ID of the blog in question. Default is the ID of the current blog.
 	 */
 	function pixelgrade_the_profile_photo( $blog_id = 0 ) {
-		echo pixelgrade_get_profile_photo( $blog_id );
+		echo pixelgrade_get_profile_photo( $blog_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 

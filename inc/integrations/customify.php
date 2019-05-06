@@ -1338,3 +1338,21 @@ function noto_add_default_color_palette( $color_palettes ) {
 	return $color_palettes;
 }
 add_filter( 'customify_get_color_palettes', 'noto_add_default_color_palette' );
+
+function noto_bind_profile_picture_script() {
+	?>
+	<script type="text/javascript">
+		(function($) {
+			wp.customize.bind('ready', function() {
+				wp.customize.previewer.bind('ready', function() {
+					var $body = $( wp.customize.previewer.targetWindow().document.body );
+					$body.on( 'click', '.profile-photo-link--default', function() {
+						wp.customize['section'].instance('title_tagline').focus();
+					} );
+				} );
+			});
+		})(jQuery);
+	</script>
+	<?php
+}
+add_action('customize_controls_print_scripts', 'noto_bind_profile_picture_script');

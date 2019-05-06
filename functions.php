@@ -165,7 +165,6 @@ function noto_scripts() {
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	);
-
 	wp_localize_script( 'noto-main-scripts', 'notoStrings', $localization_array );
 }
 add_action( 'wp_enqueue_scripts', 'noto_scripts' );
@@ -209,24 +208,6 @@ add_filter( 'tiled_gallery_content_width', 'noto_custom_tiled_gallery_width' );
  * We don't want any classes on the blog grid.
  */
 add_filter( 'pixelgrade_blog_grid_class', '__return_empty_array' );
-
-function noto_bind_profile_picture_script() {
-	?>
-	<script type="text/javascript">
-		(function($) {
-			wp.customize.bind('ready', function() {
-				wp.customize.previewer.bind('ready', function() {
-					var $body = $( wp.customize.previewer.targetWindow().document.body );
-					$body.on( 'click', '.profile-photo-link--default', function() {
-						wp.customize['section'].instance('title_tagline').focus();
-					} );
-				} );
-			});
-		})(jQuery);
-	</script>
-	<?php
-}
-add_action('customize_controls_print_scripts', 'noto_bind_profile_picture_script');
 
 /*
  * ==================================================

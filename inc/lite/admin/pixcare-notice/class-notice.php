@@ -62,10 +62,10 @@ class PixelgradeCare_Install_Notice {
 	}
 
 	public function outputMarkup() {
-		$button_text = esc_html__( 'Install the Pixelgrade Care&reg; plugin', '__theme_txtd' );
+		$button_text = __( 'Install the Pixelgrade Care&reg; plugin', '__theme_txtd' );
 		// Pixelgrade Care plugin installed, but not activated.
 		if ( ! class_exists( 'PixelgradeCare' ) && file_exists( WP_PLUGIN_DIR . '/pixelgrade-care/pixelgrade-care.php' ) ) {
-			$button_text = esc_html__( 'Activate the Pixelgrade Care&reg; plugin', '__theme_txtd' );
+			$button_text = __( 'Activate the Pixelgrade Care&reg; plugin', '__theme_txtd' );
 		}
 
 		?>
@@ -90,7 +90,7 @@ class PixelgradeCare_Install_Notice {
 				</li>
 			</ul>
 			<form class="pixcare-notice-form"
-			      action="<?php echo admin_url( 'admin-ajax.php?action=pixcare_install_dismiss_admin_notice' ); ?>"
+			      action="<?php echo esc_url( admin_url( 'admin-ajax.php?action=pixcare_install_dismiss_admin_notice' ) ); ?>"
 			      method="post">
 				<noscript><input type="hidden" name="pixcare-notice-no-js" value="1"/></noscript>
 
@@ -105,12 +105,14 @@ class PixelgradeCare_Install_Notice {
                             }
                             $screenshot = $theme->get_screenshot();
                             if ( $screenshot ) { ?>
-                                <img src="<?php echo $screenshot; ?>" alt="Theme screenshot">
+                                <img src="<?php echo esc_url( $screenshot ); ?>" alt="Theme screenshot">
                             <?php } ?>
                         </div>
 					</div>
 					<div class="pixcare-notice__body">
-						<h1><?php echo wp_kses( sprintf( __( 'Thanks for installing %s, you\'re awesome!<br>Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
+						<h1><?php
+							/* translators: %s: the theme name. */
+							echo wp_kses( sprintf( __( 'Thanks for installing %s, you\'re awesome!<br>Let\'s make an experience out of it.', '__theme_txtd' ),  $theme->get( 'Name' ) ), wp_kses_allowed_html('post') ); ?></h1>
 						<p><?php echo wp_kses( __('We\'ve prepared a special onboarding setup that helps you get started and configure your upcoming website in style. Let\'s make it shine!', '__theme_txtd' ), wp_kses_allowed_html('post') ); ?></p>
 						<ul>
 							<li>
@@ -125,9 +127,9 @@ class PixelgradeCare_Install_Notice {
 						</ul>
 						<div class="message js-plugin-message"></div>
 						<button class="pixcare-notice-button js-handle-pixcare">
-                            <span class="pixcare-notice-button__text"><?php echo $button_text ?></span>
+                            <span class="pixcare-notice-button__text"><?php echo esc_html( $button_text ); ?></span>
                             <span class="pixcare-notice-button__overlay">
-                                <span class="pixcare-notice-button__text"><?php echo $button_text ?></span>
+                                <span class="pixcare-notice-button__text"><?php echo esc_html( $button_text); ?></span>
                             </span>
                         </button>
 

@@ -13,6 +13,9 @@
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
  * @license   GPL-2.0+
+ *
+ * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 
 /*

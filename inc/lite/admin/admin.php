@@ -10,7 +10,7 @@ function noto_lite_admin_setup() {
 	/**
 	 * Load and initialize Pixelgrade Care notice logic.
 	 */
-	require_once 'pixcare-notice/class-notice.php';
+	require_once 'pixcare-notice/class-notice.php'; // phpcs:ignore
 	PixelgradeCare_Install_Notice::init();
 }
 add_action( 'after_setup_theme', 'noto_lite_admin_setup' );

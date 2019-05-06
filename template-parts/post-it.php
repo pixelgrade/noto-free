@@ -19,30 +19,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $post_it_title = pixelgrade_option( 'archive_post_it_title', 'Hello' );
-$post_it_content = pixelgrade_option( 'archive_post_it_content', wp_kses_post( __( '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="/contact/">reach me</a> to say Hi!</p>', '__theme_txtd' ) ) );
-$post_it_hide = pixelgrade_option( 'archive_post_it_disable', false);
+$post_it_content = pixelgrade_option( 'archive_post_it_content', __( '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="/contact/">reach me</a> to say Hi!</p>', '__theme_txtd' ) );
 
-if ($post_it_hide === false) {
+if ( ! pixelgrade_option( 'archive_post_it_disable', false ) ) { ?>
 
-	?>
 	<div class="c-noto__item  c-noto__item--widget  c-noto__item--post-it  post-it  small">
 
 		<div class="widget">
 			<?php if ( ! empty ( $post_it_title ) ) { ?>
-				<h6 class="c-post-it__title"><?php echo $post_it_title ?></h6>
-			<?php } ?>
+				<h6 class="c-post-it__title"><?php echo wp_kses( $post_it_title, wp_kses_allowed_html() ) ?></h6>
+			<?php }
 
-			<?php if ( ! empty ( $post_it_content ) ) { ?>
-				<div class="c-post-it__content"><?php echo $post_it_content ?></div>
+			if ( ! empty ( $post_it_content ) ) { ?>
+				<div class="c-post-it__content"><?php echo wp_kses_post( $post_it_content ) ?></div>
 			<?php } ?>
 		</div>
 
 		<?php
 			if ( is_user_logged_in() ) {
-				$url = esc_url( admin_url( '/customize.php?autofocus[section]=noto_options[general]' ) );
-				echo '<a class="c-card__link" href="'. $url . '"></a>';
+				echo '<a class="c-card__link" href="'. esc_url( admin_url( '/customize.php?autofocus[section]=noto_options[general]' ) ) . '"></a>';
 			}
-	?>
+		?>
+
 	</div>
 
 <?php

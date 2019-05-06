@@ -68,20 +68,16 @@ add_action( 'pixelgrade_before_excerpt', 'noto_output_wave_svg' );
  * Add our customizer styling edits into the wp_editor.
  */
 function noto_add_css_for_autostyled_intro_in_editor() {
-	$disable_intro_autostyle = pixelgrade_option( 'single_disable_intro_autostyle', true );
-	$color                   = pixelgrade_option( 'secondary_color', '#E79696' );
-
-	if ( ! $disable_intro_autostyle ) {
-		$selectors = array(
-			".intro[class], .mce-content-body > p:first-child",
-			".intro[class]:before, .mce-content-body > p:first-child:before",
-		);
-	} else {
-		$selectors = array(
-			".intro[class]",
-			".intro[class]:before",
-		);
+	if ( pixelgrade_option( 'single_disable_intro_autostyle', true ) ) {
+		return;
 	}
+
+	$color = pixelgrade_option( 'secondary_color', '#E79696' );
+
+	$selectors = array(
+		".intro[class], .mce-content-body > p:first-child",
+		".intro[class]:before, .mce-content-body > p:first-child:before",
+	);
 
 	$css =
 		$selectors[0] . ' { ' .
@@ -98,36 +94,35 @@ function noto_add_css_for_autostyled_intro_in_editor() {
 		'background: ' . noto_get_pattern_background_image( $color ) . ';' .
 		' } ';
 
-	if ( ! $disable_intro_autostyle ) { ?>
-		<script>
-			(function ($) {
-				$(window).load(function () {
-					var ifrm = window.frames['content_ifr'];
-					if (typeof ifrm === "undefined") {
-						return;
-					}
-					ifrm = (
-						ifrm.contentDocument || ifrm.document
-					);
-					var head = ifrm.getElementsByTagName('head')[0];
-					var style = document.createElement('style');
-					var css = '<?php echo $css; ?>';
-					style.type = 'text/css';
-					if (style.styleSheet) {
-						// This is required for IE8 and below.
-						style.styleSheet.cssText = css;
-					} else {
-						style.appendChild(document.createTextNode(css));
-					}
+	ob_start(); ?>
+(function ($) {
+	$(window).load(function () {
+		var ifrm = window.frames['content_ifr'];
+		if (typeof ifrm === "undefined") {
+			return;
+		}
+		ifrm = (
+			ifrm.contentDocument || ifrm.document
+		);
+		var head = ifrm.getElementsByTagName('head')[0];
+		var style = document.createElement('style');
+		var css = '<?php echo $css; ?>';
+		style.type = 'text/css';
+		if (style.styleSheet) {
+			// This is required for IE8 and below.
+			style.styleSheet.cssText = css;
+		} else {
+			style.appendChild(document.createTextNode(css));
+		}
 
-					head.appendChild(style);
-				});
-			})(jQuery);
-		</script>
-		<?php get_template_part( 'template-parts/svg/wave-accent-svg' );
-	}
+		head.appendChild(style);
+	});
+})(jQuery);
+<?php
+	$script = ob_get_clean();
+	wp_add_inline_script( 'editor', $script );
 }
-add_action( 'admin_head', 'noto_add_css_for_autostyled_intro_in_editor' );
+add_action( 'admin_enqueue_scripts', 'noto_add_css_for_autostyled_intro_in_editor' );
 
 /**
  * Adds CSS to hide header text for custom logo, based on Customizer setting.
@@ -154,7 +149,7 @@ function _noto_custom_logo_header_styles() {
 		?>
         <!-- Custom Logo: hide header text -->
         <style id="custom-logo-css" type="text/css">
-            <?php echo $classes; ?>
+            <?php echo esc_attr( $classes ); ?>
             {
                 position: absolute;
                 clip: rect(1px, 1px, 1px, 1px);

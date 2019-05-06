@@ -24,7 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $author = pixelgrade_get_the_author_info_box();
-
 ?>
 
 <div class="header-stuff">
@@ -33,7 +32,7 @@ $author = pixelgrade_get_the_author_info_box();
 
     <?php if ( 'portrait' === pixelgrade_get_post_thumbnail_aspect_ratio_class() ) { ?>
         <?php if ( ! empty( $author ) ) { ?>
-	        <div class="c-header__author"><?php echo $author; ?></div>
+	        <div class="c-header__author"><?php echo $author; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 	    <?php } ?>
         <div class="header-meta"><?php pixelgrade_posted_on(); ?></div>
     <?php } ?>

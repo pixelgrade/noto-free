@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'required-plugins/class-tgm-plugin-activation.php' );
+require_once pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'required-plugins/class-tgm-plugin-activation.php' ); // phpcs:ignore
 
 function noto_register_required_plugins() {
 
