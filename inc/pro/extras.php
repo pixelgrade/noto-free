@@ -74,24 +74,19 @@ function noto_add_css_for_autostyled_intro_in_editor() {
 
 	$color = pixelgrade_option( 'secondary_color', '#E79696' );
 
-	$selectors = array(
-		".intro[class], .mce-content-body > p:first-child",
-		".intro[class]:before, .mce-content-body > p:first-child:before",
-	);
-
 	$css =
-		$selectors[0] . ' { ' .
-		'font-size: 1.555em;' .
-		'line-height: 1.25em;' .
-		'font-style: italic;' .
-		'color: ' . $color . ';' .
+		'.intro[class], .mce-content-body > p:first-child { ' .
+			'font-size: 1.555em;' .
+			'line-height: 1.25em;' .
+			'font-style: italic;' .
+			'color: ' . esc_attr( $color ) . ';' .
 		' } ' .
-		$selectors[1] . ' { ' .
-		'content: "";' .
-		'display: block;' .
-		'height: 8px;' .
-		'margin-bottom: 21px;' .
-		'background: ' . noto_get_pattern_background_image( $color ) . ';' .
+		'.intro[class]:before, .mce-content-body > p:first-child:before { ' .
+			'content: "";' .
+			'display: block;' .
+			'height: 8px;' .
+			'margin-bottom: 21px;' .
+			'background: ' . noto_get_pattern_background_image( $color ) . ';' .
 		' } ';
 
 	ob_start(); ?>
@@ -106,7 +101,7 @@ function noto_add_css_for_autostyled_intro_in_editor() {
 		);
 		var head = ifrm.getElementsByTagName('head')[0];
 		var style = document.createElement('style');
-		var css = '<?php echo $css; ?>';
+		var css = '<?php echo $css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>';
 		style.type = 'text/css';
 		if (style.styleSheet) {
 			// This is required for IE8 and below.

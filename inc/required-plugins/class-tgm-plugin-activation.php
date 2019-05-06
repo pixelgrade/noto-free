@@ -13,9 +13,6 @@
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
  * @license   GPL-2.0+
- *
- * @codingStandardsIgnoreFile
- * phpcs:ignoreFile
  */
 
 /*
@@ -712,7 +709,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			}
 
 			// All plugin information will be stored in an array for processing.
-			$slug = $this->sanitize_key( urldecode( $_GET['plugin'] ) );
+			$slug = $this->sanitize_key( urldecode( $_GET['plugin'] ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 
 			if ( ! isset( $this->plugins[ $slug ] ) ) {
 				return false;
@@ -968,7 +965,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					if ( ! $automatic ) {
 						// Make sure message doesn't display again if bulk activation is performed
 						// immediately after a single activation.
-						if ( ! isset( $_POST['action'] ) ) { // WPCS: CSRF OK.
+						if ( ! isset( $_POST['action'] ) ) {
 							echo '<div id="message" class="updated"><p>', esc_html( $this->strings['activated_successfully'] ), ' <strong>', esc_html( $this->plugins[ $slug ]['name'] ), '.</strong></p></div>';
 						}
 					} else {
@@ -989,7 +986,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				if ( ! $automatic ) {
 					// Make sure message doesn't display again if bulk activation is performed
 					// immediately after a single activation.
-					if ( ! isset( $_POST['action'] ) ) { // WPCS: CSRF OK.
+					if ( ! isset( $_POST['action'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 						echo '<div id="message" class="error"><p>',
 						sprintf(
 							esc_html( $this->strings['plugin_needs_higher_version'] ),
@@ -1641,10 +1638,10 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			if ( 'update-core' === $screen->base ) {
 				// Core update screen.
 				return true;
-			} elseif ( 'plugins' === $screen->base && ! empty( $_POST['action'] ) ) { // WPCS: CSRF ok.
+			} elseif ( 'plugins' === $screen->base && ! empty( $_POST['action'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 				// Plugins bulk update screen.
 				return true;
-			} elseif ( 'update' === $screen->base && ! empty( $_POST['action'] ) ) { // WPCS: CSRF ok.
+			} elseif ( 'update' === $screen->base && ! empty( $_POST['action'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 				// Individual updates (ajax call).
 				return true;
 			}
@@ -2139,7 +2136,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				)
 			);
 
-			if ( isset( $_REQUEST['plugin_status'] ) && in_array( $_REQUEST['plugin_status'], array( 'install', 'update', 'activate' ), true ) ) {
+			if ( isset( $_REQUEST['plugin_status'] ) && in_array( $_REQUEST['plugin_status'], array( 'install', 'update', 'activate' ), true ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 				$this->view_context = sanitize_key( $_REQUEST['plugin_status'] );
 			}
 
@@ -2768,10 +2765,10 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				}
 
 				if ( is_array( $_POST['plugin'] ) ) {
-					$plugins_to_install = (array) $_POST['plugin'];
-				} elseif ( is_string( $_POST['plugin'] ) ) {
+					$plugins_to_install = (array) $_POST['plugin']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+				} elseif ( is_string( $_POST['plugin'] ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 					// Received via Filesystem page - un-flatten array (WP bug #19643).
-					$plugins_to_install = explode( ',', $_POST['plugin'] );
+					$plugins_to_install = explode( ',', $_POST['plugin'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 				}
 
 				// Sanitize the received input.
@@ -2916,7 +2913,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				// Grab plugin data from $_POST.
 				$plugins = array();
 				if ( isset( $_POST['plugin'] ) ) {
-					$plugins = array_map( 'urldecode', (array) $_POST['plugin'] );
+					$plugins = array_map( 'urldecode', (array) $_POST['plugin'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 					$plugins = array_map( array( $this->tgmpa, 'sanitize_key' ), $plugins );
 				}
 
@@ -2950,7 +2947,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 					$last_plugin  = array_pop( $plugin_names ); // Pop off last name to prep for readability.
 					$imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', '__theme_txtd' ) . ' ' . $last_plugin );
 
-					printf( // WPCS: xss ok.
+					printf(
 						'<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
 						esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, '__theme_txtd' ) ),
 						$imploded

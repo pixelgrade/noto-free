@@ -22,7 +22,7 @@ function wupdates_check_JDKZB( $transient ) {
 
 	// Let's start gathering data about the theme
 	// Then WordPress version
-	include( ABSPATH . WPINC . '/version.php' );
+	include( ABSPATH . WPINC . '/version.php' ); // phpcs:ignore
 	$http_args = array (
 		'body' => array(
 			'slug' => $slug,
