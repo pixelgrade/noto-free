@@ -1051,7 +1051,10 @@ function noto_customify_header_section( $section_options, $options ) {
 					'default' => 40
 				),
 				'header_navigation_links_spacing' => array(
-					'default' => 56,
+					'default'     => 0,
+					'input_attrs' => array(
+						'min' => 0,
+					),
 					'css'         => array(
 						array(
 							'property'        => 'margin-left',
@@ -1061,11 +1064,12 @@ function noto_customify_header_section( $section_options, $options ) {
 							'negative_value'  => true,
 						),
 						array(
-							'property'        => 'margin-left',
-							'selector'        => '.c-noto--header li,
-												  .c-navbar__zone--right li',
-							'unit'            => 'px',
-							'callback_filter' => 'typeline_spacing_cb',
+							'property' => 'margin-left',
+							'selector' => '
+							    .c-noto--header li, 
+							    .c-navbar__zone--right li',
+							'unit'     => 'px',
+							'media'    => 'only screen and (min-width: 62.5em)',
 						),
 					),
 				),
