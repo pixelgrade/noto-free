@@ -1261,7 +1261,8 @@ a {
     background: none;
     border: 2px solid currentColor; }
     .u-buttons-outline .c-btn:hover, .u-buttons-outline .c-btn:active, .u-buttons-outline .c-btn:focus {
-      background: none; }
+      background: none;
+      color: inherit; }
   .c-btn:hover, .c-btn:active, .c-btn:focus {
     color: #FFF;
     background-color: #000;
@@ -1443,7 +1444,8 @@ a {
     background: none;
     border: 2px solid currentColor; }
     .u-buttons-outline .button[class][class][class][class][class]:hover, .u-buttons-outline .button[class][class][class][class][class]:active, .u-buttons-outline .button[class][class][class][class][class]:focus {
-      background: none; }
+      background: none;
+      color: inherit; }
   .button[class][class][class][class][class]:hover, .button[class][class][class][class][class]:active, .button[class][class][class][class][class]:focus {
     color: #FFF;
     background-color: #000;
@@ -1709,7 +1711,8 @@ button[type="reset"] {
     button[type="reset"]:hover, .u-buttons-outline
     button[type="reset"]:active, .u-buttons-outline
     button[type="reset"]:focus {
-      background: none; }
+      background: none;
+      color: inherit; }
   input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus,
   input[type="button"]:hover,
   input[type="button"]:active,
@@ -3511,7 +3514,8 @@ fieldset {
     background: none;
     border: 2px solid currentColor; }
     .u-buttons-outline .c-comments-toggle__label:hover, .u-buttons-outline .c-comments-toggle__label:active, .u-buttons-outline .c-comments-toggle__label:focus {
-      background: none; }
+      background: none;
+      color: inherit; }
   .c-comments-toggle__label:hover, .c-comments-toggle__label:active, .c-comments-toggle__label:focus {
     color: #FFF;
     background-color: #000;
@@ -7092,7 +7096,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
     background: none;
     border: 2px solid currentColor; }
     .u-buttons-outline .c-comments-toggle__label:hover, .u-buttons-outline .c-comments-toggle__label:active, .u-buttons-outline .c-comments-toggle__label:focus {
-      background: none; }
+      background: none;
+      color: inherit; }
   .c-comments-toggle__label:hover, .c-comments-toggle__label:active, .c-comments-toggle__label:focus {
     color: #FFF;
     background-color: #000;
@@ -7414,22 +7419,22 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
           -webkit-transform: scale(1, 0) rotate(0);
                   transform: scale(1, 0) rotate(0); }
       .c-navbar__zone--left .menu > li:nth-child(1):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-3deg);
-                transform: scale(1, 1) rotate(-3deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(2):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(-2deg);
                 transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(2):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(0deg);
+                transform: scale(1, 1) rotate(0deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(3):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-3deg);
-                transform: scale(1, 1) rotate(-3deg);
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7449,29 +7454,29 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(6):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-2deg);
-                transform: scale(1, 1) rotate(-2deg);
+        -webkit-transform: scale(1, 1) rotate(-1deg);
+                transform: scale(1, 1) rotate(-1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(7):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-2deg);
-                transform: scale(1, 1) rotate(-2deg);
+        -webkit-transform: scale(1, 1) rotate(0deg);
+                transform: scale(1, 1) rotate(0deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(8):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(1deg);
-                transform: scale(1, 1) rotate(1deg);
+        -webkit-transform: scale(1, 1) rotate(-1deg);
+                transform: scale(1, 1) rotate(-1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(9):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(1deg);
-                transform: scale(1, 1) rotate(1deg);
+        -webkit-transform: scale(1, 1) rotate(-3deg);
+                transform: scale(1, 1) rotate(-3deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7484,8 +7489,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(11):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
+        -webkit-transform: scale(1, 1) rotate(1deg);
+                transform: scale(1, 1) rotate(1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7498,8 +7503,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(13):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(2deg);
-                transform: scale(1, 1) rotate(2deg);
+        -webkit-transform: scale(1, 1) rotate(-3deg);
+                transform: scale(1, 1) rotate(-3deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7512,43 +7517,43 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(15):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-3deg);
-                transform: scale(1, 1) rotate(-3deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(16):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-2deg);
-                transform: scale(1, 1) rotate(-2deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(17):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(18):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-2deg);
-                transform: scale(1, 1) rotate(-2deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(19):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(-1deg);
                 transform: scale(1, 1) rotate(-1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(16):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(17):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(18):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(0deg);
+                transform: scale(1, 1) rotate(0deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(19):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(20):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-3deg);
-                transform: scale(1, 1) rotate(-3deg);
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -8088,7 +8093,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
       background: none;
       border: 2px solid currentColor; }
       .u-buttons-outline .c-card__action:hover, .u-buttons-outline .c-card__action:active, .u-buttons-outline .c-card__action:focus {
-        background: none; }
+        background: none;
+        color: inherit; }
     .c-card__action:hover, .c-card__action:active, .c-card__action:focus {
       color: #FFF;
       background-color: #000;
@@ -8485,7 +8491,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
     background: none;
     border: 2px solid currentColor; }
     .u-buttons-outline .cats a:hover, .u-buttons-outline .cats a:active, .u-buttons-outline .cats a:focus {
-      background: none; }
+      background: none;
+      color: inherit; }
   .cats a:hover, .cats a:active, .cats a:focus {
     color: #FFF;
     background-color: #000;
@@ -9457,84 +9464,84 @@ body:not(.blog) .c-noto__item--post-it {
   transition: all .3s ease-out; }
 
 .c-noto__item:nth-child(20n + 1).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(-10px) translateY(20px);
-          transform: rotate(1deg) translateX(-10px) translateY(20px); }
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(10px);
+          transform: rotate(2deg) translateX(0px) translateY(10px); }
 
 .c-noto__item:nth-child(20n + 2).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-20px) translateY(20px);
-          transform: rotate(-2deg) translateX(-20px) translateY(20px); }
+  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(0px);
+          transform: rotate(-1deg) translateX(-20px) translateY(0px); }
 
 .c-noto__item:nth-child(20n + 3).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(10px) translateY(20px);
-          transform: rotate(-2deg) translateX(10px) translateY(20px); }
+  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(20px);
+          transform: rotate(-2deg) translateX(-10px) translateY(20px); }
 
 .c-noto__item:nth-child(20n + 4).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(10px) translateY(0px);
-          transform: rotate(2deg) translateX(10px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 5).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(0px) translateY(-10px);
-          transform: rotate(1deg) translateX(0px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 6).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(20px) translateY(10px);
-          transform: rotate(2deg) translateX(20px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 7).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(20px) translateY(-10px);
-          transform: rotate(1deg) translateX(20px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 8).has-focus .c-card__frame {
   -webkit-transform: rotate(2deg) translateX(20px) translateY(0px);
           transform: rotate(2deg) translateX(20px) translateY(0px); }
 
+.c-noto__item:nth-child(20n + 5).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(20px) translateY(20px);
+          transform: rotate(-2deg) translateX(20px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 6).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(-20px) translateY(20px);
+          transform: rotate(-2deg) translateX(-20px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 7).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(20px) translateY(-10px);
+          transform: rotate(2deg) translateX(20px) translateY(-10px); }
+
+.c-noto__item:nth-child(20n + 8).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(-20px) translateY(10px);
+          transform: rotate(1deg) translateX(-20px) translateY(10px); }
+
 .c-noto__item:nth-child(20n + 9).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(0px) translateY(-10px);
-          transform: rotate(-1deg) translateX(0px) translateY(-10px); }
+  -webkit-transform: rotate(-1deg) translateX(10px) translateY(-20px);
+          transform: rotate(-1deg) translateX(10px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 10).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(20px);
-          transform: rotate(2deg) translateX(-10px) translateY(20px); }
+  -webkit-transform: rotate(-2deg) translateX(0px) translateY(-20px);
+          transform: rotate(-2deg) translateX(0px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 11).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-20px) translateY(0px);
-          transform: rotate(-2deg) translateX(-20px) translateY(0px); }
+  -webkit-transform: rotate(2deg) translateX(-10px) translateY(-10px);
+          transform: rotate(2deg) translateX(-10px) translateY(-10px); }
 
 .c-noto__item:nth-child(20n + 12).has-focus .c-card__frame {
   -webkit-transform: rotate(-1deg) translateX(0px) translateY(20px);
           transform: rotate(-1deg) translateX(0px) translateY(20px); }
 
 .c-noto__item:nth-child(20n + 13).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(-10px);
-          transform: rotate(2deg) translateX(-10px) translateY(-10px); }
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(10px);
+          transform: rotate(2deg) translateX(0px) translateY(10px); }
 
 .c-noto__item:nth-child(20n + 14).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(0px) translateY(20px);
-          transform: rotate(2deg) translateX(0px) translateY(20px); }
+  -webkit-transform: rotate(2deg) translateX(20px) translateY(0px);
+          transform: rotate(2deg) translateX(20px) translateY(0px); }
 
 .c-noto__item:nth-child(20n + 15).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(10px) translateY(-10px);
-          transform: rotate(2deg) translateX(10px) translateY(-10px); }
+  -webkit-transform: rotate(-1deg) translateX(20px) translateY(20px);
+          transform: rotate(-1deg) translateX(20px) translateY(20px); }
 
 .c-noto__item:nth-child(20n + 16).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(0px) translateY(-10px);
-          transform: rotate(2deg) translateX(0px) translateY(-10px); }
+  -webkit-transform: rotate(1deg) translateX(-10px) translateY(0px);
+          transform: rotate(1deg) translateX(-10px) translateY(0px); }
 
 .c-noto__item:nth-child(20n + 17).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(20px) translateY(10px);
-          transform: rotate(2deg) translateX(20px) translateY(10px); }
+  -webkit-transform: rotate(-2deg) translateX(10px) translateY(-20px);
+          transform: rotate(-2deg) translateX(10px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 18).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-20px) translateY(20px);
-          transform: rotate(2deg) translateX(-20px) translateY(20px); }
+  -webkit-transform: rotate(-2deg) translateX(-20px) translateY(-20px);
+          transform: rotate(-2deg) translateX(-20px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 19).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(0px) translateY(0px);
-          transform: rotate(-2deg) translateX(0px) translateY(0px); }
+  -webkit-transform: rotate(2deg) translateX(-20px) translateY(-10px);
+          transform: rotate(2deg) translateX(-20px) translateY(-10px); }
 
 .c-noto__item:nth-child(20n + 20).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(20px) translateY(-20px);
-          transform: rotate(1deg) translateX(20px) translateY(-20px); }
+  -webkit-transform: rotate(1deg) translateX(0px) translateY(20px);
+          transform: rotate(1deg) translateX(0px) translateY(20px); }
 
 .c-burger {
   position: relative;

@@ -2,10 +2,6 @@
   @include spacing(margin-top, $card-content-spacing);
 }
 
-.c-card__meta {
-  position: relative;
-}
-
 .c-meta__decoration {
   @include meta-style;
 
@@ -27,6 +23,8 @@
 }
 
 .c-meta {
+  position: relative;
+
   &, ul {
     > * {
       padding-top: 0;
@@ -106,20 +104,17 @@
   padding-right: 0.5em;
 }
 
-.c-card {
+.c-card__content {
+  align-items: flex-start;
+  margin-top: 0;
+}
 
-  .c-card__content {
-    align-items: flex-start;
-    margin-top: 0;
-  }
+.c-card__title {
+  margin-top: 0;
+}
 
-  .c-card__title {
-    margin-top: 0;
-  }
-
-  .c-card__excerpt {
-    margin-bottom: 0;
-  }
+.c-card__excerpt {
+  margin-bottom: 0;
 }
 
 .c-card__meta {
@@ -221,9 +216,11 @@ $button-offset: 16px;
 
     .c-card:hover & {
       transform: translateX($button-offset);
+
       .u-buttons-solid & {
         background-color: transparent;
         color: $sm-dark-primary;
+
         &:after {
           border: 2px solid;
         }

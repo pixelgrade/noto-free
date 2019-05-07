@@ -372,7 +372,8 @@
       background: none;
       border: 2px solid currentColor; }
       .u-buttons-outline .edit-post-visual-editor .c-btn:hover, .u-buttons-outline .edit-post-visual-editor .c-btn:active, .u-buttons-outline .edit-post-visual-editor .c-btn:focus {
-        background: none; }
+        background: none;
+        color: inherit; }
     .edit-post-visual-editor .c-btn:hover, .edit-post-visual-editor .c-btn:active, .edit-post-visual-editor .c-btn:focus {
       color: #FFF;
       background-color: #000;
@@ -549,7 +550,8 @@
       background: none;
       border: 2px solid currentColor; }
       .u-buttons-outline .edit-post-visual-editor .button[class][class][class][class][class]:hover, .u-buttons-outline .edit-post-visual-editor .button[class][class][class][class][class]:active, .u-buttons-outline .edit-post-visual-editor .button[class][class][class][class][class]:focus {
-        background: none; }
+        background: none;
+        color: inherit; }
     .edit-post-visual-editor .button[class][class][class][class][class]:hover, .edit-post-visual-editor .button[class][class][class][class][class]:active, .edit-post-visual-editor .button[class][class][class][class][class]:focus {
       color: #FFF;
       background-color: #000;
