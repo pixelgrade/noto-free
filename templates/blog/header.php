@@ -91,11 +91,45 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
         </div>
 
         <div class="c-noto c-noto--body">
+
+            <?php
+            $header_zones = pixelgrade_header_get_zones();
+            $header_active_menus = array();
+            unset( $header_zones['left'] );
+
+            // Cycle through each zone and display the nav menus or other "bogus" things.
+            foreach ( $header_zones as $zone_id => $zone ) {
+	            // Get the menu_locations in the current zone.
+	            $menu_locations = pixelgrade_header_get_zone_nav_menu_locations( $zone_id, $zone );
+
+	            foreach ( $menu_locations as $menu_id => $menu_location ) {
+		            if ( empty( $menu_location['bogus'] ) ) {
+			            $menu = wp_nav_menu(
+				            array (
+					            'theme_location' => $menu_id,
+					            'echo' => false,
+					            'fallback_cb' => '__return_false'
+				            )
+			            );
+
+			            if ( false !== $menu ) {
+				            $header_active_menus[] = $menu_id;
+			            }
+		            }
+	            }
+            }
+
+            if ( apply_filters( 'pixelgrade_show_hamburger_icon', ! empty( $header_active_menus ) )  ) { ?>
             <input class="c-navbar__checkbox" id="menu-toggle" type="checkbox">
             <label class="c-navbar__label u-header-sides-spacing" for="menu-toggle">
                 <span class="c-navbar__label-icon"><?php pixelgrade_get_component_template_part( Pixelgrade_Header::COMPONENT_SLUG, 'burger' ); ?></span>
                 <span class="c-navbar__label-text screen-reader-text"><?php esc_html_e( 'Menu', '__theme_txtd' ); ?></span>
             </label><!-- .c-navbar__label -->
+            <?php } else { ?>
+                <!-- placeholder divs used for the nth selector to work the same as before removing the hamburger -->
+                <div class="c-navbar__placeholder"></div>
+                <div class="c-navbar__placeholder"></div>
+            <?php } ?>
 
             <div class="search-trigger">
                 <button class="js-search-trigger">
