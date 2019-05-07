@@ -378,8 +378,7 @@
       color: #FFF;
       background-color: #000;
       opacity: 1;
-      text-decoration: none;
-      border: initial; }
+      text-decoration: none; }
     .edit-post-visual-editor .c-btn--default {
       background-color: #202423;
       color: #FFF; }
@@ -556,8 +555,7 @@
       color: #FFF;
       background-color: #000;
       opacity: 1;
-      text-decoration: none;
-      border: initial; }
+      text-decoration: none; }
     .edit-post-visual-editor .button[class][class][class][class][class].default {
       background-color: #202423;
       color: #FFF; }

@@ -430,8 +430,7 @@ img {
     color: #FFF;
     background-color: #000;
     opacity: 1;
-    text-decoration: none;
-    border: initial; }
+    text-decoration: none; }
   .c-btn--default {
     background-color: #202423;
     color: #FFF; }
@@ -613,8 +612,7 @@ img {
     color: #FFF;
     background-color: #000;
     opacity: 1;
-    text-decoration: none;
-    border: initial; }
+    text-decoration: none; }
   .button[class][class][class][class][class].default {
     background-color: #202423;
     color: #FFF; }
