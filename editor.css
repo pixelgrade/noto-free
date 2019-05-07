@@ -345,7 +345,7 @@
     margin: 0;
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;
-    color: #FFF;
+    color: #34394B;
     background-color: #222;
     border-radius: 0;
     -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
@@ -375,7 +375,7 @@
         background: none;
         color: inherit; }
     .edit-post-visual-editor .c-btn:hover, .edit-post-visual-editor .c-btn:active, .edit-post-visual-editor .c-btn:focus {
-      color: #FFF;
+      color: #34394B;
       background-color: #000;
       opacity: 1;
       text-decoration: none; }
@@ -521,7 +521,7 @@
     margin: 0;
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 16px;
-    color: #FFF;
+    color: #34394B;
     background-color: #222;
     border-radius: 0;
     -webkit-transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
@@ -552,7 +552,7 @@
         background: none;
         color: inherit; }
     .edit-post-visual-editor .button[class][class][class][class][class]:hover, .edit-post-visual-editor .button[class][class][class][class][class]:active, .edit-post-visual-editor .button[class][class][class][class][class]:focus {
-      color: #FFF;
+      color: #34394B;
       background-color: #000;
       opacity: 1;
       text-decoration: none; }
