@@ -150,17 +150,21 @@ function removeUnneededFiles() {
 removeUnneededFiles.description = 'Remove unneeded files and folders from the build folder';
 gulp.task( 'remove-unneeded-files', removeUnneededFiles );
 
-/**
- * Copy theme folder outside in a build folder, recreate styles before that
- */
 function maybeFixBuildPermissions() {
 	var dir = process.cwd();
 	return gulp.src( './*' )
 	// Make sure that file and directory permissions are right
 		.pipe(plugins.exec('find ./../build -type d -exec chmod 755 {} \\;'))
-		.pipe(plugins.exec(' find ./../build -type f -exec chmod 644 {} \\;'));
+		.pipe(plugins.exec('find ./../build -type f -exec chmod 644 {} \\;'));
 }
 gulp.task( 'fix-build-permissions', maybeFixBuildPermissions );
+
+function maybeFixIncorrectLineEndings() {
+  var dir = process.cwd();
+  return gulp.src( './*' )
+    .pipe(plugins.exec('find ./../build -type f -print0 | xargs -0 -n 1 -P 4 dos2unix '));
+}
+gulp.task( 'fix-line-endings', maybeFixIncorrectLineEndings );
 
 // -----------------------------------------------------------------------------
 // Replace the components' text domain with the theme text domain
@@ -195,7 +199,7 @@ function themeTextdomainReplace() {
 gulp.task( 'txtdomain-replace', themeTextdomainReplace );
 
 function buildSequence(cb) {
-	return gulp.series( 'move-variation-specific-files', 'copy-folder', 'remove-unneeded-files', 'fix-build-permissions', 'components-txtdomain-replace', 'txtdomain-replace' )(cb);
+	return gulp.series( 'move-variation-specific-files', 'copy-folder', 'remove-unneeded-files', 'fix-build-permissions', 'fix-line-endings', 'components-txtdomain-replace', 'txtdomain-replace' )(cb);
 }
 buildSequence.description = 'Sets up the build folder';
 gulp.task( 'build', buildSequence );
