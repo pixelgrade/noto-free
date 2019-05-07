@@ -1259,6 +1259,39 @@ tbody > tr:nth-child(even) td:before {
   top: 0;
   left: 0; }
 
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 14px;
+  border: 1px solid; }
+  @media only screen and (max-width: 862px) {
+    pre {
+      padding: 12.89431px; } }
+  @media only screen and (max-width: 770px) {
+    pre {
+      padding: 11.95049px; } }
+  @media only screen and (max-width: 460px) {
+    pre {
+      padding: 11.13541px; } }
+  @media only screen and (max-width: 320px) {
+    pre {
+      padding: 10.42442px; } }
+  pre:not(:last-child) {
+    margin-bottom: 28px; }
+    @media only screen and (max-width: 862px) {
+      pre:not(:last-child) {
+        margin-bottom: 22.17822px; } }
+    @media only screen and (max-width: 770px) {
+      pre:not(:last-child) {
+        margin-bottom: 18.36066px; } }
+    @media only screen and (max-width: 460px) {
+      pre:not(:last-child) {
+        margin-bottom: 15.66434px; } }
+    @media only screen and (max-width: 320px) {
+      pre:not(:last-child) {
+        margin-bottom: 13.65854px; } }
+
 hr {
   margin-top: 1.5rem; }
   hr:not(:last-child) {

@@ -109,6 +109,19 @@ tbody {
   }
 }
 
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  @include spacing(padding, 1rem);
+  border: 1px solid;
+
+  &:not(:last-child) {
+    @include spacing(margin-bottom, 2rem);
+  }
+}
+
 hr {
   margin-top: 1.5rem;
 
