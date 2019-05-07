@@ -3175,20 +3175,6 @@ fieldset {
 
 .comment {
   position: relative; }
-  .comment + .comment {
-    margin-top: 28px; }
-    @media only screen and (max-width: 1360px) {
-      .comment + .comment {
-        margin-top: 22.17822px; } }
-    @media only screen and (max-width: 1024px) {
-      .comment + .comment {
-        margin-top: 18.36066px; } }
-    @media only screen and (max-width: 768px) {
-      .comment + .comment {
-        margin-top: 15.66434px; } }
-    @media only screen and (max-width: 320px) {
-      .comment + .comment {
-        margin-top: 13.65854px; } }
   .comment .edit-link {
     position: absolute;
     top: 0;
@@ -3247,6 +3233,20 @@ fieldset {
     list-style: none;
     padding: 0;
     margin: 0; }
+  .comment-list > li + li {
+    margin-top: 28px; }
+    @media only screen and (max-width: 1360px) {
+      .comment-list > li + li {
+        margin-top: 22.17822px; } }
+    @media only screen and (max-width: 1024px) {
+      .comment-list > li + li {
+        margin-top: 18.36066px; } }
+    @media only screen and (max-width: 768px) {
+      .comment-list > li + li {
+        margin-top: 15.66434px; } }
+    @media only screen and (max-width: 320px) {
+      .comment-list > li + li {
+        margin-top: 13.65854px; } }
 
 .comment-list,
 .comment-respond {
@@ -7415,43 +7415,43 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
           -webkit-transform: scale(1, 0) rotate(0);
                   transform: scale(1, 0) rotate(0); }
       .c-navbar__zone--left .menu > li:nth-child(1):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(3deg);
+                transform: scale(1, 1) rotate(3deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(2):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(-2deg);
                 transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(2):hover > a:before {
+      .c-navbar__zone--left .menu > li:nth-child(3):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(3deg);
                 transform: scale(1, 1) rotate(3deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(3):hover > a:before {
+      .c-navbar__zone--left .menu > li:nth-child(4):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(1deg);
                 transform: scale(1, 1) rotate(1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(4):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(5):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(6):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(3deg);
-                transform: scale(1, 1) rotate(3deg);
+        -webkit-transform: scale(1, 1) rotate(-1deg);
+                transform: scale(1, 1) rotate(-1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7464,92 +7464,92 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(8):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(9):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(1deg);
-                transform: scale(1, 1) rotate(1deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(10):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(2deg);
-                transform: scale(1, 1) rotate(2deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(11):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(12):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(2deg);
-                transform: scale(1, 1) rotate(2deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(13):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-2deg);
-                transform: scale(1, 1) rotate(-2deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(14):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(3deg);
                 transform: scale(1, 1) rotate(3deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(15):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(2deg);
-                transform: scale(1, 1) rotate(2deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(16):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(17):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(1deg);
-                transform: scale(1, 1) rotate(1deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(18):hover > a:before {
+      .c-navbar__zone--left .menu > li:nth-child(9):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(-2deg);
                 transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(19):hover > a:before {
+      .c-navbar__zone--left .menu > li:nth-child(10):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(0deg);
+                transform: scale(1, 1) rotate(0deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(11):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(1deg);
                 transform: scale(1, 1) rotate(1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(20):hover > a:before {
+      .c-navbar__zone--left .menu > li:nth-child(12):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(13):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(3deg);
+                transform: scale(1, 1) rotate(3deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(14):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(0deg);
+                transform: scale(1, 1) rotate(0deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(15):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(3deg);
+                transform: scale(1, 1) rotate(3deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(16):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(3deg);
+                transform: scale(1, 1) rotate(3deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(17):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(18):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(1deg);
                 transform: scale(1, 1) rotate(1deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(19):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(3deg);
+                transform: scale(1, 1) rotate(3deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(20):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -9457,84 +9457,84 @@ body:not(.blog) .c-noto__item--post-it {
   transition: all .3s ease-out; }
 
 .c-noto__item:nth-child(20n + 1).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(-20px);
-          transform: rotate(-2deg) translateX(-10px) translateY(-20px); }
+  -webkit-transform: rotate(1deg) translateX(-20px) translateY(-20px);
+          transform: rotate(1deg) translateX(-20px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 2).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(10px) translateY(-20px);
-          transform: rotate(-1deg) translateX(10px) translateY(-20px); }
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(-20px);
+          transform: rotate(2deg) translateX(0px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 3).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(0px) translateY(0px);
-          transform: rotate(-2deg) translateX(0px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 4).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(20px);
-          transform: rotate(2deg) translateX(-10px) translateY(20px); }
-
-.c-noto__item:nth-child(20n + 5).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-20px) translateY(-20px);
-          transform: rotate(2deg) translateX(-20px) translateY(-20px); }
-
-.c-noto__item:nth-child(20n + 6).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(-20px);
-          transform: rotate(-2deg) translateX(-10px) translateY(-20px); }
-
-.c-noto__item:nth-child(20n + 7).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(20px);
-          transform: rotate(2deg) translateX(-10px) translateY(20px); }
-
-.c-noto__item:nth-child(20n + 8).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(20px) translateY(-20px);
-          transform: rotate(1deg) translateX(20px) translateY(-20px); }
-
-.c-noto__item:nth-child(20n + 9).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(20px);
-          transform: rotate(2deg) translateX(-10px) translateY(20px); }
-
-.c-noto__item:nth-child(20n + 10).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(0px) translateY(-10px);
-          transform: rotate(2deg) translateX(0px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 11).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(20px) translateY(-10px);
-          transform: rotate(2deg) translateX(20px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 12).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(0px) translateY(-10px);
-          transform: rotate(1deg) translateX(0px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 13).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(-10px);
-          transform: rotate(-1deg) translateX(-20px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 14).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(-20px) translateY(20px);
-          transform: rotate(1deg) translateX(-20px) translateY(20px); }
-
-.c-noto__item:nth-child(20n + 15).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(10px) translateY(-10px);
-          transform: rotate(-2deg) translateX(10px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 16).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(0px) translateY(10px);
-          transform: rotate(-2deg) translateX(0px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 17).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-20px) translateY(0px);
-          transform: rotate(2deg) translateX(-20px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 18).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(0px) translateY(10px);
-          transform: rotate(-2deg) translateX(0px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 19).has-focus .c-card__frame {
   -webkit-transform: rotate(2deg) translateX(20px) translateY(10px);
           transform: rotate(2deg) translateX(20px) translateY(10px); }
 
+.c-noto__item:nth-child(20n + 4).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(-20px);
+          transform: rotate(-2deg) translateX(-10px) translateY(-20px); }
+
+.c-noto__item:nth-child(20n + 5).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(-20px) translateY(10px);
+          transform: rotate(-2deg) translateX(-20px) translateY(10px); }
+
+.c-noto__item:nth-child(20n + 6).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(-10px);
+          transform: rotate(2deg) translateX(0px) translateY(-10px); }
+
+.c-noto__item:nth-child(20n + 7).has-focus .c-card__frame {
+  -webkit-transform: rotate(-1deg) translateX(20px) translateY(10px);
+          transform: rotate(-1deg) translateX(20px) translateY(10px); }
+
+.c-noto__item:nth-child(20n + 8).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(20px);
+          transform: rotate(2deg) translateX(0px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 9).has-focus .c-card__frame {
+  -webkit-transform: rotate(-1deg) translateX(0px) translateY(-20px);
+          transform: rotate(-1deg) translateX(0px) translateY(-20px); }
+
+.c-noto__item:nth-child(20n + 10).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(-20px) translateY(0px);
+          transform: rotate(1deg) translateX(-20px) translateY(0px); }
+
+.c-noto__item:nth-child(20n + 11).has-focus .c-card__frame {
+  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(-10px);
+          transform: rotate(-1deg) translateX(-20px) translateY(-10px); }
+
+.c-noto__item:nth-child(20n + 12).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(0px) translateY(10px);
+          transform: rotate(1deg) translateX(0px) translateY(10px); }
+
+.c-noto__item:nth-child(20n + 13).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(20px) translateY(20px);
+          transform: rotate(-2deg) translateX(20px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 14).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(0px) translateY(20px);
+          transform: rotate(1deg) translateX(0px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 15).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(10px) translateY(-20px);
+          transform: rotate(2deg) translateX(10px) translateY(-20px); }
+
+.c-noto__item:nth-child(20n + 16).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(0px) translateY(-20px);
+          transform: rotate(-2deg) translateX(0px) translateY(-20px); }
+
+.c-noto__item:nth-child(20n + 17).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(20px);
+          transform: rotate(-2deg) translateX(-10px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 18).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(10px) translateY(-10px);
+          transform: rotate(2deg) translateX(10px) translateY(-10px); }
+
+.c-noto__item:nth-child(20n + 19).has-focus .c-card__frame {
+  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(0px);
+          transform: rotate(-1deg) translateX(-20px) translateY(0px); }
+
 .c-noto__item:nth-child(20n + 20).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-20px) translateY(0px);
-          transform: rotate(2deg) translateX(-20px) translateY(0px); }
+  -webkit-transform: rotate(1deg) translateX(20px) translateY(10px);
+          transform: rotate(1deg) translateX(20px) translateY(10px); }
 
 .c-burger {
   position: relative;
