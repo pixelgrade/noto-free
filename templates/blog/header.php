@@ -107,18 +107,20 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 	            // Get the menu_locations in the current zone.
 	            $menu_locations = pixelgrade_header_get_zone_nav_menu_locations( $zone_id, $zone );
 
-	            foreach ( $menu_locations as $menu_id => $menu_location ) {
-		            if ( empty( $menu_location['bogus'] ) ) {
-			            $temp_menu = wp_nav_menu(
-				            array (
-					            'theme_location' => $menu_id,
-					            'echo' => false,
-					            'fallback_cb' => '__return_false'
-				            )
-			            );
+	            if ( ! empty( $menu_locations ) ) {
+		            foreach ( $menu_locations as $menu_id => $menu_location ) {
+			            if ( empty( $menu_location['bogus'] ) ) {
+				            $temp_menu = wp_nav_menu(
+					            array(
+						            'theme_location' => $menu_id,
+						            'echo'           => false,
+						            'fallback_cb'    => '__return_false'
+					            )
+				            );
 
-			            if ( false !== $temp_menu ) {
-				            $header_active_menus[] = $menu_id;
+				            if ( false !== $temp_menu ) {
+					            $header_active_menus[] = $menu_id;
+				            }
 			            }
 		            }
 	            }
