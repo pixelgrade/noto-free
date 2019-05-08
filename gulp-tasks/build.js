@@ -155,6 +155,7 @@ function maybeFixBuildDirPermissions(done) {
 
   return done();
 }
+maybeFixBuildDirPermissions.description = 'Make sure that all directories in the build directory have 755 permissions.';
 gulp.task( 'fix-build-dir-permissions', maybeFixBuildDirPermissions );
 
 function maybeFixBuildFilePermissions(done) {
@@ -163,6 +164,7 @@ function maybeFixBuildFilePermissions(done) {
 
   return done();
 }
+maybeFixBuildFilePermissions.description = 'Make sure that all files in the build directory have 644 permissions.';
 gulp.task( 'fix-build-file-permissions', maybeFixBuildFilePermissions );
 
 function maybeFixIncorrectLineEndings(done) {
@@ -171,6 +173,7 @@ function maybeFixIncorrectLineEndings(done) {
 
   return done();
 }
+maybeFixIncorrectLineEndings.description = 'Make sure that all line endings in the files in the build directory are UNIX line endings.';
 gulp.task( 'fix-line-endings', maybeFixIncorrectLineEndings );
 
 // -----------------------------------------------------------------------------
