@@ -109,7 +109,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 
 	            foreach ( $menu_locations as $menu_id => $menu_location ) {
 		            if ( empty( $menu_location['bogus'] ) ) {
-			            $menu = wp_nav_menu(
+			            $temp_menu = wp_nav_menu(
 				            array (
 					            'theme_location' => $menu_id,
 					            'echo' => false,
@@ -117,7 +117,7 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
 				            )
 			            );
 
-			            if ( false !== $menu ) {
+			            if ( false !== $temp_menu ) {
 				            $header_active_menus[] = $menu_id;
 			            }
 		            }
