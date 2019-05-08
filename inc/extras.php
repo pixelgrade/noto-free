@@ -278,3 +278,8 @@ function noto_maybe_load_pro_features() {
 }
 // We want to do this as early as possible. So the zero priority is as intended.
 add_action( 'after_setup_theme', 'noto_maybe_load_pro_features', 0 );
+
+/**
+ * We don't want any classes on the blog grid.
+ */
+add_filter( 'pixelgrade_blog_grid_class', '__return_empty_array' );

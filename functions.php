@@ -155,7 +155,7 @@ function noto_scripts() {
 	/* Scripts */
 
 	//The main script
-	wp_register_script( 'tweenmax',get_theme_file_uri( '/assets/js/TweenMax' . $suffix . '.js' ), array(), '2.0.2', true );
+	wp_register_script( 'tweenmax','//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax' . $suffix . '.js', array(), '2.1.2', true );
 	wp_enqueue_script( 'noto-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'jquery','imagesloaded', 'tweenmax', 'hoverIntent' ), $theme->get( 'Version' ), true );
 
 	if ( is_customize_preview() ) {
@@ -203,11 +203,6 @@ function noto_custom_tiled_gallery_width() {
 	return $width;
 }
 add_filter( 'tiled_gallery_content_width', 'noto_custom_tiled_gallery_width' );
-
-/**
- * We don't want any classes on the blog grid.
- */
-add_filter( 'pixelgrade_blog_grid_class', '__return_empty_array' );
 
 /*
  * ==================================================
