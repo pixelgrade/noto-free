@@ -101,6 +101,10 @@ figcaption {
     margin-left: 0;
 }
 
+.gallery-caption {
+    @include leading-map($wp-align-caption-font);
+}
+
 //.content-area > p {
 //
 //    .alignleft {

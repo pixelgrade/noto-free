@@ -7412,43 +7412,43 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(2):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-1deg);
-                transform: scale(1, 1) rotate(-1deg);
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(3):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-1deg);
-                transform: scale(1, 1) rotate(-1deg);
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(4):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(-3deg);
+                transform: scale(1, 1) rotate(-3deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(5):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(-1deg);
                 transform: scale(1, 1) rotate(-1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(5):hover > a:before {
+      .c-navbar__zone--left .menu > li:nth-child(6):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(1deg);
                 transform: scale(1, 1) rotate(1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(6):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-1deg);
-                transform: scale(1, 1) rotate(-1deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(7):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(2deg);
-                transform: scale(1, 1) rotate(2deg);
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7461,43 +7461,43 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(9):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(1deg);
-                transform: scale(1, 1) rotate(1deg);
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(10):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(11):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(1deg);
-                transform: scale(1, 1) rotate(1deg);
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(12):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-1deg);
-                transform: scale(1, 1) rotate(-1deg);
-        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-      .c-navbar__zone--left .menu > li:nth-child(13):hover > a:before {
         -webkit-transform: scale(1, 1) rotate(1deg);
                 transform: scale(1, 1) rotate(1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+      .c-navbar__zone--left .menu > li:nth-child(13):hover > a:before {
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
+        -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(14):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(0deg);
-                transform: scale(1, 1) rotate(0deg);
+        -webkit-transform: scale(1, 1) rotate(2deg);
+                transform: scale(1, 1) rotate(2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7510,8 +7510,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(16):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-3deg);
-                transform: scale(1, 1) rotate(-3deg);
+        -webkit-transform: scale(1, 1) rotate(1deg);
+                transform: scale(1, 1) rotate(1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7524,8 +7524,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(18):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(-1deg);
-                transform: scale(1, 1) rotate(-1deg);
+        -webkit-transform: scale(1, 1) rotate(-2deg);
+                transform: scale(1, 1) rotate(-2deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7538,8 +7538,8 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
       .c-navbar__zone--left .menu > li:nth-child(20):hover > a:before {
-        -webkit-transform: scale(1, 1) rotate(2deg);
-                transform: scale(1, 1) rotate(2deg);
+        -webkit-transform: scale(1, 1) rotate(-1deg);
+                transform: scale(1, 1) rotate(-1deg);
         -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -7817,21 +7817,6 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
 .u-footer-background {
   background-color: #34394B; }
 
-.c-card__excerpt + .c-card__footer {
-  margin-top: 21px; }
-  @media only screen and (max-width: 1360px) {
-    .c-card__excerpt + .c-card__footer {
-      margin-top: 16.77903px; } }
-  @media only screen and (max-width: 1024px) {
-    .c-card__excerpt + .c-card__footer {
-      margin-top: 13.97089px; } }
-  @media only screen and (max-width: 768px) {
-    .c-card__excerpt + .c-card__footer {
-      margin-top: 11.96794px; } }
-  @media only screen and (max-width: 320px) {
-    .c-card__excerpt + .c-card__footer {
-      margin-top: 10.46729px; } }
-
 .c-meta__decoration {
   position: relative;
   display: inline-block;
@@ -7972,14 +7957,11 @@ body:not(.blog) .c-navbar__zone--branding:hover .header:after {
 .c-card__content {
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: flex-start;
-  margin-top: 0; }
+          align-items: flex-start; }
 
-.c-card__title {
+.c-card__content[class],
+.c-card__title[class] {
   margin-top: 0; }
-
-.c-card__excerpt {
-  margin-bottom: 0; }
 
 .c-card__meta {
   width: auto;
@@ -8678,6 +8660,36 @@ figcaption {
   grid-column: ceo/edge-end;
   max-width: 100%;
   margin-right: 0; }
+
+.gallery-caption {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 17px; }
+  @media only screen and (max-width: 1360px) {
+    .gallery-caption {
+      font-size: 15.98274px; } }
+  @media only screen and (max-width: 1024px) {
+    .gallery-caption {
+      font-size: 15.08035px; } }
+  @media only screen and (max-width: 768px) {
+    .gallery-caption {
+      font-size: 14.27442px; } }
+  @media only screen and (max-width: 400px) {
+    .gallery-caption {
+      font-size: 13.55026px; } }
+  .gallery-caption:not(:first-child) {
+    margin-top: 14px; }
+    @media only screen and (max-width: 1360px) {
+      .gallery-caption:not(:first-child) {
+        margin-top: 12.89431px; } }
+    @media only screen and (max-width: 1024px) {
+      .gallery-caption:not(:first-child) {
+        margin-top: 11.95049px; } }
+    @media only screen and (max-width: 768px) {
+      .gallery-caption:not(:first-child) {
+        margin-top: 11.13541px; } }
+    @media only screen and (max-width: 320px) {
+      .gallery-caption:not(:first-child) {
+        margin-top: 10.42442px; } }
 
 img.branded {
   border-radius: 35%; }
@@ -9480,84 +9492,84 @@ body:not(.blog) .c-noto__item--post-it {
   transition: all .3s ease-out; }
 
 .c-noto__item:nth-child(20n + 1).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(10px);
-          transform: rotate(2deg) translateX(-10px) translateY(10px); }
+  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(-20px);
+          transform: rotate(-1deg) translateX(-20px) translateY(-20px); }
 
 .c-noto__item:nth-child(20n + 2).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(0px) translateY(10px);
-          transform: rotate(-1deg) translateX(0px) translateY(10px); }
+  -webkit-transform: rotate(1deg) translateX(-10px) translateY(0px);
+          transform: rotate(1deg) translateX(-10px) translateY(0px); }
 
 .c-noto__item:nth-child(20n + 3).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(-10px);
-          transform: rotate(-1deg) translateX(-20px) translateY(-10px); }
+  -webkit-transform: rotate(-1deg) translateX(10px) translateY(20px);
+          transform: rotate(-1deg) translateX(10px) translateY(20px); }
 
 .c-noto__item:nth-child(20n + 4).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(20px) translateY(10px);
-          transform: rotate(-1deg) translateX(20px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 5).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(-20px);
-          transform: rotate(-2deg) translateX(-10px) translateY(-20px); }
-
-.c-noto__item:nth-child(20n + 6).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(-10px) translateY(10px);
-          transform: rotate(2deg) translateX(-10px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 7).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-20px) translateY(-20px);
-          transform: rotate(-2deg) translateX(-20px) translateY(-20px); }
-
-.c-noto__item:nth-child(20n + 8).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(10px) translateY(0px);
-          transform: rotate(-1deg) translateX(10px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 9).has-focus .c-card__frame {
   -webkit-transform: rotate(-2deg) translateX(-10px) translateY(0px);
           transform: rotate(-2deg) translateX(-10px) translateY(0px); }
 
-.c-noto__item:nth-child(20n + 10).has-focus .c-card__frame {
+.c-noto__item:nth-child(20n + 5).has-focus .c-card__frame {
   -webkit-transform: rotate(-2deg) translateX(0px) translateY(-10px);
           transform: rotate(-2deg) translateX(0px) translateY(-10px); }
 
+.c-noto__item:nth-child(20n + 6).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(-20px) translateY(20px);
+          transform: rotate(1deg) translateX(-20px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 7).has-focus .c-card__frame {
+  -webkit-transform: rotate(-1deg) translateX(0px) translateY(10px);
+          transform: rotate(-1deg) translateX(0px) translateY(10px); }
+
+.c-noto__item:nth-child(20n + 8).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(10px) translateY(-20px);
+          transform: rotate(-2deg) translateX(10px) translateY(-20px); }
+
+.c-noto__item:nth-child(20n + 9).has-focus .c-card__frame {
+  -webkit-transform: rotate(-1deg) translateX(-20px) translateY(10px);
+          transform: rotate(-1deg) translateX(-20px) translateY(10px); }
+
+.c-noto__item:nth-child(20n + 10).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(-20px) translateY(0px);
+          transform: rotate(2deg) translateX(-20px) translateY(0px); }
+
 .c-noto__item:nth-child(20n + 11).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(20px) translateY(-10px);
-          transform: rotate(-2deg) translateX(20px) translateY(-10px); }
-
-.c-noto__item:nth-child(20n + 12).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(-10px) translateY(0px);
-          transform: rotate(-2deg) translateX(-10px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 13).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(10px) translateY(10px);
-          transform: rotate(-1deg) translateX(10px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 14).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(10px) translateY(10px);
-          transform: rotate(2deg) translateX(10px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 15).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(10px) translateY(10px);
-          transform: rotate(2deg) translateX(10px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 16).has-focus .c-card__frame {
-  -webkit-transform: rotate(-1deg) translateX(20px) translateY(10px);
-          transform: rotate(-1deg) translateX(20px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 17).has-focus .c-card__frame {
-  -webkit-transform: rotate(2deg) translateX(10px) translateY(0px);
-          transform: rotate(2deg) translateX(10px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 18).has-focus .c-card__frame {
-  -webkit-transform: rotate(1deg) translateX(20px) translateY(10px);
-          transform: rotate(1deg) translateX(20px) translateY(10px); }
-
-.c-noto__item:nth-child(20n + 19).has-focus .c-card__frame {
-  -webkit-transform: rotate(-2deg) translateX(0px) translateY(0px);
-          transform: rotate(-2deg) translateX(0px) translateY(0px); }
-
-.c-noto__item:nth-child(20n + 20).has-focus .c-card__frame {
   -webkit-transform: rotate(-2deg) translateX(20px) translateY(20px);
           transform: rotate(-2deg) translateX(20px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 12).has-focus .c-card__frame {
+  -webkit-transform: rotate(-2deg) translateX(20px) translateY(20px);
+          transform: rotate(-2deg) translateX(20px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 13).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(-20px) translateY(-10px);
+          transform: rotate(1deg) translateX(-20px) translateY(-10px); }
+
+.c-noto__item:nth-child(20n + 14).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(20px) translateY(-20px);
+          transform: rotate(2deg) translateX(20px) translateY(-20px); }
+
+.c-noto__item:nth-child(20n + 15).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(0px) translateY(-10px);
+          transform: rotate(1deg) translateX(0px) translateY(-10px); }
+
+.c-noto__item:nth-child(20n + 16).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(-10px) translateY(10px);
+          transform: rotate(2deg) translateX(-10px) translateY(10px); }
+
+.c-noto__item:nth-child(20n + 17).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(10px) translateY(0px);
+          transform: rotate(1deg) translateX(10px) translateY(0px); }
+
+.c-noto__item:nth-child(20n + 18).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(20px);
+          transform: rotate(2deg) translateX(0px) translateY(20px); }
+
+.c-noto__item:nth-child(20n + 19).has-focus .c-card__frame {
+  -webkit-transform: rotate(2deg) translateX(0px) translateY(0px);
+          transform: rotate(2deg) translateX(0px) translateY(0px); }
+
+.c-noto__item:nth-child(20n + 20).has-focus .c-card__frame {
+  -webkit-transform: rotate(1deg) translateX(0px) translateY(-10px);
+          transform: rotate(1deg) translateX(0px) translateY(-10px); }
 
 .c-burger {
   position: relative;
@@ -10257,5 +10269,8 @@ html {
   .search-trigger[class] svg {
     width: auto;
     height: auto; }
+
+.c-navbar__placeholder {
+  display: none; }
 
 /*# sourceMappingURL=to.css.map */
