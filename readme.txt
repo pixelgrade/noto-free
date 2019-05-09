@@ -3,7 +3,7 @@ Contributors: pixelgrade, babbardel, vlad.olaru, razvanonofrei
 Tags: blog, entertainment, translation-ready, theme-options, featured-images, custom-colors, custom-menu, custom-logo, one-column, two-columns, three-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
 Tested up to: 5.2.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -35,3 +35,4 @@ The Noto Theme bundles the following third-party resources:
 
 * normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2019 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
 * rxjs by [ReactiveX](https://github.com/ReactiveX), licensed under [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+* TweenMax by [GreenSock](https://greensock.com/tweenmax), licensed under [Standard "No Charge" License](https://greensock.com/standard-license)
