@@ -10,7 +10,7 @@
  * Assets that will be loaded for the customizer sidebar
  */
 function noto_lite_customizer_assets() {
-	wp_enqueue_style( 'noto_lite_customizer_style', get_template_directory_uri() . '/inc/lite/admin/customizer.css', null, '1.0.0', false );
+	wp_enqueue_style( 'noto_lite_customizer_style', get_template_directory_uri() . '/inc/lite/admin/css/customizer.css', null, '1.0.0', false );
 }
 add_action( 'customize_controls_enqueue_scripts', 'noto_lite_customizer_assets' );
 
