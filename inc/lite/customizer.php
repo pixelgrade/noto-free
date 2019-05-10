@@ -103,9 +103,9 @@ function noto_lite_customizer_add_theme_options_controls( $wp_customize ) {
 	// Post-it Note title
 	$wp_customize->add_setting( 'noto_options[archive_post_it_title]', array(
 		'default'           => esc_html__( 'Hello', '__theme_txtd' ),
-		'capability' => 'edit_theme_options',
-		'transport'  => 'refresh',
-		'sanitize_callback' => 'wp_kses_post'
+		'capability'        => 'edit_theme_options',
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
 			$wp_customize,
@@ -123,8 +123,8 @@ function noto_lite_customizer_add_theme_options_controls( $wp_customize ) {
 	// Post-it Note content
 	$wp_customize->add_setting( 'noto_options[archive_post_it_content]', array(
 		'default'           => wp_kses_post( __( '<p>Welcome to my blog! Check out the latest post, browse the highlights or <a href="/contact/">reach me</a> to say Hi!</p>', '__theme_txtd' ) ),
-		'capability' => 'edit_theme_options',
-		'transport'  => 'refresh',
+		'capability'        => 'edit_theme_options',
+		'transport'         => 'refresh',
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
@@ -143,9 +143,9 @@ function noto_lite_customizer_add_theme_options_controls( $wp_customize ) {
 	// Hide Post-it Note checkbox
 	$wp_customize->add_setting( 'noto_options[archive_post_it_disable]', array(
 		'default'           => false,
-		'capability' => 'edit_theme_options',
-		'transport'  => 'refresh',
-		'sanitize_callback' => 'noto_lite_sanitize_checkbox'
+		'capability'        => 'edit_theme_options',
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'noto_lite_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( new WP_Customize_Control(
 			$wp_customize,
