@@ -6,16 +6,19 @@ $header-vertical-spacing: 25px;
 $header-vertical-position-top: 25px;
 
 .c-navbar__zone--branding {
-    
+
     // Grid
     // Vertical Layout
     @include above(lap) {
 
         body.blog & {
-            transform: translateY(0px) rotate(1deg);
-            transition: all $transition--macro ease;
 
-            &:hover {
+            > .header {
+              transform: translateY(0px) rotate(1deg);
+              transition: all $transition--macro ease;
+            }
+
+            &:hover > .header {
                 transform: translateY(-30px) rotate(-1deg);
             }
         }
@@ -45,7 +48,7 @@ $header-vertical-position-top: 25px;
             }
 
             .header:after {
-                transform: translateY(-$header-horizontal-position-top) rotate(0deg); 
+                transform: translateY(-$header-horizontal-position-top) rotate(0deg);
             }
         }
     }
