@@ -155,7 +155,7 @@ function noto_scripts() {
 	/* Scripts */
 
 	//The main script
-	wp_register_script( 'tweenmax', get_theme_file_uri( '/assets/js/TweenMax' . $suffix . '.js' ), array(), '2.0.2', true );
+	wp_register_script( 'tweenmax', get_theme_file_uri( '/assets/js/TweenMax' . $suffix . '.js' ), array(), '2.1.2', true );
 	wp_enqueue_script( 'noto-scripts', get_theme_file_uri( '/assets/js/scripts' . $suffix . '.js' ), array( 'jquery','imagesloaded', 'tweenmax', 'hoverIntent' ), $theme->get( 'Version' ), true );
 
 	if ( is_customize_preview() ) {
@@ -170,7 +170,7 @@ function noto_scripts() {
 add_action( 'wp_enqueue_scripts', 'noto_scripts' );
 
 function noto_load_wp_admin_style() {
-	wp_register_style( 'noto_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.0.0' );
+	wp_register_style( 'noto_wp_admin_css', get_template_directory_uri() . '/admin.css', false, '1.1.2' );
 	wp_enqueue_style( 'noto_wp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'noto_load_wp_admin_style' );
