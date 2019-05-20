@@ -165,7 +165,7 @@ function noto_scripts() {
 	$localization_array = array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	);
-	wp_localize_script( 'noto-main-scripts', 'notoStrings', $localization_array );
+	wp_localize_script( 'noto-scripts', 'notoStrings', $localization_array );
 }
 add_action( 'wp_enqueue_scripts', 'noto_scripts' );
 

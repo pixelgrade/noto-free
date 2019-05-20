@@ -42,9 +42,3 @@ function noto_alter_footer_component_config( $config ) {
 add_filter( 'pixelgrade_footer_initial_config', 'noto_alter_footer_component_config', 10 );
 
 add_filter( 'pixelgrade_prevent_post_navigation', '__return_true', 10 );
-
-
-
-
-
-

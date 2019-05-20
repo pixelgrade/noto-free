@@ -77,7 +77,7 @@ function noto_add_other_footer_layers() { ?>
 add_action( 'noto_after_grid_end', 'noto_add_other_footer_layers', 10 );
 
 /**
- * Add markup needed for paper stack effect in footer
+ * Add markup needed for the search overlay.
  */
 function noto_add_search_overlay() {
 	pixelgrade_get_component_template_part( Pixelgrade_Blog::COMPONENT_SLUG, 'search-overlay' );
