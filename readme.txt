@@ -1,9 +1,12 @@
-=== Noto ===
+Theme Name: Noto
 Contributors: pixelgrade, babbardel, vlad.olaru, razvanonofrei
+Author: Pixelgrade
+Author URI: https://pixelgrade.com
+Description: Noto is a notebook inspired blogging theme, designed for your creative ambitions. From the variety of colors, the use of subtle motion effects and visual cues, this is the perfect solution to explore the rhythm and dynamics of your text‐based content.
 Tags: blog, entertainment, translation-ready, theme-options, featured-images, custom-colors, custom-menu, custom-logo, one-column, two-columns, three-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
-Tested up to: 5.2.0
-Stable tag: 1.1.2
+Tested up to: 5.2.2
+Stable tag: 1.1.3
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -21,6 +24,9 @@ Noto is a notebook inspired blogging theme, designed for your creative ambitions
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.1.3 =
+* Cleanup and security enhancements.
 
 = 1.1.2 =
 * Fixed a couple of styling glitches.

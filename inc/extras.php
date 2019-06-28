@@ -245,26 +245,6 @@ function noto_posts_per_page( $posts_per_page ) {
 add_filter( 'option_posts_per_page', 'noto_posts_per_page', 10, 1 );
 
 /**
- * Handle the WUpdates theme identification.
- *
- * @param array $ids
- *
- * @return array
- */
-function noto_wupdates_add_id_wporg( $ids = array() ) {
-	// First get the theme directory name (unique)
-	$slug = basename( get_template_directory() );
-
-	// Now add the predefined details about this product
-	// Do not tamper with these please!!!
-	$ids[ $slug ] = array( 'name' => 'Noto', 'slug' => 'noto', 'id' => 'JDKZB', 'type' => 'theme_modular_wporg', 'digest' => '0352ff8297cd42ec6f7c03ee9287559e', );
-
-	return $ids;
-}
-// The 5 priority is intentional to allow for pro to overwrite.
-add_filter( 'wupdates_gather_ids', 'noto_wupdates_add_id_wporg', 5, 1 );
-
-/**
  * Output the profile photo before the rest of the branding.
  */
 add_action( 'pixelgrade_header_before_brading_content', 'noto_the_profile_photo' );
