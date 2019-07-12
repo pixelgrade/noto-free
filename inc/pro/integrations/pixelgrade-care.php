@@ -51,7 +51,7 @@ function noto_pixcare_install_page() {
 	$nonce_url = wp_nonce_url(
 		add_query_arg(
 			array(
-				'plugin'        => urlencode( 'pixelgrade-care' ),
+				'plugin'        => rawurlencode( 'pixelgrade-care' ),
 				'tgmpa-install' => 'install-plugin',
 			),
 			admin_url( 'themes.php?page=install-required-plugins' )

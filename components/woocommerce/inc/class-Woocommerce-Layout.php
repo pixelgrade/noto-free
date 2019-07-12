@@ -335,7 +335,7 @@ class Pixelgrade_Woocommerce_Layout extends Pixelgrade_Singleton {
 
     public function outputCheckoutSiteIdentity() { ?>
 
-	    <h1 class="woocommerce-checkout-title"><a href="<?php echo esc_url( get_home_url() ); ?>"><span><?php echo esc_html( get_bloginfo( 'name' ) ) ?></span></a></h1>
+	    <h1 class="woocommerce-checkout-title"><a href="<?php echo esc_url( home_url() ); ?>"><span><?php echo esc_html( get_bloginfo( 'name' ) ) ?></span></a></h1>
 
     <?php }
 

@@ -45,6 +45,7 @@ Images used in screenshot.jpg: photos by Daria Shevtsova (https://stocksnap.io/a
 
 The Noto Theme bundles the following third-party resources:
 
+* TGM Plugin Activation by [Thomas Griffin](http://tgmpluginactivation.com/), 2011, licensed under [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (c) 2012-2019 Nicolas Gallagher and Jonathan Neal, licensed under [MIT](https://opensource.org/licenses/MIT)
 * rxjs by [ReactiveX](https://github.com/ReactiveX), licensed under [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 * TweenMax by [GreenSock](https://greensock.com/tweenmax), licensed under [Standard "No Charge" License](https://greensock.com/standard-license)
