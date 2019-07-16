@@ -121,6 +121,8 @@ function removeUnneededFiles() {
 		'webpack.config.js',
 		'.jscsrc',
 		'.jshintignore',
+		'phpcs.xml.dist',
+		'phpunit.xml.dist',
 
 		'assets/scss',
 		'assets/js-old',
