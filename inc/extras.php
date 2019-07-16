@@ -249,15 +249,7 @@ add_filter( 'option_posts_per_page', 'noto_posts_per_page', 10, 1 );
  */
 add_action( 'pixelgrade_header_before_brading_content', 'noto_the_profile_photo' );
 
-function noto_maybe_load_pro_features() {
-	if ( true === pixelgrade_user_has_access( 'pro-features' ) ) {
-		pixelgrade_autoload_dir( 'inc/pro' );
-	} else {
-		pixelgrade_autoload_dir( 'inc/lite' );
-	}
-}
-// We want to do this as early as possible. So the zero priority is as intended.
-add_action( 'after_setup_theme', 'noto_maybe_load_pro_features', 0 );
+pixelgrade_autoload_dir( 'inc/lite' );
 
 /**
  * We don't want any classes on the blog grid.

@@ -48,12 +48,8 @@ function noto_alter_header_component_config( $config ) {
 		),
 	);
 
-	if ( ! pixelgrade_user_has_access( 'pro-features' ) ) {
-		unset( $config['menu_locations']['primary-right'] );
-		$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
-	} else {
-		$config['menu_locations']['primary-right']['title'] = esc_html__( 'Header Bottom', '__theme_txtd' );
-	}
+	unset( $config['menu_locations']['primary-right'] );
+	$config['menu_locations']['primary-left']['nav_menu_args']['depth'] = 1;
 
 	return $config;
 }

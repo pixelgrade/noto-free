@@ -138,6 +138,11 @@ function removeUnneededFiles() {
 		'components/phpdoc*',
 		'components/phpunit*',
 		'components/style.css',
+
+		'components/multipage',
+		'components/portfolio',
+		'components/woocommerce',
+
 		'variations',
 
     'bin',

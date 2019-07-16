@@ -27,6 +27,7 @@
  */
 function noto_lite_remove_customify_options( $options ) {
 	$options['sections'] = array();
+	$options['panels'] = array();
 
 	return $options;
 }

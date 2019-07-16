@@ -7,11 +7,6 @@
  */
 
 /**
- * Admin Dashboard logic.
- */
-require pixelgrade_get_parent_theme_file_path( pixelgrade_get_theme_relative_path( __DIR__ ) . 'admin/admin.php' ); // phpcs:ignore
-
-/**
  * Generate a link to the Noto (Free) info page.
  */
 function noto_lite_get_pro_link() {
