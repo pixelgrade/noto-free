@@ -5,7 +5,6 @@
  * @version 1.0.0
  */
 var gulp = require( 'gulp' ),
-	plugins = require( 'gulp-load-plugins' )(),
 	fs = require( 'fs' );
 
 // load tasks from the gulp-tasks folder
