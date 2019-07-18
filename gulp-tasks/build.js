@@ -125,6 +125,7 @@ function removeUnneededFiles() {
 
 		'assets/scss',
 		'assets/js-old',
+		'assets/js/report.html',
 		'docs',
 		'components/docs',
 		'components/.bin',
