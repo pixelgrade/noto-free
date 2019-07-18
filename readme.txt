@@ -6,7 +6,7 @@ Description: Noto is a notebook inspired blogging theme, designed for your creat
 Tags: blog, entertainment, translation-ready, theme-options, featured-images, custom-colors, custom-menu, custom-logo, one-column, two-columns, three-columns, editor-style, sticky-post, footer-widgets, threaded-comments, rtl-language-support
 Requires at least: 4.9.9
 Tested up to: 5.2.2
-Stable tag: 1.1.2.1
+Stable tag: 1.1.2.2
 Requires PHP: 5.3.0
 License: GPLv2 or later
 License URI: LICENSE
@@ -24,6 +24,9 @@ Noto is a notebook inspired blogging theme, designed for your creative ambitions
 3. Click Activate to use your new theme right away.
 
 == Changelog ==
+
+= 1.1.2.2 =
+* Minor fixes for Windows environments.
 
 = 1.1.2.1 =
 * Cleanup and security enhancements.
