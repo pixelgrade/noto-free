@@ -1,7 +1,8 @@
 # Noto: A free notebook inspired WordPress blogging theme
 ### Noto is a notebook inspired blogging theme, designed for your creative ambitions. From the variety of colors, the use of subtle motion effects and visual cues, this is the perfect solution to explore the rhythm and dynamics of your text‐based content.
 
-[Download for Free](https://downloads.wordpress.org/theme/noto.latest-stable.zip) &nbsp;·&nbsp; [ Noto Pro](https://pixelgrade.com/themes/noto-pro/)
+[View Demo](https://demos.pixelgrade.com/noto-lite/) &nbsp;·&nbsp; 
+[Documentation](https://pixelgrade.com/noto-lite-documentation/) &nbsp;·&nbsp; [Download for Free](https://downloads.wordpress.org/theme/noto.latest-stable.zip) &nbsp;·&nbsp; [ View Pro Version](https://pixelgrade.com/themes/noto-pro/)
 
 [![](https://img.shields.io/github/issues-closed/pixelgrade/noto-free.svg?color=6cc644&label=Issues)](https://github.com/pixelgrade/noto-free/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed+) [![](https://img.shields.io/github/issues/pixelgrade/noto-free.svg?color=4078c0&label=%20)](https://github.com/pixelgrade/noto-free/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen)
 
