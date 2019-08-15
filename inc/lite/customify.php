@@ -1,9 +1,8 @@
 <?php
 /**
- * Noto Customizer Options Config
+ * Noto Lite Customizer Options Config
  *
- * @package Noto
- * @since 1.0.0
+ * @package Noto Lite
  */
 
 /**
