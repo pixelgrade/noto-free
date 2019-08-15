@@ -5,7 +5,7 @@
  * @package Noto Lite
  */
 
-require_once trailingslashit( get_template_directory() ) . 'inc/admin/required-plugins/class-tgm-plugin-activation.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/lite/admin/required-plugins/class-tgm-plugin-activation.php';
 
 function noto_lite_register_required_plugins() {
 

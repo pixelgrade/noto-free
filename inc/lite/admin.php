@@ -8,7 +8,7 @@
 /**
  * Load Recommended plugins notification logic.
  */
-require_once trailingslashit( get_template_directory() ) . 'inc/admin/required-plugins.php';
+require_once trailingslashit( get_template_directory() ) . 'inc/lite/admin/required-plugins.php';
 
 
 function noto_lite_admin_setup() {
