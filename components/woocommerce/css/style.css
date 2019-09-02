@@ -918,8 +918,7 @@
       background: none;
       border: 2px solid currentColor; }
       .u-buttons-outline .woocommerce form.cart .qty:hover, .u-buttons-outline .woocommerce form.cart .qty:active, .u-buttons-outline .woocommerce form.cart .qty:focus {
-        background: none;
-        color: inherit; }
+        background: none; }
     .woocommerce form.cart .qty:hover, .woocommerce form.cart .qty:active, .woocommerce form.cart .qty:focus {
       color: #FFF;
       background-color: #000;

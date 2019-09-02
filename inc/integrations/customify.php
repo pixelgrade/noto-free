@@ -417,7 +417,8 @@ function noto_lite_fill_customify_options( $options ) {
 						array(
 							'property' => 'color',
 							'media'    => 'only screen and (min-width: 62.5em)',
-							'selector' => '.c-navbar__zone--left .menu > li:hover',
+							'selector' => '.c-navbar__zone--left .menu > li:hover,
+							               .c-navbar__zone--left .menu > li:focus-within',
 						),
 					),
 				),

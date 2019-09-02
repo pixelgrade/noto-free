@@ -129,6 +129,16 @@
           transition: transform .3s $easeOutBack;
         }
       }
+
+      &:focus-within {
+        @for $i from 1 through 20 {
+          &:nth-child(#{$i}) > a:before {
+            $rotation: (random(6) - 3) * 1deg;
+            transform: scale(1, 1) rotate($rotation);
+            transition: transform .3s $easeOutBack;
+          }
+        }
+      }
     }
   }
 }

@@ -1,3 +1,11 @@
+.c-card {
+  &:focus-within {
+    .c-card__aside {
+      opacity: 1;
+    }
+  }
+}
+
 .c-meta__decoration {
   @include meta-style;
 
@@ -209,7 +217,8 @@ $button-offset: 16px;
     transition: transform $transition-duration $transition-easing,
                 background-color $transition--micro ease-out;
 
-    .c-card:hover & {
+    .c-card:hover &,
+    .c-card:focus-within & {
       transform: translateX($button-offset);
 
       .u-buttons-solid & {
@@ -228,7 +237,8 @@ $button-offset: 16px;
       transform-origin: 0 50%;
       transform: scale(0,1) translateZ(0);
 
-      .c-card:hover & {
+      .c-card:hover &,
+      .c-card:focus-within & {
         transform: scale(1,1) translateZ(0);
         left: -$button-offset;
       }
@@ -239,7 +249,8 @@ $button-offset: 16px;
     transform: translateX(100%);
     transition: transform $transition-duration $transition-easing;
 
-    .c-card:hover & {
+    .c-card:hover &,
+    .c-card:focus-within & {
       transform: translateX(-1.5rem) translateZ(0);
     }
 
@@ -249,7 +260,8 @@ $button-offset: 16px;
       transition: all $transition-duration $transition-easing;
       transition-property: transform, opacity;
 
-      .c-card:hover & {
+      .c-card:hover &,
+      .c-card:focus-within & {
         opacity: 0.4;
         transform: translateZ(0);
       }
@@ -273,7 +285,8 @@ $button-offset: 16px;
     }
   }
 
-  .c-card:hover {
+  .c-card:hover,
+  .c-card:focus-within {
 
     .c-card__title,
     .wave-svg-mask {
