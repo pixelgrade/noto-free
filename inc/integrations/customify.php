@@ -17,9 +17,9 @@
  * @return array The returned options are required, if you don't need options return an empty array.
  */
 add_filter( 'customify_filter_fields', 'noto_lite_add_customify_options', 11, 1 );
-add_filter( 'customify_filter_fields', 'noto_lite_add_customify_style_manager_section', 12, 1 );
+add_filter( 'customify_filter_fields', 'noto_lite_add_customify_style_manager_section', 13, 1 );
 
-add_filter( 'customify_filter_fields', 'noto_lite_fill_customify_options', 20 );
+add_filter( 'customify_filter_fields', 'noto_lite_fill_customify_options', 50 );
 
 define( 'NOTOLITE_SM_COLOR_PRIMARY', '#FFB1A5' ); // Pink (used at 40% opacity)
 define( 'NOTOLITE_SM_COLOR_SECONDARY', '#E79696' ); // Darker Pink
@@ -32,6 +32,11 @@ define( 'NOTOLITE_SM_DARK_TERTIARY', '#A2A3A2' ); // Light Grey
 define( 'NOTOLITE_SM_LIGHT_PRIMARY', '#FFFFFF' ); // White
 define( 'NOTOLITE_SM_LIGHT_SECONDARY', '#FFF4F4' ); // Light Pink
 define( 'NOTOLITE_SM_LIGHT_TERTIARY', '#FFF5C1' ); // Light Yellow
+
+define( 'NOTOLITE_SM_HEADINGS_FONT',     'IBM Plex Sans' );
+define( 'NOTOLITE_SM_ACCENT_FONT',       'IBM Plex Sans' );
+define( 'NOTOLITE_SM_BODY_FONT',         'IBM Plex Sans' );
+define( 'NOTOLITE_SM_LOGO_FONT',         'Bungee' );
 
 function noto_lite_add_customify_options( $options ) {
 	$options['opt-name'] = 'noto_options';
@@ -191,7 +196,12 @@ function noto_lite_add_customify_style_manager_section( $options ) {
 		),
 	);
 
-	$options['sections']['style_manager_section'] = Customify_Array::array_merge_recursive_distinct( $options['sections']['style_manager_section'], $new_config );
+	// The section might be already defined, thus we merge, not replace the entire section config.
+	if ( class_exists( 'Customify_Array' ) && method_exists( 'Customify_Array', 'array_merge_recursive_distinct' ) ) {
+		$options['sections']['style_manager_section'] = Customify_Array::array_merge_recursive_distinct( $options['sections']['style_manager_section'], $new_config );
+	} else {
+		$options['sections']['style_manager_section'] = array_merge_recursive( $options['sections']['style_manager_section'], $new_config );
+	}
 
 	return $options;
 }
@@ -212,17 +222,30 @@ function noto_lite_fill_customify_options( $options ) {
 		'div.wpforms-container[class] .wpforms-form .wpforms-submit',
 	);
 
-	$buttons_solid   = implode( ',', array_map( 'noto_prefix_solid_buttons', $buttons ) );
-	$buttons_outline = implode( ',', array_map( 'noto_prefix_outline_buttons', $buttons ) );
+	$buttons_default = implode( ',', $buttons );
+	$buttons_solid   = implode( ',', array_map( 'noto_lite_prefix_solid_buttons', $buttons ) );
+	$buttons_outline = implode( ',', array_map( 'noto_lite_prefix_outline_buttons', $buttons ) );
 
-	$buttons_solid_hover = implode( ',', array_map( 'noto_suffix_hover_buttons', $buttons ) );
-
+	$buttons_solid_hover = implode( ',', array_map( 'noto_lite_suffix_hover_buttons', $buttons ) );
 
 	$new_config = array(
 		'general'        => array(
 			'title'   => '',
 			'type'    => 'hidden',
 			'options' => array(
+				'single_disable_intro_autostyle' => array(
+					'type'              => 'hidden_control',
+					'default'           => false,
+				),
+				'archive_disable_image_animations' => array(
+					'type'              => 'hidden_control',
+					'default'           => false,
+				),
+				'pattern_style'           => array(
+					'type'              => 'hidden_control',
+					'default' => 'waves',
+				),
+
 				'accent_color'         => array(
 					'type'    => 'hidden_control',
 					'live'    => true,
@@ -341,6 +364,39 @@ function noto_lite_fill_customify_options( $options ) {
 			'title'   => '',
 			'type'    => 'hidden',
 			'options' => array(
+				'header_logo_height' => array(
+					'type'    => 'hidden_control',
+					'default' => 40
+				),
+				'header_links_active_style'       => array(
+					'type'    => 'hidden_control',
+					'default' => 'active',
+				),
+				'header_navigation_links_spacing' => array(
+					'type'    => 'hidden_control',
+					'default'     => 0,
+					'input_attrs' => array(
+						'min' => 0,
+					),
+					'css'         => array(
+						array(
+							'property'        => 'margin-left',
+							'selector'        => '.c-noto--header ul',
+							'unit'            => 'px',
+							'callback_filter' => 'typeline_negative_spacing_cb',
+							'negative_value'  => true,
+						),
+						array(
+							'property' => 'margin-left',
+							'selector' => '
+							    .c-noto--header li, 
+							    .c-navbar__zone--right li',
+							'unit'     => 'px',
+							'media'    => 'only screen and (min-width: 62.5em)',
+						),
+					),
+				),
+
 				'header_navigation_links_color' => array(
 					'default' => NOTOLITE_SM_LIGHT_PRIMARY,
 					'type'    => 'hidden_control',
@@ -374,6 +430,34 @@ function noto_lite_fill_customify_options( $options ) {
 							'property' => 'background-color',
 							'selector' => 'body.blog .header'
 						),
+					),
+				),
+				'header_site_title_font'          => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_LOGO_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 40,
+						'line-height'    => 1,
+						'letter-spacing' => 0,
+						'text-transform' => 'uppercase',
+					),
+					'fields'      => array(
+						'font-size'       => array(
+							'max'  => 100,
+						),
+					),
+				),
+				'header_navigation_font' => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-navbar__zone--left, .c-navbar__zone--right',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 16,
+						'line-height'    => 1.65,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
 					),
 				),
 			)
@@ -416,7 +500,7 @@ function noto_lite_fill_customify_options( $options ) {
 					'css'     => array(
 						array(
 							'property' => 'color',
-							'selector' => 'body',
+							'selector' => 'body, .c-card__excerpt',
 						),
 					),
 				),
@@ -531,12 +615,164 @@ function noto_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				'main_content_page_title_font'          => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-search-overlay .search-field, .entry-title, .h0',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 74,
+						'line-height'    => 1.08,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_body_text_font'           => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 15,
+						'line-height'    => 1.6,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_paragraph_text_font'      => array(
+					'type'    => 'hidden_control',
+					'selector' => '.entry-content, .site-description, .mce-content-body',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_BODY_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 18,
+						'line-height'    => 1.67,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_quote_block_font'         => array(
+					'type'    => 'hidden_control',
+					'selector' => 'blockquote, .intro',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight'    => 'italic',
+						'font-size'      => 18,
+						'line-height'    => 1.67,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_1_font'           => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 56,
+						'line-height'    => 1.05,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_2_font'           => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 42,
+						'line-height'    => 1.15,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_3_font'           => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 32,
+						'line-height'    => 1.2,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_4_font'           => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => NOTOLITE_SM_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 24,
+						'line-height'    => 1.3,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_5_font'           => array(
+					'type'    => 'hidden_control',
+					'selector' => 'h5, .header-category,
+							ul.page-numbers,
+							.c-author__name,
+							.c-reading-progress__label,
+							.post-navigation .nav-links__label,
+							.cats__title,
+							.tags__title,
+							.sharedaddy--official h3.sd-title[class]',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight'    => '500',
+						'font-size'      => 18,
+						'line-height'    => 1.4,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'main_content_heading_6_font'           => array(
+					'type'    => 'hidden_control',
+					'selector' => 'h6, .h6,
+									.comment-reply-title a, .comment__metadata a,
+									.edit-link a, .logged-in-as a, .reply a',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight'    => '500',
+						'font-size'      => 14,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0.05,
+						'text-transform' => 'uppercase',
+					),
+				),
 			)
 		),
 		'footer_section' => array(
 			'title'   => '',
 			'type'    => 'hidden',
 			'options' => array(
+				// [Section] Layout.
+				'copyright_text'               => array(
+					'type'    => 'hidden_control',
+					/* translators: %year%: current year  %site-title%: the site title */
+					'default' => esc_html__( '&copy; %year% %site-title%.', '__theme_txtd' ),
+				),
+				'footer_top_spacing'     => array(
+					'type'    => 'hidden_control',
+					'default' => 48
+				),
+				'footer_bottom_spacing'  => array(
+					'type'    => 'hidden_control',
+					'default' => 48
+				),
+				'footer_hide_back_to_top_link' => array(
+					'type'    => 'hidden_control',
+					'default' => true,
+				),
+				'footer_hide_credits'          => array(
+					'type'    => 'hidden_control',
+					'default' => false,
+				),
+				'footer_layout'                => array(
+					'type'    => 'hidden_control',
+					'default' => 'row',
+				),
+
 				'footer_body_text_color' => array(
 					'type'    => 'hidden_control',
 					'default' => NOTOLITE_SM_LIGHT_PRIMARY,
@@ -573,12 +809,83 @@ function noto_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				'footer_font' => array(
+					'type'    => 'hidden_control',
+					'label'       => esc_html__( 'Footer Font', '__theme_txtd' ),
+					'desc'        => '',
+					'selector'    => '.c-footer',
+					'callback'    => 'typeline_font_cb',
+
+					'default'     => array(
+						'font-family' => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight' => 'regular',
+						'font-size' => 15,
+						'line-height' => 1.6,
+					),
+
+					// Sub Fields Configuration (optional)
+					'fields'      => array(
+						'font-size'       => array(                           // Set custom values for a range slider
+							'min'  => 12,
+							'max'  => 48,
+							'step' => 1,
+							'unit' => 'px',
+						),
+						'text-transform'  => true,
+					),
+				)
 			)
 		),
 		'blog_grid'      => array(
 			'title'   => '',
 			'type'    => 'hidden',
 			'options' => array(
+				'blog_item_title_font'           => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-card__title',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_HEADINGS_FONT,
+						'font-weight'    => '700',
+						'font-size'      => 32,
+						'line-height'    => 1.0625,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_meta_font'            => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-card__meta',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight'    => '500',
+						'font-size'      => 16,
+						'line-height'    => 1.5,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_items_primary_meta'      => array(
+					'type'    => 'hidden_control',
+					'default' => 'category',
+				),
+				'blog_items_secondary_meta'      => array(
+					'type'    => 'hidden_control',
+					'default' => 'date',
+				),
+				'blog_items_heading'             => array(
+					'type'    => 'hidden_control',
+					'default' => 'title',
+				),
+				'blog_items_content'             => array(
+					'type'    => 'hidden_control',
+					'default' => 'excerpt',
+				),
+				'blog_items_footer'             => array(
+					'type'    => 'hidden_control',
+					'default' => 'read_more',
+				),
+
 				'blog_item_footer_color' => array(
 					'type'    => 'hidden_control',
 					'default' => NOTOLITE_SM_DARK_PRIMARY,
@@ -590,12 +897,49 @@ function noto_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				'blog_item_footer_font'             => array(
+					'type'    => 'hidden_control',
+					'default' => array(
+						'font-family'    => 'IBM Plex Sans',
+						'font-weight'    => '500',
+						'font-size'      => 16,
+						'line-height'    => 1.3,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_excerpt_font'         => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-card__excerpt',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight'    => 'regular',
+						'font-size'      => 15,
+						'line-height'    => 1.6,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
+				'blog_item_thumbnail_background' => array(
+					'type'    => 'hidden_control',
+					'selector' => '.c-card__frame:after'
+				),
 			)
 		),
 		'buttons'        => array(
 			'title'   => '',
 			'type'    => 'hidden',
 			'options' => array(
+				'buttons_style'      => array(
+					'type'    => 'hidden_control',
+					'default' => 'outline',
+				),
+				'buttons_shape'      => array(
+					'type'    => 'hidden_control',
+					'default' => 'square',
+				),
+
 				'buttons_color'      => array(
 					'type'    => 'hidden_control',
 					'default' => NOTOLITE_SM_DARK_PRIMARY,
@@ -630,80 +974,79 @@ function noto_lite_fill_customify_options( $options ) {
 						),
 					),
 				),
+
+				'buttons_font'       => array(
+					'type'    => 'hidden_control',
+					'selector' => $buttons_default . ',
+						.button.default,
+						.not-found .search-form .search-submit,
+						.contact-form > div > .grunion-field-label:not(.checkbox):not(.radio),
+						.nf-form-cont .label-above .nf-field-label label,
+						.nf-form-cont .list-checkbox-wrap .nf-field-element li label,
+						.nf-form-cont .list-radio-wrap .nf-field-element li label,
+						div.wpforms-container[class] .wpforms-form .wpforms-field-label',
+					'default'  => array(
+						'font-family'    => NOTOLITE_SM_ACCENT_FONT,
+						'font-weight'    => '500',
+						'font-size'      => 16,
+						'line-height'    => 1.27,
+						'letter-spacing' => 0,
+						'text-transform' => 'none',
+					),
+				),
 			)
 		)
 	);
 
-	$options['sections'] = Customify_Array::array_merge_recursive_distinct( $options['sections'], $new_config );
-
-	return $options;
-}
-
-function noto_change_site_identity_section( $options ) {
-	$options['sections']['title_tagline'] = array(
-		'section_id' => 'title_tagline', // This is needed so we avoid the prefixing and use the core defined section.
-		'options'    => array(
-			'profile_photo' => array(
-				'label'         => esc_html__( 'Profile Photo', '__theme_txtd' ),
-				'type'          => 'cropped_image',
-				'priority'      => 7, // this will make it appear above Logo (that has a priority of 8).
-				'width'         => 700, // Suggested width for cropped image.
-				'height'        => 700, // Suggested height for cropped image.
-				'flex_width'    => true, // Whether the width is flexible.
-				'flex_height'   => true, // Whether the height is flexible.
-				'button_labels' => array(
-					'select'       => esc_html__( 'Select photo', '__theme_txtd' ),
-					'change'       => esc_html__( 'Change photo', '__theme_txtd' ),
-					'remove'       => esc_html__( 'Remove', '__theme_txtd' ),
-					'default'      => esc_html__( 'Default', '__theme_txtd' ),
-					'placeholder'  => esc_html__( 'No photo selected', '__theme_txtd' ),
-					'frame_title'  => esc_html__( 'Select photo', '__theme_txtd' ),
-					'frame_button' => esc_html__( 'Choose photo', '__theme_txtd' ),
-				),
-			),
-		),
-	);
-
-	// "Instruct" Customify to remove controls and their settings.
-	if ( empty( $options['remove_controls'] ) ) {
-		$options['remove_controls'] = array();
-	}
-	if ( empty( $options['remove_settings'] ) ) {
-		$options['remove_settings'] = array();
+	if ( class_exists( 'Customify_Array' ) && method_exists( 'Customify_Array', 'array_merge_recursive_distinct' ) ) {
+		$options['sections'] = Customify_Array::array_merge_recursive_distinct( $options['sections'], $new_config );
+	} else {
+		$options['sections'] = array_merge_recursive( $options['sections'], $new_config );
 	}
 
-	// We want to replace the Display Site Title and Tagline control with two, one for each site title and site description.
-	$options['remove_controls'][] = 'header_text';
-	$options['remove_settings'][] = 'header_text';
+	$options_to_be_removed = array(
+		'blog_grid_width',
+		'blog_container_sides_spacing',
+		'blog_grid_title_items_grid_section',
+		'blog_grid_layout',
+		'blog_items_aspect_ratio',
+		'blog_items_per_row',
+		'blog_items_vertical_spacing',
+		'blog_items_horizontal_spacing',
+		'blog_grid_title_items_title_section',
+		'blog_items_title_position',
+		'blog_items_title_alignment_nearby',
+		'blog_items_title_alignment_overlay',
+		'blog_items_title_visibility_title',
+		'blog_items_title_visibility',
+		'blog_grid_title_items_excerpt_section',
+		'blog_items_excerpt_visibility_title',
+		'blog_items_excerpt_visibility',
+		'blog_item_thumbnail_background',
+		'blog_grid_title_thumbnail_hover_section',
+		'blog_item_thumbnail_hover_opacity',
+		'blog_grid_title_colors_section',
+		'blog_item_title_color',
+		'blog_item_meta_primary_color',
+		'blog_item_meta_secondary_color',
+		'blog_item_excerpt_color',
+	);
 
-	// Change the priority of the blogdescription control so we can insert a control between it and the site title one.
-	if ( empty( $options['change_control_props'] ) ) {
-		$options['change_control_props'] = array();
+	foreach ( $options_to_be_removed as $option_name ) {
+		unset( $options['sections']['blog_grid']['options'][ $option_name ] );
 	}
-	$options['change_setting_props']['blogname']        = array(
-		'transport' => 'postMessage',
-	);
-	$options['change_setting_props']['blogdescription'] = array(
-		'transport' => 'postMessage',
-	);
-	$options['change_control_props']['blogdescription'] = array(
-		'priority' => 11,
+
+	$options_to_be_removed = array(
+		'main_content_container_width',
+		'main_content_container_sides_spacing',
+		'main_content_content_width',
+		'main_content_container_padding',
+		'main_content_border_width',
 	);
 
-	$options['sections']['title_tagline']['options']['display_site_title'] = array(
-		'label'    => esc_html__( 'Display Site Title', '__theme_txtd' ),
-		'type'     => 'checkbox',
-		'priority' => 10.5,
-		'default'  => true,
-	);
-
-	$options['sections']['title_tagline']['options']['display_site_description'] = array(
-		'label'    => esc_html__( 'Display Site Tagline', '__theme_txtd' ),
-		'type'     => 'checkbox',
-		'priority' => 11.5,
-		'default'  => true,
-	);
-
+	foreach ( $options_to_be_removed as $option_name ) {
+		unset( $options['sections']['main_content']['options'][ $option_name ] );
+	}
 
 	return $options;
 }
@@ -711,28 +1054,20 @@ function noto_change_site_identity_section( $options ) {
 /*
  * Helper functions for the buttons section config.
  */
-function noto_prefix_solid_buttons( $value ) {
+function noto_lite_prefix_solid_buttons( $value ) {
 	return '.u-buttons-solid ' . $value;
 }
 
-function noto_suffix_hover_buttons( $value ) {
+function noto_lite_suffix_hover_buttons( $value ) {
 	return '.u-buttons-solid ' . $value . ':hover';
 }
 
-function noto_suffix_active_buttons( $value ) {
-	return '.u-buttons-solid ' . $value . ':active';
-}
-
-function noto_suffix_focus_buttons( $value ) {
-	return '.u-buttons-solid ' . $value . ':focus';
-}
-
-function noto_prefix_outline_buttons( $value ) {
+function noto_lite_prefix_outline_buttons( $value ) {
 	return '.u-buttons-outline ' . $value;
 }
 
-if ( ! function_exists( 'noto_meta_background_gradient_cb' ) ) {
-	function noto_meta_background_gradient_cb( $value, $selector, $property, $unit ) {
+if ( ! function_exists( 'noto_lite_meta_background_gradient_cb' ) ) {
+	function noto_lite_meta_background_gradient_cb( $value, $selector, $property, $unit ) {
 		$output = $selector . ' {' .
 		          $property . ': linear-gradient(90deg, ' . $value . ' 50%, transparent);' .
 		          '}';
@@ -741,17 +1076,17 @@ if ( ! function_exists( 'noto_meta_background_gradient_cb' ) ) {
 	}
 }
 
-if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) ) :
+if ( ! function_exists( 'noto_lite_meta_background_gradient_cb_customizer_preview' ) ) :
 	/**
 	 * Outputs the inline JS code used in the Customizer for the aspect ratio live preview.
 	 */
-	function noto_meta_background_gradient_cb_customizer_preview() {
+	function noto_lite_meta_background_gradient_cb_customizer_preview() {
 
 		$js = "
-			function noto_meta_background_gradient_cb( value, selector, property, unit ) {
+			function noto_lite_meta_background_gradient_cb( value, selector, property, unit ) {
 
 			    var css = '',
-			        style = document.getElementById('noto_meta_background_gradient_cb_style_tag'),
+			        style = document.getElementById('noto_lite_meta_background_gradient_cb_style_tag'),
 			        head = document.head || document.getElementsByTagName('head')[0];
 
 			    css += selector + ' {' +
@@ -762,7 +1097,7 @@ if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) 
 			        style.innerHTML = css;
 			    } else {
 			        style = document.createElement('style');
-			        style.setAttribute('id', 'noto_meta_background_gradient_cb_style_tag');
+			        style.setAttribute('id', 'noto_lite_meta_background_gradient_cb_style_tag');
 
 			        style.type = 'text/css';
 			        if ( style.styleSheet ) {
@@ -779,9 +1114,9 @@ if ( ! function_exists( 'noto_meta_background_gradient_cb_customizer_preview' ) 
 	}
 endif;
 
-add_action( 'customize_preview_init', 'noto_meta_background_gradient_cb_customizer_preview', 20 );
+add_action( 'customize_preview_init', 'noto_lite_meta_background_gradient_cb_customizer_preview', 20 );
 
-function noto_add_default_color_palette( $color_palettes ) {
+function noto_lite_add_default_color_palette( $color_palettes ) {
 
 	$color_palettes = array_merge( array(
 		'default' => array(
@@ -806,7 +1141,7 @@ function noto_add_default_color_palette( $color_palettes ) {
 	return $color_palettes;
 }
 
-add_filter( 'customify_get_color_palettes', 'noto_add_default_color_palette' );
+add_filter( 'customify_get_color_palettes', 'noto_lite_add_default_color_palette' );
 
 function noto_bind_profile_picture_script() {
 	?>

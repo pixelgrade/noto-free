@@ -1,6 +1,6 @@
 <?php
 /**
- * PixCare Starter Content Compatibility File.
+ * Pixelgrade Assistant Starter Content Compatibility File.
  * Here we add all the actions and filters responsible for the import action.
  */
 
@@ -25,3 +25,4 @@ function noto_filter_post_theme_mod_noto_options( $theme_mod ) {
 	return $theme_mod;
 }
 add_filter( 'pixcare_sce_import_post_theme_mod_noto_options', 'noto_filter_post_theme_mod_noto_options' );
+add_filter( 'pixassist_sce_import_post_theme_mod_noto_options', 'noto_filter_post_theme_mod_noto_options' );
