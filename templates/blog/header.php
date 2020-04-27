@@ -100,7 +100,6 @@ do_action( 'pixelgrade_before_barba_wrapper', 'main' );
             <?php
             $header_zones = pixelgrade_header_get_zones();
             $header_active_menus = array();
-            unset( $header_zones['left'] );
 
             // Cycle through each zone and display the nav menus or other "bogus" things.
             foreach ( $header_zones as $zone_id => $zone ) {

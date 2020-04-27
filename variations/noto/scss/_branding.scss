@@ -67,6 +67,10 @@ $header-vertical-position-top: 25px;
     white-space: nowrap;
 
     @include leading-map($logo-font);
+    @include below(small) {
+      white-space: initial;
+      word-break: initial;
+    }
 }
 
 @mixin branding-grid {
@@ -93,6 +97,10 @@ $header-vertical-position-top: 25px;
     .c-profile-photo {
         grid-column: 1;
         grid-row: 1 / 6;
+
+      @include below(xsmall) {
+        display: none;
+      }
     }
 
     .c-logo {
