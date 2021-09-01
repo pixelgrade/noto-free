@@ -82,9 +82,9 @@ class Pixelgrade_FeaturedImage_Metaboxes extends Pixelgrade_Singleton {
 				'id'         => 'enhanced_featured_image',
 				'title'      => esc_html__( 'Thumbnail', '__components_txtd' )
 				                // @todo We should do something about using markup in an attribute.
-								. ' <span class="tooltip" title="<' . 'title>' // This split is just to not get annoyed by Theme Check
+								. ' <span class="tooltip" title="<' . 'span>' // This split is just to not get annoyed by Theme Check
 								. esc_html__( 'Thumbnail (Featured Image)', '__components_txtd' )
-								. '</title><p>'
+								. '</span><p>'
 								. esc_html__( 'The  image will be displayed on the Portfolio Grid as a thumbnail for the current project.', '__components_txtd' )
 								. '</p><p>'
 								. '<strong>' . esc_html__( 'Thumbnail Hover', '__components_txtd' ) . '</strong>'

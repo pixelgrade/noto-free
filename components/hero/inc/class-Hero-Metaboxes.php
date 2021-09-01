@@ -158,9 +158,9 @@ class Pixelgrade_Hero_Metaboxes extends Pixelgrade_Singleton {
 				'id'                     => 'hero_area_content__page',
 				'title'                  => '&#x1f535; ' . esc_html__( 'Hero Area &#187; Content', '__components_txtd' )
 	                            // @todo We should do something about using markup in an attribute.
-								. ' <span class="tooltip" title="<' . 'title>'
+								. ' <span class="tooltip" title="<' . 'span>'
 								. esc_html__( 'Hero Area &#187; Content', '__components_txtd' )
-								. '</title><p>'
+								. '</span><p>'
 								. wp_kses( __( 'Use this section to add a <strong>Title</strong> or a summary for this page. Get creative and add different elements like buttons, logos or other headings.', '__components_txtd' ), wp_kses_allowed_html() )
 								. '</p><p>'
 								. wp_kses( __( 'You can insert a title using a <strong>Heading 1</strong> element, either on the Hero Area or using a <b>Text Block</b> within the above content area.', '__components_txtd' ), wp_kses_allowed_html() )
