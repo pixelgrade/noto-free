@@ -29,6 +29,9 @@ Noto is a notebook inspired blogging theme, designed for your creative ambitions
 
 == Changelog ==
 
+= 1.2.2 =
+* Fixed Profile Photo setting.
+
 = 1.2.1 =
 * Improved compatibility with WordPress 5.7.
 
