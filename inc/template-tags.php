@@ -51,7 +51,8 @@ if ( ! function_exists( 'pixelgrade_get_profile_photo' ) ) {
 			$switched_blog = true;
 		}
 
-		$profile_photo_id = pixelgrade_option( 'profile_photo', false );
+		$noto_options = get_theme_mod('noto_options');
+		$profile_photo_id = $noto_options['profile_photo'];
 
 		// We have a logo. Logo is go.
 		if ( $profile_photo_id ) {
